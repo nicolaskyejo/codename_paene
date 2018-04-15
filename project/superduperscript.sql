@@ -1,4 +1,4 @@
-CREATE TABLE Character
+CREATE TABLE Protagonist
 (
   Character_id INT NOT NULL,
   PRIMARY KEY (Character_id)
@@ -10,7 +10,7 @@ CREATE TABLE Room
   PRIMARY KEY (Room_id)
 );
 
-CREATE TABLE NPC
+CREATE TABLE Npc
 (
   Enemy_Id INT NOT NULL,
   Name INT NOT NULL,
@@ -37,12 +37,11 @@ CREATE TABLE Relationship
 
 CREATE TABLE Lista
 (
-  Description INT NOT NULL,
-  RoomStart_id INT NOT NULL,
-  RoomEnd_id INT NOT NULL,
-  PRIMARY KEY (RoomStart_id, RoomEnd_id),
-  FOREIGN KEY (RoomStart_id) REFERENCES Room(Room_id),
-  FOREIGN KEY (RoomEnd_id) REFERENCES Room(Room_id)
+  Room_id_1 INT NOT NULL,
+  ListaRoom_id_2 INT NOT NULL,
+  PRIMARY KEY (Room_id_1, ListaRoom_id_2),
+  FOREIGN KEY (Room_id_1) REFERENCES Room(Room_id),
+  FOREIGN KEY (ListaRoom_id_2) REFERENCES Room(Room_id)
 );
 
 CREATE TABLE Item
@@ -52,10 +51,11 @@ CREATE TABLE Item
   Character_id INT,
   Room_id INT,
   PRIMARY KEY (Item_id),
-  FOREIGN KEY (Character_id) REFERENCES Character(Character_id),
+  FOREIGN KEY (Character_id) REFERENCES Protagonist(Character_id),
   FOREIGN KEY (Room_id) REFERENCES Room(Room_id)
 );
 
 
+
 ############################################################################
-###################                    #####################################
+###################  INPUT BELOW       #####################################
