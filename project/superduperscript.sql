@@ -19,7 +19,7 @@ CREATE TABLE Npc
   FOREIGN KEY (Room_id) REFERENCES Room(Room_id)
 );
 
-CREATE TABLE Text
+CREATE TABLE Texti
 (
   Text_id INT NOT NULL,
   ActualText INT NOT NULL,
@@ -59,3 +59,23 @@ CREATE TABLE Item
 
 ############################################################################
 ###################  INPUT BELOW       #####################################
+
+# [Protagonist] #
+INSERT INTO Protagonist VALUES (1);
+
+# [Room] #
+INSERT INTO VALUES ()
+# [Npc] #
+INSERT INTO VALUES ()
+
+# [Texti] #
+INSERT INTO VALUES ()
+
+# [Relationship] #
+INSERT INTO VALUES ()
+
+# [Lista] #
+INSERT INTO VALUES ()
+
+# [Item] #
+INSERT INTO VALUES ()

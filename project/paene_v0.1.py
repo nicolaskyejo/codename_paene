@@ -5,11 +5,30 @@
 #  
 #  Copyright 2018 Oliver, Nicolas & Lauri
 #  
+import mysql.connector
+
+db = mysql.connector.connect(
+        host="localhost",
+        user="dbuser",
+        passwd="dbpass",
+        db="paene",
+        buffered=True)
 
 
-def main(args):
-    return 0
+# # #  [FUNCTIONS] # # #
 
-if __name__ == '__main__':
-    import sys
-    sys.exit(main(sys.argv))
+
+
+
+# # # [MAIN PROGRAM] # # #
+
+
+
+
+
+
+
+
+
+
+db.rollback()
