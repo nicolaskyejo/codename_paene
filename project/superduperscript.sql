@@ -23,15 +23,8 @@ CREATE TABLE Texti
 (
   Text_id INT NOT NULL,
   ActualText INT NOT NULL,
-  PRIMARY KEY (Text_id)
-);
-
-CREATE TABLE Relationship
-(
-  Text_id INT NOT NULL,
   Room_id INT NOT NULL,
-  PRIMARY KEY (Text_id, Room_id),
-  FOREIGN KEY (Text_id) REFERENCES Text(Text_id),
+  PRIMARY KEY (Text_id),
   FOREIGN KEY (Room_id) REFERENCES Room(Room_id)
 );
 
@@ -48,6 +41,7 @@ CREATE TABLE Item
 (
   Item_id INT NOT NULL,
   Name INT NOT NULL,
+  Use INT NOT NULL,
   Character_id INT,
   Room_id INT,
   PRIMARY KEY (Item_id),
@@ -65,13 +59,11 @@ INSERT INTO Protagonist VALUES (1);
 
 # [Room] #
 INSERT INTO VALUES ()
+
 # [Npc] #
 INSERT INTO VALUES ()
 
 # [Texti] #
-INSERT INTO VALUES ()
-
-# [Relationship] #
 INSERT INTO VALUES ()
 
 # [Lista] #

@@ -1,2 +1,2 @@
 # codename_paene
-School project in python &amp; mysql
+School game project in python3 &amp; mysql
