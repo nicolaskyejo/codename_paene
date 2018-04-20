@@ -1,3 +1,7 @@
+DROP DATABASE IF EXISTS theverge;
+CREATE DATABASE theverge;
+USE theverge;
+
 CREATE TABLE Protagonist
 (
   Character_id INT NOT NULL,
@@ -28,20 +32,20 @@ CREATE TABLE Texti
   FOREIGN KEY (Room_id) REFERENCES Room(Room_id)
 );
 
-CREATE TABLE Lista
+CREATE TABLE Room_List
 (
-  Room_id_1 INT NOT NULL,
-  ListaRoom_id_2 INT NOT NULL,
-  PRIMARY KEY (Room_id_1, ListaRoom_id_2),
-  FOREIGN KEY (Room_id_1) REFERENCES Room(Room_id),
-  FOREIGN KEY (ListaRoom_id_2) REFERENCES Room(Room_id)
+  Room_id INT NOT NULL,
+  Room_List INT NOT NULL,
+  PRIMARY KEY (Room_id, Room_List),
+  FOREIGN KEY (Room_id) REFERENCES Room(Room_id),
+  FOREIGN KEY (Room_List) REFERENCES Room(Room_id)
 );
 
 CREATE TABLE Item
 (
   Item_id INT NOT NULL,
   Name INT NOT NULL,
-  Use INT NOT NULL,
+  Use_item INT NOT NULL,
   Character_id INT,
   Room_id INT,
   PRIMARY KEY (Item_id),
@@ -55,19 +59,19 @@ CREATE TABLE Item
 ###################  INPUT BELOW       #####################################
 
 # [Protagonist] #
-INSERT INTO Protagonist VALUES (1);
+#INSERT INTO Protagonist VALUES (1);
 
 # [Room] #
-INSERT INTO VALUES ()
+#INSERT INTO VALUES ()
 
 # [Npc] #
-INSERT INTO VALUES ()
+#INSERT INTO VALUES ()
 
 # [Texti] #
-INSERT INTO VALUES ()
+#INSERT INTO VALUES ()
 
 # [Lista] #
-INSERT INTO VALUES ()
+#INSERT INTO VALUES ()
 
 # [Item] #
-INSERT INTO VALUES ()
+#INSERT INTO VALUES ()
