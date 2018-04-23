@@ -11,12 +11,13 @@ db = mysql.connector.connect(
         host="localhost",
         user="dbuser",
         passwd="dbpass",
-        db="paene",
+        db="theverge",
         buffered=True)
 
 
 # # #  [FUNCTIONS] # # #
-
+def room_list_returner:
+	#This will return the room list in order to know how many rooms are available to enter
 
 
 
