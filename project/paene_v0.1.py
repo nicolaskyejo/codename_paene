@@ -17,6 +17,9 @@ db = mysql.connector.connect(
 
 # # #  [FUNCTIONS] # # #
 def room_list_returner:
+        a = 222222
+        return a
+
 	#This will return the room list in order to know how many rooms are available to enter
 
 
