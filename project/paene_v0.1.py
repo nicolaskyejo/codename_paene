@@ -23,6 +23,10 @@ def room_list_returner:
 
 # # # [MAIN PROGRAM] # # #
 
+lauri = 2
+was = 5
+here = 1337
+
 
 
 
