@@ -16,7 +16,7 @@ db = mysql.connector.connect(
 
 
 # # #  [FUNCTIONS] # # #
-def room_list_returner:
+def room_list_returner():
         a = 222222
         return a
 
