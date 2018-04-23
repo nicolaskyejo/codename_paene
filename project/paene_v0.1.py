@@ -11,7 +11,7 @@ db = mysql.connector.connect(
         host="localhost",
         user="dbuser",
         passwd="dbpass",
-        db="paene",
+        db="theverge",
         buffered=True)
 
 
@@ -21,6 +21,10 @@ db = mysql.connector.connect(
 
 
 # # # [MAIN PROGRAM] # # #
+
+lauri = 2
+was = 5
+here = 1337
 
 
 
