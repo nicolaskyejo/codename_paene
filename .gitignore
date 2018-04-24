@@ -1,2 +1,4 @@
 .idea/
 venv/
+.superduperscript.sql*
+superduperscript.sql~
