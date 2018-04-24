@@ -8,39 +8,36 @@
 import mysql.connector
 
 db = mysql.connector.connect(
-        host="localhost",
-        user="dbuser",
-        passwd="dbpass",
-        db="theverge",
-        buffered=True)
+    host="localhost",
+    user="dbuser",
+    passwd="dbpass",
+    db="theverge",
+    buffered=True)
 
 
 # # #  [FUNCTIONS] # # #
-def room_list_returner():
-        a = 222222
-        return a
+def room_list_returner(room_number: int, database=db):
+    try:
+        cursor = database.cursor()
+        query = ("SELECT * FROM room_list WHERE Room_id = " + str(room_number))
 
-	#This will return the room list in order to know how many rooms are available to enter
+        cursor.execute(query)
 
+        rooms = []
+        for row in cursor.fetchall():
+            rooms.append(row[1])
+
+        return rooms
+
+    except mysql.connector.Error as e:
+        print(e)
+
+    finally:
+        cursor.close()
 
 
 # # # [MAIN PROGRAM] # # #
 
-lauri = 2
-was = 5
-here = 1337
-
-def ask(item_name, npc_id):
-    if item_name == npc.item_name:
-        return info_from_npc
-
-
-
-
-
-
-
-
-
+print(room_list_returner(100))
 
 db.rollback()
