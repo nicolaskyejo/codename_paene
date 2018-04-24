@@ -16,9 +16,10 @@ CREATE TABLE Room
 
 CREATE TABLE Npc
 (
-  Enemy_Id INT NOT NULL,
-  Name INT NOT NULL,
-  Room_id INT,
+  Npc_Id INT NOT NULL,
+  Name VARCHAR(40) NOT NULL,
+  Room_id INT NOT NULL,
+  Description VARCHAR(40),  #added manually  #Npcs outward appearance
   PRIMARY KEY (Enemy_Id),
   FOREIGN KEY (Room_id) REFERENCES Room(Room_id)
 );
@@ -26,11 +27,11 @@ CREATE TABLE Npc
 CREATE TABLE Texti
 (
   Text_id INT NOT NULL,
-  ActualText INT NOT NULL,
-  Room_id INT NOT NULL,
+  ActualText VARCHAR(1000) NOT NULL,
+  Room_id INT,
   PRIMARY KEY (Text_id),
   FOREIGN KEY (Room_id) REFERENCES Room(Room_id)
-);
+ );
 
 CREATE TABLE Room_List
 (
@@ -48,6 +49,7 @@ CREATE TABLE Item
   Use_item INT NOT NULL,
   Character_id INT,
   Room_id INT,
+  Description VARCHAR(100), #added manually
   PRIMARY KEY (Item_id),
   FOREIGN KEY (Character_id) REFERENCES Protagonist(Character_id),
   FOREIGN KEY (Room_id) REFERENCES Room(Room_id)
@@ -61,17 +63,17 @@ CREATE TABLE Item
 # [Protagonist] #
 #INSERT INTO Protagonist VALUES (1);
 
-# [Room] #
+# [Room] # 33 rooms
+INSERT INTO VALUES ();
+
+# [Npc] # 13 npcs
 #INSERT INTO VALUES ()
 
-# [Npc] #
+# [Texti] # Room text
 #INSERT INTO VALUES ()
 
-# [Texti] #
+# [Room_List] # Each room has a list of room it is connected to
 #INSERT INTO VALUES ()
 
-# [Lista] #
-#INSERT INTO VALUES ()
-
-# [Item] #
+# [Item] # 9 items
 #INSERT INTO VALUES ()
