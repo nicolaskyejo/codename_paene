@@ -16,11 +16,13 @@ CREATE TABLE Room
 
 CREATE TABLE Npc
 (
-  Npc_Id INT NOT NULL,
+  Npc_id INT NOT NULL,
   Name VARCHAR(40) NOT NULL,
   Room_id INT NOT NULL,
   Description VARCHAR(40),  #added manually  #Npcs outward appearance
-  PRIMARY KEY (Enemy_Id),
+  Conversation VARCHAR(200),
+  
+  PRIMARY KEY (Npc_id),
   FOREIGN KEY (Room_id) REFERENCES Room(Room_id)
 );
 
@@ -64,16 +66,31 @@ CREATE TABLE Item
 #INSERT INTO Protagonist VALUES (1);
 
 # [Room] # 33 rooms
-INSERT INTO VALUES ();
+INSERT INTO Room VALUES(101);
+INSERT INTO Room VALUES(100);  #100 and 109 are reserved for corridors
+INSERT INTO Room VALUES(102);
+INSERT INTO Room VALUES(103);
+INSERT INTO Room VALUES(104);
+INSERT INTO Room VALUES(105);
+INSERT INTO Room VALUES(106);
+INSERT INTO Room VALUES(107);
+INSERT INTO Room VALUES(108);
+INSERT INTO Room VALUES(109);
+
+I see rooms 1-6.
+
 
 # [Npc] # 13 npcs
-#INSERT INTO VALUES ()
+INSERT INTO Npc VALUES(1,"Crackmaster",100,NULL,NULL);
 
 # [Texti] # Room text
-#INSERT INTO VALUES ()
+INSERT INTO Texti VALUES(1, "Looks like some kind of corridor", 100);
 
 # [Room_List] # Each room has a list of room it is connected to
-#INSERT INTO VALUES ()
+INSERT INTO Room_List VALUES (100,6)
 
 # [Item] # 9 items
 #INSERT INTO VALUES ()
+INSERT INTO Item VALUES (6, "scalpel", 0, 0, 101, "sharp, a tool used in surgery");
+
+ 

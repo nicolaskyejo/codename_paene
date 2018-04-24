@@ -30,6 +30,10 @@ lauri = 2
 was = 5
 here = 1337
 
+def ask(item_name, npc_id):
+    if item_name == npc.item_name:
+        return info_from_npc
+
 
 
 
