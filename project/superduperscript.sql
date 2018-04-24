@@ -84,10 +84,13 @@ INSERT INTO Npc VALUES(1,"Crackmaster",100,NULL,NULL);
 INSERT INTO Texti VALUES(1, "Looks like some kind of corridor", 100);
 
 # [Room_List] # Each room has a list of room it is connected to
-INSERT INTO Room_List VALUES (100,107);
-
+INSERT INTO Room_List VALUES (100,105);
+INSERT INTO Room_List VALUES (100,104);
+INSERT INTO Room_List VALUES (100,103);
+INSERT INTO Room_List VALUES (100,101);
+INSERT INTO Room_List VALUES (100,102);
+INSERT INTO Room_List VALUES (109,107);
+INSERT INTO Room_List VALUES (109,108);
 # [Item] # 9 items
 #INSERT INTO VALUES ()
 INSERT INTO Item VALUES (6, "scalpel", 0, NULL, 101, "sharp, a tool used in surgery");
-
- 
