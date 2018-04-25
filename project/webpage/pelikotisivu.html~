@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Welcome to our game "The Verge"</title>
+</head>
+<body>
+<h1 align="center">The Verge</h1>
+<h2>About the game</h2>
+The game was conceived during "Pelit ja Mobiilit" course in Metropolia in spring 2018. 
+<h2>Game requirements</h2>
+The game requires:
+<ul>
+<li>Python3 interpreter</li>
+<li>Internet connection</li>
+<li>Patience</li>
+</ul>
+<h2>Game Influences</h2>	
+As far as we know ourselves, this is what influenced the game:
+<ul>
+<li>Outlast</li>
+<li>Shutter Island (2010)</li>
+<li>Dark Souls</li>
+<li>Silent Hill</li>
+</ul>	
+
+<!-- CSS -->	
+<style type="text/css">
+html, 
+body {
+height: 100%;
+}
+body {
+COLOR: LightGray 
+}
+body {
+background-image: url(hospital_lounge.jpg);
+<!--url(turretabyss.jpg);-->
+<!--url(what.png);-->
+<!--url(hospital_lounge.jpg);-->
+
+background-repeat: no-repeat;
+background-size: 100%;
+}
+h1 {
+	font-family: "Chalkduster", sans-serif;
+	color: #7da8e8;
+	
+}
+</style>
+<p><a href="technical_details.html" style="color:white">Technical details</a></p>				
+</body>
+</html>
