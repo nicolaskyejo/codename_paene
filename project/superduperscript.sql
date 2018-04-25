@@ -70,39 +70,39 @@ INSERT INTO Protagonist VALUES (1);
 INSERT INTO Room VALUES(100,"Clinic/West wing");	#100 and 110 are reserved for corridors
 INSERT INTO Room VALUES(110,"Clinic/Lobby");
 INSERT INTO Room VALUES(101,"Operating room");	#rooms are numbered clockwise starting from bottom
-INSERT INTO Room VALUES(102,NULL);
-INSERT INTO Room VALUES(103,NULL);
-INSERT INTO Room VALUES(104,NULL);
-INSERT INTO Room VALUES(105,NULL);
-INSERT INTO Room VALUES(106,NULL);
-INSERT INTO Room VALUES(107,NULL);
-INSERT INTO Room VALUES(108,NULL);
+INSERT INTO Room VALUES(102,"Dispensary");
+INSERT INTO Room VALUES(103,"...eria, the starting letters are missing");
+INSERT INTO Room VALUES(104,"Storage");
+INSERT INTO Room VALUES(105,"Private room");
+INSERT INTO Room VALUES(106,"Private room");
+INSERT INTO Room VALUES(107,"Operating room");
+INSERT INTO Room VALUES(108,"Administration Services");
 
 INSERT INTO Room VALUES(200,"Physiotherapy");
 INSERT INTO Room VALUES(210,"Cardiology");
-INSERT INTO Room VALUES(201,NULL);
-INSERT INTO Room VALUES(202,NULL);
-INSERT INTO Room VALUES(203,NULL);
-INSERT INTO Room VALUES(204,NULL);
-INSERT INTO Room VALUES(205,NULL);
-INSERT INTO Room VALUES(206,NULL);
-INSERT INTO Room VALUES(207,NULL);
+INSERT INTO Room VALUES(201,"Operating room");
+INSERT INTO Room VALUES(202,"Patient room");
+INSERT INTO Room VALUES(203,"Patient room");
+INSERT INTO Room VALUES(204,"Can't make out the letters");
+INSERT INTO Room VALUES(205,"Laboratory");
+INSERT INTO Room VALUES(206,"Cardiac care unit");
+INSERT INTO Room VALUES(207,"Cardiac care unit");
 
 INSERT INTO Room VALUES(300,"Oncology");
 INSERT INTO Room VALUES(310,"Radiology");
-INSERT INTO Room VALUES(301,NULL);
-INSERT INTO Room VALUES(302,NULL);
-INSERT INTO Room VALUES(303,NULL);
-INSERT INTO Room VALUES(304,NULL);
+INSERT INTO Room VALUES(301,"Chemotherapy");
+INSERT INTO Room VALUES(302,"Storage room");
+INSERT INTO Room VALUES(303,"Bone Marrow Transplant");
+INSERT INTO Room VALUES(304,"Radiotherapy"L);
 INSERT INTO Room VALUES(305,"Operating room");   # has 1 npc and 1 enemy
-INSERT INTO Room VALUES(306,NULL);	 			 # has two enemies
-INSERT INTO Room VALUES(307,NULL);
+INSERT INTO Room VALUES(306,"Medical Imaging");	 			 # has two enemies
+INSERT INTO Room VALUES(307,"Medical Imaging");
 
 INSERT INTO Room VALUES(400,"Neurology");
 INSERT INTO Room VALUES(410,"Orthopaedics");
-INSERT INTO Room VALUES(401,"");			
-INSERT INTO Room VALUES(402,NULL);
-INSERT INTO Room VALUES(403,NULL);
+INSERT INTO Room VALUES(401,"Brain Scans");			
+INSERT INTO Room VALUES(402,"Operating room");
+INSERT INTO Room VALUES(403,"Trauma room");
 
 # [Npc] # 13 npcs
 INSERT INTO Npc VALUES(1,"Crackmaster",100,NULL,NULL);
@@ -113,16 +113,17 @@ INSERT INTO Npc VALUES(5,"im12whatisthis",306,NULL,NULL);
 INSERT INTO Npc VALUES(6,"follower",305,NULL,NULL);
 INSERT INTO Npc VALUES(7,"Doctor Ingolf Buchwald",401,"A balding man with big spectactles","Thank you for sparing me");
 
-INSERT INTO Npc VALUES(8,"Jake",107,"desc","conv");   #hangman game and key from him
-INSERT INTO Npc VALUES(9,"Lawrence",201,"desc","conv");
+INSERT INTO Npc VALUES(8,"Jake",107,"desc","conv");   
+INSERT INTO Npc VALUES(9,"Lawrence",201,"desc","conv"); #hangman game and key from him
 INSERT INTO Npc VALUES(10,"Oliver Cromwell",403,"desc","conv");
-INSERT INTO Npc VALUES(11,"Doctor Reinhold Eisenberg",305,"An old man in his sixties, gaunt and serious looking","Leave me alone for now");       #in room with npc(Paul & follower)
-INSERT INTO Npc VALUES(12,"Paul",305,"A thin man is spread on the operating table","conv");
+INSERT INTO Npc VALUES(11,"Doctor Reinhold Eisenberg",305,"An old man in his twilight years, gaunt and serious looking","Leave me alone for now");       #in room with npc(Paul & follower)
+INSERT INTO Npc VALUES(12,"Paul",305,"A lean man is spread on the operating table","conv");
+INSERT INTO Npc VALUES(13,"Jonathan Gebhard",200,"A confused looking man is walking in circles muttering to himself","uh ah... I know oh yes I know... It is the Aliens!");
 
 # [Texti] # Room inside text  #33 rooms therefore 33 texts
 INSERT INTO Texti VALUES("Looks like some kind of corridor", 100);
 INSERT INTO Texti VALUES("Looks like some kind of corridor", 110);
-INSERT INTO Texti VALUES("",101); 
+INSERT INTO Texti VALUES("A basic operating room. It is miserable looking but the operating instruments appear well maintained",101); 
 INSERT INTO Texti VALUES("",102); 
 INSERT INTO Texti VALUES("",103); 
 INSERT INTO Texti VALUES("",104); 
