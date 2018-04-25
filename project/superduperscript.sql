@@ -19,7 +19,7 @@ CREATE TABLE Npc
   Npc_id INT NOT NULL,
   Name VARCHAR(40) NOT NULL,
   Room_id INT NOT NULL,
-  Description VARCHAR(40),  #added manually  #Npcs outward appearance
+  Description VARCHAR(100),  #added manually  #Npcs outward appearance
   Conversation VARCHAR(200),   #added manually  #Text that comes when you interact with a NPC
   PRIMARY KEY (Npc_id),
   FOREIGN KEY (Room_id) REFERENCES Room(Room_id)
