@@ -16,6 +16,9 @@ db = mysql.connector.connect(
 
 
 # # #  [FUNCTIONS] # # #
+
+"""Returns list of rooms you can enter from room_number"""
+
 def room_list_returner(room_number: int, database=db):
     try:
         cursor = database.cursor()
@@ -35,9 +38,37 @@ def room_list_returner(room_number: int, database=db):
     finally:
         cursor.close()
 
+""" Shows the text of the room the player is in, and the rooms that can be entered from there."""
+
+def show_room(current_room: int, database=db):
+    showable_text = ""
+    try:
+        available_rooms = room_list_returner(current_room)
+        cursor = database.cursor()
+        query = "SELECT ActualText FROM Texti WHERE Room_id=" + str(current_room)
+
+        cursor.execute(query)
+
+        for text in cursor.fetchone():
+            showable_text = showable_text + text
+
+    except mysql.connector.Error as e:
+        print(e)
+
+    showable_text += "\nI can enter rooms: "
+    for room_num in available_rooms:
+        showable_text += str(room_num) + ", "
+
+    return showable_text
+
+
+
 
 # # # [MAIN PROGRAM] # # #
 
-print(room_list_returner(100))
+
+#print(room_list_returner(100))
+
+print(show_room(100))
 
 db.rollback()
