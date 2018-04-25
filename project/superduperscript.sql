@@ -19,7 +19,7 @@ CREATE TABLE Npc
   Npc_id INT NOT NULL,
   Name VARCHAR(40) NOT NULL,
   Room_id INT NOT NULL,
-  Description VARCHAR(40),  #added manually  #Npcs outward appearance
+  Description VARCHAR(100),  #added manually  #Npcs outward appearance
   Conversation VARCHAR(200),   #added manually  #Text that comes when you interact with a NPC
   PRIMARY KEY (Npc_id),
   FOREIGN KEY (Room_id) REFERENCES Room(Room_id)
@@ -121,6 +121,7 @@ INSERT INTO Npc VALUES(12,"Paul",305,"A thin man is spread on the operating tabl
 INSERT INTO Texti VALUES(1, "Looks like some kind of corridor", 100);
 
 # [Room_List] # Each room has a list of room it is connected to
+#Floor 1
 INSERT INTO Room_List VALUES (100,101);
 INSERT INTO Room_List VALUES (100,102);
 INSERT INTO Room_List VALUES (100,103);
@@ -142,3 +143,11 @@ INSERT INTO Room_List VALUES (108,110);
 
 # [Item] # 9 items
 INSERT INTO Item VALUES (6, "Scalpel", 0, NULL, 101, "sharp, a tool used in surgery");
+INSERT INTO Item VALUES (5, "Knife", 0, NULL, 307, "It’s a bit dull, but it should still get the job done.");
+INSERT INTO Item VALUES (1, "Cigarette", 0, NULL, 101, "I should probably smoke since I will probably die here anyway");
+INSERT INTO Item VALUES (4, "Metal Pipe", 0, NULL, 104, "Maybe I could crack something with this.");
+INSERT INTO Item VALUES (2, "Lighter", 0, NULL, 201, "It's an old zippo.");
+INSERT INTO Item VALUES (7, "Gasoline Tank", 0, NULL, 401, "It seems to have at least half a gallon left.");
+INSERT INTO Item VALUES (8, "Radiophone", 0, NULL, 102, "I wonder if this thing still works.");
+INSERT INTO Item VALUES (3, "Painkillers", 0, NULL, 102, "I should probably take these..");
+INSERT INTO Item VALUES (9, "Ethanol", 0, NULL, 304, "I’d love to drink this.. But I probably shouldn’t");
