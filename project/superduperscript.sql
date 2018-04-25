@@ -241,3 +241,11 @@ INSERT INTO Item VALUES (7, "Gasoline Tank", 0, NULL, 401, "It seems to have at 
 INSERT INTO Item VALUES (8, "Radiophone", 0, NULL, 102, "I wonder if this thing still works.");
 INSERT INTO Item VALUES (3, "Painkillers", 0, NULL, 102, "I should probably take these..");
 INSERT INTO Item VALUES (9, "Ethanol", 0, NULL, 304, "I’d love to drink this.. But I probably shouldn’t");
+INSERT INTO Item VALUES (10, "Box", 0, NULL, 101, "A cardboard box full of old medical books.");
+INSERT INTO Item VALUES (11, "Drawer", 0, NULL, 102, "A dark lacquered wooden drawer.");
+INSERT INTO Item VALUES (12, "Noticeboard", 0, NULL, 104, "A noticeboard. It is filled with post-it notes and pinned papers.");
+INSERT INTO Item VALUES (13, "Paper", 0, NULL, 104, "A piece of worn out, crumbled paper.. there's something written on it.");
+INSERT INTO Item VALUES (14, "Stretcher", 0, NULL, 107, "An apparatus for moving patients.. or bodies");
+INSERT INTO Item VALUES (15, "Window", 0, NULL, 110, "A window with metal bars blocking anyone from going through.");
+INSERT INTO Item VALUES (16, "Water dispenser", 210, NULL, 210, "An empty water dispenser sits next to the stairway.");
+INSERT INTO Item VALUES (17, "Sink", 0, NULL, 107, "A small stained sink with rusted pipes under it.");
