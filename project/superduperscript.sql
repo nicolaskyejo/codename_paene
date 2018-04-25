@@ -19,7 +19,7 @@ CREATE TABLE Npc
   Npc_id INT NOT NULL,
   Name VARCHAR(40) NOT NULL,
   Room_id INT NOT NULL,
-  Description VARCHAR(40),  #added manually  #Npcs outward appearance
+  Description VARCHAR(100),  #added manually  #Npcs outward appearance
   Conversation VARCHAR(200),   #added manually  #Text that comes when you interact with a NPC
   PRIMARY KEY (Npc_id),
   FOREIGN KEY (Room_id) REFERENCES Room(Room_id)
@@ -65,7 +65,7 @@ CREATE TABLE Item
 INSERT INTO Protagonist VALUES (1);
 
 # [Room] # 33 rooms
-INSERT INTO Room VALUES(100);  #100 and 110 are reserved for corridors
+INSERT INTO Room VALUES(100);	#100 and 110 are reserved for corridors
 INSERT INTO Room VALUES(110);
 INSERT INTO Room VALUES(101);	#rooms are numbered clockwise starting from bottom
 INSERT INTO Room VALUES(102);
@@ -129,16 +129,64 @@ INSERT INTO Room_List VALUES (100,105);
 INSERT INTO Room_List VALUES (100,106);
 INSERT INTO Room_List VALUES (110,107);
 INSERT INTO Room_List VALUES (110,108);
-
 INSERT INTO Room_List VALUES (101,100);
 INSERT INTO Room_List VALUES (102,100);
 INSERT INTO Room_List VALUES (103,100);
 INSERT INTO Room_List VALUES (104,100);
 INSERT INTO Room_List VALUES (105,100);
 INSERT INTO Room_List VALUES (106,100);
-
 INSERT INTO Room_List VALUES (107,110);
 INSERT INTO Room_List VALUES (108,110);
+INSERT INTO Room_List VALUES (101,102);     #Vent from starting room to adjacent room
+INSERT INTO Room_List VALUES (100,110);     #corridors
+
+INSERT INTO Room_List VALUES (200,201);
+INSERT INTO Room_List VALUES (200,202);
+INSERT INTO Room_List VALUES (200,203);
+INSERT INTO Room_List VALUES (200,204);
+INSERT INTO Room_List VALUES (200,205);
+
+INSERT INTO Room_List VALUES (210,206);
+INSERT INTO Room_List VALUES (210,207);
+
+INSERT INTO Room_List VALUES (201,200);
+INSERT INTO Room_List VALUES (202,200);
+INSERT INTO Room_List VALUES (203,200);
+INSERT INTO Room_List VALUES (204,200);
+INSERT INTO Room_List VALUES (205,200);
+
+INSERT INTO Room_List VALUES (206,210);
+INSERT INTO Room_List VALUES (207,210);
+INSERT INTO Room_List VALUES (200,210);		#corridors
+
+INSERT INTO Room_List VALUES (300,301);
+INSERT INTO Room_List VALUES (300,302);
+INSERT INTO Room_List VALUES (300,303);
+INSERT INTO Room_List VALUES (300,304);
+INSERT INTO Room_List VALUES (300,305);
+
+INSERT INTO Room_List VALUES (310,306);
+INSERT INTO Room_List VALUES (310,307);
+
+INSERT INTO Room_List VALUES (301,300);
+INSERT INTO Room_List VALUES (302,300);
+INSERT INTO Room_List VALUES (303,300);
+INSERT INTO Room_List VALUES (304,300);
+INSERT INTO Room_List VALUES (305,300);
+
+INSERT INTO Room_List VALUES (306,310);
+INSERT INTO Room_List VALUES (307,310);
+INSERT INTO Room_List VALUES (300,310);
+
+INSERT INTO Room_List VALUES (400,401);
+
+INSERT INTO Room_List VALUES (410,402);
+INSERT INTO Room_List VALUES (410,403);
+
+INSERT INTO Room_List VALUES (401,400);
+INSERT INTO Room_List VALUES (402,410);
+INSERT INTO Room_List VALUES (403,410);
+INSERT INTO Room_List VALUES (400,410);
 
 # [Item] # 9 items
 INSERT INTO Item VALUES (6, "Scalpel", 0, NULL, 101, "sharp, a tool used in surgery");
