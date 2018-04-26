@@ -253,5 +253,5 @@ INSERT INTO Item VALUES (12, "Noticeboard", FALSE,  NULL, 104, "A noticeboard. I
 INSERT INTO Item VALUES (13, "Paper", FALSE,  NULL, 104, "A piece of worn out, crumbled paper.. there's something written on it.",FALSE);
 INSERT INTO Item VALUES (14, "Stretcher", FALSE,  NULL, 107, "An apparatus for moving patients.. or bodies",FALSE);
 INSERT INTO Item VALUES (15, "Window", FALSE,  NULL, 110, "A window with metal bars blocking anyone from going through.",FALSE);
-INSERT INTO Item VALUES (16, "Water dispenser", 210, NULL, 210, "An empty water dispenser sits next to the stairway.",FALSE);
+INSERT INTO Item VALUES (16, "Water dispenser",FALSE, NULL, 210, "An empty water dispenser sits next to the stairway.",FALSE);
 INSERT INTO Item VALUES (17, "Sink", FALSE,  NULL, 107, "A small stained sink with rusted pipes under it.",FALSE);
