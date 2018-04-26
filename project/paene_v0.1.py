@@ -59,12 +59,13 @@ def room_description(room: int, database=db):
 
 def show_room(current_room: int, database=db):
     try:
-        showable_text = ""
+        showable_text = "[Room " + str(current_room) + ":" + str(room_description(current_room)) + "]" + "\n"
         available_rooms = room_list_returner(current_room)
         cursor = database.cursor()
         query = "SELECT ActualText FROM Texti WHERE Room_id=" + str(current_room)
         cursor.execute(query)
-
+        
+        
         for text in cursor.fetchone():
             showable_text = showable_text + text
 
@@ -127,8 +128,8 @@ def help():
                         "Inventory (I). List items that you hold.","Examine (X) {object}. Describes object.","Take {object}. Puts object into your inventory",
                         "Kick {object}.","Use {item}. Uses item found in your inventory.","Push {object}. Pushes object, useful for a short puzzle.",
                         "Look. Looks around your environment and reports what you see.","Search {object}. Probes object to more."]
+    print("The game commands are listed in the form Command (shortform) {options}")
 
-    print("The game commands are in the form Command (shortform) {options}")
     for commands in list_of_commands:
         print(commands)
 
@@ -137,8 +138,6 @@ def commands():
                    "leave","exit", "inventory", "i", "examine",
                    "x", "take", "kick", "use", "push", "look","go", "search"]
     return allcommands
-
-
 
 def credits():
     print("This game was a project in our gaming course. It is released under MIT license. Copyright 2018 Oliver Andersson, Nicolas Kyejo and Lauri Outila.")
@@ -169,19 +168,6 @@ def license():
 def clear():		#Clear console
     print("\n"*100)
 
-
-def cutscene_1():
-    print("(Have to find something to numb the pain...)\n\n"\
-
-    "Unknown man: (inaudible) There is no way out of (inaudible)\n" \
-    "Just accept your fate\n\n"\
-
-    "Verner: Wha... ?\n\n"\
-
-    "Unknown man: A surgeon will come soon. Ne metue.\n\n"\
-    
-    "The Verge© 2018\n\n"\
-    "First time players should run HELP to get a list of commands you can use.\nRun CREDITS or LICENSE to know about the game's makers and license.\n")
 def go(current_room: str, room_to_move: str):
     current_room = int(current_room)
     room_to_move = int(room_to_move)
@@ -193,6 +179,44 @@ def go(current_room: str, room_to_move: str):
         print("You can't go there.")
         return current_room
 
+
+def cutscene_1():
+    print("(Have to find something to numb the pain...)\n\n"\
+
+    "Unknown man: (inaudible) There is no way out of (inaudible)\n" \
+
+    "Just accept your fate\n\n"\
+
+    "Verner: Wha... ?\n\n"\
+
+    "Unknown man: A surgeon will come soon. Ne metue.\n\n"\
+    
+    "The Verge© 2018\n\n"\
+    "First time players should run HELP to get a list of commands you can use.\nRun CREDITS or LICENSE to know about the game's makers and license.\n")
+
+    "\tJust accept your fate.\n\n"\
+
+    "Verner: Wha... ?\n\n"\
+
+    "Unknown man: Someone will come soon to deliver you. Ne metue.\n\n"\
+    
+    "The Verge© 2018\n"\
+    "First time players should type HELP. Credits are available via CREDITS and license via LICENSE.\n")    
+    
+def cutscene_2():
+    print("Guard: Uuuuuurgghhhhh!")
+
+    print("Guard falls down dead\n")
+
+    print("Doctor: Please don’t kill me!!! I am useful alive!\n")
+    
+def cutscene_3():   
+    print("Dr. Buchwald: mmh it seems I underestimated you… I should have put more guards in place but oh well… You are here for revenge aren’t you?\n")
+
+    print("Verner: …\n")
+
+    print("Buchwald: Before you make any rash decision, hear me out first.")    
+    
 # # # [MAIN PROGRAM] # # #
 clear()
 if __name__ == '__main__':
@@ -209,20 +233,13 @@ if __name__ == '__main__':
             print("huh wat u say man")
 
 
-
-
-
-
-
-
-#print(show_room(100))
-#print(get_user_input("whats ###DDRR rrgoing on!! here LUL..???"))
-
 #print(room_list_returner(100))
 #print(show_room(100))
 #help()
 #credits()
 #license()
-cutscene_1()
+#cutscene_1()
+#cutscene_2()
+#cutscene_3()
 
 db.rollback()
