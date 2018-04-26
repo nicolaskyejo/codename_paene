@@ -247,22 +247,22 @@ INSERT INTO Room_List VALUES (400,300);
 
 
 # [Item] # 9+ items
-INSERT INTO Item VALUES (6, "Scalpel", FALSE,  NULL, 101, "sharp, a tool used in surgery",TRUE);
+INSERT INTO Item VALUES (6, "Scalpel", FALSE,  NULL, 101, "Sharp, a tool used in surgery.",TRUE);
 INSERT INTO Item VALUES (5, "Knife", FALSE,  NULL, 307, "It’s a bit dull, but it should still get the job done.",TRUE);
-INSERT INTO Item VALUES (1, "Cigarette", FALSE,  NULL, 101, "I should probably smoke since I will probably die here anyway",TRUE);
+INSERT INTO Item VALUES (1, "Cigarette", FALSE,  NULL, 101, "I should probably smoke since I will probably die here anyway.",TRUE);
 INSERT INTO Item VALUES (4, "Metal Pipe", FALSE,  NULL, 104, "Maybe I could crack something with this.",TRUE);
 INSERT INTO Item VALUES (2, "Lighter", FALSE,  NULL, 201, "It's an old zippo.",TRUE);
 INSERT INTO Item VALUES (7, "Gasoline Tank", FALSE,  NULL, 401, "It seems to have at least half a gallon left.",TRUE);
 INSERT INTO Item VALUES (8, "Radiophone", FALSE,  NULL, 202, "I wonder if this thing still works.",TRUE);
-INSERT INTO Item VALUES (3, "Painkillers", FALSE,  NULL, 102, "I should probably take these..",TRUE);
-INSERT INTO Item VALUES (9, "Ethanol", FALSE,  NULL, 304, "I’d love to drink this.. But I probably shouldn’t",TRUE);
+INSERT INTO Item VALUES (3, "Painkillers", FALSE,  NULL, 102, "I should probably take these...",TRUE);
+INSERT INTO Item VALUES (9, "Ethanol", FALSE,  NULL, 304, "I’d love to drink this.. But I probably shouldn’t.",TRUE);
 INSERT INTO Item VALUES (10, "Box", FALSE,  NULL, 101, "A cardboard box full of old medical books.",FALSE);
 INSERT INTO Item VALUES (11, "Drawer", FALSE,  NULL, 102, "A dark lacquered wooden drawer.",FALSE);
 INSERT INTO Item VALUES (12, "Noticeboard", FALSE,  NULL, 104, "A noticeboard. It is filled with post-it notes and pinned papers.",FALSE);
 INSERT INTO Item VALUES (13, "Paper", FALSE,  NULL, 104, "A piece of worn out, crumbled paper.. there's something written on it.",FALSE);
-INSERT INTO Item VALUES (14, "Stretcher", FALSE,  NULL, 107, "An apparatus for moving patients.. or bodies",FALSE);
+INSERT INTO Item VALUES (14, "Stretcher", FALSE,  NULL, 107, "An apparatus for moving patients.. or bodies.",FALSE);
 INSERT INTO Item VALUES (15, "Window", FALSE,  NULL, 110, "A window with metal bars blocking anyone from going through.",FALSE);
 INSERT INTO Item VALUES (16, "Water dispenser",FALSE, NULL, 210, "An empty water dispenser sits next to the stairway.",FALSE);
 INSERT INTO Item VALUES (17, "Sink", FALSE,  NULL, 107, "A small stained sink with rusted pipes under it.",FALSE);
-INSERT INTO Item VALUES (18, "Office chair", FALSE, NULL, 201, "A dirty navy blue office chair, looks uncomfortable to sit in", FALSE);
-INSERT INTO Item VALUES (19, "Hospital bed", FALSE, NULL, 307, "Hospital bed with sheets on it", FALSE);
+INSERT INTO Item VALUES (18, "Office chair", FALSE, NULL, 201, "A dirty navy blue office chair, looks uncomfortable to sit in.", FALSE);
+INSERT INTO Item VALUES (19, "Hospital bed", FALSE, NULL, 307, "Hospital bed with sheets on it.", FALSE);
