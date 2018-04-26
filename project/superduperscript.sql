@@ -179,7 +179,10 @@ INSERT INTO Room_List VALUES (106,100);
 INSERT INTO Room_List VALUES (107,110);
 INSERT INTO Room_List VALUES (108,110);
 INSERT INTO Room_List VALUES (101,102);     #Vent from starting room to adjacent room
+
 INSERT INTO Room_List VALUES (100,110);     #corridors
+INSERT INTO Room_List VALUES (110,100);
+
 
 INSERT INTO Room_List VALUES (200,201);
 INSERT INTO Room_List VALUES (200,202);
@@ -198,7 +201,9 @@ INSERT INTO Room_List VALUES (205,200);
 
 INSERT INTO Room_List VALUES (206,210);
 INSERT INTO Room_List VALUES (207,210);
+
 INSERT INTO Room_List VALUES (200,210);		#corridors
+INSERT INTO Room_List VALUES (210,200);
 
 INSERT INTO Room_List VALUES (300,301);
 INSERT INTO Room_List VALUES (300,302);
@@ -217,7 +222,9 @@ INSERT INTO Room_List VALUES (305,300);
 
 INSERT INTO Room_List VALUES (306,310);
 INSERT INTO Room_List VALUES (307,310);
+
 INSERT INTO Room_List VALUES (300,310);		#corridors
+INSERT INTO Room_List VALUES (310,300);
 
 INSERT INTO Room_List VALUES (400,401);
 
@@ -227,7 +234,9 @@ INSERT INTO Room_List VALUES (410,403);
 INSERT INTO Room_List VALUES (401,400);
 INSERT INTO Room_List VALUES (402,410);
 INSERT INTO Room_List VALUES (403,410);
+
 INSERT INTO Room_List VALUES (400,410);		#corridors
+INSERT INTO Room_List VALUES (410,400);
 
 INSERT INTO Room_List VALUES (100,200);		#Lower corridor to upper corridor
 INSERT INTO Room_List VALUES (200,100);
@@ -237,7 +246,7 @@ INSERT INTO Room_List VALUES (300,400);
 INSERT INTO Room_List VALUES (400,300);
 
 
-# [Item] # 9 items
+# [Item] # 9+ items
 INSERT INTO Item VALUES (6, "Scalpel", FALSE,  NULL, 101, "sharp, a tool used in surgery",TRUE);
 INSERT INTO Item VALUES (5, "Knife", FALSE,  NULL, 307, "It’s a bit dull, but it should still get the job done.",TRUE);
 INSERT INTO Item VALUES (1, "Cigarette", FALSE,  NULL, 101, "I should probably smoke since I will probably die here anyway",TRUE);
