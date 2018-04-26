@@ -20,7 +20,7 @@ CREATE TABLE Npc
   Npc_id INT NOT NULL,
   Name VARCHAR(40) NOT NULL,
   Room_id INT NOT NULL,
-  Description VARCHAR(100),  #added manually  #Npcs outward appearance
+  Description VARCHAR(200),  #added manually  #Npcs outward appearance
   Conversation VARCHAR(200),   #added manually  #Text that comes when you interact with a NPC
   PRIMARY KEY (Npc_id),
   FOREIGN KEY (Room_id) REFERENCES Room(Room_id)
@@ -115,7 +115,7 @@ INSERT INTO Npc VALUES(5,"im12whatisthis",306,NULL,NULL);
 INSERT INTO Npc VALUES(6,"follower",305,NULL,NULL);
 INSERT INTO Npc VALUES(7,"Doctor Ingolf Buchwald",401,"A balding man with big spectactles","Thank you for sparing me");
 
-INSERT INTO Npc VALUES(8,"Jake",107,"desc","conv");   
+INSERT INTO Npc VALUES(8,"Jake",107,"A hunch-backed man with bloodshot eyes is incessantly staring at the wall He doesn't look very well..","Th-the w-w-walls are spying on me.. T-THOSE BASTARDS ARE UP TO SOMETHING BAD I KNOW IT! I-i-i got to keep on eye on them..");   
 INSERT INTO Npc VALUES(9,"Lawrence",201,"desc","conv"); #hangman game and key from him
 INSERT INTO Npc VALUES(10,"Oliver Cromwell",403,"desc","conv");
 INSERT INTO Npc VALUES(11,"Doctor Reinhold Eisenberg",305,"An old man in his twilight years, gaunt and serious looking","Leave me alone for now");       #in room with npc(Paul & follower)
@@ -126,9 +126,9 @@ INSERT INTO Npc VALUES(13,"Jonathan Gebhard",200,"A confused looking man is walk
 INSERT INTO Texti VALUES("There is man in black patrolling. OH SHIT! He saw me and IS coming after ME! Gotta defend myself!", 100); #INSERT INTO Texti VALUES("Looks like some kind of corridor with rooms side by side", 100);
 INSERT INTO Texti VALUES("Seems like a hospital lounge with two rooms", 110);
 INSERT INTO Texti VALUES("A basic operating room. It is miserable looking but the operating instruments appear well maintained",101); 
-INSERT INTO Texti VALUES("",102); 
+INSERT INTO Texti VALUES("A messy storage room with tables and chairs lazily stacked on top of each other. Whoever maintains this place is not very orderly..",102); 
 INSERT INTO Texti VALUES("",103); 
-INSERT INTO Texti VALUES("",104); 
+INSERT INTO Texti VALUES("This looks like something that used to be an office's break room. Some floor tiles are missing and parts of the interior decorations have been ripped off the walls..",104); 
 INSERT INTO Texti VALUES("",105); 
 INSERT INTO Texti VALUES("",106); 
 INSERT INTO Texti VALUES("",107);
@@ -145,7 +145,7 @@ INSERT INTO Texti VALUES("",206);
 INSERT INTO Texti VALUES("",207);
 
 INSERT INTO Texti VALUES("A darker looking corridor with some rooms. Looks like there is a light coming from room ... 305", 300);
-INSERT INTO Texti VALUES("A Corridor with two rooms side by side", 310);
+INSERT INTO Texti VALUES("A Corridor with two rooms side by side. The room closest to the corridor entrance has lights on.. Noises are coming from the room, it sounds like two people are in a heated argument.", 310);
 INSERT INTO Texti VALUES("",301); 
 INSERT INTO Texti VALUES("",302); 
 INSERT INTO Texti VALUES("",303); 
@@ -244,7 +244,7 @@ INSERT INTO Item VALUES (1, "Cigarette", FALSE,  NULL, 101, "I should probably s
 INSERT INTO Item VALUES (4, "Metal Pipe", FALSE,  NULL, 104, "Maybe I could crack something with this.",TRUE);
 INSERT INTO Item VALUES (2, "Lighter", FALSE,  NULL, 201, "It's an old zippo.",TRUE);
 INSERT INTO Item VALUES (7, "Gasoline Tank", FALSE,  NULL, 401, "It seems to have at least half a gallon left.",TRUE);
-INSERT INTO Item VALUES (8, "Radiophone", FALSE,  NULL, 102, "I wonder if this thing still works.",TRUE);
+INSERT INTO Item VALUES (8, "Radiophone", FALSE,  NULL, 202, "I wonder if this thing still works.",TRUE);
 INSERT INTO Item VALUES (3, "Painkillers", FALSE,  NULL, 102, "I should probably take these..",TRUE);
 INSERT INTO Item VALUES (9, "Ethanol", FALSE,  NULL, 304, "I’d love to drink this.. But I probably shouldn’t",TRUE);
 INSERT INTO Item VALUES (10, "Box", FALSE,  NULL, 101, "A cardboard box full of old medical books.",FALSE);
@@ -255,3 +255,5 @@ INSERT INTO Item VALUES (14, "Stretcher", FALSE,  NULL, 107, "An apparatus for m
 INSERT INTO Item VALUES (15, "Window", FALSE,  NULL, 110, "A window with metal bars blocking anyone from going through.",FALSE);
 INSERT INTO Item VALUES (16, "Water dispenser",FALSE, NULL, 210, "An empty water dispenser sits next to the stairway.",FALSE);
 INSERT INTO Item VALUES (17, "Sink", FALSE,  NULL, 107, "A small stained sink with rusted pipes under it.",FALSE);
+INSERT INTO Item VALUES (18, "Office chair", FALSE, NULL, 201, "A dirty navy blue office chair, looks uncomfortable to sit in", FALSE);
+INSERT INTO Item VALUES (19, "Hospital bed", FALSE, NULL, 307, "Hospital bed with sheets on it", FALSE);
