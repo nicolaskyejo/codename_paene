@@ -4,7 +4,8 @@
 # 
 #  
 #  Copyright 2018 Oliver, Nicolas & Lauri
-#  
+#
+##### PREAMBLE #####  
 import mysql.connector
 
 db = mysql.connector.connect(
@@ -90,7 +91,7 @@ def show_room(current_room: int, database=db):
 
 # # # [MAIN PROGRAM] # # #
 
-
+	
 #print(room_list_returner(100))
 
 print(show_room(100))
