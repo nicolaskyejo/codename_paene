@@ -106,12 +106,27 @@ def our_print(textline):
         used = used + len(word)
     print("")
 
+"""splits the users input into words, puts them in a list. gets rid of weird characters"""
+
+def get_user_input(input: str):
+    words = input.lower().split()
+    list_of_commands=[]
+
+    for word in words:
+       string=""
+       for c in word:
+           if c.isalnum():
+               string += c
+       list_of_commands.append(string)
+
+    return list_of_commands
 
 # # # [MAIN PROGRAM] # # #
 
 	
 #print(room_list_returner(100))
 
-print(show_room(100))
-our_print("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
+#print(show_room(100))
+#our_print("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
+print(get_user_input("whats ###DDRR rrgoing on!! here LUL..???"))
 db.rollback()
