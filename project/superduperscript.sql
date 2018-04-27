@@ -265,4 +265,11 @@ INSERT INTO Item VALUES (15, "Window", FALSE,  NULL, 110, "A window with metal b
 INSERT INTO Item VALUES (16, "Water dispenser",FALSE, NULL, 210, "An empty water dispenser sits next to the stairway.",FALSE);
 INSERT INTO Item VALUES (17, "Sink", FALSE,  NULL, 107, "A small stained sink with rusted pipes under it.",FALSE);
 INSERT INTO Item VALUES (18, "Office chair", FALSE, NULL, 201, "A dirty navy blue office chair, looks uncomfortable to sit in.", FALSE);
-INSERT INTO Item VALUES (19, "Hospital bed", FALSE, NULL, 307, "Hospital bed with sheets on it.", FALSE);
+INSERT INTO Item VALUES (19, "An old looking magazine cutout", FALSE, NULL, 307, "River water turning frogs gay?\
+		How governments are a haven for satanic cults\
+		Bilderberg group wants to turn you into a slave", FALSE);
+INSERT INTO Item VALUES (20, "Hospital bed", FALSE, NULL, 307, "Hospital bed with sheets on it.", FALSE);
+INSERT INTO Item VALUES (21, "Hospital bed", FALSE, NULL, 307, "Hospital bed with sheets on it.", FALSE);
+INSERT INTO Item VALUES (22, "Hospital bed", FALSE, NULL, 307, "Hospital bed with sheets on it.", FALSE);
+INSERT INTO Item VALUES (23, "Hospital bed", FALSE, NULL, 307, "Hospital bed with sheets on it.", FALSE);
+INSERT INTO Item VALUES (24, "Hospital bed", FALSE, NULL, 307, "Hospital bed with sheets on it.", FALSE);

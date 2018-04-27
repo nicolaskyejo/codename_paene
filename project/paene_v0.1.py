@@ -123,6 +123,7 @@ def get_user_input(input: str):
 
     return list_of_commands
 
+########### Game commands Functions  ##########  
 def help():
     list_of_commands = ["Credits. Lists the game credits.","Quit. Quits the game.","Clear (c). Clears console","Directional ↑. Repeats the last command.","Enter(E)/Go {room number}. Enter room.","Up(U)/Down(D). Go up or down the stairs.", "Exit/Leave. Leaves current room.",
                         "Inventory (I). List items that you hold.","Examine (X) {object}. Describes object.","Take {object}. Puts object into your inventory",
@@ -179,20 +180,11 @@ def go(current_room: str, room_to_move: str):
         print("You can't go there.")
         return current_room
 
-
+#################### GAME COMMANDS END HERE ####################  
 def cutscene_1():
     print("(Have to find something to numb the pain...)\n\n"\
 
     "Unknown man: (inaudible) There is no way out of (inaudible)\n" \
-
-    "Just accept your fate\n\n"\
-
-    "Verner: Wha... ?\n\n"\
-
-    "Unknown man: A surgeon will come soon. Ne metue.\n\n"\
-    
-    "The Verge© 2018\n\n"\
-    "First time players should run HELP to get a list of commands you can use.\nRun CREDITS or LICENSE to know about the game's makers and license.\n")
 
     "\tJust accept your fate.\n\n"\
 
