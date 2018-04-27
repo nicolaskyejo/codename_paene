@@ -52,7 +52,7 @@ CREATE TABLE Item
   Use_item BOOLEAN,
   Character_id INT,
   Room_id INT,
-  Description VARCHAR(100), #added manually
+  Description VARCHAR(500), #added manually
   # We perhaps might add a new text field which contains the text which we update to after a room state has changed
   Pickable BOOLEAN,		#added manually
   PRIMARY KEY (Item_id),
