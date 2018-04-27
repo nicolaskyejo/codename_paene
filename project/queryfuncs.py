@@ -1,5 +1,5 @@
 import mysql.connector
-
+from gamefuncs import *
 db = mysql.connector.connect(
     host="localhost",
     user="dbuser",

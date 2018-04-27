@@ -12,16 +12,25 @@ from queryfuncs import *
 # # # [MAIN PROGRAM] # # #
 if __name__ == '__main__':
 
-    print(show_room(101))
     current_room = 101
+    our_print(show_room(current_room))
+
     while True:
         players_input = get_user_input(str(input()))
-        if players_input[0] in commands():
 
-            current_room = go(current_room, players_input[1])
-            print(show_room(current_room))
-        else:
-            print("huh wat u say man")
+        if players_input[0] in ["go", "enter", "e"]:
+            current_room = go(current_room, players_input[-1])
+
+        elif players_input[0] in ["examine", "x"]:
+            examine()
+        elif players_input[0] in ["quit", "q"]:
+            quit()
+        elif players_input[0] in ["take", "pick"]:
+            take()
+        elif players_input[0] in ["inventory", "i"]:
+            inventory()
+        elif players_input[0] in ["look"]:
+            look()
 
 #print(room_list_returner(100))
 #print(show_room(100))

@@ -1,5 +1,5 @@
 
-import queryfuncs
+from queryfuncs import *
 
 #GAME FUNCTIONS
 
@@ -7,13 +7,16 @@ import queryfuncs
 
 
 def our_print(textline):
-    line_length = 80
-    list_of_words = textline.split()
+    line_length = 70
+    list_of_words = textline.split(" ")
     used = 0
 
     for word in list_of_words:
         if used + len(word) <= line_length:
-            if used > 0:
+            if "\n" in word:
+                used = 0
+                print(" ", end="")
+            elif used > 0:
                 print(" ", end="")
             print(word, end="")
 
@@ -59,11 +62,6 @@ def help():
         print(commands)
 
 
-def commands():
-    allcommands = ["credits", "quit", "clear", "c", "enter", "e", "up", "u", "down", "d",
-                   "leave", "exit", "inventory", "i", "examine",
-                   "x", "take", "kick", "use", "push", "look", "go", "search"]
-    return allcommands
 
 
 def credits():
@@ -103,8 +101,8 @@ def go(current_room: str, room_to_move: str):
     current_room = int(current_room)
     room_to_move = int(room_to_move)
 
-    if room_to_move in queryfuncs.room_list_returner(current_room):
-        print("You entered room number " + str(room_to_move))
+    if room_to_move in room_list_returner(current_room):
+        our_print(show_room(room_to_move))
         return room_to_move
     else:
         print("You can't go there.")
@@ -141,3 +139,24 @@ def cutscene_3():
     print("Verner: …\n")
 
     print("Buchwald: Before you make any rash decision, hear me out first.")
+
+def commands():
+    allcommands = [["enter", "e", "go"],
+                   ["examine", "x"],
+                   ["leave", "exit"],
+                   ["quit", "q"],
+                   ["push"],
+                   ["take","pick"],
+                   ["inventory", "i"],
+                   ["kick"],
+                   ["search"],
+                   ["look"],
+                   ["use"],
+                   ["up"],
+                   ["down", "d"],
+                   ["credits"],
+                   ["license"],
+                   ["help"],
+                   ["clear", "c"]]
+
+    return allcommands
