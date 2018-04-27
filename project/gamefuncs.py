@@ -1,5 +1,5 @@
 
-
+import queryfuncs
 
 #GAME FUNCTIONS
 
@@ -103,15 +103,13 @@ def go(current_room: str, room_to_move: str):
     current_room = int(current_room)
     room_to_move = int(room_to_move)
 
-    if room_to_move in room_list_returner(current_room):
+    if room_to_move in queryfuncs.room_list_returner(current_room):
         print("You entered room number " + str(room_to_move))
         return room_to_move
     else:
         print("You can't go there.")
         return current_room
 
-
-#################### GAME COMMANDS END HERE ####################
 def cutscene_1():
     print("(Have to find something to numb the pain...)\n\n" \
  \

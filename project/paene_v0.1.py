@@ -6,31 +6,22 @@
 #  Copyright 2018 Oliver, Nicolas & Lauri
 #
 ##### PREAMBLE #####  
-import mysql.connector
 import gamefuncs
 import queryfuncs
 
 
-db = mysql.connector.connect(
-    host="localhost",
-    user="dbuser",
-    passwd="dbpass",
-    db="theverge",
-    buffered=True)
-
 
 # # # [MAIN PROGRAM] # # #
-clear()
 if __name__ == '__main__':
 
-    print(show_room(101))
+    print(queryfuncs.show_room(101))
     current_room = 101
     while True:
-        players_input = get_user_input(str(input()))
-        if players_input[0] in commands():
+        players_input = gamefuncs.get_user_input(str(input()))
+        if players_input[0] in gamefuncs.commands():
 
-            current_room = go(current_room, players_input[1])
-            print(show_room(current_room))
+            current_room = gamefuncs.go(current_room, players_input[1])
+            print(queryfuncs.show_room(current_room))
         else:
             print("huh wat u say man")
 
