@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+
+</style>
+<meta charset="utf-8" />
+<title>Welcome to our game "The Verge"</title>
+</head>
+<body>
+<!-- two layers of Image-->
+<div class="bg"></div>
+<div class="lightning flashit"></div>
+
+
+
+<!-- CSS -->	
+
+<!--<strong>discord</strong> 
+and <strong>github</strong>.</p> -->
+
+<style type="text/css">
+html, 
+
+/* First lets set a background */
+
+
+/* Now the same background, but with brightness filters*/
+.lightning{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(Trans.jpg);
+  background-position: center center;
+  background-origin: content-box;
+  background-size: cover;
+  background-attachment: fixed;
+  -webkit-filter: brightness(3);
+  filter: brightness(3);
+  -o-filter: brightness(3);
+  -moz-filter: brightness(3);
+  z-index: -1;
+}
+
+/*Now just a opacity animation*/
+.flashit{
+-webkit-animation: flash ease-out 7s infinite;
+-moz-animation: flash ease-out 7s infinite;
+animation: flash ease-out 7s infinite;
+animation-delay: 0s;
+}
+
+@-webkit-keyframes flash {
+	from { opacity: 0; } 
+  92% { opacity: 0; }
+	93% { opacity: 0.6; }
+  94% { opacity: 0.2; }
+  96% { opacity: 0.9; } 
+	to { opacity: 0; }
+}
+
+@keyframes flash {
+	from { opacity: 0; } 
+    92% { opacity: 0; }
+	93% { opacity: 0.6; }
+    94% { opacity: 0.2; }
+    96% { opacity: 1; } 
+	to { opacity: 0; }
+}
+
+html , body{
+
+}
+
+</style>
+<!-- <p><a href="theverge.py" style="color:white">Download link to game</a></p> -->		
+</body>
+</html>
+
