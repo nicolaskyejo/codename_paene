@@ -273,3 +273,8 @@ INSERT INTO Item VALUES (21, "Hospital bed", FALSE, NULL, 307, "Hospital bed wit
 INSERT INTO Item VALUES (22, "Hospital bed", FALSE, NULL, 307, "Hospital bed with sheets on it.", FALSE);
 INSERT INTO Item VALUES (23, "Hospital bed", FALSE, NULL, 307, "Hospital bed with sheets on it.", FALSE);
 INSERT INTO Item VALUES (24, "Hospital bed", FALSE, NULL, 307, "Hospital bed with sheets on it.", FALSE);
+INSERT INTO Item VALUES (25, "Paper", FALSE,  NULL, 104, "THIS is thy hour O Soul, thy free flight into the wordless,"\
+	"Away from books, away from art, the day erased, the lesson done,"\
+	"Thee fully forth emerging, silent, gazing, pondering the themes thou,"\
+	"lovest best."\
+	"Night, sleep, death and the stars.", FALSE);
