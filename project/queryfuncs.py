@@ -75,6 +75,7 @@ def show_room(current_room: int, database=db):
         cursor.close()
 
     return showable_text
+
     
 def item_pick(id: int, database=db):
     try:
@@ -86,7 +87,25 @@ def item_pick(id: int, database=db):
         print(e)
 
     finally:
-        cursor.close()       
+        cursor.close()
+            
+ 
+def get_items_of_room(room_id, database=db):
+    try:
+        query = "SELECT Name FROM Item WHERE Room_id = " + str(room_id) + " AND Use_item = FALSE"
+        cursor = database.cursor()
+        cursor.execute(query)
+
+        item_names=[]
+        for name in cursor.fetchall():
+            item_names.append(name[0])
+
+    except mysql.connector.Error as e:
+        print(e)
+
+    finally:
+        cursor.close()
+        return item_names       
      
 def item_description(id: int, database=db):
     try:
@@ -98,10 +117,31 @@ def item_description(id: int, database=db):
         
     except mysql.connector.Error as e:
         print(e)
+   
+    try:
+        cursor.close()
+        return description
+
+def get_items_inventory(database=db):
+    try:
+        query = "SELECT name, description FROM Item WHERE Inventory = TRUE"
+        cursor = database.cursor()
+        cursor.execute(query)
+
+        inventory=[]
+        for item in cursor.fetchall():
+            inventory.append(item)
+
+
+    except mysql.connector.Error as e:
+        print(e)
 
     finally:
         cursor.close()
-        
-    return description[0]       
+        return inventory
+    
+   
 
+print(get_items_inventory())
+print(item_description())
 
