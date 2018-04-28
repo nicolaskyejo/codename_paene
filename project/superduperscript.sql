@@ -130,17 +130,17 @@ INSERT INTO Texti VALUES("There is man in black patrolling. OH SHIT! He saw me a
 INSERT INTO Texti VALUES("Seems like a hospital lounge with two rooms. On the east side, the building is damaged and thus innaccesible.", 110);
 INSERT INTO Texti VALUES("A basic operating room. It is miserable looking but the surgery instruments appear well maintained.",101); 
 INSERT INTO Texti VALUES("A messy storage room with tables and chairs lazily stacked on top of each other. Whoever maintains this place is not very orderly...",102); 
-INSERT INTO Texti VALUES("",103); 
+INSERT INTO Texti VALUES("Oh what's that smell! The whole room is covered in mold. Doesn't seem like theres really anything useful in this room.",103); 
 INSERT INTO Texti VALUES("This looks like something that used to be an office's break room. Some floor tiles are missing and parts of the interior decorations have been ripped off the walls...",104); 
-INSERT INTO Texti VALUES("",105); 
-INSERT INTO Texti VALUES("",106); 
-INSERT INTO Texti VALUES("A basic operating room. Nothing remarkable about it.",107);
-INSERT INTO Texti VALUES("",108);
+INSERT INTO Texti VALUES("A small storage room. Theres a big drawer near the back of the room.",105); 
+INSERT INTO Texti VALUES("Theres a window on the wall but it appears to be completely sealed with several metal bars. At least the little bit of natural light and fresh air makes me feel better.",106); 
+INSERT INTO Texti VALUES("This room looks familier to the one I woke up in. Oh what's that! I hear something from the corner.",107);
+INSERT INTO Texti VALUES("This must be an office of some sort. The floor is cluttered with old paperwork.",108);
 
 
 INSERT INTO Texti VALUES("A normal corridor with five rooms and stairs leading up and down.", 200);
 INSERT INTO Texti VALUES("A corridor with two rooms. On the east side, the building is damaged and broken.", 210);
-INSERT INTO Texti VALUES("",201); 
+INSERT INTO Texti VALUES("Goosebumps go through my spine, this room looks excatly the same as the one I woke up in. Theres a faint eerie creaking noise.",201); 
 INSERT INTO Texti VALUES("",202); 
 INSERT INTO Texti VALUES("",203); 
 INSERT INTO Texti VALUES("",204); 
@@ -183,12 +183,12 @@ INSERT INTO Item VALUES (18, "Office chair", FALSE,NULL, 201, "A dirty navy blue
 INSERT INTO Item VALUES (7, "Gasoline Tank", FALSE, NULL, 401, "It seems to have at least half a gallon left.",TRUE);
 
 INSERT INTO Item VALUES (8, "Radiophone", FALSE, NULL, 202, "I wonder if this thing still works.",TRUE);
-INSERT INTO Item VALUES (23, "A dusty diary with a bookmarked page", FALSE,NULL, 202, "THIS is thy hour O Soul, thy free flight into the wordless,\
-	Away from books, away from art, the day erased, the lesson done,\
-	Thee fully forth emerging, silent, gazing, pondering the themes thou,\
-	lovest best.\
-	Night, sleep, death and the stars.\
-	-Walt Whitman", FALSE);
+INSERT INTO Item VALUES (23, "A dusty diary with a bookmarked page", FALSE,NULL, 202, "THIS is thy hour O Soul, thy free flight into the wordless,"\
+	"Away from books, away from art, the day erased, the lesson done,"\
+	"Thee fully forth emerging, silent, gazing, pondering the themes thou,"\
+	"lovest best."\
+	"Night, sleep, death and the stars."\
+	-Walt Whitman"," FALSE);
 	
 INSERT INTO Item VALUES (9, "Ethanol", FALSE,  NULL, 304, "I’d love to drink this.. But I probably shouldn’t.",TRUE);
 
@@ -209,7 +209,10 @@ INSERT INTO Item VALUES (20, "Table", FALSE, NULL, 307, "A dingy table with what
 INSERT INTO Item VALUES (21, "Table", FALSE, NULL, 307, "A dingy table that looks like it was damaged by fire.", FALSE);
 INSERT INTO Item VALUES (22, "MRI", FALSE, NULL, 307, "This look like an old Magnetic Resonance machine", FALSE);
 INSERT INTO Item VALUES (5, "Knife", FALSE,  NULL, 307, "It’s a bit dull, but it should still get the job done.",TRUE);
-
+INSERT INTO Item VALUES (24, "Drawer", FALSE,  NULL, 105, "A dark lacquered wooden drawer.",FALSE);
+INSERT INTO Item VALUES (25, "Bookshelf", FALSE,  NULL, 108, "A large bookshelf filled with different books and documents.",FALSE);
+INSERT INTO Item VALUES (26, "A book", FALSE,  NULL, 108, "On the cover there's a picture of something that faintly resembles a snake."\
+"I can't open the book, the pages seem to be stuck together.",FALSE);
 	
 # [Room_List] # Each room has a list of room it is connected to
 INSERT INTO Room_List VALUES (100,101);
