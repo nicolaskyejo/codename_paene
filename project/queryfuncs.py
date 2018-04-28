@@ -118,9 +118,9 @@ def item_description(id: int, database=db):
     except mysql.connector.Error as e:
         print(e)
    
-    try:
+    finally:
         cursor.close()
-        return description
+        return description[0]
 
 def get_items_inventory(database=db):
     try:
@@ -142,6 +142,6 @@ def get_items_inventory(database=db):
     
    
 
-print(get_items_inventory())
-print(item_description())
+#print(get_items_inventory())
+print(item_description(1))
 
