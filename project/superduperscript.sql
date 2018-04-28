@@ -138,35 +138,38 @@ INSERT INTO Texti VALUES("This room looks familier to the one I woke up in. Oh w
 INSERT INTO Texti VALUES("This must be an office of some sort. The floor is cluttered with old paperwork.",108);
 
 
-INSERT INTO Texti VALUES("A normal corridor with five rooms and stairs leading up and down.", 200);
+INSERT INTO Texti VALUES("A normal corridor with five rooms and stairs leading up and down. There's someone in the distance", 200);
 INSERT INTO Texti VALUES("A corridor with two rooms. On the east side, the building is damaged and broken.", 210);
 INSERT INTO Texti VALUES("Goosebumps go through my spine, this room looks excatly the same as the one I woke up in. Theres a faint eerie creaking noise.",201); 
-INSERT INTO Texti VALUES("",202); 
-INSERT INTO Texti VALUES("",203); 
-INSERT INTO Texti VALUES("",204); 
-INSERT INTO Texti VALUES("",205); 
-INSERT INTO Texti VALUES("",206); 
-INSERT INTO Texti VALUES("",207);
+INSERT INTO Texti VALUES("Oh shit! There's someone inside and he doesn't look happy at all.",202); 
+INSERT INTO Texti VALUES("Ough.. The door handle wont budge.",203); 
+INSERT INTO Texti VALUES("This room is completely empty and fairly bright, the window is only sealed with barb wire. Maybe I could get through this with something.",204); 
+INSERT INTO Texti VALUES("The door wont open! Feels like it has been sealed from the other side.",205); 
+INSERT INTO Texti VALUES("Something horrible must have had happened here. The smell is horrendous and the entire room is filled with trash."\
+"Ough wtf! I stepped on something wet.",206); 
+INSERT INTO Texti VALUES("I can hear a child speaking faintly. The handle wont move at all.. I hope whoever is inside is okay.",207);
 
 
 INSERT INTO Texti VALUES("A darker looking corridor with some rooms. Looks like there is a light coming from room ... 305. There are stairs leading up and down.", 300);
 INSERT INTO Texti VALUES("A Corridor with two rooms side by side. The room closest to the corridor entrance has lights on.. Noises are coming from the room, it sounds like two people are in a heated argument. The far side of the corridor is innaccesible.", 310);
-INSERT INTO Texti VALUES("",301); 
-INSERT INTO Texti VALUES("",302); 
-INSERT INTO Texti VALUES("",303); 
-INSERT INTO Texti VALUES("",304); 
-INSERT INTO Texti VALUES("An operating room with two men standing over what looks like a person on the surgery table",305);   #this text will be updated when the guard dies 
-INSERT INTO Texti VALUES("",306); 
+INSERT INTO Texti VALUES("The door is locked",301); 
+INSERT INTO Texti VALUES("This room is extremely small.. I can barely move. The entire room is filled with cardboard and all sorts of trash.",302); 
+INSERT INTO Texti VALUES("The door is lockd. It doesn't budge even after ramming it..",303); 
+INSERT INTO Texti VALUES("This room is huge! It has been cleared of furniture but there appears to be all sorts of junk on the floor.",304); 
+INSERT INTO Texti VALUES("An operating room with two men standing over what looks like a person on the surgery table."\
+								"The other person is wearing different attire and appears to be some kind of doctor",305);   #this text will be updated when the guard dies 
+INSERT INTO Texti VALUES("There are two men standing inside.. I really don't think I should take this on",306); # Funktio for leaving / fighting
 INSERT INTO Texti VALUES("A room with an old MRI machine. On the corner, there is a stack of old magazines. Near the window there is a dingy looking",307);
 
 
 INSERT INTO Texti VALUES("The top floor corridor, with one distinguished looking room and another corridor on the other side. Stairs from are leading down only.", 400);
 INSERT INTO Texti VALUES("A corridor with two rooms. The far side is damaged and innaccesible.", 410);
-INSERT INTO Texti VALUES("",401); 
-INSERT INTO Texti VALUES("",402); 
-INSERT INTO Texti VALUES("",403); 
+INSERT INTO Texti VALUES("There he is, the man himself is sitting behind his desk. Time to end this! ",401); #Cutscenes?
+INSERT INTO Texti VALUES("The door is firmly shut",402); 
+INSERT INTO Texti VALUES("This room is really clean. Theres someone sleeping.",403); 
 
-
+# ROOMS THAT CANNOT BE ENTERED: 203, 205, 207, 301, 303, 402
+#LETS MAKE A FUNCTION FOR THE PLAYER TO DECIDE IF HE ENTERS ROOM 306.
 
 # [Item] # 23+ items
 INSERT INTO Item VALUES (6, "Scalpel", FALSE, NULL, 101, "Sharp, a tool used in surgery.",TRUE);
@@ -183,11 +186,11 @@ INSERT INTO Item VALUES (18, "Office chair", FALSE,NULL, 201, "A dirty navy blue
 INSERT INTO Item VALUES (7, "Gasoline Tank", FALSE, NULL, 401, "It seems to have at least half a gallon left.",TRUE);
 
 INSERT INTO Item VALUES (8, "Radiophone", FALSE, NULL, 202, "I wonder if this thing still works.",TRUE);
-INSERT INTO Item VALUES (23, "A dusty diary with a bookmarked page", FALSE,NULL, 202, "THIS is thy hour O Soul, thy free flight into the wordless,"\
-	"Away from books, away from art, the day erased, the lesson done,"\
-	"Thee fully forth emerging, silent, gazing, pondering the themes thou,"\
+INSERT INTO Item VALUES (23, "A dusty diary with a bookmarked page", FALSE,NULL, 202, "THIS is thy hour O Soul, thy free flight into the wordless,\
+	Away from books, away from art, the day erased, the lesson done,\
+	Thee fully forth emerging, silent, gazing, pondering the themes thou,\
 	"lovest best."\
-	"Night, sleep, death and the stars."\
+	Night, sleep, death and the stars.\
 	-Walt Whitman"," FALSE);
 	
 INSERT INTO Item VALUES (9, "Ethanol", FALSE,  NULL, 304, "I’d love to drink this.. But I probably shouldn’t.",TRUE);
