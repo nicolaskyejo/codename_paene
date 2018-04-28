@@ -8,10 +8,11 @@
 ##### PREAMBLE #####  
 from gamefuncs import *
 from queryfuncs import *
+from cutscenes import *
 
 # # # [MAIN PROGRAM] # # #
 if __name__ == '__main__':
-
+    cutscene_1()
     current_room = 101
     our_print(show_room(current_room))
 
@@ -31,14 +32,7 @@ if __name__ == '__main__':
             inventory()
         elif players_input[0] in ["look"]:
             look()
+    
 
-#print(room_list_returner(100))
-#print(show_room(100))
-#help()
-#credits()
-#license()
-#cutscene_1()
-#cutscene_2()
-#cutscene_3()
 
 db.rollback()

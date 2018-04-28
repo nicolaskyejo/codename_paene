@@ -75,3 +75,33 @@ def show_room(current_room: int, database=db):
         cursor.close()
 
     return showable_text
+    
+def item_pick(id: int, database=db):
+    try:
+        cursor = database.cursor()
+        query = "UPDATE Item SET Character_id = 1 WHERE Item_id = " + str(id)
+        cursor.execute(query)
+        
+    except mysql.connector.Error as e:
+        print(e)
+
+    finally:
+        cursor.close()       
+     
+def item_description(id: int, database=db):
+    try:
+        cursor = database.cursor()
+        query = "SELECT Description FROM Item WHERE Item_id = " + str(id)
+
+        cursor.execute(query)
+        description = cursor.fetchone()
+        
+    except mysql.connector.Error as e:
+        print(e)
+
+    finally:
+        cursor.close()
+        
+    return description[0]       
+
+

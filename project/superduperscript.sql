@@ -120,7 +120,7 @@ INSERT INTO Npc VALUES(8,"Jake",107,"A hunch-backed man with bloodshot eyes is i
 INSERT INTO Npc VALUES(9,"Lawrence",201,"A wretched looking man is sitting in a rusted wheelchair","I'm bored! Do you want to play a game of hangman? If you win I'll give you a reward"); #hangman game and lighter from him
 INSERT INTO Npc VALUES(10,"Oliver Cromwell",403,"A ghostly-looking pale man is lying on a hospital bed. His face is filled with sweat","Hey, are you the doctor? You don't look like one. Can you find the doctor for me? I feel sick after taking the pills he gave me");
 INSERT INTO Npc VALUES(11,"Doctor Reinhold Eisenberg",305,"An old man in his twilight years, gaunt and serious looking","Leave me alone for now");       #in room with npc(Paul & follower)
-INSERT INTO Npc VALUES(12,"Paul",305,"A lean man is spread on the operating table","");
+INSERT INTO Npc VALUES(12,"Paul",305,"A lean naked man is spread on the operating table","");
 INSERT INTO Npc VALUES(13,"Jonathan Gebhard",200,"A confused looking man is walking in circles muttering to himself","uh ah... I know oh yes I know... It is the Aliens!");
 
 
@@ -157,7 +157,7 @@ INSERT INTO Texti VALUES("",303);
 INSERT INTO Texti VALUES("",304); 
 INSERT INTO Texti VALUES("An operating room with two men standing over what looks like a person on the surgery table",305);   #this text will be updated when the guard dies 
 INSERT INTO Texti VALUES("",306); 
-INSERT INTO Texti VALUES("A room with an old MRI machine. On the corner, there is a stack of old magazines. Near the window there is a dingy looking",307);
+INSERT INTO Texti VALUES("A room with an old MRI machine. On the corner, there is a stack of old magazines. Near the window there is a dingy looking table",307);
 
 
 INSERT INTO Texti VALUES("The top floor corridor, with one distinguished looking room and another corridor on the other side. Stairs from are leading down only.", 400);
