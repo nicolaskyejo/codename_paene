@@ -121,7 +121,7 @@ def cutscene_1():
           "Just accept your fate\n\n" \
  \
           "The Verge© 2018\n" \
-          "First time players should type HELP. Credits are available via CREDITS and license via LICENSE.\n")
+          "First time players should type HELP. Credits are available via CREDITS and license via LICENSE. Type QUIT to quit the game.\n")
 
 
 def cutscene_2():
@@ -129,8 +129,10 @@ def cutscene_2():
 
     print("Guard falls down dead\n")
 
-    print("Doctor: Please don’t kill me!!! I am useful alive!\n")
-
+    print("Doctor: Please don’t kill me!!! I am useful alive!")
+    print("Doctor: I know this looks bad but We are actually helping people here. I don't know why Buchwald chose you, perhaps He thinks you wasted your life with sin.\n")
+    
+    print("Verner: Buchwald?\n")
 
 def cutscene_3():
     print(
