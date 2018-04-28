@@ -162,3 +162,26 @@ def commands():
                    ["clear", "c"]]
 
     return allcommands
+
+def show_items_seen(room_id):
+
+    txt = "I see these things around me: \n"
+    items = get_items_of_room(room_id)
+    if items:
+        for name in items:
+            txt = txt + name + "\n"
+
+    return txt
+
+def show_inventory():
+    txt = "I am carrying these items: \n"
+    inventory = get_items_inventory()
+
+    for (item, description) in inventory:
+        txt = txt + item + " - " + description + "\n"
+
+    return txt
+
+
+our_print(show_items_seen(101))
+our_print(show_inventory())
