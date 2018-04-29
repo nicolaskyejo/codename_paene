@@ -43,7 +43,7 @@ CREATE TABLE Room_List
 CREATE TABLE Item
 (
   Item_id INT NOT NULL,
-  Name VARCHAR(40) NOT NULL,
+  Name VARCHAR(70) NOT NULL,
   Hidden BOOLEAN,
   Inventory BOOLEAN,
   Room_id INT,
@@ -126,19 +126,19 @@ INSERT INTO Texti VALUES("There is man in black patrolling. OH SHIT! He saw me a
 INSERT INTO Texti VALUES("Seems like a hospital lounge with two rooms. On the east side, the building is damaged and thus innaccesible. On the middle there is an exit door outside bolted with chains and a huge lock.", 110);
 INSERT INTO Texti VALUES("A basic operating room. It is miserable looking but the surgery instruments appear well maintained.",101); 
 INSERT INTO Texti VALUES("A messy storage room with tables and chairs lazily stacked on top of each other. Whoever maintains this place is not very orderly...",102); 
-INSERT INTO Texti VALUES("Oh what's that smell! The whole room is covered in mold. Doesn't seem like theres really anything useful in this room.",103); 
+INSERT INTO Texti VALUES("Oh what's that smell! The whole room is covered in mold. Doesn't seem like there's really anything useful in this room.",103); 
 INSERT INTO Texti VALUES("This looks like something that used to be an office's break room. Some floor tiles are missing and parts of the interior decorations have been ripped off the walls...",104); 
 INSERT INTO Texti VALUES("A small storage room. Theres a big drawer near the back of the room.",105); 
-INSERT INTO Texti VALUES("Theres a window on the wall but it appears to be completely sealed with several metal bars. At least the little bit of natural light and fresh air makes me feel better.",106); 
+INSERT INTO Texti VALUES("There's a window on the wall but it appears to be completely sealed with several metal bars. At least the little bit of natural light and fresh air makes me feel better.",106); 
 INSERT INTO Texti VALUES("This room looks familier to the one I woke up in. Oh what's that! I hear something from the corner.",107);
 INSERT INTO Texti VALUES("This must be an office of some sort. The floor is cluttered with old paperwork.",108);
 
 
 INSERT INTO Texti VALUES("A normal corridor with five rooms and stairs leading up and down. There's someone in the distance", 200);
 INSERT INTO Texti VALUES("A corridor with two rooms. On the east side, the building is damaged and broken.", 210);
-INSERT INTO Texti VALUES("Goosebumps go through my spine, this room looks excatly the same as the one I woke up in. Theres a faint eerie creaking noise.",201); 
+INSERT INTO Texti VALUES("Goosebumps go through my spine, this room looks exactly the same as the one I woke up in. There's a faint eerie creaking noise.",201); 
 INSERT INTO Texti VALUES("Oh shit! There's someone inside and he doesn't look happy at all.",202); 
-INSERT INTO Texti VALUES("Ough.. The door handle wont budge.",203); 
+INSERT INTO Texti VALUES("Ough... The door handle wont budge.",203); 
 INSERT INTO Texti VALUES("This room is completely empty and fairly bright, the window is only sealed with barb wire. Maybe I could get through this with something.",204); 
 INSERT INTO Texti VALUES("The door wont open! Feels like it has been sealed from the other side.",205); 
 INSERT INTO Texti VALUES("Something horrible must have had happened here. The smell is horrendous and the entire room is filled with trash. \
@@ -166,7 +166,7 @@ INSERT INTO Texti VALUES("There he is, the man himself is sitting behind his des
 INSERT INTO Texti VALUES("The door is firmly shut.",402); 
 INSERT INTO Texti VALUES("This room is really clean. Theres someone sleeping.",403); 
 
-# ROOMS THAT CANNOT BE ENTERED: 203, 205, 207, 301, 303, 402
+# ROOMS THAT CANNOT BE ENTERED: 105,106, 108, 203, 205, 207, 301, 303, 402
 #LETS MAKE A FUNCTION FOR THE PLAYER TO DECIDE IF HE ENTERS ROOM 306.
 
 # [Item] # 23+ items
@@ -211,8 +211,8 @@ INSERT INTO Item VALUES (16, "Water dispenser",FALSE, NULL, 210, "An empty water
 INSERT INTO Item VALUES (9, "Ethanol", FALSE,  NULL, 304, "I’d love to drink this... But I probably shouldn’t.",TRUE, NULL);
 
 INSERT INTO Item VALUES (19, "An old looking magazine cutout", FALSE, NULL, 307, "River water turning frogs gay?\
-		How governments are a haven for satanic cults!\
-		Bilderberg group wants to turn you into a slave!", FALSE, NULL);
+		How governments are a haven for satanic cults. Read feature on page 5 \
+		Bilderberg group wants to turn you into a slave. Resist now!", FALSE, NULL);
 INSERT INTO Item VALUES (20, "Table", FALSE, NULL, 307, "A dingy table with what appears to be a knife on it.", FALSE, NULL);
 INSERT INTO Item VALUES (21, "Table", FALSE, NULL, 307, "A dingy table that looks like it was damaged by fire.", FALSE, NULL);
 INSERT INTO Item VALUES (22, "MRI", FALSE, NULL, 307, "This look like an old Magnetic Resonance machine", FALSE, NULL);
@@ -220,7 +220,11 @@ INSERT INTO Item VALUES (5, "Knife", TRUE,  NULL, 307, "It’s a bit dull, but i
 
 INSERT INTO Item VALUES (7, "Gasoline Tank", FALSE, NULL, 401, "It seems to have at least half a gallon left.",TRUE, NULL);
 
-
+INSERT INTO Item VALUES (27, "Medical book", FALSE, NULL, 306, "Grays Anatomy the Anatomical Basis of Clinical Practice 41st Edition",FALSE, NULL);
+INSERT INTO Item VALUES (28, "Robotics book", FALSE, NULL, 306, "Robotic Surgery Guide 1st Edition",FALSE, NULL);
+INSERT INTO Item VALUES (29, "An old scientific journal", FALSE, NULL, 306, ""Sugar: The white devil" reads on the cover",FALSE, NULL);
+INSERT INTO Item VALUES (30, "Euthanasia: Is it ethical to help people die?", FALSE, NULL, 306, "",FALSE, NULL);
+INSERT INTO Item VALUES (31, "Internet Memes evolving as a form of metalanguage", FALSE, NULL, 306, "",FALSE, NULL);
 
 	
 # [Room_List] # Each room has a list of room it is connected to
