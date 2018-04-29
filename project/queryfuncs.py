@@ -92,7 +92,7 @@ def item_pick(id: int, database=db):
  
 def get_items_of_room(room_id, database=db):
     try:
-        query = "SELECT Name FROM Item WHERE Room_id = " + str(room_id) + " AND Use_item = FALSE"
+        query = "SELECT Name FROM Item WHERE Room_id = " + str(room_id) + " AND Hidden = FALSE"
         cursor = database.cursor()
         cursor.execute(query)
 
@@ -124,13 +124,13 @@ def item_description(id: int, database=db):
 
 def get_items_inventory(database=db):
     try:
-        query = "SELECT name, description FROM Item WHERE Inventory = TRUE"
+        query = "SELECT Item_id FROM Item WHERE Inventory = TRUE"
         cursor = database.cursor()
         cursor.execute(query)
 
         inventory=[]
         for item in cursor.fetchall():
-            inventory.append(item)
+            inventory.append(item[0])
 
 
     except mysql.connector.Error as e:
@@ -140,11 +140,69 @@ def get_items_inventory(database=db):
         cursor.close()
         return inventory
 
+def if_item_used(id, database=db):
+    try:
+        query = "SELECT Used FROM Item WHERE item_id =" + str(id) + " AND Used = True"
+        cursor = database.cursor()
+        cursor.execute(query)
 
+        if cursor.rowcount == 1:
+            result = True
+        else:
+            result = False
 
-    
+    except mysql.connector.Error as e:
+        print(e)
+
+    finally:
+        cursor.close()
+        return result
+
+def item_id_from_name(name, database=db):
+    try:
+        query='SELECT item_id FROM Item WHERE name = "'+ str(name) + '"'
+        cursor = database.cursor()
+        cursor.execute(query)
+
+        id = cursor.fetchone()
+
+    except mysql.connector.Error as e:
+        print(e)
+
+    finally:
+        cursor.close()
+        return id[0]
+
+def item_name_from_id(item_id, database=db):
+    try:
+        query='SELECT name FROM Item WHERE item_id =' + str(item_id)
+        cursor = database.cursor()
+        cursor.execute(query)
+
+        id = cursor.fetchone()
+
+    except mysql.connector.Error as e:
+        print(e)
+
+    finally:
+        cursor.close()
+        return id[0]
+
+def use_item(item_id, current_room,database=db):
+    try:
+        query = "UPDATE Item SET Used = TRUE WHERE Used = FALSE AND room_id = {0} AND Hidden = FALSE AND item_id = {1};".format(
+            str(current_room), str(item_id))
+        cursor = database.cursor()
+        cursor.execute(query)
+
+    except mysql.connector.Error as e:
+        print(e)
+
+    finally:
+        cursor.close()
+
+#use_item(10, 101)
    
-
+#print(if_item_used(6))
 #print(get_items_inventory())
 #print(item_description(1))
-

@@ -170,11 +170,11 @@ INSERT INTO Texti VALUES("This room is really clean. Theres someone sleeping.",4
 #LETS MAKE A FUNCTION FOR THE PLAYER TO DECIDE IF HE ENTERS ROOM 306.
 
 # [Item] # 23+ items
-INSERT INTO Item VALUES (6, "Scalpel", TRUE, TRUE, 101, "Sharp, a tool used in surgery.",TRUE, NULL);
-INSERT INTO Item VALUES (1, "Cigarette", FALSE, NULL, 101, "Strange that they didn't take these cigarettes from me.",TRUE, NULL);
-INSERT INTO Item VALUES (10, "Box", FALSE,  NULL, 101, "A cardboard box full of old medical books.",FALSE, NULL);
-INSERT INTO Item VALUES (100, "Air duct", FALSE, NULL, 101, "A big air duct. It has a metal cover, held in place by screws in its four corners.", FALSE, NULL);
-INSERT INTO Item VALUES (101, "Air duct", TRUE, NULL, 101, "An opened air duct. It is big enough for a person to pass through.", FALSE, NULL);
+INSERT INTO Item VALUES (6, "Scalpel", TRUE, TRUE, 101, "Sharp, a tool used in surgery.",TRUE, FALSE);
+INSERT INTO Item VALUES (1, "Cigarette", TRUE, TRUE, 101, "Strange that they didn't take these cigarettes from me.",TRUE, NULL);
+INSERT INTO Item VALUES (10, "Box", FALSE,  NULL, 101, "A cardboard box full of old medical books.",FALSE, FALSE);
+INSERT INTO Item VALUES (100, "Vent", FALSE, NULL, 101, "A big air vent. It has a metal cover, held in place by screws in its four corners.", FALSE, NULL);
+INSERT INTO Item VALUES (101, "Vent", TRUE, NULL, 101, "An opened air vent. It is big enough for a person to pass through.", FALSE, NULL);
 
 INSERT INTO Item VALUES (4, "Metal Pipe", TRUE, NULL, 104, "Maybe I could crack something with this.",TRUE, NULL);
 INSERT INTO Item VALUES (12, "Noticeboard", FALSE, NULL, 104, "A noticeboard. It is filled with post-it notes and pinned papers.",FALSE, NULL);
