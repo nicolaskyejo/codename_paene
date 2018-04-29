@@ -131,8 +131,17 @@ def commands():
     return allcommands
 
 
-def examine():
-    print('')
+def examine(item_id):
+    txt = "\n"
+    txt = item_description(item_id)
+    
+    return txt
+    
+def take():
+    pass    
+    
+def quit():
+    pass    
 
 def show_items_seen(room_id):
 
@@ -154,6 +163,7 @@ def show_inventory():
     return txt
 
 
-our_print(show_items_seen(101))
-our_print(show_inventory())
+#our_print(show_items_seen(101))
+#our_print(show_inventory())
+#examine(1)
 
