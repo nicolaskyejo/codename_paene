@@ -151,7 +151,7 @@ def quit():
         else:
             print("Please Enter Y or N")    
         
-def show_items_seen(room_id):
+def look(room_id):
 
     txt = "I see these things around me: \n"
     items = get_items_of_room(room_id)
@@ -211,3 +211,4 @@ def pull_box(item, current_room):
 #examine(3)
 #quit()
 #take(1)
+#look(101)
