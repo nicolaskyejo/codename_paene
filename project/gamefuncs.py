@@ -133,12 +133,12 @@ def commands():
 
 def examine(item_id):
     txt = item_description(item_id)
-    
+
     return txt
-    
+
 def take(item_id):
-    item_pick(item_id)    
-    
+    item_pick(item_id)
+
 def quit():
     while True:
         answer = input("Do you really want to quit the game? (Y/N)  ")    
@@ -161,16 +161,51 @@ def show_items_seen(room_id):
 
     return txt
 
-def show_inventory():
+def inventory():
     txt = "I am carrying these items: \n"
     inventory = get_items_inventory()
 
-    for (item, description) in inventory:
-        txt = txt + item + " - " + description + "\n"
+    for item in inventory:
+        item_name = item_name_from_id(item)
+        description = item_description(item)
+
+        txt = txt + item_name + " - " + description + "\n"
 
     return txt
 
+def use_item_scalpel(database=db):
 
+    items = get_items_inventory()
+    scalpel_id = item_id_from_name("scalpel")
+
+    if scalpel_id in items:
+        box_id = item_id_from_name("box")
+
+        if if_item_used(box_id) == True:
+            query="DELETE FROM Item WHERE Item_id=100"
+            query2="UPDATE Item SET Hidden=FALSE WHERE Item_id=101"
+            cursor = database.cursor()
+
+            cursor.execute(query)
+            cursor.execute(query2)
+
+            our_print("I get on top of the box, and use the scalpel as a screw driver to open the air vent. ")
+        else:
+            our_print("I have nothing to use it on...")
+    else:
+        our_print("I do not have that item.")
+
+def pull_box(item, current_room):
+    if item == "box":
+        if current_room == 101:
+            item_id = item_id_from_name(item)
+            use_item(10, 101)
+            our_print("I pull the box under the air vent.")
+    else:
+        our_print("Nothing happens...")
+
+
+#print(take(6))
 #our_print(show_items_seen(101))
 #our_print(show_inventory())
 #examine(3)
