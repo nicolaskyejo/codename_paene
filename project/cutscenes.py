@@ -48,4 +48,8 @@ def ending_4():         #Escape before X
     print("") 
         
 def ending_5():         #Senpuku
-    print("")         
+    print("Sometimes the most interesting thing you can do with your life is end it. It is your own choice. May death bring you peace you never had.")         
+
+def death_msg():
+    print("Rest in peace...\n")
+    print("GAME OVER")

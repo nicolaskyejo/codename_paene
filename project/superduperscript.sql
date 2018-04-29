@@ -185,6 +185,7 @@ INSERT INTO Item VALUES (12, "Noticeboard", FALSE, NULL, 104, "A noticeboard. It
 INSERT INTO Item VALUES (13, "Paper", TRUE,  NULL, 104, "A piece of worn out, crumbled paper.. there's something written on it.",FALSE, NULL);
 
 INSERT INTO Item VALUES (24, "Drawer", FALSE,  NULL, 105, "A dark lacquered wooden drawer.",FALSE, NULL);
+INSERT INTO Item VALUES (31, "", FALSE, NULL, 105, "Internet Memes evolving as a form of metalanguage.",FALSE, NULL);
 
 INSERT INTO Item VALUES (17, "Sink", FALSE,  NULL, 107, "A small stained sink with rusted pipes under it.",FALSE, NULL);
 INSERT INTO Item VALUES (14, "Stretcher", FALSE,  NULL, 107, "An apparatus for moving patients.. or bodies.",FALSE, NULL);
@@ -210,6 +211,7 @@ INSERT INTO Item VALUES (23, "A dusty diary with a bookmarked page", FALSE,NULL,
 INSERT INTO Item VALUES (16, "Water dispenser",FALSE, NULL, 210, "An empty water dispenser sits next to the stairway.",FALSE, NULL);
 
 INSERT INTO Item VALUES (9, "Ethanol", FALSE,  NULL, 304, "I’d love to drink this... But I probably shouldn’t.",TRUE, NULL);
+INSERT INTO Item VALUES (30, "", FALSE, NULL, 304, "Euthanasia: Is it ethical to help people die?",FALSE, NULL);
 
 INSERT INTO Item VALUES (19, "An old looking magazine cutout", FALSE, NULL, 307, "River water turning frogs gay?\
 		How governments are a haven for satanic cults. Read feature on page 5! \
@@ -220,12 +222,11 @@ INSERT INTO Item VALUES (22, "MRI", FALSE, NULL, 307, "This look like an old Mag
 INSERT INTO Item VALUES (5, "Knife", TRUE,  NULL, 307, "It’s a bit dull, but it should still get the job done.",TRUE, NULL);
 
 INSERT INTO Item VALUES (7, "Gasoline Tank", FALSE, NULL, 401, "It seems to have at least half a gallon left.",TRUE, NULL);
+INSERT INTO Item VALUES (27, "Medical book", FALSE, NULL, 401, "Grays Anatomy the Anatomical Basis of Clinical Practice 41st Edition",FALSE, NULL);
 
-INSERT INTO Item VALUES (27, "Medical book", FALSE, NULL, 306, "Grays Anatomy the Anatomical Basis of Clinical Practice 41st Edition",FALSE, NULL);
 INSERT INTO Item VALUES (28, "Robotics book", FALSE, NULL, 306, "Robotic Surgery Guide 1st Edition",FALSE, NULL);
 INSERT INTO Item VALUES (29, "An old scientific journal", FALSE, NULL, 306, "'Sugar: The white devil' reads on the cover",FALSE, NULL);
-INSERT INTO Item VALUES (30, "", FALSE, NULL, 306, "Euthanasia: Is it ethical to help people die?",FALSE, NULL);
-INSERT INTO Item VALUES (31, "", FALSE, NULL, 306, "Internet Memes evolving as a form of metalanguage.",FALSE, NULL);
+
 
 	
 # [Room_List] # Each room has a list of room it is connected to
