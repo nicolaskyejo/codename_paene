@@ -139,6 +139,9 @@ def get_items_inventory(database=db):
     finally:
         cursor.close()
         return inventory
+
+
+
     
    
 

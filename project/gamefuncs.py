@@ -153,6 +153,12 @@ def show_inventory():
 
     return txt
 
+def use_item_scalpel():
+    if "scalpel" in get_items_inventory():
+    else:
+        our_print("I do not have that item.")
+
+
 
 our_print(show_items_seen(101))
 our_print(show_inventory())
