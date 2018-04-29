@@ -68,7 +68,7 @@ INSERT INTO Room VALUES(110,"Clinic/Lobby",FALSE);
 INSERT INTO Room VALUES(666,"Hospital Yard",TRUE);  # Locked , can be opened by key or you know what.
 
 INSERT INTO Room VALUES(101,"Operating room",FALSE);	#rooms are numbered clockwise starting from bottom
-INSERT INTO Room VALUES(102,"Dispensary",FALSE);
+INSERT INTO Room VALUES(102,"Dispensary",TRUE); # locked but opens after accessing vent and unlocking it
 INSERT INTO Room VALUES(103,"...eria, the starting letters are missing",FALSE);
 INSERT INTO Room VALUES(104,"Storage",FALSE);
 INSERT INTO Room VALUES(105,"Private room",TRUE);	#LOCK
@@ -143,27 +143,27 @@ INSERT INTO Texti VALUES("This room is completely empty and fairly bright, the w
 INSERT INTO Texti VALUES("The door wont open! Feels like it has been sealed from the other side.",205); 
 INSERT INTO Texti VALUES("Something horrible must have had happened here. The smell is horrendous and the entire room is filled with trash. \
 Ough wtf! I stepped on something wet.",206); 
-INSERT INTO Texti VALUES("I can hear a child speaking faintly. The handle wont move at all.. I hope whoever is inside is okay.",207);
+INSERT INTO Texti VALUES("I can hear a child speaking faintly. The handle wont move at all... I hope whoever is inside is okay.",207);
 
 
 INSERT INTO Texti VALUES("A darker looking corridor with some rooms. Looks like there is a light coming from room ... 305. There are stairs leading up and down.", 300);
-INSERT INTO Texti VALUES("A Corridor with two rooms side by side. The room closest to the corridor entrance has lights on.. Noises are coming from the room, it sounds like two people are in a heated argument. The far side of the corridor is innaccesible.", 310);
+INSERT INTO Texti VALUES("A Corridor with two rooms side by side. The room closest to the corridor entrance has lights on... Noises are coming from the room, it sounds like two people are in a heated argument. The far side of the corridor is innaccesible.", 310);
 
-INSERT INTO Texti VALUES("The door is locked",301); 
-INSERT INTO Texti VALUES("This room is extremely small.. I can barely move. The entire room is filled with cardboard and all sorts of trash.",302); 
-INSERT INTO Texti VALUES("The door is lockd. It doesn't budge even after ramming it..",303); 
+INSERT INTO Texti VALUES("The door is locked.",301); 
+INSERT INTO Texti VALUES("This room is extremely small... I can barely move. The entire room is filled with cardboard and all sorts of trash.",302); 
+INSERT INTO Texti VALUES("The door is locked. It doesn't budge even after ramming it...",303); 
 INSERT INTO Texti VALUES("This room is huge! It has been cleared of furniture but there appears to be all sorts of junk on the floor.",304); 
 INSERT INTO Texti VALUES("An operating room with two men standing over what looks like a person on the surgery table. \
-								The other person is wearing different attire and appears to be some kind of doctor",305);   #this text will be updated when the guard dies 
-INSERT INTO Texti VALUES("There are two men standing inside.. I really don't think I should take this on",306); # Funktio for leaving / fighting
-INSERT INTO Texti VALUES("A room with an old MRI machine. On the corner, there is a stack of old magazines. Near the window there is a dingy looking",307);
+								The other person is wearing different attire and appears to be some kind of doctor.",305);   #this text will be updated when the guard dies 
+INSERT INTO Texti VALUES("There are two men standing inside.. I really don't think I should take this on.",306); # Funktio for leaving / fighting
+INSERT INTO Texti VALUES("A room with an old MRI machine. On the corner, there is a stack of old magazines. Near the window there is a dingy looking table.",307);
 
 
 
 INSERT INTO Texti VALUES("The top floor corridor, with one distinguished looking room and another corridor on the other side. Stairs from are leading down only.", 400);
 INSERT INTO Texti VALUES("A corridor with two rooms. The far side is damaged and innaccesible.", 410);
 INSERT INTO Texti VALUES("There he is, the man himself is sitting behind his desk. Time to end this! ",401); #Cutscenes?
-INSERT INTO Texti VALUES("The door is firmly shut",402); 
+INSERT INTO Texti VALUES("The door is firmly shut.",402); 
 INSERT INTO Texti VALUES("This room is really clean. Theres someone sleeping.",403); 
 
 # ROOMS THAT CANNOT BE ENTERED: 203, 205, 207, 301, 303, 402
@@ -176,14 +176,27 @@ INSERT INTO Item VALUES (10, "Box", FALSE,  NULL, 101, "A cardboard box full of 
 INSERT INTO Item VALUES (100, "Air duct", FALSE, NULL, 101, "A big air duct. It has a metal cover, held in place by screws in its four corners.", FALSE, NULL);
 INSERT INTO Item VALUES (101, "Air duct", TRUE, NULL, 101, "An opened air duct. It is big enough for a person to pass through.", FALSE, NULL);
 
+INSERT INTO Item VALUES (11, "Drawer", FALSE,  NULL, 102, "A dark lacquered wooden drawer.",FALSE, NULL);
+INSERT INTO Item VALUES (3, "Painkillers", TRUE,  NULL, 102, "I should probably take these...",TRUE, NULL);
+
 INSERT INTO Item VALUES (4, "Metal Pipe", TRUE, NULL, 104, "Maybe I could crack something with this.",TRUE, NULL);
 INSERT INTO Item VALUES (12, "Noticeboard", FALSE, NULL, 104, "A noticeboard. It is filled with post-it notes and pinned papers.",FALSE, NULL);
 INSERT INTO Item VALUES (13, "Paper", TRUE,  NULL, 104, "A piece of worn out, crumbled paper.. there's something written on it.",FALSE, NULL);
 
+INSERT INTO Item VALUES (24, "Drawer", FALSE,  NULL, 105, "A dark lacquered wooden drawer.",FALSE, NULL);
+
+INSERT INTO Item VALUES (17, "Sink", FALSE,  NULL, 107, "A small stained sink with rusted pipes under it.",FALSE, NULL);
+INSERT INTO Item VALUES (14, "Stretcher", FALSE,  NULL, 107, "An apparatus for moving patients.. or bodies.",FALSE, NULL);
+
+INSERT INTO Item VALUES (25, "Bookshelf", FALSE,  NULL, 108, "A large bookshelf filled with different books and documents.",FALSE, NULL);
+INSERT INTO Item VALUES (26, "A book", FALSE,  NULL, 108, "On the cover there's a picture of something that faintly resembles a snake.\
+I can't open the book, the pages seem to be stuck together.",FALSE, NULL);
+
+INSERT INTO Item VALUES (15, "Window", FALSE,  NULL, 110, "A window with metal bars blocking anyone from going through.",FALSE, NULL);
+
 INSERT INTO Item VALUES (2, "Lighter", TRUE,  NULL, 201, "It's an old zippo.",TRUE, NULL);
 INSERT INTO Item VALUES (18, "Office chair", FALSE,NULL, 201, "A dirty navy blue office chair, looks uncomfortable to sit in.", FALSE, NULL);
 
-INSERT INTO Item VALUES (7, "Gasoline Tank", FALSE, NULL, 401, "It seems to have at least half a gallon left.",TRUE, NULL);
 
 INSERT INTO Item VALUES (8, "Radiophone", FALSE, NULL, 202, "I wonder if this thing still works.",TRUE, NULL);
 INSERT INTO Item VALUES (23, "A dusty diary with a bookmarked page", FALSE,NULL, 202, "THIS is thy hour O Soul, thy free flight into the wordless,\
@@ -193,17 +206,9 @@ INSERT INTO Item VALUES (23, "A dusty diary with a bookmarked page", FALSE,NULL,
 	Night, sleep, death and the stars.\
 	-Walt Whitman", FALSE, NULL);
 	
-INSERT INTO Item VALUES (9, "Ethanol", FALSE,  NULL, 304, "I’d love to drink this.. But I probably shouldn’t.",TRUE, NULL);
-
-INSERT INTO Item VALUES (11, "Drawer", FALSE,  NULL, 102, "A dark lacquered wooden drawer.",FALSE, NULL);
-INSERT INTO Item VALUES (3, "Painkillers", TRUE,  NULL, 102, "I should probably take these...",TRUE, NULL);
-
-INSERT INTO Item VALUES (17, "Sink", FALSE,  NULL, 107, "A small stained sink with rusted pipes under it.",FALSE, NULL);
-INSERT INTO Item VALUES (14, "Stretcher", FALSE,  NULL, 107, "An apparatus for moving patients.. or bodies.",FALSE, NULL);
-
-INSERT INTO Item VALUES (15, "Window", FALSE,  NULL, 110, "A window with metal bars blocking anyone from going through.",FALSE, NULL);
-
 INSERT INTO Item VALUES (16, "Water dispenser",FALSE, NULL, 210, "An empty water dispenser sits next to the stairway.",FALSE, NULL);
+
+INSERT INTO Item VALUES (9, "Ethanol", FALSE,  NULL, 304, "I’d love to drink this... But I probably shouldn’t.",TRUE, NULL);
 
 INSERT INTO Item VALUES (19, "An old looking magazine cutout", FALSE, NULL, 307, "River water turning frogs gay?\
 		How governments are a haven for satanic cults!\
@@ -213,11 +218,9 @@ INSERT INTO Item VALUES (21, "Table", FALSE, NULL, 307, "A dingy table that look
 INSERT INTO Item VALUES (22, "MRI", FALSE, NULL, 307, "This look like an old Magnetic Resonance machine", FALSE, NULL);
 INSERT INTO Item VALUES (5, "Knife", TRUE,  NULL, 307, "It’s a bit dull, but it should still get the job done.",TRUE, NULL);
 
+INSERT INTO Item VALUES (7, "Gasoline Tank", FALSE, NULL, 401, "It seems to have at least half a gallon left.",TRUE, NULL);
 
-INSERT INTO Item VALUES (24, "Drawer", FALSE,  NULL, 105, "A dark lacquered wooden drawer.",FALSE, NULL);
-INSERT INTO Item VALUES (25, "Bookshelf", FALSE,  NULL, 108, "A large bookshelf filled with different books and documents.",FALSE, NULL);
-INSERT INTO Item VALUES (26, "A book", FALSE,  NULL, 108, "On the cover there's a picture of something that faintly resembles a snake.\
-I can't open the book, the pages seem to be stuck together.",FALSE, NULL);
+
 
 	
 # [Room_List] # Each room has a list of room it is connected to
@@ -303,6 +306,6 @@ INSERT INTO Room_List VALUES (300,200);
 INSERT INTO Room_List VALUES (300,400);
 INSERT INTO Room_List VALUES (400,300);
 
-INSERT INTO Room_List VALUES (110,666);
+INSERT INTO Room_List VALUES (110,666);		#From lobby to outside # Game finishes when this is achieved
 
 	
