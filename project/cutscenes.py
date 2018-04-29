@@ -35,17 +35,17 @@ def cutscene_3():
 
     print("Buchwald: Before you make any rash decision, hear me out first.")
     
-def ending_1():
+def ending_1():         #kill B
     print("")    
     
-def ending_2():
+def ending_2():         #forgive B
     print("") 
     
-def ending_3():
+def ending_3():         #light building on F
     print("")     
     
-def ending_4():
+def ending_4():         #Escape before X
     print("") 
-    
-def ending_5():
+        
+def ending_5():         #Senpuku
     print("")         

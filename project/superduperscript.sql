@@ -128,7 +128,7 @@ INSERT INTO Texti VALUES("A basic operating room. It is miserable looking but th
 INSERT INTO Texti VALUES("A messy storage room with tables and chairs lazily stacked on top of each other. Whoever maintains this place is not very orderly...",102); 
 INSERT INTO Texti VALUES("Oh what's that smell! The whole room is covered in mold. Doesn't seem like there's really anything useful in this room.",103); 
 INSERT INTO Texti VALUES("This looks like something that used to be an office's break room. Some floor tiles are missing and parts of the interior decorations have been ripped off the walls...",104); 
-INSERT INTO Texti VALUES("A small storage room. Theres a big drawer near the back of the room.",105); 
+INSERT INTO Texti VALUES("A small storage room. There's a big drawer near the back of the room.",105); 
 INSERT INTO Texti VALUES("There's a window on the wall but it appears to be completely sealed with several metal bars. At least the little bit of natural light and fresh air makes me feel better.",106); 
 INSERT INTO Texti VALUES("This room looks familier to the one I woke up in. Oh what's that! I hear something from the corner.",107);
 INSERT INTO Texti VALUES("This must be an office of some sort. The floor is cluttered with old paperwork.",108);
@@ -164,17 +164,18 @@ INSERT INTO Texti VALUES("The top floor corridor, with one distinguished looking
 INSERT INTO Texti VALUES("A corridor with two rooms. The far side is damaged and innaccesible.", 410);
 INSERT INTO Texti VALUES("There he is, the man himself is sitting behind his desk. Time to end this! ",401); #Cutscenes?
 INSERT INTO Texti VALUES("The door is firmly shut.",402); 
-INSERT INTO Texti VALUES("This room is really clean. Theres someone sleeping.",403); 
+INSERT INTO Texti VALUES("This room is really clean. There's someone sleeping in it.",403); 
 
 # ROOMS THAT CANNOT BE ENTERED: 105,106, 108, 203, 205, 207, 301, 303, 402
 #LETS MAKE A FUNCTION FOR THE PLAYER TO DECIDE IF HE ENTERS ROOM 306.
 
-# [Item] # 23+ items
+# [Item] # 23+ items   #(id,name,hidden,inventory,room_id,desc,pickable,used)
 INSERT INTO Item VALUES (6, "Scalpel", TRUE, TRUE, 101, "Sharp, a tool used in surgery.",TRUE, FALSE);
 INSERT INTO Item VALUES (1, "Cigarette", TRUE, TRUE, 101, "Strange that they didn't take these cigarettes from me.",TRUE, NULL);
 INSERT INTO Item VALUES (10, "Box", FALSE,  NULL, 101, "A cardboard box full of old medical books.",FALSE, FALSE);
 INSERT INTO Item VALUES (100, "Vent", FALSE, NULL, 101, "A big air vent. It has a metal cover, held in place by screws in its four corners.", FALSE, NULL);
 INSERT INTO Item VALUES (101, "Vent", TRUE, NULL, 101, "An opened air vent. It is big enough for a person to pass through.", FALSE, NULL);
+INSERT INTO Item VALUES (32, "Medical Table", FALSE, NULL, 101, "A medical table with sharp instruments.", FALSE, NULL);
 
 INSERT INTO Item VALUES (11, "Drawer", FALSE,  NULL, 102, "A dark lacquered wooden drawer.",FALSE, NULL);
 INSERT INTO Item VALUES (3, "Painkillers", TRUE,  NULL, 102, "I should probably take these...",TRUE, NULL);
@@ -211,7 +212,7 @@ INSERT INTO Item VALUES (16, "Water dispenser",FALSE, NULL, 210, "An empty water
 INSERT INTO Item VALUES (9, "Ethanol", FALSE,  NULL, 304, "I’d love to drink this... But I probably shouldn’t.",TRUE, NULL);
 
 INSERT INTO Item VALUES (19, "An old looking magazine cutout", FALSE, NULL, 307, "River water turning frogs gay?\
-		How governments are a haven for satanic cults. Read feature on page 5 \
+		How governments are a haven for satanic cults. Read feature on page 5! \
 		Bilderberg group wants to turn you into a slave. Resist now!", FALSE, NULL);
 INSERT INTO Item VALUES (20, "Table", FALSE, NULL, 307, "A dingy table with what appears to be a knife on it.", FALSE, NULL);
 INSERT INTO Item VALUES (21, "Table", FALSE, NULL, 307, "A dingy table that looks like it was damaged by fire.", FALSE, NULL);
@@ -222,9 +223,9 @@ INSERT INTO Item VALUES (7, "Gasoline Tank", FALSE, NULL, 401, "It seems to have
 
 INSERT INTO Item VALUES (27, "Medical book", FALSE, NULL, 306, "Grays Anatomy the Anatomical Basis of Clinical Practice 41st Edition",FALSE, NULL);
 INSERT INTO Item VALUES (28, "Robotics book", FALSE, NULL, 306, "Robotic Surgery Guide 1st Edition",FALSE, NULL);
-INSERT INTO Item VALUES (29, "An old scientific journal", FALSE, NULL, 306, ""Sugar: The white devil" reads on the cover",FALSE, NULL);
-INSERT INTO Item VALUES (30, "Euthanasia: Is it ethical to help people die?", FALSE, NULL, 306, "",FALSE, NULL);
-INSERT INTO Item VALUES (31, "Internet Memes evolving as a form of metalanguage", FALSE, NULL, 306, "",FALSE, NULL);
+INSERT INTO Item VALUES (29, "An old scientific journal", FALSE, NULL, 306, "'Sugar: The white devil' reads on the cover",FALSE, NULL);
+INSERT INTO Item VALUES (30, "", FALSE, NULL, 306, "Euthanasia: Is it ethical to help people die?",FALSE, NULL);
+INSERT INTO Item VALUES (31, "", FALSE, NULL, 306, "Internet Memes evolving as a form of metalanguage.",FALSE, NULL);
 
 	
 # [Room_List] # Each room has a list of room it is connected to
