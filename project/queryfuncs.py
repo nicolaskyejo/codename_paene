@@ -80,7 +80,7 @@ def show_room(current_room: int, database=db):
 def item_pick(id: int, database=db):
     try:
         cursor = database.cursor()
-        query = "UPDATE Item SET Character_id = 1 WHERE Item_id = " + str(id)
+        query = "UPDATE Item SET Character_id = 1 WHERE Item_id = " + str(id) + " AND Pickable = TRUE"
         cursor.execute(query)
         
     except mysql.connector.Error as e:
@@ -146,5 +146,5 @@ def get_items_inventory(database=db):
    
 
 #print(get_items_inventory())
-print(item_description(1))
+#print(item_description(1))
 

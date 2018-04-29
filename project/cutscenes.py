@@ -3,18 +3,18 @@
 
 def cutscene_1():
     print("(Have to find something to numb the pain...)\n\n" \
- \
+ 
           "Unknown man: (inaudible) There is no way out of (inaudible)\n" \
- \
+ 
           "\tJust accept your fate.\n\n" \
- \
+ 
           "Verner: Wha... ?\n\n" \
- \
+ 
           "Unknown man: Someone will come soon to deliver you. Ne metue." \
-          "Just accept your fate\n\n" \
- \
+          
+ 
           "The Verge© 2018\n" \
-          "First time players should type HELP. Credits are available via CREDITS and license via LICENSE. Type QUIT to quit the game.\n")
+          "First time players should type HELP. Credits are available via CREDITS and license via LICENSE.\nType QUIT to quit the game.\n")
 
 
 def cutscene_2():
