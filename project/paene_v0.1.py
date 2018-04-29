@@ -9,9 +9,13 @@
 from gamefuncs import *
 from queryfuncs import *
 from cutscenes import *
-
+from vlc import *
 # # # [MAIN PROGRAM] # # #
 if __name__ == '__main__':
+    import vlc
+    p = vlc.MediaPlayer("Blindspot.mp3")
+    p.play()
+    #p.stop()
     cutscene_1()
     current_room = 101
     our_print(show_room(current_room))

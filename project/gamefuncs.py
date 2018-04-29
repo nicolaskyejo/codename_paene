@@ -1,4 +1,4 @@
-
+import sys
 from queryfuncs import *
 
 #GAME FUNCTIONS
@@ -132,17 +132,25 @@ def commands():
 
 
 def examine(item_id):
-    txt = "\n"
     txt = item_description(item_id)
     
     return txt
     
-def take():
-    pass    
+def take(item_id):
+    item_pick(item_id)    
     
 def quit():
-    pass    
-
+    while True:
+        answer = input("Do you really want to quit the game? (Y/N)  ")    
+        answer.lower()
+        if answer == 'y' or answer == 'yes':
+            print("Exiting...")
+            sys.exit()
+        elif answer == 'n' or answer == 'no':
+            break    
+        else:
+            print("Please Enter Y or N")    
+        
 def show_items_seen(room_id):
 
     txt = "I see these things around me: \n"
@@ -165,5 +173,6 @@ def show_inventory():
 
 #our_print(show_items_seen(101))
 #our_print(show_inventory())
-#examine(1)
-
+#examine(3)
+#quit()
+#take(1)
