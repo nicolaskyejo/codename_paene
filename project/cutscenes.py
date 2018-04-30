@@ -60,7 +60,7 @@ def ending_3():         #light building on F
     print("")     
     
 def ending_4():         #Escape before X
-    print("") 
+    print("Necessity is the mother of ingeniousness. You solve your problems with a touch of craftiness. ") 
         
 def ending_5():         #harakiri
     print("Sometimes the most interesting thing you can do with your life is end it. It is your own choice. May death bring you peace you never had.")         
@@ -69,4 +69,6 @@ def death_msg():
     print("Rest in peace...\n")
     print("GAME OVER")
     
-
+def the_end():
+    print('Congratulations!\n')
+    print('You finished the game. Explore additional endings by trying alternative paths')
