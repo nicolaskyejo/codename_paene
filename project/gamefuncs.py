@@ -205,6 +205,8 @@ def pull_box(item, current_room):
         our_print("Nothing happens...")
 
 
+    
+    
 #print(take(6))
 #our_print(show_items_seen(101))
 #our_print(show_inventory())
