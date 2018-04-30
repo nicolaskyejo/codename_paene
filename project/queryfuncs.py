@@ -201,8 +201,17 @@ def use_item(item_id, current_room,database=db):
     finally:
         cursor.close()
 
-#use_item(10, 101)
+def drop_item(item_id,room_id,database=db):
+    try:
+        query1 = "UPDATE Item SET Inventory = FALSE WHERE Item_id = " + str(item_id) 
+        query2 = "UPDATE Item SET room_id = " + str(room_id) + "WHERE Item_Id = " + str(item_id) 
+        cursor = database.cursor()
+        cursor.execute(query1)
+        cursor.execute(query2)
+
+    except mysql.connector.Error as e:
+        print(e)
+
+    finally:
+        cursor.close() 
    
-#print(if_item_used(6))
-#print(get_items_inventory())
-#print(item_description(1))

@@ -147,6 +147,7 @@ def quit():
             print("Exiting...")
             sys.exit()
         elif answer == 'n' or answer == 'no':
+            print("Returning to game...") 
             break    
         else:
             print("Please Enter Y or N")    
@@ -204,11 +205,11 @@ def pull_box(item, current_room):
     else:
         our_print("Nothing happens...")
 
+def drop(item):
+    item_id = item_id_from_name(item)
+    if item_id in get_items_inventory():
+        print ("" + str(item) + " dropped...\n")
+    else:
+        print("I cannot drop that.\n") 
 
-#print(take(6))
-#our_print(show_items_seen(101))
-#our_print(show_inventory())
-#examine(3)
-#quit()
-#take(1)
-#look(101)
+

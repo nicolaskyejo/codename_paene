@@ -26,21 +26,21 @@ def cutscene_2():
     print("Doctor: Please don’t kill me!!! I'm useful alive!")
     print("Doctor: I know this looks bad but We are actually helping people here. I don't know why Buchwald chose you, perhaps He thinks you wasted your life with sin.\n")
     
-    print('(He spoke with a hint of german accent\n')
+    print('(He spoke with a hint of german accent)\n')
     
     print("Verner: Buchwald?\n")
     
-    print("Doctor: Doctor Buchwald is our leader here, he is the one who gave the order to bring you for ah... I mean you know ah... \
-    First let me introduce myself, my name is Doctor Eisenberg, Reinhold Eisenberg. \n")
+    print("Doctor: Doctor Buchwald is our leader here, he is the one who gave the order to bring you for ah... I mean you know ah... " \
+    "First let me introduce myself, my name is Doctor Eisenberg, Reinhold Eisenberg. \n")
 
     print('(He looks nervous)\n')
     
-    print("Eisenberg: I think it is better if you speak with him rather than me. He is at the top floor of this building, but you can't enter without a key.\
-    Luckily I have one of the keys too. Here take it! No need to thank me!\n")
+    print("Eisenberg: I think it is better if you speak with him rather than me. He is at the top floor of this building, but you can't enter without a key."\
+    "Luckily I have one of the keys too. Here take it! No need to thank me!\n")
     
     print('(He hands me a simple key)\n')
     
-    print('Eisenberg: Well uuh... I can\'t offer anymore help. I must continue my work. ')
+    print('Eisenberg: Well uuh... I can\'t offer anymore help. I must continue my work. \n')
     
 def cutscene_3():
     print(
@@ -48,27 +48,28 @@ def cutscene_3():
 
     print("Verner: …\n")
 
-    print("Buchwald: Before you make any rash decision, hear me out first.")
+    print("Buchwald: Before you make any rash decision, hear me out first.\n")
     
 def ending_1():         #kill B
     print("")    
     
 def ending_2():         #forgive B
-    print("") 
-    
+    print("I wish to get out of this depressive land. Perhaps I'll go to the east and have a fresh start there.") 
+    print("Perhaps live an honest life for once. Won't that be great?")
 def ending_3():         #light building on F
-    print("")     
+    print("They paid for their crimes in full. The fire will wash their souls clean")  
+    print("The innocent are guilty too, guilty of accepting what is not theirs.\n")   
     
 def ending_4():         #Escape before X
-    print("Necessity is the mother of ingeniousness. You solve your problems with a touch of craftiness. ") 
+    print("Necessity is the mother of ingeniousness. You solve your problems with a touch of craftiness. \n") 
         
 def ending_5():         #harakiri
-    print("Sometimes the most interesting thing you can do with your life is end it. It is your own choice. May death bring you peace you never had.")         
+    print("Sometimes the most interesting thing you can do with your life is end it. It is your own choice. May death bring you peace you never had.\n")         
 
 def death_msg():
-    print("Rest in peace...\n")
-    print("GAME OVER")
+    print("\t\tRest in peace...\n")
+    print("\t\tGAME OVER\n")
     
 def the_end():
-    print('Congratulations!\n')
-    print('You finished the game. Explore additional endings by trying alternative paths')
+    print('\t\tCongratulations!\n')
+    print('\t\tYou finished the game. Explore additional endings by trying alternative paths\n')
