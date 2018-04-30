@@ -111,23 +111,23 @@ def go(current_room: str, room_to_move: str):
 
 
 def commands():
-    allcommands = [["enter", "e", "go"],
-                   ["examine", "x"],
+    allcommands = [["enter", "e", "go"],    #done
+                   ["examine", "x"],    #done
                    ["leave", "exit"],
-                   ["quit", "q"],
-                   ["push"],
-                   ["take","pick"],
-                   ["inventory", "i"],
+                   ["quit", "q"],   #done
+                   ["push"],    #done ?
+                   ["take","pick"], #done
+                   ["inventory", "i"],  #done
                    ["kick"],
                    ["search"],
-                   ["look"],
+                   ["look"],    #done
                    ["use"],
                    ["up"],
                    ["down", "d"],
-                   ["credits"],
-                   ["license"],
-                   ["help"],
-                   ["clear", "c"]]
+                   ["credits"], #done
+                   ["license"], #done
+                   ["help"],    #done
+                   ["clear", "c"]]  #done
 
     return allcommands
 
@@ -226,9 +226,12 @@ def search(item, current_room, database=db):
 
 
 
+    
+    
 #print(take(6))
 #our_print(show_items_seen(101))
 #our_print(show_inventory())
 #examine(3)
 #quit()
 #take(1)
+#look(101)
