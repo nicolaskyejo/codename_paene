@@ -139,7 +139,7 @@ INSERT INTO Texti VALUES("A corridor with two rooms. On the east side, the build
 INSERT INTO Texti VALUES("Goosebumps go through my spine, this room looks exactly the same as the one I woke up in. There's a faint eerie creaking noise.",201); 
 INSERT INTO Texti VALUES("Oh shit! There's someone inside and he doesn't look happy at all.",202); 
 INSERT INTO Texti VALUES("Ough... The door handle wont budge.",203); 
-INSERT INTO Texti VALUES("This room is completely empty and fairly bright, the window is only sealed with barb wire. Maybe I could get through this with something.",204); 
+INSERT INTO Texti VALUES("This room is completely empty and fairly bright, the window is sealed with barb wire. Maybe I could get through this with something.",204); 
 INSERT INTO Texti VALUES("The door wont open! Feels like it has been sealed from the other side.",205); 
 INSERT INTO Texti VALUES("Something horrible must have had happened here. The smell is horrendous and the entire room is filled with trash. \
 Ough wtf! I stepped on something wet.",206); 
@@ -185,13 +185,13 @@ INSERT INTO Item VALUES (12, "Noticeboard", FALSE, NULL, 104, "A noticeboard. It
 INSERT INTO Item VALUES (13, "Paper", TRUE,  NULL, 104, "A piece of worn out, crumbled paper.. there's something written on it.",FALSE, NULL);
 
 INSERT INTO Item VALUES (24, "Drawer", FALSE,  NULL, 105, "A dark lacquered wooden drawer.",FALSE, NULL);
-INSERT INTO Item VALUES (31, "", FALSE, NULL, 105, "Internet Memes evolving as a form of metalanguage.",FALSE, NULL);
+INSERT INTO Item VALUES (31, "Torn out magazine title", TRUE, NULL, 105, "Internet Memes evolving as a form of metalanguage.",FALSE, NULL);
 
 INSERT INTO Item VALUES (17, "Sink", FALSE,  NULL, 107, "A small stained sink with rusted pipes under it.",FALSE, NULL);
 INSERT INTO Item VALUES (14, "Stretcher", FALSE,  NULL, 107, "An apparatus for moving patients.. or bodies.",FALSE, NULL);
 
 INSERT INTO Item VALUES (25, "Bookshelf", FALSE,  NULL, 108, "A large bookshelf filled with different books and documents.",FALSE, NULL);
-INSERT INTO Item VALUES (26, "A book", FALSE,  NULL, 108, "On the cover there's a picture of something that faintly resembles a snake.\
+INSERT INTO Item VALUES (26, "A book", TRUE,  NULL, 108, "On the cover there's a picture of something that faintly resembles a snake.\
 I can't open the book, the pages seem to be stuck together.",FALSE, NULL);
 
 INSERT INTO Item VALUES (15, "Window", FALSE,  NULL, 110, "A window with metal bars blocking anyone from going through.",FALSE, NULL);
@@ -200,8 +200,8 @@ INSERT INTO Item VALUES (2, "Lighter", TRUE,  NULL, 201, "It's an old zippo.",TR
 INSERT INTO Item VALUES (18, "Office chair", FALSE,NULL, 201, "A dirty navy blue office chair, looks uncomfortable to sit in.", FALSE, NULL);
 
 
-INSERT INTO Item VALUES (8, "Radiophone", FALSE, NULL, 202, "I wonder if this thing still works.",TRUE, NULL);
-INSERT INTO Item VALUES (23, "A dusty diary with a bookmarked page", FALSE,NULL, 202, "THIS is thy hour O Soul, thy free flight into the wordless,\
+INSERT INTO Item VALUES (8, "Radiophone", TRUE, NULL, 202, "I wonder if this thing still works.",TRUE, NULL);
+INSERT INTO Item VALUES (23, "A dusty diary with a bookmarked page", TRUE,NULL, 202, "THIS is thy hour O Soul, thy free flight into the wordless,\
 	Away from books, away from art, the day erased, the lesson done,\
 	Thee fully forth emerging, silent, gazing, pondering the themes thou,\
 	lovest best.\
@@ -210,8 +210,8 @@ INSERT INTO Item VALUES (23, "A dusty diary with a bookmarked page", FALSE,NULL,
 	
 INSERT INTO Item VALUES (16, "Water dispenser",FALSE, NULL, 210, "An empty water dispenser sits next to the stairway.",FALSE, NULL);
 
-INSERT INTO Item VALUES (9, "Ethanol", FALSE,  NULL, 304, "I’d love to drink this... But I probably shouldn’t.",TRUE, NULL);
-INSERT INTO Item VALUES (30, "", FALSE, NULL, 304, "Euthanasia: Is it ethical to help people die?",FALSE, NULL);
+INSERT INTO Item VALUES (9, "Ethanol", TRUE,  NULL, 304, "I’d love to drink this... But I probably shouldn’t.",TRUE, NULL);
+INSERT INTO Item VALUES (30, "A torn piece from a journal", TRUE, NULL, 304, "Euthanasia: Is it ethical to help people die?",FALSE, NULL);
 
 INSERT INTO Item VALUES (19, "An old looking magazine cutout", FALSE, NULL, 307, "River water turning frogs gay?\
 		How governments are a haven for satanic cults. Read feature on page 5! \
@@ -221,11 +221,11 @@ INSERT INTO Item VALUES (21, "Table", FALSE, NULL, 307, "A dingy table that look
 INSERT INTO Item VALUES (22, "MRI", FALSE, NULL, 307, "This look like an old Magnetic Resonance machine", FALSE, NULL);
 INSERT INTO Item VALUES (5, "Knife", TRUE,  NULL, 307, "It’s a bit dull, but it should still get the job done.",TRUE, NULL);
 
-INSERT INTO Item VALUES (7, "Gasoline Tank", FALSE, NULL, 401, "It seems to have at least half a gallon left.",TRUE, NULL);
-INSERT INTO Item VALUES (27, "Medical book", FALSE, NULL, 401, "Grays Anatomy the Anatomical Basis of Clinical Practice 41st Edition",FALSE, NULL);
+INSERT INTO Item VALUES (7, "Gasoline Tank", TRUE, NULL, 401, "It seems to have at least half a gallon left.",TRUE, NULL);
+INSERT INTO Item VALUES (27, "Medical book", TRUE, NULL, 401, "Grays Anatomy the Anatomical Basis of Clinical Practice 41st Edition",FALSE, NULL);
 
-INSERT INTO Item VALUES (28, "Robotics book", FALSE, NULL, 306, "Robotic Surgery Guide 1st Edition",FALSE, NULL);
-INSERT INTO Item VALUES (29, "An old scientific journal", FALSE, NULL, 306, "'Sugar: The white devil' reads on the cover",FALSE, NULL);
+INSERT INTO Item VALUES (28, "Robotics book", TRUE, NULL, 306, "Robotic Surgery Guide 1st Edition",FALSE, NULL);
+INSERT INTO Item VALUES (29, "An old scientific journal", TRUE, NULL, 306, "'Sugar: The white devil' reads on the cover",FALSE, NULL);
 
 
 	
