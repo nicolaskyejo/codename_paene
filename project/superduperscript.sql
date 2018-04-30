@@ -169,20 +169,26 @@ INSERT INTO Texti VALUES("This room is really clean. There's someone sleeping in
 # ROOMS THAT CANNOT BE ENTERED: 105,106, 108, 203, 205, 207, 301, 303, 402
 #LETS MAKE A FUNCTION FOR THE PLAYER TO DECIDE IF HE ENTERS ROOM 306.
 
+
+
 # [Item] # 23+ items   #(id,name,hidden,inventory,room_id,desc,pickable,used)
-INSERT INTO Item VALUES (6, "Scalpel", TRUE, TRUE, 101, "Sharp, a tool used in surgery.",TRUE, FALSE);
+INSERT INTO Item VALUES (32+1, "Scalpel", TRUE, TRUE, 101, "Sharp, a tool used in surgery.",TRUE, FALSE);
+
 INSERT INTO Item VALUES (1, "Cigarette", TRUE, TRUE, 101, "Strange that they didn't take these cigarettes from me.",TRUE, NULL);
 INSERT INTO Item VALUES (10, "Box", FALSE,  NULL, 101, "A cardboard box full of old medical books.",FALSE, FALSE);
 INSERT INTO Item VALUES (100, "Vent", FALSE, NULL, 101, "A big air vent. It has a metal cover, held in place by screws in its four corners.", FALSE, NULL);
 INSERT INTO Item VALUES (101, "Vent", TRUE, NULL, 101, "An opened air vent. It is big enough for a person to pass through.", FALSE, NULL);
+
+INSERT INTO Item VALUES (102, "Tray", FALSE, NULL, 101, "A small metal table with a tray on it. ", FALSE, NULL);
+
 INSERT INTO Item VALUES (32, "Medical Table", FALSE, NULL, 101, "A medical table with sharp instruments.", FALSE, NULL);
 
-INSERT INTO Item VALUES (11, "Drawer", FALSE,  NULL, 102, "A dark lacquered wooden drawer.",FALSE, NULL);
-INSERT INTO Item VALUES (3, "Painkillers", TRUE,  NULL, 102, "I should probably take these...",TRUE, NULL);
+INSERT INTO Item VALUES (3, "Drawer", FALSE,  NULL, 102, "A dark lacquered wooden drawer.",FALSE, NULL);
+INSERT INTO Item VALUES (3+1, "Painkillers", TRUE,  NULL, 102, "I should probably take these...",FALSE, NULL);
 
-INSERT INTO Item VALUES (4, "Metal Pipe", TRUE, NULL, 104, "Maybe I could crack something with this.",TRUE, NULL);
+INSERT INTO Item VALUES (11, "Metal Pipe", TRUE, NULL, 104, "Maybe I could crack something with this.",TRUE, NULL);
 INSERT INTO Item VALUES (12, "Noticeboard", FALSE, NULL, 104, "A noticeboard. It is filled with post-it notes and pinned papers.",FALSE, NULL);
-INSERT INTO Item VALUES (13, "Paper", TRUE,  NULL, 104, "A piece of worn out, crumbled paper.. there's something written on it.",FALSE, NULL);
+INSERT INTO Item VALUES (12+1, "Paper", TRUE,  NULL, 104, "A piece of worn out, crumbled paper.. there's something written on it.",FALSE, NULL);
 
 INSERT INTO Item VALUES (24, "Drawer", FALSE,  NULL, 105, "A dark lacquered wooden drawer.",FALSE, NULL);
 INSERT INTO Item VALUES (31, "Torn out magazine title", TRUE, NULL, 105, "Internet Memes evolving as a form of metalanguage.",FALSE, NULL);
@@ -191,7 +197,7 @@ INSERT INTO Item VALUES (17, "Sink", FALSE,  NULL, 107, "A small stained sink wi
 INSERT INTO Item VALUES (14, "Stretcher", FALSE,  NULL, 107, "An apparatus for moving patients.. or bodies.",FALSE, NULL);
 
 INSERT INTO Item VALUES (25, "Bookshelf", FALSE,  NULL, 108, "A large bookshelf filled with different books and documents.",FALSE, NULL);
-INSERT INTO Item VALUES (26, "A book", TRUE,  NULL, 108, "On the cover there's a picture of something that faintly resembles a snake.\
+INSERT INTO Item VALUES (25+1, "A book", TRUE,  NULL, 108, "On the cover there's a picture of something that faintly resembles a snake.\
 I can't open the book, the pages seem to be stuck together.",FALSE, NULL);
 
 INSERT INTO Item VALUES (15, "Window", FALSE,  NULL, 110, "A window with metal bars blocking anyone from going through.",FALSE, NULL);
@@ -217,9 +223,9 @@ INSERT INTO Item VALUES (19, "An old looking magazine cutout", FALSE, NULL, 307,
 		How governments are a haven for satanic cults. Read feature on page 5! \
 		Bilderberg group wants to turn you into a slave. Resist now!", FALSE, NULL);
 INSERT INTO Item VALUES (20, "Table", FALSE, NULL, 307, "A dingy table with what appears to be a knife on it.", FALSE, NULL);
-INSERT INTO Item VALUES (21, "Table", FALSE, NULL, 307, "A dingy table that looks like it was damaged by fire.", FALSE, NULL);
+INSERT INTO Item VALUES (20+1, "Knife", TRUE,  NULL, 307, "It’s a bit dull, but it should still get the job done.",TRUE, NULL);
+INSERT INTO Item VALUES (5, "Table", FALSE, NULL, 307, "A dingy table that looks like it was damaged by fire.", FALSE, NULL);
 INSERT INTO Item VALUES (22, "MRI", FALSE, NULL, 307, "This look like an old Magnetic Resonance machine", FALSE, NULL);
-INSERT INTO Item VALUES (5, "Knife", TRUE,  NULL, 307, "It’s a bit dull, but it should still get the job done.",TRUE, NULL);
 
 INSERT INTO Item VALUES (7, "Gasoline Tank", TRUE, NULL, 401, "It seems to have at least half a gallon left.",TRUE, NULL);
 INSERT INTO Item VALUES (27, "Medical book", TRUE, NULL, 401, "Grays Anatomy the Anatomical Basis of Clinical Practice 41st Edition",FALSE, NULL);

@@ -103,6 +103,7 @@ def go(current_room: str, room_to_move: str):
 
     if room_to_move in room_list_returner(current_room):
         our_print(show_room(room_to_move))
+
         return room_to_move
     else:
         print("You can't go there.")
@@ -183,14 +184,17 @@ def use_item_scalpel(database=db):
         box_id = item_id_from_name("box")
 
         if if_item_used(box_id) == True:
-            query="DELETE FROM Item WHERE Item_id=100"
+            query1="DELETE FROM Item WHERE Item_id=100"
             query2="UPDATE Item SET Hidden=FALSE WHERE Item_id=101"
+            query3="UPDATE Room SET Locked=FALSE WHERE Room_id=102"
             cursor = database.cursor()
 
-            cursor.execute(query)
+            cursor.execute(query1)
             cursor.execute(query2)
+            cursor.execute(query3)
 
-            our_print("I get on top of the box, and use the scalpel as a screw driver to open the air vent. ")
+            our_print("I get on top of the box, and use the scalpel as a screw driver to open the air vent. "\
+                      "I could enter here...")
         else:
             our_print("I have nothing to use it on...")
     else:
@@ -205,6 +209,7 @@ def pull_box(item, current_room):
     else:
         our_print("Nothing happens...")
 
+
 def drop(item):
     item_id = item_id_from_name(item)
     if item_id in get_items_inventory():
@@ -212,4 +217,26 @@ def drop(item):
     else:
         print("I cannot drop that.\n") 
 
+
+
+def search(item, current_room, database=db):
+    item_id = item_id_from_name(item)
+    items = get_id_items_of_room(current_room)
+    item_to_find = item_id+1
+
+    if item_to_find in items:
+        query = "UPDATE Item SET Hidden = FALSE AND Pickable = TRUE WHERE Item_id = " + str(item_to_find)
+        cursor = database.cursor()
+        cursor.execute(query)
+        our_print("I found something...")
+        cursor.close()
+
+    else:
+        our_print("I didn't find anything.")
+
+
+
+
+    
+    
 
