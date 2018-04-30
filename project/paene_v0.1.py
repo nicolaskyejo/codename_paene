@@ -15,19 +15,20 @@ if __name__ == '__main__':
     #p.play()
     #p.stop()
     cutscene_1()
-    current_room = 101
+    current_room = 101    #Position in game, indicated by current_room
     our_print(show_room(current_room))
 
-    while True:
-        players_input = get_user_input(str(input()))
+    while True: #Actual process of the game, loops until quit
+        players_input = get_user_input(str(input()))   #list of inputs. [0] is the command, [-1] is the object.
 
         if players_input[0] in ["go", "enter", "e"]:
-            if players_input[-1] in ["vent", "duct"] and current_room == 101 and door_open(102) == True:
+            print(players_input[-1])
+            print(room_list_returner(current_room))
+            if players_input[-1] in ["vent", "duct"] and current_room == 101 and door_open(102) == True: #Vent problem, can pass if these things are correct
                 our_print("I climb to the air duct and begin crawling. After a while I end up in a new room.")
                 current_room = 102
                 our_print(show_room(current_room))
-
-            elif players_input[-1] in room_list_returner(current_room):
+            elif int(players_input[-1]) in room_list_returner(current_room):
                 current_room = go(current_room, players_input[-1])
             else:
                 our_print("I can't go there...")
@@ -56,7 +57,7 @@ if __name__ == '__main__':
             our_print(inventory())
         elif players_input[0] in ["look"]:
             our_print(look(current_room))
+        elif players_input[0] in ["drop"]:
+            drop(players_input[-1])
     
-
-
 db.rollback()

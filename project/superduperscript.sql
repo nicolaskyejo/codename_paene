@@ -181,7 +181,7 @@ INSERT INTO Item VALUES (101, "Vent", TRUE, NULL, 101, "An opened air vent. It i
 
 INSERT INTO Item VALUES (102, "Tray", FALSE, NULL, 101, "A small metal table with a tray on it. ", FALSE, NULL);
 
-INSERT INTO Item VALUES (32, "Medical Table", FALSE, NULL, 101, "A medical table with sharp instruments.", FALSE, NULL);
+INSERT INTO Item VALUES (32, "Medical", FALSE, NULL, 101, "A medical table with sharp instruments.", FALSE, NULL);
 
 INSERT INTO Item VALUES (3, "Drawer", FALSE,  NULL, 102, "A dark lacquered wooden drawer.",FALSE, NULL);
 INSERT INTO Item VALUES (3+1, "Painkillers", TRUE,  NULL, 102, "I should probably take these...",FALSE, NULL);

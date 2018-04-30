@@ -205,7 +205,7 @@ def item_name_from_id(item_id, database=db):
         cursor.close()
         return id[0]
 
-def use_item(item_id, current_room,database=db):
+def use_item(item_id, current_room,database=db): #Changes Used to True if item not hidden, in the same room, item id matches
     try:
         query = "UPDATE Item SET Used = TRUE WHERE Used = FALSE AND room_id = {0} AND Hidden = FALSE AND item_id = {1};".format(
             str(current_room), str(item_id))
@@ -233,7 +233,7 @@ def drop_item(item_id,room_id,database=db):
     finally:    
         cursor.close() 
 
-def door_open(room_id, database=db):
+def door_open(room_id, database=db):                    #returns True if door is not locked
     result = False
     try:
         query = "SELECT Locked FROM Room WHERE room_id =" + str(room_id) + " AND Locked = FALSE"
@@ -248,6 +248,3 @@ def door_open(room_id, database=db):
     finally:
         cursor.close()
         return result
-
-
-   

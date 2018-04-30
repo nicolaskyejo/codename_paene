@@ -187,14 +187,17 @@ def use_item_scalpel(database=db):
             query1="DELETE FROM Item WHERE Item_id=100"
             query2="UPDATE Item SET Hidden=FALSE WHERE Item_id=101"
             query3="UPDATE Room SET Locked=FALSE WHERE Room_id=102"
+            query4="UPDATE Room SET Locked=FALSE WHERE Room_id=100"
+
             cursor = database.cursor()
 
             cursor.execute(query1)
             cursor.execute(query2)
             cursor.execute(query3)
-
+            cursor.execute(query4)
             our_print("I get on top of the box, and use the scalpel as a screw driver to open the air vent. "\
                       "I could enter here...")
+            cursor.close()
         else:
             our_print("I have nothing to use it on...")
     else:
@@ -233,6 +236,8 @@ def search(item, current_room, database=db):
 
     else:
         our_print("I didn't find anything.")
+
+
 
 
 
