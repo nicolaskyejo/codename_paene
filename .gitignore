@@ -12,3 +12,7 @@ t.py
 gamefuncs.py*
 queryfuncs.py*
 cutscenes.py*
+.gamefuncs.py*
+.queryfuncs.py*
+.cutscenes.py*
+
