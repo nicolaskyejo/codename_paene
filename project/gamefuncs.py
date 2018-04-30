@@ -55,7 +55,8 @@ def help():
                         "Kick {object}.", "Use {item}. Uses item found in your inventory.",
                         "Push {object}. Pushes object, useful for a short puzzle.",
                         "Look. Looks around your environment and reports what you see.",
-                        "Search {object}. Probes object to more."]
+                        "Search {object}. Searches object to find if there is something.",
+                        "Drop {object}. Leaves object on the ground."]
     print("The game commands are listed in the form Command (shortform) {options}")
 
     for commands in list_of_commands:
@@ -115,19 +116,21 @@ def commands():
                    ["examine", "x"],    #done
                    ["leave", "exit"],
                    ["quit", "q"],   #done
-                   ["push"],    #done ?
+                   ["push"],    #done 
                    ["take","pick"], #done
                    ["inventory", "i"],  #done
                    ["kick"],
                    ["search"],
                    ["look"],    #done
                    ["use"],
-                   ["up"],
+                   ["up", "u"],
                    ["down", "d"],
                    ["credits"], #done
                    ["license"], #done
                    ["help"],    #done
-                   ["clear", "c"]]  #done
+                   ["clear", "c"],#done
+                   ["drop"] #done
+                   ]  
 
     return allcommands
 
@@ -213,9 +216,10 @@ def pull_box(item, current_room):
         our_print("Nothing happens...")
 
 
-def drop(item):
+def drop(item,current_room):
     item_id = item_id_from_name(item)
     if item_id in get_items_inventory():
+        drop_item(item_id,current_item)
         print ("" + str(item) + " dropped...\n")
     else:
         print("I cannot drop that.\n") 
