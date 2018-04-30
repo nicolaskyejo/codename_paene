@@ -80,7 +80,7 @@ def show_room(current_room: int, database=db):
 def item_pick(id: int, database=db):
     try:
         cursor = database.cursor()
-        query = "UPDATE Item SET Character_id = 1 WHERE Item_id = " + str(id) + " AND Pickable = TRUE"
+        query = "UPDATE Item SET Inventory = 1 WHERE Item_id = " + str(id) + " AND Pickable = TRUE AND Hidden = FALSE"
         cursor.execute(query)
         
     except mysql.connector.Error as e:
@@ -105,7 +105,24 @@ def get_items_of_room(room_id, database=db):
 
     finally:
         cursor.close()
-        return item_names       
+        return item_names
+
+def get_id_items_of_room(room_id, database=db):
+    try:
+        query = "SELECT item_id FROM Item WHERE Room_id = " + str(room_id)
+        cursor = database.cursor()
+        cursor.execute(query)
+
+        item_names=[]
+        for name in cursor.fetchall():
+            item_names.append(name[0])
+
+    except mysql.connector.Error as e:
+        print(e)
+
+    finally:
+        cursor.close()
+        return item_names
      
 def item_description(id: int, database=db):
     try:
@@ -200,6 +217,23 @@ def use_item(item_id, current_room,database=db):
 
     finally:
         cursor.close()
+
+def door_open(room_id, database=db):
+    result = False
+    try:
+        query = "SELECT Locked FROM Room WHERE room_id =" + str(room_id) + " AND Locked = FALSE"
+        cursor = database.cursor()
+        cursor.execute(query)
+
+        if len(cursor.fetchall()) == 1:
+            result = True
+    except mysql.connector.Error as e:
+        print(e)
+
+    finally:
+        cursor.close()
+        return result
+
 
 #use_item(10, 101)
    
