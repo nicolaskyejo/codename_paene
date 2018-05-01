@@ -43,7 +43,7 @@ if __name__ == '__main__':
             item_id = item_id_from_name(players_input[-1])
             our_print(examine(item_id))
 
-        elif players_input[0] in ["pull"]:
+        elif players_input[0] in ["push"]:
             pull_box(players_input[-1], current_room)
 
         elif players_input[0] in ["quit", "q"]:
@@ -67,6 +67,12 @@ if __name__ == '__main__':
             help()
             
         elif players_input[0] in ["license"]:
-            license()    
+            license()   
+        
+        #elif players_input[0] in ["up","u"]:
+        #    up(current_room)
+            
+        #elif players_input[0] in ["down","d"]:
+        #    down(current_room)    
     
 db.rollback()

@@ -215,12 +215,12 @@ def use_item_scalpel(database=db):
     else:
         our_print("I do not have that item.")
 
-def pull_box(item, current_room):
+def push_box(item, current_room):
     if item == "box":
         if current_room == 101:
             item_id = item_id_from_name(item)
             use_item(10, 101)
-            our_print("I pull the box under the air vent.")
+            our_print("I push the box under the air vent.")
     else:
         our_print("Nothing happens...")
 
@@ -228,7 +228,7 @@ def pull_box(item, current_room):
 def drop(item, current_room):
     item_id = item_id_from_name(item)
     if item_id in get_items_inventory():
-        drop_item(item_id,current_item)
+        drop_item(item_id,current_room)
         print ("" + str(item) + " dropped...\n")
     else:
         print("I cannot drop that.\n") 
@@ -250,16 +250,33 @@ def search(item, current_room, database=db):
     else:
         our_print("I didn't find anything.")
         
-def up(current_room):
-    #stairs = room_list_returner(current_room)
-    #if 200
-    pass
+#def up(current_room):
+#    stairs = room_list_returner(current_room)
+#    if 200 in stairs:
+#        go(current_room,200)
+#    elif 300 in stairs:
+#        go(current_room,300)    
+#    elif 400 in stairs:
+#        go(current_room,400)    
+#    else:
+#        print("I cannot go up from here...")
     
-def down(current_room):
-    pass          
+#def down(current_room):
+#    stairs = room_list_returner(current_room)
+#    if 400 in stairs:
+#        go(current_room,300)
+#    elif 300 in stairs:
+#        go(current_room,200)    
+#    elif 200 in stairs:
+#        go(current_room,100)    
+#    else:
+#        print("I cannot go down from here...")          
     
-def leave():  
-    pass    
+#def leave(current_room):  
+#    corridors = [100,110,200,210,300,310,400,410]
+#    rooms = room_list_returner(current_room)
+#    if current_room not in corridors:
+#            go(current_room,)
 
 
 
