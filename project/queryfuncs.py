@@ -8,7 +8,7 @@ db = mysql.connector.connect(
     buffered=True)
 
 #QUERY FUNCTIONS
-def room_list_returner(room_number: int, database=db):
+def room_list_returner(room_number, database=db):
     try:
         cursor = database.cursor()
         query = ("SELECT * FROM room_list WHERE Room_id = " + str(room_number))
@@ -17,7 +17,7 @@ def room_list_returner(room_number: int, database=db):
 
         rooms = []
         for row in cursor.fetchall():
-            rooms.append(row[1])
+            rooms.append(str(row[1]))
 
         return rooms
 
@@ -31,7 +31,7 @@ def room_list_returner(room_number: int, database=db):
 """Gets a rooms Door description, used in show_room to get both numbered and named rooms together. """
 
 
-def room_description(room: int, database=db):
+def room_description(room, database=db):
     try:
         cursor = database.cursor()
         query = "SELECT Door_description FROM Room WHERE Room_id = " + str(room)
@@ -77,7 +77,7 @@ def show_room(current_room: int, database=db):
     return showable_text
 
     
-def item_pick(id: int, database=db):
+def item_pick(id, database=db):
     try:
         cursor = database.cursor()
         query = "UPDATE Item SET Inventory = 1 WHERE Item_id = " + str(id) + " AND Pickable = TRUE AND Hidden = FALSE"
@@ -93,6 +93,23 @@ def item_pick(id: int, database=db):
 def get_items_of_room(room_id, database=db):
     try:
         query = "SELECT Name FROM Item WHERE Room_id = " + str(room_id) + " AND Hidden = FALSE"
+        cursor = database.cursor()
+        cursor.execute(query)
+
+        item_names=[]
+        for name in cursor.fetchall():
+            item_names.append(name[0].lower())
+
+    except mysql.connector.Error as e:
+        print(e)
+
+    finally:
+        cursor.close()
+        return item_names
+
+def get_all_items_of_room(room_id, database=db):
+    try:
+        query = "SELECT Name FROM Item WHERE Room_id = " + str(room_id)
         cursor = database.cursor()
         cursor.execute(query)
 

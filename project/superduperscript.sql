@@ -171,26 +171,15 @@ INSERT INTO Texti VALUES("This room is really clean. There's someone sleeping in
 
 
 # [Item] # 23+ items   #(id,name,hidden,inventory,room_id,desc,pickable,used)
-INSERT INTO Item VALUES (1, "Medical Table", FALSE, NULL, 101, "A medical table with sharp instruments.", FALSE, NULL);
-INSERT INTO Item VALUES (1+1, "Scalpel", TRUE, TRUE, 101, "Sharp, a tool used in surgery.",TRUE, FALSE);
+INSERT INTO Item VALUES (1, "Medical", FALSE, NULL, 101, "A medical table with sharp instruments.", FALSE, NULL);
+INSERT INTO Item VALUES (1+1, "Scalpel", TRUE, FALSE, 101, "Sharp, a tool used in surgery.",TRUE, FALSE);
 INSERT INTO Item VALUES (5, "Cigarette", TRUE, TRUE, 101, "Strange that they didn't take these cigarettes from me.",TRUE, NULL);
 INSERT INTO Item VALUES (8, "Box", FALSE,  NULL, 101, "A cardboard box full of old medical books.",FALSE, FALSE);
 INSERT INTO Item VALUES (100, "Vent", FALSE, NULL, 101, "A big air vent. It has a metal cover, held in place by screws in its four corners.", FALSE, NULL);
 INSERT INTO Item VALUES (101, "Vent", TRUE, NULL, 101, "An opened air vent. It is big enough for a person to pass through.", FALSE, NULL);
 
-<<<<<<< HEAD
-INSERT INTO Item VALUES (102, "Tray", FALSE, NULL, 101, "A small metal table with a tray on it. ", FALSE, NULL);
-
-INSERT INTO Item VALUES (32, "Medical", FALSE, NULL, 101, "A medical table with sharp instruments.", FALSE, NULL);
-
 INSERT INTO Item VALUES (11, "Drawer", FALSE,  NULL, 102, "A dark lacquered wooden drawer.",FALSE, NULL);
 INSERT INTO Item VALUES (11+1, "Painkillers", TRUE,  NULL, 102, "I should probably take these...",TRUE, NULL);
-
-=======
-
-INSERT INTO Item VALUES (11, "Drawer", FALSE,  NULL, 102, "A dark lacquered wooden drawer.",FALSE, NULL);
-INSERT INTO Item VALUES (11+1, "Painkillers", TRUE,  NULL, 102, "I should probably take these...",FALSE, NULL);
->>>>>>> 968b8a47bdb42a76979570e938aecdabcefcff35
 
 INSERT INTO Item VALUES (15, "Sink", FALSE,  NULL, 104, "A small stained sink with rusted pipes under it.",FALSE, NULL);
 INSERT INTO Item VALUES (15+1, "Metal Pipe", TRUE, NULL, 104, "Maybe I could crack something with this.",TRUE, NULL);

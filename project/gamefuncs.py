@@ -99,8 +99,8 @@ def clear():  # Clear console
 
 
 def go(current_room: str, room_to_move: str):
-    current_room = int(current_room)
-    room_to_move = int(room_to_move)
+    current_room = current_room
+    room_to_move = room_to_move
 
     if room_to_move in room_list_returner(current_room):
         our_print(show_room(room_to_move))
@@ -249,17 +249,15 @@ def use(item_name, room_id, database=db):
         item_id = item_id_from_name(item_name)
 
         if item_id in inventory:
-            if if_item_used() == False:
+            if if_item_used(item_id) == False:
                 our_print("I swallowed the painkillers. I'm starting to feel a bit better...")
                 query1 = "UPDATE Item SET Used = TRUE WHERE item_id = " + str(item_id)
                 query2 = "UPDATE Item SET Hidden = TRUE WHERE item_id = " + str(item_id)
-                query3 = "UPDATE Item SET Inventory = FALSE WHERE item_id" + str(item_id)
 
                 cursor = database.cursor()
 
                 cursor.execute(query1)
                 cursor.execute(query2)
-                cursor.execute(query3)
                 cursor.close()
 
     elif item_name == "scalpel":
