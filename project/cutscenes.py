@@ -41,6 +41,24 @@ def cutscene_2():
     print('(He hands me a simple key)\n')
     
     print('Eisenberg: Well uuh... I can\'t offer anymore help. I must continue my work. \n')
+
+
+def cutscene_100win():      #After you win the first fight
+    print('Verner: Do you have any last words before I end your miserable life?\n')
+    print('Guard: Quiet fool! You will regret leaving that room.\n')
+    print("Verner: We will see about that! \n")
+    print('(I end the fight with a couple swift strikes.)\n')
+    print('What a pushover..')
+
+def cutscene_100lose():      #After you lose the first fight
+    print('Ughh.. Am I really this weak?')
+    print('I find myself laying on the ground.')
+    print('I can not move my legs. Maybe this is the end.. \n')
+
+    
+    print("\t\tRest in peace...\n")
+    print("\t\tGAME OVER\n")
+
     
 def cutscene_3():
     print(
@@ -51,7 +69,10 @@ def cutscene_3():
     print("Buchwald: Before you make any rash decision, hear me out first.\n")
     
 def ending_1():         #kill B
-    print("")    
+    print("Verner: I know we all do questionable things to survive in this god forsaken wasteland.. But even then, a filth like you doesn't deserve to live.\n")
+    print("Dr. Buchwald: NOOoo don't do it!\n")
+    print("Verner: This is the end of the line for you Doctor.")
+    
     
 def ending_2():         #forgive B
     print("I wish to get out of this depressive land. Perhaps I'll go to the east and have a fresh start there.") 
