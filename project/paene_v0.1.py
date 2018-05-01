@@ -19,23 +19,21 @@ if __name__ == '__main__':
     our_print(show_room(current_room))
 
     while True: #Actual process of the game, loops until quit
-        players_input = get_user_input(str(input()))   #list of inputs. [0] is the command, [-1] is the object.
+        players_input = get_user_input(str(input("> ")))   #list of inputs. [0] is the command, [-1] is the object.
 
         if players_input[0] in ["go", "enter", "e"]:
-            print(players_input[-1])
-            print(room_list_returner(current_room))
             if players_input[-1] in ["vent", "duct"] and current_room == 101 and door_open(102) == True: #Vent problem, can pass if these things are correct
                 our_print("I climb to the air duct and begin crawling. After a while I end up in a new room.")
                 current_room = 102
                 our_print(show_room(current_room))
-            elif int(players_input[-1]) in room_list_returner(current_room):
+
+            elif int(players_input[-1]) in room_list_returner(current_room) and door_open(int(players_input[-1])) == True:
                 current_room = go(current_room, players_input[-1])
             else:
                 our_print("I can't go there...")
 
         elif players_input[0] in ["use"]:
-            if players_input[-1] in ["scalpel"]:
-                use_item_scalpel()
+            use(players_input[-1], current_room)
 
         elif players_input[0] in ["search"]:
             search(players_input[-1], current_room)
@@ -51,7 +49,6 @@ if __name__ == '__main__':
             quit()
         elif players_input[0] in ["take", "pick"]:
             take_item_id = item_id_from_name(players_input[-1])
-            our_print("I pick up " + players_input[-1])
             take(take_item_id)
         elif players_input[0] in ["inventory", "i"]:
             our_print(inventory())

@@ -185,6 +185,7 @@ def use_item_scalpel(database=db):
 
     if scalpel_id in items:
         box_id = item_id_from_name("box")
+        print(if_item_used(box_id))
 
         if if_item_used(box_id) == True:
             query1="DELETE FROM Item WHERE Item_id=100"
@@ -208,9 +209,9 @@ def use_item_scalpel(database=db):
 
 def pull_box(item, current_room):
     if item == "box":
-        if current_room == 101:
-            item_id = item_id_from_name(item)
-            use_item(10, 101)
+        box_id = item_id_from_name("box")
+        if current_room == 101 and if_item_used(box_id) == False:
+            use_item(box_id, 101)
             our_print("I pull the box under the air vent.")
     else:
         our_print("Nothing happens...")
@@ -240,6 +241,55 @@ def search(item, current_room, database=db):
 
     else:
         our_print("I didn't find anything.")
+
+def use(item_name, room_id, database=db):
+    inventory = get_items_inventory()
+
+    if item_name == "painkillers":
+        item_id = item_id_from_name(item_name)
+
+        if item_id in inventory:
+            if if_item_used() == False:
+                our_print("I swallowed the painkillers. I'm starting to feel a bit better...")
+                query1 = "UPDATE Item SET Used = TRUE WHERE item_id = " + str(item_id)
+                query2 = "UPDATE Item SET Hidden = TRUE WHERE item_id = " + str(item_id)
+                query3 = "UPDATE Item SET Inventory = FALSE WHERE item_id" + str(item_id)
+
+                cursor = database.cursor()
+
+                cursor.execute(query1)
+                cursor.execute(query2)
+                cursor.execute(query3)
+                cursor.close()
+
+    elif item_name == "scalpel":
+        item_id = item_id_from_name(item_name)
+
+        if item_id in inventory:
+            box_id = item_id_from_name("box")
+
+            if if_item_used(box_id) == True:
+                query1="DELETE FROM Item WHERE Item_id=100"
+                query2="UPDATE Item SET Hidden=FALSE WHERE Item_id=101"
+                query3="UPDATE Room SET Locked=FALSE WHERE Room_id=102"
+                query4="UPDATE Room SET Locked=FALSE WHERE Room_id=100"
+
+                cursor = database.cursor()
+
+                cursor.execute(query1)
+                cursor.execute(query2)
+                cursor.execute(query3)
+                cursor.execute(query4)
+                our_print("I get on top of the box, and use the scalpel as a screw driver to open the air vent. "\
+                          "I could enter here...")
+                cursor.close()
+            else:
+                our_print("I have nothing to use it on...")
+        else:
+            our_print("I do not have that item.")
+    else:
+        our_print("I can't do that.")
+
 
 
 
