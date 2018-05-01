@@ -5,21 +5,20 @@
 #  
 #  Copyright 2018 Oliver, Nicolas & Lauri
 #
-##### PREAMBLE #####  
+##### PREAMBLE #####
+import os  
 from gamefuncs import *
 from queryfuncs import *
 from cutscenes import *
 # # # [MAIN PROGRAM] # # #
 if __name__ == '__main__':
-    #p = vlc.MediaPlayer("Blindspot.mp3")
-    #p.play()
-    #p.stop()
+    os.system('Blindspot.mp3')
     cutscene_1()
     current_room = 101    #Position in game, indicated by current_room
     our_print(show_room(current_room))
 
     while True: #Actual process of the game, loops until quit
-        players_input = get_user_input(str(input()))   #list of inputs. [0] is the command, [-1] is the object.
+        players_input = get_user_input(str(input(":>")))   #list of inputs. [0] is the command, [-1] is the object.
 
         if players_input[0] in ["go", "enter", "e"]:
             print(players_input[-1])
@@ -49,15 +48,25 @@ if __name__ == '__main__':
 
         elif players_input[0] in ["quit", "q"]:
             quit()
+            
         elif players_input[0] in ["take", "pick"]:
             take_item_id = item_id_from_name(players_input[-1])
             our_print("I pick up " + players_input[-1])
-            take(take_item_id)
+            take(take_item_id,players_input[-1],current_room)
+            
         elif players_input[0] in ["inventory", "i"]:
             our_print(inventory())
+            
         elif players_input[0] in ["look"]:
             our_print(look(current_room))
+            
         elif players_input[0] in ["drop"]:
-            drop(players_input[-1])
+            drop(players_input[-1], current_room)
+            
+        elif players_input[0] in ["help"]:
+            help()
+            
+        elif players_input[0] in ["license"]:
+            license()    
     
 db.rollback()

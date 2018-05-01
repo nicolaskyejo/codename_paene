@@ -73,3 +73,5 @@ def death_msg():
 def the_end():
     print('\t\tCongratulations!\n')
     print('\t\tYou finished the game. Explore additional endings by trying alternative paths\n')
+
+ending_2()

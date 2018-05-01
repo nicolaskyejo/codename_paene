@@ -56,8 +56,8 @@ def help():
                         "Push {object}. Pushes object, useful for a short puzzle.",
                         "Look. Looks around your environment and reports what you see.",
                         "Search {object}. Searches object to find if there is something.",
-                        "Drop {object}. Leaves object on the ground."]
-    print("The game commands are listed in the form Command (shortform) {options}")
+                        "Drop {object}. Leaves object on the ground.\n"]
+    print("The game commands are listed in the form Command (shortform) {options}\n")
 
     for commands in list_of_commands:
         print(commands)
@@ -140,8 +140,17 @@ def examine(item_id):
 
     return txt
 
-def take(item_id):
-    item_pick(item_id)
+def take(item_id, item_name, room_id):
+    list_of_items_in_current_room = get_items_of_room(room_id) 
+
+    if item_name in list_of_items_in_current_room:
+        value=item_pick(item_id)
+        if value == True:
+            pass    
+        else:
+         print("I cannot take that...\n")
+    else:
+        print("I cannot take that...\n") 
 
 def quit():
     while True:
@@ -216,7 +225,7 @@ def pull_box(item, current_room):
         our_print("Nothing happens...")
 
 
-def drop(item,current_room):
+def drop(item, current_room):
     item_id = item_id_from_name(item)
     if item_id in get_items_inventory():
         drop_item(item_id,current_item)
@@ -240,6 +249,17 @@ def search(item, current_room, database=db):
 
     else:
         our_print("I didn't find anything.")
+        
+def up(current_room):
+    #stairs = room_list_returner(current_room)
+    #if 200
+    pass
+    
+def down(current_room):
+    pass          
+    
+def leave():  
+    pass    
 
 
 
