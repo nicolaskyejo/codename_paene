@@ -52,7 +52,7 @@ def help():
                         "Up(U)/Down(D). Go up or down the stairs.", "Exit/Leave. Leaves current room.",
                         "Inventory (I). List items that you hold.", "Examine (X) {object}. Describes object.",
                         "Take {object}. Puts object into your inventory",
-                        "Kick {object}.", "Use {item}. Uses item found in your inventory.",
+                        #"Kick {object}.", "Use {item}. Uses item found in your inventory.",
                         "Push {object}. Pushes object, useful for a short puzzle.",
                         "Look. Looks around your environment and reports what you see.",
                         "Search {object}. Searches object to find if there is something.",
@@ -119,8 +119,8 @@ def commands():
                    ["push"],    #done 
                    ["take","pick"], #done
                    ["inventory", "i"],  #done
-                   ["kick"],
-                   ["search"],
+                   #["kick"],
+                   ["search"], #done
                    ["look"],    #done
                    ["use"],
                    ["up", "u"],
