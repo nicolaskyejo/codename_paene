@@ -1,0 +1,4 @@
+bugs:
+
+quit() doesn't work if a user enters a capital letter
+
