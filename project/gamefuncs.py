@@ -67,7 +67,7 @@ def help():
 
 def credits():
     print(
-        "This game was a project in our gaming course. It is released under MIT license. Copyright 2018 Oliver Andersson, Nicolas Kyejo and Lauri Outila.")
+        "This game was a project in our gaming course. It is released under MIT license\n. Copyright 2018 Oliver Andersson, Nicolas Kyejo and Lauri Outila.")
 
 
 def license():
@@ -114,7 +114,7 @@ def go(current_room: str, room_to_move: str):
 def commands():
     allcommands = [["enter", "e", "go"],    #done
                    ["examine", "x"],    #done
-                   ["leave", "exit"],
+                   ["leave", "exit"], 
                    ["quit", "q"],   #done
                    ["push"],    #done 
                    ["take","pick"], #done
@@ -130,7 +130,7 @@ def commands():
                    ["help"],    #done
                    ["clear", "c"],#done
                    ["drop"] #done
-                   ]  
+                  ]  
 
     return allcommands
 
@@ -146,7 +146,7 @@ def take(item_id, item_name, room_id):
     if item_name in list_of_items_in_current_room:
         value=item_pick(item_id)
         if value == True:
-            pass    
+            print("Picked it up.")    
         else:
          print("I cannot take that...\n")
     else:

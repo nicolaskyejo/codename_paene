@@ -62,8 +62,8 @@ CREATE TABLE Item
 
 
 # [Room] # 33 rooms     #rooms are numbered clockwise starting from bottom
-INSERT INTO Room VALUES(100,"Clinic/West wing",TRUE);	#_00 and _10 are reserved for corridors
-INSERT INTO Room VALUES(110,"Clinic/Lobby",FALSE);
+INSERT INTO Room VALUES(100,"1F Corridor/Clinic",TRUE);	#_00 and _10 are reserved for corridors
+INSERT INTO Room VALUES(110,"1F Corridor/Lobby",FALSE);
 INSERT INTO Room VALUES(666,"Hospital Yard",TRUE);  # Locked , can be opened by key or you know what.
 
 INSERT INTO Room VALUES(101,"Operating room",TRUE);	
@@ -75,8 +75,8 @@ INSERT INTO Room VALUES(106,"Private room",TRUE);	#LOCK
 INSERT INTO Room VALUES(107,"Operating room",FALSE);
 INSERT INTO Room VALUES(108,"Administration Services",TRUE); #LOCK
 
-INSERT INTO Room VALUES(200,"Physiotherapy",FALSE);
-INSERT INTO Room VALUES(210,"Cardiology",FALSE);
+INSERT INTO Room VALUES(200,"2F Corridor/Physiotherapy",FALSE);
+INSERT INTO Room VALUES(210,"2F Corridor/Cardiology",FALSE);
 INSERT INTO Room VALUES(201,"Operating room",FALSE);
 INSERT INTO Room VALUES(202,"Patient room",FALSE);
 INSERT INTO Room VALUES(203,"Patient room",TRUE);
@@ -85,8 +85,8 @@ INSERT INTO Room VALUES(205,"Laboratory",TRUE);
 INSERT INTO Room VALUES(206,"Cardiac care unit",FALSE);
 INSERT INTO Room VALUES(207,"Cardiac care unit",TRUE);
 
-INSERT INTO Room VALUES(300,"Oncology",FALSE);
-INSERT INTO Room VALUES(310,"Radiology",FALSE);
+INSERT INTO Room VALUES(300,"3F Corridor/Oncology",FALSE);
+INSERT INTO Room VALUES(310,"3F Corridor/Radiology",FALSE);
 INSERT INTO Room VALUES(301,"Chemotherapy",TRUE);
 INSERT INTO Room VALUES(302,"Storage room",FALSE);
 INSERT INTO Room VALUES(303,"Bone Marrow Transplant",TRUE);
@@ -95,8 +95,8 @@ INSERT INTO Room VALUES(305,"Operating room",FALSE);   # has 1 npc and 1 enemy
 INSERT INTO Room VALUES(306,"Medical Imaging",FALSE);	 # has two enemies
 INSERT INTO Room VALUES(307,"Medical Imaging",FALSE);
 
-INSERT INTO Room VALUES(400,"Neurology",FALSE);
-INSERT INTO Room VALUES(410,"Orthopaedics",FALSE);
+INSERT INTO Room VALUES(400,"4F Corridor/Neurology",FALSE);
+INSERT INTO Room VALUES(410,"4F Corridor/Orthopaedics",FALSE);
 INSERT INTO Room VALUES(401,"Brain Scans",FALSE);			
 INSERT INTO Room VALUES(402,"Operating room",TRUE);
 INSERT INTO Room VALUES(403,"Trauma room",FALSE);
@@ -248,8 +248,8 @@ INSERT INTO Item VALUES (66+2, "An old scientific journal", TRUE, NULL, 306, "'S
 
 
 #KEYS#
-INSERT INTO Item VALUES (70,"A simple key",TRUE,NULL,305,"The doctor told me opens one of the top floor doors",TRUE,NULL);
-INSERT INTO Item VALUES (75,"A lion-crested key",TRUE,NULL,401,"Opens the lobby door on the first floor",TRUE,NULL);
+INSERT INTO Item VALUES (70,"A simple key",TRUE,NULL,305,"The doctor told me opens one of the top floor doors.",TRUE,NULL);
+INSERT INTO Item VALUES (75,"A lion-crested key",TRUE,NULL,401,"Opens the lobby door on the first floor.",TRUE,NULL);
 	
 # [Room_List] # Each room has a list of room it is connected to
 INSERT INTO Room_List VALUES (100,101);

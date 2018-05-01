@@ -18,11 +18,20 @@ if __name__ == '__main__':
     our_print(show_room(current_room))
 
     while True: #Actual process of the game, loops until quit
-
         players_input = get_user_input(str(input(":>")))   #list of inputs. [0] is the command, [-1] is the object.
 
         if players_input[0] in ["quit", "q"]:
             quit()
+        
+        elif players_input[0] in ["help"]:
+            help()
+            
+        elif players_input[0] in ["license"]:
+            license()  
+        
+        elif players_input[0] in ["credits"]:
+            credits()
+               
         elif players_input[0] in ["inventory", "i"]:
             our_print(inventory())
 
@@ -30,7 +39,7 @@ if __name__ == '__main__':
             our_print(look(current_room))
 
         elif len(players_input) != 2:
-            our_print("Not a valid input. Commands work like this: \n [command] [object]")
+            our_print("Not a valid input. Commands work like this: \n [command] [object]. Type HELP for help.")
 
         elif players_input[0] in ["go", "enter", "e"]:
             print(type(players_input[-1]))
@@ -59,7 +68,6 @@ if __name__ == '__main__':
         elif players_input[0] in ["push"]:
             pull_box(players_input[-1], current_room)
 
-
         #elif players_input[0] in ["take", "pick"]:
         #    if players_input[-1] in get_items_of_room(current_room):
         #        take(item_id_from_name(players_input[-1]))
@@ -69,21 +77,14 @@ if __name__ == '__main__':
         #elif players_input[0] in ["drop"]:
         #    drop(players_input[-1])
 
- 
         elif players_input[0] in ["take", "pick"]:
             take_item_id = item_id_from_name(players_input[-1])
-            our_print("I pick up " + players_input[-1])
+            #our_print("I pick up " + players_input[-1])
             take(take_item_id,players_input[-1],current_room)
         
         elif players_input[0] in ["drop"]:
             drop(players_input[-1], current_room)
             
-        elif players_input[0] in ["help"]:
-            help()
-            
-        elif players_input[0] in ["license"]:
-            license()   
-        
         #elif players_input[0] in ["up","u"]:
         #    up(current_room)
             
@@ -92,4 +93,5 @@ if __name__ == '__main__':
           
         else:
             our_print("Not a valid command. Type HELP for help.\n")
+            
 db.rollback()

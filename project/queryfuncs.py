@@ -246,7 +246,7 @@ def use_item(item_id, current_room,database=db): #Changes Used to True if item n
         cursor.close()
 
 
-def drop_item(item_id,room_id,database=db):
+def drop_item(item_id, room_id, database=db):
     try:
         query1 = "UPDATE Item SET Inventory = FALSE WHERE Item_id = " + str(item_id) 
         query2 = "UPDATE Item SET room_id = " + str(room_id) + "WHERE Item_Id = " + str(item_id) 
