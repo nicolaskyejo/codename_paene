@@ -178,17 +178,9 @@ INSERT INTO Item VALUES (8, "Box", FALSE,  NULL, 101, "A cardboard box full of o
 INSERT INTO Item VALUES (100, "Vent", FALSE, NULL, 101, "A big air vent. It has a metal cover, held in place by screws in its four corners.", FALSE, NULL);
 INSERT INTO Item VALUES (101, "Vent", TRUE, NULL, 101, "An opened air vent. It is big enough for a person to pass through.", FALSE, NULL);
 
-<<<<<<< HEAD
-INSERT INTO Item VALUES (102, "Tray", FALSE, NULL, 101, "A small metal table with a tray on it. ", FALSE, NULL);
 
-INSERT INTO Item VALUES (32, "Medical", FALSE, NULL, 101, "A medical table with sharp instruments.", FALSE, NULL);
-
-INSERT INTO Item VALUES (3, "Drawer", FALSE,  NULL, 102, "A dark lacquered wooden drawer.",FALSE, NULL);
-INSERT INTO Item VALUES (3+1, "Painkillers", TRUE,  NULL, 102, "I should probably take these...",FALSE, NULL);
-=======
 INSERT INTO Item VALUES (11, "Drawer", FALSE,  NULL, 102, "A dark lacquered wooden drawer.",FALSE, NULL);
 INSERT INTO Item VALUES (11+1, "Painkillers", TRUE,  NULL, 102, "I should probably take these...",FALSE, NULL);
->>>>>>> 80c76d5194209f715d96114e5a413ea4da4322e2
 
 INSERT INTO Item VALUES (15, "Sink", FALSE,  NULL, 104, "A small stained sink with rusted pipes under it.",FALSE, NULL);
 INSERT INTO Item VALUES (15+1, "Metal Pipe", TRUE, NULL, 104, "Maybe I could crack something with this.",TRUE, NULL);
