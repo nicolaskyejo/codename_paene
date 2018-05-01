@@ -56,8 +56,8 @@ def help():
                         "Push {object}. Pushes object, useful for a short puzzle.",
                         "Look. Looks around your environment and reports what you see.",
                         "Search {object}. Searches object to find if there is something.",
-                        "Drop {object}. Leaves object on the ground."]
-    print("The game commands are listed in the form Command (shortform) {options}")
+                        "Drop {object}. Leaves object on the ground.\n"]
+    print("The game commands are listed in the form Command (shortform) {options}\n")
 
     for commands in list_of_commands:
         print(commands)
@@ -140,8 +140,17 @@ def examine(item_id):
 
     return txt
 
-def take(item_id):
-    item_pick(item_id)
+def take(item_id, item_name, room_id):
+    list_of_items_in_current_room = get_items_of_room(room_id) 
+
+    if item_name in list_of_items_in_current_room:
+        value=item_pick(item_id)
+        if value == True:
+            pass    
+        else:
+         print("I cannot take that...\n")
+    else:
+        print("I cannot take that...\n") 
 
 def quit():
     while True:
@@ -207,20 +216,21 @@ def use_item_scalpel(database=db):
     else:
         our_print("I do not have that item.")
 
-def pull_box(item, current_room):
+def push_box(item, current_room):
     if item == "box":
         box_id = item_id_from_name("box")
         if current_room == 101 and if_item_used(box_id) == False:
             use_item(box_id, 101)
-            our_print("I pull the box under the air vent.")
+            our_print("I push the box under the air vent.")
+
     else:
         our_print("Nothing happens...")
 
 
-def drop(item,current_room):
+def drop(item, current_room):
     item_id = item_id_from_name(item)
     if item_id in get_items_inventory():
-        drop_item(item_id,current_item)
+        drop_item(item_id,current_room)
         print ("" + str(item) + " dropped...\n")
     else:
         print("I cannot drop that.\n") 
@@ -241,6 +251,34 @@ def search(item, current_room, database=db):
 
     else:
         our_print("I didn't find anything.")
+        
+#def up(current_room):
+#    stairs = room_list_returner(current_room)
+#    if 200 in stairs:
+#        go(current_room,200)
+#    elif 300 in stairs:
+#        go(current_room,300)    
+#    elif 400 in stairs:
+#        go(current_room,400)    
+#    else:
+#        print("I cannot go up from here...")
+    
+#def down(current_room):
+#    stairs = room_list_returner(current_room)
+#    if 400 in stairs:
+#        go(current_room,300)
+#    elif 300 in stairs:
+#        go(current_room,200)    
+#    elif 200 in stairs:
+#        go(current_room,100)    
+#    else:
+#        print("I cannot go down from here...")          
+    
+#def leave(current_room):  
+#    corridors = [100,110,200,210,300,310,400,410]
+#    rooms = room_list_returner(current_room)
+#    if current_room not in corridors:
+#            go(current_room,)
 
 def use(item_name, room_id, database=db):
     inventory = get_items_inventory()

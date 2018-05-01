@@ -2,6 +2,7 @@
 
 
 def cutscene_1():
+    print("Aaah...")
     print("(Have to find something to numb the pain...)\n\n" 
  
           "Unknown man: (inaudible) There is no way out of (inaudible)\n" 
@@ -77,6 +78,7 @@ def ending_1():         #kill B
 def ending_2():         #forgive B
     print("I wish to get out of this depressive land. Perhaps I'll go to the east and have a fresh start there.") 
     print("Perhaps live an honest life for once. Won't that be great?")
+    
 def ending_3():         #light building on F
     print("They paid for their crimes in full. The fire will wash their souls clean")  
     print("The innocent are guilty too, guilty of accepting what is not theirs.\n")   
@@ -94,3 +96,4 @@ def death_msg():
 def the_end():
     print('\t\tCongratulations!\n')
     print('\t\tYou finished the game. Explore additional endings by trying alternative paths\n')
+

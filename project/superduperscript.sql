@@ -47,7 +47,7 @@ CREATE TABLE Item
   Hidden BOOLEAN,
   Inventory BOOLEAN,
   Room_id INT,
-  Description VARCHAR(500), #added manually
+  Description VARCHAR(1000), #added manually
   # We perhaps might add a new text field which contains the text which we update to after a room state has changed
   Pickable BOOLEAN,		#added manually
   Used BOOLEAN, 	#added manually
@@ -203,22 +203,37 @@ INSERT INTO Item VALUES (39, "Office chair", FALSE,NULL, 201, "A dirty navy blue
 
 INSERT INTO Item VALUES (42, "Briefcase", FALSE, NULL, 202, "A dirty pre-war briefcase.",FALSE, NULL);
 INSERT INTO Item VALUES (42+1, "Radiophone", TRUE, NULL, 202, "I wonder if this thing still works.",TRUE, NULL);
-INSERT INTO Item VALUES (42+2, "A dusty diary with a bookmarked page", TRUE,NULL, 202, "THIS is thy hour O Soul, thy free flight into the wordless,\
-	Away from books, away from art, the day erased, the lesson done,\
-	Thee fully forth emerging, silent, gazing, pondering the themes thou,\
-	lovest best.\
-	Night, sleep, death and the stars.\
+INSERT INTO Item VALUES (42+2, "A dusty diary with a bookmarked page", TRUE,NULL, 202, "THIS is thy hour O Soul, thy free flight into the wordless,
+	Away from books, away from art, the day erased, the lesson done,
+	Thee fully forth emerging, silent, gazing, pondering the themes thou,
+	lovest best.
+	Night, sleep, death and the stars.
 	-Walt Whitman", FALSE, NULL);
 	
 INSERT INTO Item VALUES (47, "Water dispenser",FALSE, NULL, 210, "An empty water dispenser sits next to the stairway.",FALSE, NULL);
 
 INSERT INTO Item VALUES (50, "Trunk", TRUE,  NULL, 304, "An open foot locker trunk.",TRUE, NULL);
 INSERT INTO Item VALUES (50+1, "Ethanol", TRUE,  NULL, 304, "I’d love to drink this... But I probably shouldn’t.",TRUE, NULL);
-INSERT INTO Item VALUES (50+2, "A torn piece from a journal", TRUE, NULL, 304, "Euthanasia: Is it ethical to help people die?",FALSE, NULL);
+INSERT INTO Item VALUES (50+2, "A torn piece from a journal", TRUE, NULL, 304, "An excerpt from the magazine 'Voner' volume 36 issue 5 article 'What we take for granted' 
+Euthanasia is the act of ending a life with the intention of relieving pain. In the 21st century it was a heatedly 
+debated subject. Should people suffering in extreme pain be granted a request to end their life?
+
+It is interesting to note that it is never was a crime to commit suicide. Everyone
+has a right to that, but when it came to other people helping you die it meant
+that they were complicit in your death.
+
+Doctor Keller who is an Anthropologist at the University of Maine explained that what prevented 
+them in their time to grant people this right were the following values:
+Life is precious
+It is a sin to end one's life(and therefore a sin to help someone else do it)
+Giving up is a sign of weakness
+
+Nowadays ofcourse the right to assisted-suicide is a universal right that we take for granted but in the 
+21st century it was an issue of contention.",FALSE, NULL);
 
 INSERT INTO Item VALUES (55, "Table", FALSE, NULL, 307, "A dingy table that looks like it was damaged by fire.", FALSE, NULL);
-INSERT INTO Item VALUES (55+1, "An old looking magazine cutout", TRUE, NULL, 307, "River water turning frogs gay?\
-		How governments are a haven for satanic cults. Read feature on page ! \
+INSERT INTO Item VALUES (55+1, "An old looking magazine cutout", TRUE, NULL, 307, "River water turning frogs gay?
+		How governments are a haven for satanic cults. Read feature on page ! 
 		Bilderberg group wants to turn you into a slave. Resist now!", FALSE, NULL);
 INSERT INTO Item VALUES (55+2, "Knife", TRUE,  NULL, 307, "It’s a bit dull, but it should still get the job done.",TRUE, NULL);
 INSERT INTO Item VALUES (60, "MRI", FALSE, NULL, 307, "This look like an old Magnetic Resonance machine", FALSE, NULL);

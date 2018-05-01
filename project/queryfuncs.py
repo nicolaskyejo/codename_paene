@@ -80,14 +80,24 @@ def show_room(current_room: int, database=db):
 def item_pick(id, database=db):
     try:
         cursor = database.cursor()
-        query = "UPDATE Item SET Inventory = 1 WHERE Item_id = " + str(id) + " AND Pickable = TRUE AND Hidden = FALSE"
-        cursor.execute(query)
+        query1 = "UPDATE Item SET Inventory = TRUE WHERE Item_id = " + str(id) + " AND Pickable = TRUE AND Hidden = FALSE"
+        query2 = "SELECT Inventory FROM Item WHERE Item_id = " + str(id) + "AND Inventory = TRUE" 
+        cursor.execute(query1)
+        cursor.execute(query2)
+
         
+        if cursor.rowcount == 1:
+            result = True
+        else:
+            result = False   
+        
+             
     except mysql.connector.Error as e:
         print(e)
 
     finally:
         cursor.close()
+        return result
             
  
 def get_items_of_room(room_id, database=db):
