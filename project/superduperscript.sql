@@ -120,8 +120,8 @@ INSERT INTO Npc VALUES(13,"Jonathan Gebhard",200,"A confused looking man is walk
 
 
 # [Texti] # Room inside text  #33 rooms therefore 33 texts
-INSERT INTO Texti VALUES("There is man in black patrolling. OH SHIT! He saw me and IS coming after ME! Gotta defend myself!", 100); #INSERT INTO Texti VALUES("Looks like some kind of corridor with rooms side by side.", 100);
-#INSERT INTO Texti VALUES("A normal corridor with five rooms and stairs leading up.", 100);
+#INSERT INTO Texti VALUES("There is man in black patrolling. OH SHIT! He saw me and IS coming after ME! Gotta defend myself!", 100); #INSERT INTO Texti VALUES("Looks like some kind of corridor with rooms side by side.", 100);
+INSERT INTO Texti VALUES("A normal corridor with five rooms and stairs leading up.", 100);
 INSERT INTO Texti VALUES("Seems like a hospital lounge with two rooms. On the east side, the building is damaged and thus innaccesible. On the middle there is an exit door outside bolted with chains and a huge lock.", 110);
 INSERT INTO Texti VALUES("A basic operating room. It is miserable looking but the surgery instruments appear well maintained.",101); 
 INSERT INTO Texti VALUES("A messy storage room with tables and chairs lazily stacked on top of each other. Whoever maintains this place is not very orderly...",102); 

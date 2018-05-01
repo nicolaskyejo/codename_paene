@@ -325,6 +325,35 @@ def use(item_name, room_id, database=db):
             our_print("I do not have that item.")
     else:
         our_print("I can't do that.")
+        
+def fight_checker(current_room):
+    if current_room == 100:
+        value = npc_alive_or_not(current_room)
+        
+        if value == True:
+            cutscene_100()
+            cursor = database.cursor()
+            query1 = "SELECT Name from Item where Name = 'Scalpel' AND Inventory = TRUE"
+            cursor.execute(query1) 
+            if cursor.rowcount == 1:
+                cutscene_100win()
+                query2 = "DELETE from NPC WHERE Npc_Id = 1"
+            else:
+                cutscene_100lose()    
+                sys.exit()
+            cursor.close()
+            
+        else:
+            pass    
+            
+    #elif current_room == 202
+    #elif current_room == 210
+    #elif current_room == 306
+    #elif current_room == 305
+    
+    
+    else:
+        pass
 
 
 

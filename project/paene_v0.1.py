@@ -46,9 +46,10 @@ if __name__ == '__main__':
             print(room_list_returner(current_room))
             print(door_open(players_input[-1]))
             if players_input[-1] in ["vent", "duct"] and current_room == 101 and door_open(102) == True: #Vent problem, can pass if these things are correct
-                our_print("I climb to the air duct and begin crawling. After a while I end up in a new room.")
+                our_print("I climb to the air duct and begin crawling. After a while I end up in a new room.\n")
                 current_room = 102
                 our_print(show_room(current_room))
+                         
 
             elif players_input[-1] in room_list_returner(current_room) and door_open(players_input[-1]) == True:
                 current_room = go(current_room, players_input[-1])
@@ -66,7 +67,7 @@ if __name__ == '__main__':
             our_print(examine(item_id))
 
         elif players_input[0] in ["push"]:
-            pull_box(players_input[-1], current_room)
+            push_box(players_input[-1], current_room)
 
         #elif players_input[0] in ["take", "pick"]:
         #    if players_input[-1] in get_items_of_room(current_room):

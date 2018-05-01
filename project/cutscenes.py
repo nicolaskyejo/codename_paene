@@ -1,5 +1,18 @@
+#npc conversation#
+def npc_Jake():
+    print('')
+    
+def npc_Lawrence():    
+    print('')
+
+def npc_Oliver():    
+    print('')
+
+def npc_Jonathan():    
+    print('')
 
 
+    
 
 def cutscene_1():
     print("Aaah...")
@@ -43,7 +56,9 @@ def cutscene_2():
     
     print('Eisenberg: Well uuh... I can\'t offer anymore help. I must continue my work. \n')
 
-
+def cutscene_100():
+    print("There is man in black patrolling. OH SHIT! He saw me and IS coming after ME! Gotta defend myself!\n")
+    
 def cutscene_100win():      #After you win the first fight
     print('Verner: Do you have any last words before I end your miserable life?\n')
     print('Guard: Quiet fool! You will regret leaving that room.\n')

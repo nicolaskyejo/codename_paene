@@ -78,6 +78,7 @@ def show_room(current_room: int, database=db):
 
     
 def item_pick(id, database=db):
+    result = False
     try:
         cursor = database.cursor()
         query1 = "UPDATE Item SET Inventory = TRUE WHERE Item_id = " + str(id) + " AND Pickable = TRUE AND Hidden = FALSE"
@@ -275,3 +276,23 @@ def door_open(room_id, database=db):                    #returns True if door is
     finally:
         cursor.close()
         return result
+        
+# Returns boolean whether an enemy in that room is dead or not #  checks only 1 enemy #    
+def npc_alive_or_not(room_id, database=db):
+    results = False
+    try:
+        query = "SELECT Npc_Id FROM Npc WHERE room_id" + str(room_id)
+        cursor = database.cursor()
+        cursor.execute(query)
+
+        if cursor.rowcount == 1:
+            result = True
+        else:
+            result = False
+
+    except mysql.connector.Error as e:
+        print(e)
+
+    finally:
+        cursor.close()
+        return result        
