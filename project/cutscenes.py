@@ -6,7 +6,7 @@ def npc_Jake():
     our_print("Unknown Man: Leav-v-v me alone! I don't need anything from you!\n")
     our_print("(Maybe it's best for me to leave before something bad happens.)\n")
 
-    if
+    
     
     
 def npc_Lawrence():    

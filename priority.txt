@@ -17,6 +17,8 @@ npc conversations
 #9
 #10
 
+QOL:
+- Text doesn't come to screen at once
 
 
 Nicolas:
