@@ -19,8 +19,13 @@ npc conversations
 
 
 
+Nicolas:
+Fix drop command to Hidden = True
 
+Lauri:
 
+Oliver:
+npc conversations
 
 
 
