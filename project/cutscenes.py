@@ -1,6 +1,13 @@
 #npc conversation#
 def npc_Jake():
-    print('')
+    our_print("(A hunch-backed man with bloodshot eyes is incessantly staring at the wall. He doesn't look very well..)\n")
+    our_print("Unknown Man: Th-the w-w-walls are spying on me... T-THOSE BASTARDS ARE UP TO SOMETHING BAD I KNOW IT! I-i-i got to keep on eye on them...\n")
+    our_print("Verner: Hey, are you okay..?\n")
+    our_print("Unknown Man: Leav-v-v me alone! I don't need anything from you!\n")
+    our_print("(Maybe it's best for me to leave before something bad happens.)\n")
+
+    if
+    
     
 def npc_Lawrence():    
     print('')
@@ -76,10 +83,17 @@ def cutscene_100lose():      #After you lose the first fight
     print("\t\tGAME OVER\n")
 
 def cutscene_win_generic():
-    print('\n')
+    print("That guard was no match for me...\n")
+    print("I recompose myself and continue forward.\n")
     
 def cutscene_lose_generic():
-    print('\n')        
+    print("Arghh! I'm too weak...")
+    print("This is too much for me without a weapon.\n")
+    print("This is surely the end of me.\n")
+
+    
+    print("\t\tRest in peace...\n")
+    print("\t\tGAME OVER\n")      
     
 def cutscene_3():
     print("Dr. Buchwald: mmh it seems I underestimated you… I should have put more guards in place but oh well… You are here for revenge aren’t you?\n")

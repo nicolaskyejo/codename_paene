@@ -53,7 +53,7 @@ mySQL (Python 3.4 &amp; mysql ). The database contains roughly the following ite
 <table align=left" class="auto-style1" style="width: 50%">
 	<tr>
 		<td>Items</td>
-		<td>10</td>
+		<td>12</td>
 	</tr>
 	<tr>
 		<td>NPCs</td>
@@ -65,7 +65,7 @@ mySQL (Python 3.4 &amp; mysql ). The database contains roughly the following ite
 	</tr>
 	<tr>
 		<td>Extra items</td>
-		<td>5</td>
+		<td>28</td>
 	</tr>
 	<tr>
 		<td>Endings</td>
@@ -92,7 +92,7 @@ height: 100%;
 width:100%;	
 }
 body {
-background-image: url(Hospital_lounge2.jpg);
+background-image: url(Hospital_lounge.jpg);
 <!--url(turretabyss.jpg);-->
 <!--url(what.png);-->
 <!--url(hospital_lounge.jpg);-->
@@ -112,13 +112,13 @@ body {
         grid-template-columns: [col1-start] 362px  [col2-start] 362px  [col3-start] 362px [col3-end];
         grid-template-rows: [row1-start] auto [row2-start] auto [row2-end];
         
-        opacity: 0.58;
+        opacity: 0.7;
     	  filter: alpha(opacity=8)
     }
 
     .box {
-        background-color: black;
-
+        background-color: #262626;
+		  opacity:
         border-radius: 5px;
         padding: 59px;
         font-size: 110%;
@@ -128,18 +128,23 @@ body {
     .a {
         grid-column: col1-start / col3-start;
         grid-row: row1-start ;
+        border-radius: 5px;
+        
     }
     .b {
         grid-column: col3-start ;
         grid-row: row1-start / row2-end;
+        border-radius: 5px;
     }
     .c {
         grid-column: col1-start;
         grid-row: row2-start ;
+        border-radius: 5px;
     }
     .d {
         grid-column: col2-start ;
         grid-row: row2-start ;
+		  border-radius: 5px;
     }
 }
 
