@@ -82,12 +82,13 @@ def item_pick(id, database=db):
     try:
         cursor = database.cursor()
         query1 = "UPDATE Item SET Inventory = TRUE WHERE Item_id = " + str(id) + " AND Pickable = TRUE AND Hidden = FALSE"
-        query2 = "SELECT Inventory FROM Item WHERE Item_id = " + str(id) + "AND Inventory = TRUE" 
+        query2 = "SELECT Inventory FROM Item WHERE Item_id = " + str(id)
         cursor.execute(query1)
         cursor.execute(query2)
 
-        
-        if cursor.rowcount == 1:
+        fetch = cursor.fetchone()
+        print(fetch)
+        if fetch[0] == 1:
             result = True
         else:
             result = False   
@@ -186,6 +187,7 @@ def get_items_inventory(database=db):
         return inventory
 
 def if_item_used(id, database=db):
+    result = False
     try:
         query = "SELECT Used FROM Item WHERE item_id =" + str(id) + " AND Used = True"
         cursor = database.cursor()
@@ -279,7 +281,7 @@ def door_open(room_id, database=db):                    #returns True if door is
         
 # Returns boolean whether an enemy in that room is dead or not #  checks only 1 enemy #    
 def npc_alive_or_not(room_id, database=db):
-    results = False
+    result = False
     try:
         query = "SELECT Npc_Id FROM Npc WHERE room_id" + str(room_id)
         cursor = database.cursor()

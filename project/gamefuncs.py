@@ -154,8 +154,8 @@ def take(item_id, item_name, room_id):
 
 def quit():
     while True:
-        answer = input("Do you really want to quit the game? (Y/N)  ")    
-        answer.lower()
+        answer = str(input("Do you really want to quit the game? (Y/N)  "))
+        answer = answer.lower()
         if answer == 'y' or answer == 'yes':
             print("Exiting...")
             sys.exit()
@@ -164,8 +164,7 @@ def quit():
             break    
         else:
             print("Please Enter Y or N")
-            break    
-        
+
 def look(room_id):
 
     txt = "I see these things around me: \n"
@@ -367,6 +366,7 @@ def fight_checker(current_room):
                     query1= "UPDATE Item SET Inventory = TRUE, Hidden= False WHERE Name = A lion-crested key"
                     query2= "DELETE from NPC WHERE Name = Doctor Ingolf Buchwald"
                     cursor.execute(query1)
+                    cursor.execute(query2)
                     
                     break
                     
@@ -377,6 +377,7 @@ def fight_checker(current_room):
                     print('a key drops appears near his dead body\n')
                     query3 = "UPDATE Item SET Hidden= False WHERE Name = A lion-crested key"
                     query4 = "DELETE from NPC WHERE Name = Doctor Ingolf Buchwald"
+                    cursor.execute(query4)
                     cursor.execute(query3)
                     break
                 

@@ -12,7 +12,7 @@ from queryfuncs import *
 from cutscenes import *
 # # # [MAIN PROGRAM] # # #
 if __name__ == '__main__':
-    os.system('Blindspot.mp3')
+    #os.system('Blindspot.mp3')
     cutscene_1()
     current_room = 101    #Position in game, indicated by current_room
     our_print(show_room(current_room))
@@ -49,7 +49,7 @@ if __name__ == '__main__':
             our_print("Not a valid input. Commands work like this: \n [command] [object]. Type HELP for help.")
 
         elif players_input[0] in ["go", "enter", "e"]:
-            print(type(players_input[-1]))
+            print(players_input[-1])
             print(room_list_returner(current_room))
             print(door_open(players_input[-1]))
             if players_input[-1] in ["vent", "duct"] and current_room == 101 and door_open(102) == True: #Vent problem, can pass if these things are correct
@@ -78,7 +78,7 @@ if __name__ == '__main__':
 
         #elif players_input[0] in ["take", "pick"]:
         #    if players_input[-1] in get_items_of_room(current_room):
-        #        take(item_id_from_name(players_input[-1]))
+        #        take(item_id_from_name(players_input[-1]), current_room)
         #    else:
         #        our_print("I can't do that.")
 
