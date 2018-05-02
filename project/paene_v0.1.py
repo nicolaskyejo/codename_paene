@@ -37,6 +37,13 @@ if __name__ == '__main__':
 
         elif players_input[0] in ["look"]:
             our_print(look(current_room))
+            
+        elif players_input[0] in ["up","u"]:
+            up(current_room)
+            
+        elif players_input[0] in ["down","d"]:
+            down(current_room)  
+              
 
         elif len(players_input) != 2:
             our_print("Not a valid input. Commands work like this: \n [command] [object]. Type HELP for help.")
@@ -86,12 +93,7 @@ if __name__ == '__main__':
         elif players_input[0] in ["drop"]:
             drop(players_input[-1], current_room)
             
-        #elif players_input[0] in ["up","u"]:
-        #    up(current_room)
-            
-        #elif players_input[0] in ["down","d"]:
-        #    down(current_room)  
-          
+       
         else:
             our_print("Not a valid command. Type HELP for help.\n")
             

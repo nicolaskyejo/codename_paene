@@ -75,6 +75,11 @@ def cutscene_100lose():      #After you lose the first fight
     print("\t\tRest in peace...\n")
     print("\t\tGAME OVER\n")
 
+def cutscene_win_generic():
+    print('\n')
+    
+def cutscene_lose_generic():
+    print('\n')        
     
 def cutscene_3():
     print("Dr. Buchwald: mmh it seems I underestimated you… I should have put more guards in place but oh well… You are here for revenge aren’t you?\n")

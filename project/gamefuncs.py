@@ -122,7 +122,7 @@ def commands():
                    #["kick"],
                    ["search"], #done
                    ["look"],    #done
-                   ["use"],
+                   ["use"], #requires to implement on all objects that can be used
                    ["up", "u"],
                    ["down", "d"],
                    ["credits"], #done
@@ -163,7 +163,8 @@ def quit():
             print("Returning to game...") 
             break    
         else:
-            print("Please Enter Y or N")    
+            print("Please Enter Y or N")
+            break    
         
 def look(room_id):
 
@@ -252,27 +253,27 @@ def search(item, current_room, database=db):
     else:
         our_print("I didn't find anything.")
         
-#def up(current_room):
-#    stairs = room_list_returner(current_room)
-#    if 200 in stairs:
-#        go(current_room,200)
-#    elif 300 in stairs:
-#        go(current_room,300)    
-#    elif 400 in stairs:
-#        go(current_room,400)    
-#    else:
-#        print("I cannot go up from here...")
+def up(current_room):
+    stairs = room_list_returner(current_room)
+    if 200 in stairs:
+        go(current_room,200)
+    elif 300 in stairs:
+        go(current_room,300)    
+    elif 400 in stairs:
+        go(current_room,400)    
+    else:
+        print("I cannot go up from here...")
     
-#def down(current_room):
-#    stairs = room_list_returner(current_room)
-#    if 400 in stairs:
-#        go(current_room,300)
-#    elif 300 in stairs:
-#        go(current_room,200)    
-#    elif 200 in stairs:
-#        go(current_room,100)    
-#    else:
-#        print("I cannot go down from here...")          
+def down(current_room):
+    stairs = room_list_returner(current_room)
+    if 400 in stairs:
+        go(current_room,300)
+    elif 300 in stairs:
+        go(current_room,200)    
+    elif 200 in stairs:
+        go(current_room,100)    
+    else:
+        print("I cannot go down from here...")          
     
 #def leave(current_room):  
 #    corridors = [100,110,200,210,300,310,400,410]
@@ -325,7 +326,8 @@ def use(item_name, room_id, database=db):
             our_print("I do not have that item.")
     else:
         our_print("I can't do that.")
-        
+ 
+#checks whether player has certain item with them and then chooses lose or win scenario        
 def fight_checker(current_room):
     if current_room == 100:
         value = npc_alive_or_not(current_room)
@@ -338,6 +340,7 @@ def fight_checker(current_room):
             if cursor.rowcount == 1:
                 cutscene_100win()
                 query2 = "DELETE from NPC WHERE Npc_Id = 1"
+                cursor.execute(query2)
             else:
                 cutscene_100lose()    
                 sys.exit()
@@ -346,15 +349,64 @@ def fight_checker(current_room):
         else:
             pass    
             
-    #elif current_room == 202
-    #elif current_room == 210
-    #elif current_room == 306
-    #elif current_room == 305
-    
+    #elif current_room == 202:
+    #elif current_room == 210:
+    #elif current_room == 306:
+    #elif current_room == 305:
+    elif current_room == 401:
+        value = npc_alive_or_not(current_room)
+        if value == True:
+            cursor = database.cursor()
+            cutscene_3()
+            ending_choice = input("(Should I Forgive / Kill him?)\n")
+            
+            while True:
+                if ending_choice == 'Forgive' or 'forgive' or 'f':
+                    print('I see... Thank you.')
+                    print('Here is the key to lobby door.\n')
+                    query1= "UPDATE Item SET Inventory = TRUE, Hidden= False WHERE Name = A lion-crested key"
+                    query2= "DELETE from NPC WHERE Name = Doctor Ingolf Buchwald"
+                    cursor.execute(query1)
+                    
+                    break
+                    
+                elif ending_choice == 'Kill' or 'kill' or 'k':
+                    print('I see... I don\'t regret the things I\'ve done.')  
+                    print('...\n\n')
+                    print('(He drops down with a final thud on the ground. What looks like')
+                    print('a key drops appears near his dead body\n')
+                    query3 = "UPDATE Item SET Hidden= False WHERE Name = A lion-crested key"
+                    query4 = "DELETE from NPC WHERE Name = Doctor Ingolf Buchwald"
+                    cursor.execute(query3)
+                    break
+                
+                else: 
+                    print('(Should he pay for what he has done? (Forgive/Kill)')   
+                       
+            os.system('SomedayAgain.mp3')
+            cursor.close()
+            
+        else:
+            pass    
+        
     
     else:
         pass
-
+        
+ 
+# check to see if friendly npc exists and talks to them        
+def npc_converser(current_room):
+    if current_room == 100:
+        value = npc_alive_or_not(current_room)
+        
+        if value == True:
+            pass
+            
+        else:
+            pass   
+            
+    else:
+        pass         
 
 
 
