@@ -283,7 +283,7 @@ def down(current_room):
 
 def use(item_name, room_id, database=db):
     inventory = get_items_inventory()
-
+    print(item_name)
     if item_name == "painkillers":
         item_id = item_id_from_name(item_name)
 
