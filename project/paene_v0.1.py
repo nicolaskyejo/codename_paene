@@ -58,8 +58,9 @@ if __name__ == '__main__':
                 our_print(show_room(current_room))
                          
 
-            elif players_input[-1] in room_list_returner(current_room) and door_open(players_input[-1]) == True:
+            elif players_input[-1] in room_list_returner(current_room):
                 current_room = go(current_room, players_input[-1])
+                fight_checker(current_room)
             else:
                 our_print("I can't go there...")
 

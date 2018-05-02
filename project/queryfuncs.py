@@ -1,5 +1,6 @@
 import mysql.connector
 from gamefuncs import *
+from cutscenes import *
 db = mysql.connector.connect(
     host="localhost",
     user="dbuser",
@@ -283,7 +284,7 @@ def door_open(room_id, database=db):                    #returns True if door is
 def npc_alive_or_not(room_id, database=db):
     result = False
     try:
-        query = "SELECT Npc_Id FROM Npc WHERE room_id" + str(room_id)
+        query = "SELECT Npc_Id FROM Npc WHERE room_id =" + str(room_id)
         cursor = database.cursor()
         cursor.execute(query)
 

@@ -1,5 +1,6 @@
 import sys
 from queryfuncs import *
+from cutscenes import *
 
 #GAME FUNCTIONS
 
@@ -327,8 +328,8 @@ def use(item_name, room_id, database=db):
         our_print("I can't do that.")
  
 #checks whether player has certain item with them and then chooses lose or win scenario        
-def fight_checker(current_room):
-    if current_room == 100:
+def fight_checker(current_room, database=db):
+    if current_room == "100":
         value = npc_alive_or_not(current_room)
         
         if value == True:
