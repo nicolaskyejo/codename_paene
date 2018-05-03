@@ -48,6 +48,9 @@ if __name__ == '__main__':
             
         elif players_input[0] in ["down","d"]:
             down(current_room)  
+            
+        elif players_input[0] in ["clear","c"]:
+            clear()      
               
 
         #elif len(players_input) != 2:
