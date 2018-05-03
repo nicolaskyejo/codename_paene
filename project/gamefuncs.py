@@ -283,13 +283,18 @@ def down(current_room):
         go(current_room,"100")    
         return 100
     else:
-        print("I cannot go down from here...")          
+        print("I cannot go down from here...")   
+        return None       
     
-#def leave(current_room):  
-#    corridors = ["100","110","200","210","300","310","400","410]
-#    rooms = room_list_returner(current_room)
-#    if current_room not in corridors:
-#            go(current_room,)
+def leave(current_room):
+    current_room = str(current_room)
+    corridors = ["100","110","200","210","300","310","400","410"]
+    rooms = room_list_returner(current_room)
+    if current_room not in corridors:
+     #go(current_room,)
+     pass
+    else:
+     print('I cannot leave from here')   
 
 def use(item_name, room_id, database=db):
     inventory = get_items_inventory()
@@ -481,7 +486,7 @@ def fight_checker(current_room, database=db):
         
         if value == True:
             print('When I enter the room, the most strange scene is met. What looks like a doctor is')
-            print('standing over a naked man lying on a hospital bed. Beside him is another guard')
+            print('standing over a naked man lying on a hospital bed. Beside him is a guard')
             print(', both of them have their backs to me... I sneak closely and then go for the kill.') 
             cursor = database.cursor()
             query1 = "SELECT Name from Item where Name = 'Metal pipe' AND Inventory = 'TRUE'"
@@ -492,9 +497,10 @@ def fight_checker(current_room, database=db):
             if cursor.rowcount == 1:
                 cutscene_win_generic()
                 query3 = "DELETE from NPC WHERE Npc_Id = 6"
-                query4 = "UPDATE Texti SET ActualText = '' WHERE Room_Id = 100"
-                cursor.execute(query4) 
-                cursor.execute(query3)
+                query4 = "UPDATE Texti SET ActualText = 'An operating room with the doctor standing over someone lying on a bed. There is a dead body on the floor, this doesn't even scare the Doctor' WHERE Room_Id = 305"
+                cursor.execute(query3) 
+                cursor.execute(query4)
+                cutscene_2()
 
             else:
                cursor.execute(query2) 
@@ -502,8 +508,9 @@ def fight_checker(current_room, database=db):
                     cutscene_win_generic()
                     query3 = "DELETE from NPC WHERE Npc_Id = 6"
                     cursor.execute(query3) 
-                    query4 = "UPDATE Texti SET ActualText = '' WHERE Room_Id = 100"
-                    cursor.execute(query4) 
+                    query4 = "UPDATE Texti SET ActualText = 'An operating room with the doctor standing over someone lying on a bed. There is a dead body on the floor, this doesn't even scare the Doctor' WHERE Room_Id = 305"
+                    cursor.execute(query4)
+                    cutscene_2() 
                else: 
                     cutscene_lose_generic()
                     sys.exit()
@@ -524,11 +531,12 @@ def fight_checker(current_room, database=db):
                 if ending_choice == 'Forgive' or 'forgive' or 'f':
                     print('I see... Thank you.')
                     print('Here is the key to lobby door.\n')
-                    query1= "UPDATE Item SET Inventory = TRUE, Hidden= False WHERE Name = 'A lion-crested key'"
-                    query2= "DELETE from NPC WHERE Name = Doctor Ingolf Buchwald"
+                    query1= "UPDATE Item SET Inventory = TRUE, Hidden= False WHERE Name = 'lion-crested key'"
+                    query2= "DELETE from NPC WHERE Name = 'Doctor Ingolf Buchwald'"
+                    query3 = "UPDATE Texti SET ActualText = 'A room full of pictures of the brain. Dr. Buchwald is busy continuing his work.' WHERE Room_Id = 401"
                     cursor.execute(query1)
                     cursor.execute(query2)
-                    
+                    cursor.execute(query3)
                     break
                     
                 elif ending_choice == 'Kill' or 'kill' or 'k':
@@ -536,14 +544,17 @@ def fight_checker(current_room, database=db):
                     print('...\n\n')
                     print('(He drops down with a final thud on the ground. What looks like')
                     print('a key drops appears near his dead body\n')
-                    query3 = "UPDATE Item SET Hidden= False WHERE Name = A lion-crested key"
-                    query4 = "DELETE from NPC WHERE Name = Doctor Ingolf Buchwald"
-                    cursor.execute(query4)
+                    query1 = "UPDATE Item SET Hidden= False WHERE Name = 'lion-crested key'"
+                    query2 = "DELETE from NPC WHERE Name = 'Doctor Ingolf Buchwald'"
+                    query3 = "UPDATE Texti SET ActualText = 'A room full of pictures of the brain. Dr. Buchwald is on the floor dead.' WHERE Room_Id = 401"
+                    cursor.execute(query1)
+                    cursor.execute(query2)
                     cursor.execute(query3)
                     break
                 
                 else: 
                     print('(Should he pay for what he has done? (Forgive/Kill)')   
+                    continue
                        
             os.system('SomedayAgain.mp3')
             cursor.close()

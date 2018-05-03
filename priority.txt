@@ -1,14 +1,13 @@
 #1
 Game working without crashes
-
-#2
 Testing different inputs to see if game crashes
+Check all commands to see if they work properly 
+#2
+Use_simple key
+Use lion-crested key
 
 #3
-Check all commands to see if they work properly 
 
-#4
-Npc conversations
 
 #5
 Ending_checker
@@ -22,11 +21,10 @@ QOL:
 
 
 Nicolas:
-Fix drop command to Hidden = True
+npc_converser
 
 Lauri:
-Look() produce also room description and connected rooms.
-Look should not see items in inventory
+
 
 Oliver:
 npc conversations

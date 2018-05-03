@@ -21,6 +21,7 @@ def npc_Lawrence():    #RIKKI
     while True:
         answer = str(input("Do you want to play his game? (Y/N)  "))
         answer = answer.lower()
+        cursor = database.cursor()
         if answer == 'y' or answer == 'yes':
                 print("Haha, this will be fun!")
                 while True:
@@ -125,6 +126,11 @@ def cutscene_2():
     
     print('(He hands me a simple key)\n')
     
+    cursor = database.cursor()
+    query = "UPDATE Item SET Inventory = TRUE WHERE Name = 'simple key'"
+    cursor.execute(query)
+    cursor.close()
+    
     print('Eisenberg: Well uuh... I can\'t offer anymore help. I must continue my work. \n')
 
 def cutscene_100():
@@ -143,11 +149,11 @@ def cutscene_100lose():      #After you lose the first fight
     print('I cannot move my legs. Maybe this is the end... \n')
 
     
-    print("\t\tRest in peace...\n")
+    print("\t\tYOU DIED...\n")
     print("\t\tGAME OVER\n")
 
 def cutscene_win_generic():
-    print("That guard was no match for me...\n")
+    print("That wasn't easy...\n")
     print("I recompose myself and continue forward.\n")
     
 def cutscene_lose_generic():
@@ -170,8 +176,7 @@ def ending_1():         #kill B
     print("Verner: I know we all do questionable things to survive in this god forsaken wasteland.. But even then, a filth like you doesn't deserve to live.\n")
     print("Dr. Buchwald: NOOoo don't do it!\n")
     print("Verner: This is the end of the line for you Doctor.\n")
-    
-    
+        
 def ending_2():         #forgive B
     print("I wish to get out of this depressive land. Maybe I'll head east and have a fresh start there.") 
     print("Perhaps I'll live an honest life for once. Wouldn't that be great?\n")
@@ -192,10 +197,11 @@ def ending_5():         #harakiri
     print("My hands are shaking even though I was sure of my decision just a second ago")
     print("I'm going to do it in 3, 2, 1... \n")
     print("Sometimes the most interesting thing you can do with your life is to end it. It is your own choice. May death bring you peace you never had.\n\n")         
-    print("\t\tRest in peace...\n")
+    print("\t\YOU DIED...\n")
     print("\t\tGAME OVER\n")
+    
 def death_msg():
-    print("\t\tRest in peace...\n")
+    print("\t\tYOU DIED...\n")
     print("\t\tGAME OVER\n")
     
 def the_end():
