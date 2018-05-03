@@ -1,3 +1,4 @@
+import random
 import sys
 from queryfuncs import *
 from cutscenes import *
@@ -255,35 +256,36 @@ def search(item, current_room, database=db):
         
 def up(current_room):
     stairs = room_list_returner(current_room)
-    if 200 in stairs:
-        go(current_room,200)
-    elif 300 in stairs:
-        go(current_room,300)    
-    elif 400 in stairs:
-        go(current_room,400)    
+    print(stairs)
+    if "200" in stairs and current_room == "100":
+        go(current_room,"200")
+    elif "300" in stairs and current_room == "200":
+        go(current_room,"300")   
+    elif "400" in stairs and current_room == "300":
+        go(current_room,"400")    
     else:
         print("I cannot go up from here...")
     
 def down(current_room):
     stairs = room_list_returner(current_room)
-    if 400 in stairs:
-        go(current_room,300)
-    elif 300 in stairs:
-        go(current_room,200)    
-    elif 200 in stairs:
-        go(current_room,100)    
+    if "400" in stairs and current_room == "400":
+        go(current_room,"300")
+    elif "300" in stairs and current_room == "300":
+        go(current_room,"200")    
+    elif "200" in stairs and current_room == "200":
+        go(current_room,"100")    
     else:
         print("I cannot go down from here...")          
     
 #def leave(current_room):  
-#    corridors = [100,110,200,210,300,310,400,410]
+#    corridors = ["100","110","200","210","300","310","400","410]
 #    rooms = room_list_returner(current_room)
 #    if current_room not in corridors:
 #            go(current_room,)
 
 def use(item_name, room_id, database=db):
     inventory = get_items_inventory()
-
+    print(item_name)
     if item_name == "painkillers":
         item_id = item_id_from_name(item_name)
 
@@ -514,7 +516,7 @@ def fight_checker(current_room, database=db):
                 if ending_choice == 'Forgive' or 'forgive' or 'f':
                     print('I see... Thank you.')
                     print('Here is the key to lobby door.\n')
-                    query1= "UPDATE Item SET Inventory = TRUE, Hidden= False WHERE Name = A lion-crested key"
+                    query1= "UPDATE Item SET Inventory = TRUE, Hidden= False WHERE Name = 'A lion-crested key'"
                     query2= "DELETE from NPC WHERE Name = Doctor Ingolf Buchwald"
                     cursor.execute(query1)
                     cursor.execute(query2)
@@ -558,6 +560,7 @@ def npc_converser(current_room):
         else:
             pass   
             
+
     elif current_room == "201":  
         value = npc_alive_or_not(current_room)
         
@@ -598,6 +601,89 @@ def npc_converser(current_room):
             
         else:
             pass    
+       
+
+#HANGMAN
+def hangman():
+    def guess_letter(word, letter, guessed_list):
+
+        if letter not in guessed_list:
+            guessed_list.append(letter)
+            for c in word:
+                if letter == c:
+                    return True
+        return False
+
+    def check_if_solved(guessed_list: list, correct_list: list) -> bool:
+        if guessed_list == correct_list:
+            return True
+        else:
+            return False
+
+    def show_puzzle(word, correct_list):
+        hidden_word = ""
+        for c in word:
+            if c in correct_list:
+               hidden_word += c
+               hidden_word += ' '
+            else:
+                hidden_word += '_ '
+        return hidden_word
+
+    def ask_letter():
+        letter = str(input("Guess a letter: "))
+        return letter
+
+    words = open('words.txt')
+    ff = words.read()
+    d = ff.splitlines()
+    lista = []
+
+    for word in d:
+        if len(word) > 5:
+            lista.append(word)
+
+    guess_word = lista[random.randint(0, len(lista)-1)]
+    letters = []
+
+    for c in guess_word:
+       if c not in letters:
+           letters.append(c)
+    letters.sort()
+
+    guess_count = 0
+    guessed_list = []
+    correct_list = []
+
+    while guess_count < 6 and correct_list != letters:
+        print("The word is: \n", show_puzzle(guess_word, correct_list))
+        let = ask_letter()
+
+        if let.isalpha() and len(let) == 1:
+
+            if guess_letter(guess_word, let, guessed_list):
+                correct_list.append(let)
+                correct_list.sort()
+
+                if check_if_solved(correct_list, letters):
+                    print("you guessed right, YOU WIN!")
+                    return True
+            else:
+                guess_count += 1
+                ss = "You guessed wrong... STRIKE"
+                print(ss, guess_count)
+        else:
+            print("Not a letter.")
+            
+        return False
+
+
+    
+
+
+
+
+
 
 
 

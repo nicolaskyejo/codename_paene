@@ -213,13 +213,15 @@ def item_id_from_name(name, database=db):
         cursor.execute(query)
 
         id = cursor.fetchone()
-
     except mysql.connector.Error as e:
         print(e)
 
     finally:
         cursor.close()
-        return id[0]
+        if id != None:
+            return id[0]
+        else:
+            return None
 
 def item_name_from_id(item_id, database=db):
     try:
@@ -234,7 +236,10 @@ def item_name_from_id(item_id, database=db):
 
     finally:
         cursor.close()
-        return id[0]
+        if id != None:
+            return id[0]
+        else:
+            return None
 
 def use_item(item_id, current_room,database=db): #Changes Used to True if item not hidden, in the same room, item id matches
     try:
@@ -253,7 +258,7 @@ def use_item(item_id, current_room,database=db): #Changes Used to True if item n
 def drop_item(item_id, room_id, database=db):
     try:
         query1 = "UPDATE Item SET Inventory = FALSE WHERE Item_id = " + str(item_id) 
-        query2 = "UPDATE Item SET room_id = " + str(room_id) + "WHERE Item_Id = " + str(item_id) 
+        query2 = "UPDATE Item SET room_id = " + str(room_id) + " WHERE Item_Id = " + str(item_id)
         cursor = database.cursor()
         cursor.execute(query1)
         cursor.execute(query2)

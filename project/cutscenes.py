@@ -1,16 +1,70 @@
 #npc conversation#
+from gamefuncs import *
+from queryfuncs import *
+
+
 def npc_Jake():
-    print('')
+    our_print("(A hunch-backed man with bloodshot eyes is incessantly staring at the wall. He doesn't look very well..)\n")
+    our_print("Unknown Man: Th-the w-w-walls are spying on me... T-THOSE BASTARDS ARE UP TO SOMETHING BAD I KNOW IT! I-i-i got to keep on eye on them...\n")
+    our_print("Verner: Hey, are you okay..?\n")
+    our_print("Unknown Man: Leav-v-v me alone! I don't need anything from you!\n")
+    our_print("(Maybe it's best for me to leave before something bad happens.)\n")
+
+    
+    
     
 def npc_Lawrence():    
-    print('')
+    our_print("(There's a wretched looking man is sitting in a rusted wheelchair)\n")
+    our_print("Unknown Man: Hello young man.\n")
+    our_print("Hello..?\n")
+    our_print("I'm bored! Do you want to play a game of hangman? If you win I'll give you a reward.\n")
+    while True:
+        answer = str(input("Do you want to play his game? (Y/N)  "))
+        answer = answer.lower()
+        if answer == 'y' or answer == 'yes':
+            print("Haha, this will be fun!")
+            value = hangman()
+            if value == True:
+                print('Congratulations boy.')
+                print('Here is your reward\n')
+                print("(You recieve a lighter)")
+                query1= "UPDATE Item SET Inventory = TRUE, Hidden= TRUE WHERE Name = 'Lighter'"
+                cursor.execute(query1)
+            else:
+                pass
+        cursor.close()    
+        if answer == 'n' or answer == 'no':
+            print("Shame...") 
+            break    
+        else:
+            print("Please Enter Y or N")
+    
 
 def npc_Oliver():    
-    print('')
+    our_print("There's a ghostly-looking pale man lying on a hospital bed. His face is filled with sweat")
+    our_print("Unknown Man: Hey, are you the doctor? You don't look like one.\n")
+    our_print("Verner: Sorry but I'm not.\n")
+    our_print("Unknown Man: Can you find the doctor for me? I feel sick after taking the pills he gave me.\n")
+    our_print("Verner: Uh... sure, leave it for me.\n")
+    our_print("Unknown Man: Just tell him it's Oliver Cromwell asking, s-s-surely he'll remember me.")
 
 def npc_Jonathan():    
-    print('')
-
+    our_print("I can see a confused looking man is walking in circles muttering to himself")
+    our_print("Unknown Man: Hey! Heheh... I know you.\n")
+    our_print("Verner: Uh, I don't think we have met, you must have mistaken me for someone else.\n")
+    our_print("Unknown Man: Hehhehe...\n")
+    our_print("(I don't think I will get much out of this conversation.)")
+    answer = str(input("Maybe I should ask him something? (Y/N) "))
+    answer = answer.lower()
+    if answer == 'y' or answer == 'yes':
+            our_print("Verner: Hey do you think you could tell me something about this place?")
+            our_print("Unknown Man: uh ah... I know oh yes I know... It is the Aliens!")
+            our_print("(Yeah, I think I'm done here.)")   
+    elif answer == 'n' or answer == 'no':
+            print("(I should probably go, this man seems dangerously unstable.)") 
+    else :
+        print("(I should probably go, this man seems dangerously unstable.)")
+    
 
     
 
@@ -64,7 +118,7 @@ def cutscene_100win():      #After you win the first fight
     print('Guard: Quiet fool! You will regret leaving that room.\n')
     print("Verner: We will see about that! \n")
     print('(I end the fight with a couple swift strikes.)\n')
-    print('What a pushover..\n')
+    print('What a pushover...\n')
 
 def cutscene_100lose():      #After you lose the first fight
     print('Ughh.. Am I really this weak?')
@@ -76,10 +130,17 @@ def cutscene_100lose():      #After you lose the first fight
     print("\t\tGAME OVER\n")
 
 def cutscene_win_generic():
-    print('\n')
+    print("That guard was no match for me...\n")
+    print("I recompose myself and continue forward.\n")
     
 def cutscene_lose_generic():
-    print('\n')        
+    print("Arghh! I'm too weak...")
+    print("This is too much for me without a weapon.\n")
+    print("This is surely the end of me.\n")
+
+    
+    print("\t\tRest in peace...\n")
+    print("\t\tGAME OVER\n")      
     
 def cutscene_3():
     print("Dr. Buchwald: mmh it seems I underestimated you… I should have put more guards in place but oh well… You are here for revenge aren’t you?\n")

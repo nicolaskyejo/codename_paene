@@ -1,0 +1,36 @@
+#1
+Game working without crashes
+
+#2
+Testing different inputs to see if game crashes
+
+#3
+Check all commands to see if they work properly 
+
+#4
+Npc conversations
+
+#5
+Ending_checker
+
+Ideas:
+In the starting room, the P. could be tied. 
+Any input from the user once unties him.
+
+QOL:
+- Text doesn't come to screen at once
+
+
+Nicolas:
+Fix drop command to Hidden = True
+
+Lauri:
+Look() produce also room description and connected rooms.
+Look should not see items in inventory
+
+Oliver:
+npc conversations
+
+
+
+
