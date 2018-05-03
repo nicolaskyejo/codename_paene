@@ -111,12 +111,12 @@ INSERT INTO Npc VALUES(5,"im12whatisthis",306,NULL,NULL);
 INSERT INTO Npc VALUES(6,"follower",305,NULL,NULL);
 INSERT INTO Npc VALUES(7,"Doctor Ingolf Buchwald",401,"A balding man with big spectactles","Thank you for sparing me");
 
-INSERT INTO Npc VALUES(8,"Jake",107,"A hunch-backed man with bloodshot eyes is incessantly staring at the wall. He doesn't look very well..","Th-the w-w-walls are spying on me.. T-THOSE BASTARDS ARE UP TO SOMETHING BAD I KNOW IT! I-i-i got to keep on eye on them..");   
-INSERT INTO Npc VALUES(9,"Lawrence",201,"A wretched looking man is sitting in a rusted wheelchair","I'm bored! Do you want to play a game of hangman? If you win I'll give you a reward"); #hangman game and lighter from him
-INSERT INTO Npc VALUES(10,"Oliver Cromwell",403,"A ghostly-looking pale man is lying on a hospital bed. His face is filled with sweat","Oliver Cromwell: Can you go get the doctor? please...");
-INSERT INTO Npc VALUES(11,"Doctor Reinhold Eisenberg",305,"An old man in his twilight years, gaunt and serious looking","Leave me alone for now");       #in room with npc(Paul & follower)
-INSERT INTO Npc VALUES(12,"Paul",305,"A lean naked man is spread on the operating table","");
-INSERT INTO Npc VALUES(13,"Jonathan Gebhard",200,"A confused looking man is walking in circles muttering to himself","uh ah... I know oh yes I know... It is the Aliens!");
+INSERT INTO Npc VALUES(8,"Jake",107,l..","Get away from me!");   
+INSERT INTO Npc VALUES(9,"Lawrence",201,"r","I'm bored! Do you want to play a game of hangman? If you win I'll give you a reward"); #hangman game and lighter from him
+INSERT INTO Npc VALUES(10,"Oliver Cromwell",403,"At","Oliver Cromwell: Can you go get the doctor? please...");
+INSERT INTO Npc VALUES(11,"Doctor Reinhold Eisenberg",305,"Ang","Leave me alone for now");       #in room with npc(Paul & follower)
+INSERT INTO Npc VALUES(12,"Paul",305,".--","");
+INSERT INTO Npc VALUES(13,"Jonathan Gebhard",200,"Af","uh ah... I know oh yes I know... It is the Aliens!");
 
 
 # [Texti] # Room inside text  #33 rooms therefore 33 texts
