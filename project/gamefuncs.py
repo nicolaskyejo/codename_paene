@@ -99,9 +99,9 @@ def clear():  # Clear console
     print("\n" * 100)
 
 
-def go(current_room: str, room_to_move: str):
-    current_room = current_room
-    room_to_move = room_to_move
+def go(current_room, room_to_move):
+    current_room = str(current_room)
+    room_to_move = str(room_to_move)
 
     if room_to_move in room_list_returner(current_room):
         our_print(show_room(room_to_move))
@@ -254,17 +254,21 @@ def search(item, current_room, database=db):
         our_print("I didn't find anything.")
         
 def up(current_room):
+    current_room = str(current_room)
     stairs = room_list_returner(current_room)
-    print(stairs)
     if "200" in stairs and current_room == "100":
         go(current_room,"200")
+        return 200
     elif "300" in stairs and current_room == "200":
-        go(current_room,"300")   
+        go(current_room,"300")
+        return 300
     elif "400" in stairs and current_room == "300":
-        go(current_room,"400")    
+        go(current_room,"400")
+        return 400
     else:
         print("I cannot go up from here...")
-    
+        return None
+
 def down(current_room):
     stairs = room_list_returner(current_room)
     if "400" in stairs and current_room == "400":
