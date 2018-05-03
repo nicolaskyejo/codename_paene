@@ -120,7 +120,7 @@ INSERT INTO Npc VALUES(13,"Jonathan Gebhard",200,"Af","uh ah... I know oh yes I 
 
 
 # [Texti] # Room inside text  #33 rooms therefore 33 texts
-#INSERT INTO Texti VALUES("There is man in black patrolling. OH SHIT! He saw me and IS coming after ME! Gotta defend myself!", 100); #INSERT INTO Texti VALUES("Looks like some kind of corridor with rooms side by side.", 100);
+
 INSERT INTO Texti VALUES("A normal corridor with five rooms and stairs leading up.", 100);
 INSERT INTO Texti VALUES("Seems like a hospital lounge with two rooms. On the east side, the building is damaged and thus innaccesible. On the middle there is an exit door outside bolted with chains and a huge lock.", 110);
 INSERT INTO Texti VALUES("A basic operating room. It is miserable looking but the surgery instruments appear well maintained.",101); 
@@ -153,7 +153,8 @@ INSERT INTO Texti VALUES("This room is extremely small... I can barely move. The
 INSERT INTO Texti VALUES("The door is locked. It doesn't budge even after ramming it...",303); 
 INSERT INTO Texti VALUES("This room is huge! It has been cleared of furniture but there appears to be all sorts of junk on the floor.",304); 
 INSERT INTO Texti VALUES("An operating room with two men standing over what looks like a person on the surgery table. \
-								The other person is wearing different attire and appears to be some kind of doctor.",305);   #this text will be updated when the guard dies 
+						One is a guard and \
+						the other person is wearing different attire and appears to be some kind of doctor.",305);   #this text will be updated when the guard dies 
 INSERT INTO Texti VALUES("There are two men standing inside... I really don't think I should take this on.",306); # Funktio for leaving / fighting
 INSERT INTO Texti VALUES("A room with an old MRI machine. On the corner, there is a stack of old magazines. Near the window there is a dingy looking table.",307);
 
@@ -165,56 +166,55 @@ INSERT INTO Texti VALUES("There he is, the man himself is sitting behind his des
 INSERT INTO Texti VALUES("The door is firmly shut.",402); 
 INSERT INTO Texti VALUES("This room is really clean. There's someone sleeping in it.",403); 
 
-# ROOMS THAT CANNOT BE ENTERED: 105,106, 108, 203, 205, 207, 301, 303, 402
-#LETS MAKE A FUNCTION FOR THE PLAYER TO DECIDE IF HE ENTERS ROOM 306.
+
 
 
 
 # [Item] # 23+ items   #(id,name,hidden,inventory,room_id,desc,pickable,used)
-INSERT INTO Item VALUES (1, "Medical table", FALSE, NULL, 101, "A medical table with sharp instruments.", FALSE, NULL);
+INSERT INTO Item VALUES (1, "Medical table", FALSE, FALSE, 101, "A medical table with sharp instruments.", FALSE, FALSE);
 INSERT INTO Item VALUES (1+1, "Scalpel", TRUE, FALSE, 101, "Sharp, a tool used in surgery.",TRUE, FALSE);
-INSERT INTO Item VALUES (5, "Cigarette", FALSE, TRUE, 101, "Strange that they didn't take these cigarettes from me.",TRUE, NULL);
-INSERT INTO Item VALUES (8, "Box", FALSE,  NULL, 101, "A cardboard box full of old medical books.",FALSE, FALSE);
-INSERT INTO Item VALUES (100, "Vent", FALSE, NULL, 101, "A big air vent. It has a metal cover, held in place by screws in its four corners.", FALSE, NULL);
-INSERT INTO Item VALUES (103, "Vent", TRUE, NULL, 101, "An opened air vent. It is big enough for a person to pass through.", FALSE, NULL);
+INSERT INTO Item VALUES (5, "Cigarette", FALSE, TRUE, 101, "Strange that they didn't take these cigarettes from me.",TRUE, FALSE);
+INSERT INTO Item VALUES (8, "Box", FALSE,  FALSE, 101, "A cardboard box full of old medical books.",FALSE, FALSE);
+INSERT INTO Item VALUES (100, "Vent", FALSE, FALSE, 101, "A big air vent. It has a metal cover, held in place by screws in its four corners.", FALSE, FALSE);
+INSERT INTO Item VALUES (103, "Vent", TRUE, FALSE, 101, "An opened air vent. It is big enough for a person to pass through.", FALSE, FALSE);
 
-INSERT INTO Item VALUES (11, "Drawer", FALSE,  NULL, 102, "A dark lacquered wooden drawer.",FALSE, NULL);
-INSERT INTO Item VALUES (11+1, "Painkillers", TRUE,  NULL, 102, "I should probably take these...",TRUE, NULL);
+INSERT INTO Item VALUES (11, "Drawer", FALSE,  FALSE, 102, "A dark lacquered wooden drawer.",FALSE, FALSE);
+INSERT INTO Item VALUES (11+1, "Painkillers", TRUE,  FALSE, 102, "I should probably take these...",TRUE, FALSE);
 
-INSERT INTO Item VALUES (15, "Sink", FALSE,  NULL, 104, "A small stained sink with rusted pipes under it.",FALSE, NULL);
-INSERT INTO Item VALUES (15+1, "Metal Pipe", TRUE, NULL, 104, "Maybe I could crack something with this.",TRUE, NULL);
-INSERT INTO Item VALUES (19, "Noticeboard", FALSE, NULL, 104, "A noticeboard. It is filled with post-it notes and pinned papers.",FALSE, NULL);
-INSERT INTO Item VALUES (19+1, "Paper", TRUE,  NULL, 104, "A piece of worn out, crumbled paper.. there's something written on it. whe",FALSE, NULL);
+INSERT INTO Item VALUES (15, "Sink", FALSE,  FALSE, 104, "A small stained sink with rusted pipes under it.",FALSE, FALSE);
+INSERT INTO Item VALUES (15+1, "Metal Pipe", TRUE, FALSE, 104, "Maybe I could crack something with this.",TRUE, FALSE);
+INSERT INTO Item VALUES (19, "Noticeboard", FALSE, FALSE, 104, "A noticeboard. It is filled with post-it notes and pinned papers.",FALSE, FALSE);
+INSERT INTO Item VALUES (19+1, "Paper", TRUE,  FALSE, 104, "A piece of worn out, crumbled paper.. there's something written on it. whe",FALSE, FALSE);
 
-INSERT INTO Item VALUES (23, "Drawer", FALSE,  NULL, 105, "A dark lacquered wooden drawer.",FALSE, NULL);
-INSERT INTO Item VALUES (23+1, "Torn out magazine title", TRUE, NULL, 105, "Internet Memes evolving as a form of metalanguage.",FALSE, NULL);
+INSERT INTO Item VALUES (23, "Drawer", FALSE,  FALSE, 105, "A dark lacquered wooden drawer.",FALSE, FALSE);
+INSERT INTO Item VALUES (23+1, "Torn out magazine title", TRUE, FALSE, 105, "Internet Memes evolving as a form of metalanguage.",FALSE, FALSE);
 
-INSERT INTO Item VALUES (27, "Stretcher", FALSE,  NULL, 107, "An apparatus for moving patients.. or bodies.",FALSE, NULL);
+INSERT INTO Item VALUES (27, "Stretcher", FALSE,  FALSE, 107, "An apparatus for moving patients.. or bodies.",FALSE, FALSE);
 
-INSERT INTO Item VALUES (30, "Bookshelf", FALSE,  NULL, 108, "A large bookshelf filled with different books and documents.",FALSE, NULL);
-INSERT INTO Item VALUES (30+1, "A book", TRUE,  NULL, 108, "On the cover there's a picture of something that faintly resembles a snake.\
-I can't open the book, the pages seem to be stuck together.",FALSE, NULL);
+INSERT INTO Item VALUES (30, "Bookshelf", FALSE,  FALSE, 108, "A large bookshelf filled with different books and documents.",FALSE, FALSE);
+INSERT INTO Item VALUES (30+1, "A book", TRUE,  FALSE, 108, "On the cover there's a picture of something that faintly resembles a snake.\
+I can't open the book, the pages seem to be stuck together.",FALSE, FALSE);
 
-INSERT INTO Item VALUES (33, "Window", FALSE,  NULL, 110, "A window with metal bars blocking anyone from going through.",FALSE, NULL);
+INSERT INTO Item VALUES (33, "Window", FALSE,  FALSE, 110, "A window with metal bars blocking anyone from going through.",FALSE, FALSE);
 
-INSERT INTO Item VALUES (36, "Lighter", TRUE,  NULL, 201, "It's an old zippo.",TRUE, NULL);
-INSERT INTO Item VALUES (39, "Office chair", FALSE,NULL, 201, "A dirty navy blue office chair, looks uncomfortable to sit in.", FALSE, NULL);
+INSERT INTO Item VALUES (36, "Lighter", TRUE,  FALSE, 201, "It's an old zippo.",TRUE, FALSE);
+INSERT INTO Item VALUES (39, "Office chair", FALSE,FALSE, 201, "A dirty navy blue office chair, looks uncomfortable to sit in.", FALSE, FALSE);
 
 
-INSERT INTO Item VALUES (42, "Briefcase", FALSE, NULL, 202, "A dirty pre-war briefcase.",FALSE, NULL);
-INSERT INTO Item VALUES (42+1, "Radiophone", TRUE, NULL, 202, "I wonder if this thing still works.",TRUE, NULL);
-INSERT INTO Item VALUES (42+2, "A dusty diary with a bookmarked page", TRUE,NULL, 202, "THIS is thy hour O Soul, thy free flight into the wordless,
+INSERT INTO Item VALUES (42, "Briefcase", FALSE, FALSE, 202, "A dirty pre-war briefcase.",FALSE, FALSE);
+INSERT INTO Item VALUES (42+1, "Radiophone", TRUE, FALSE, 202, "I wonder if this thing still works.",TRUE, FALSE);
+INSERT INTO Item VALUES (42+2, "A dusty diary with a bookmarked page", TRUE,FALSE, 202, "THIS is thy hour O Soul, thy free flight into the wordless,
 	Away from books, away from art, the day erased, the lesson done,
 	Thee fully forth emerging, silent, gazing, pondering the themes thou,
 	lovest best.
 	Night, sleep, death and the stars.
-	-Walt Whitman", FALSE, NULL);
+	-Walt Whitman", FALSE, FALSE);
 	
-INSERT INTO Item VALUES (47, "Water dispenser",FALSE, NULL, 210, "An empty water dispenser sits next to the stairway.",FALSE, NULL);
+INSERT INTO Item VALUES (47, "Water dispenser",FALSE, FALSE, 210, "An empty water dispenser sits next to the stairway.",FALSE, FALSE);
 
-INSERT INTO Item VALUES (50, "Trunk", TRUE,  NULL, 304, "An open foot locker trunk.",TRUE, NULL);
-INSERT INTO Item VALUES (50+1, "Ethanol", TRUE,  NULL, 304, "I’d love to drink this... But I probably shouldn’t.",TRUE, NULL);
-INSERT INTO Item VALUES (50+2, "A torn piece from a journal", TRUE, NULL, 304, "An excerpt from the magazine 'Voner' volume 36 issue 5 article 'What we take for granted' 
+INSERT INTO Item VALUES (50, "Trunk", TRUE,  FALSE, 304, "An open foot locker trunk.",TRUE, FALSE);
+INSERT INTO Item VALUES (50+1, "Ethanol", TRUE,  FALSE, 304, "I’d love to drink this... But I probably shouldn’t.",TRUE, FALSE);
+INSERT INTO Item VALUES (50+2, "A torn piece from a journal", TRUE, FALSE, 304, "An excerpt from the magazine 'Voner' volume 36 issue 5 article 'What we take for granted' 
 Euthanasia is the act of ending a life with the intention of relieving pain. In the 21st century it was a heatedly 
 debated subject. Should people suffering in extreme pain be granted a request to end their life?
 
@@ -229,27 +229,27 @@ It is a sin to end one's life(and therefore a sin to help someone else do it)
 Giving up is a sign of weakness
 
 Nowadays ofcourse the right to assisted-suicide is a universal right that we take for granted but in the 
-21st century it was an issue of contention.",FALSE, NULL);
+21st century it was an issue of contention.",FALSE, FALSE);
 
-INSERT INTO Item VALUES (55, "Table", FALSE, NULL, 307, "A dingy table that looks like it was damaged by fire.", FALSE, NULL);
-INSERT INTO Item VALUES (55+1, "An old looking magazine cutout", TRUE, NULL, 307, "River water turning frogs gay?
+INSERT INTO Item VALUES (55, "Table", FALSE, FALSE, 307, "A dingy table that looks like it was damaged by fire.", FALSE, FALSE);
+INSERT INTO Item VALUES (55+1, "An old looking magazine cutout", TRUE, FALSE, 307, "River water turning frogs gay?
 		How governments are a haven for satanic cults. Read feature on page ! 
-		Bilderberg group wants to turn you into a slave. Resist now!", FALSE, NULL);
-INSERT INTO Item VALUES (55+2, "Knife", TRUE,  NULL, 307, "It’s a bit dull, but it should still get the job done.",TRUE, NULL);
-INSERT INTO Item VALUES (60, "MRI", FALSE, NULL, 307, "This look like an old Magnetic Resonance machine", FALSE, NULL);
+		Bilderberg group wants to turn you into a slave. Resist now!", FALSE, FALSE);
+INSERT INTO Item VALUES (55+2, "Knife", TRUE,  FALSE, 307, "It’s a bit dull, but it should still get the job done.",TRUE, FALSE);
+INSERT INTO Item VALUES (60, "MRI", FALSE, FALSE, 307, "This look like an old Magnetic Resonance machine", FALSE, FALSE);
 
-INSERT INTO Item VALUES (61, "Storage box", TRUE, NULL, 401, "An old storage box from before the war. It is slightly open.",TRUE, NULL);
-INSERT INTO Item VALUES (61+1, "Gasoline Tank", TRUE, NULL, 401, "It seems to have at least half a gallon left.",TRUE, NULL);
-INSERT INTO Item VALUES (61+2, "Medical book", TRUE, NULL, 401, "Grays Anatomy the Anatomical Basis of Clinical Practice 41st Edition",FALSE, NULL);
+INSERT INTO Item VALUES (61, "Storage box", TRUE, FALSE, 401, "An old storage box from before the war. It is slightly open.",TRUE, FALSE);
+INSERT INTO Item VALUES (61+1, "Gasoline Tank", TRUE, FALSE, 401, "It seems to have at least half a gallon left.",TRUE, FALSE);
+INSERT INTO Item VALUES (61+2, "Medical book", TRUE, FALSE, 401, "Grays Anatomy the Anatomical Basis of Clinical Practice 41st Edition",FALSE, FALSE);
 
-INSERT INTO Item VALUES (66, "Shelf", FALSE, NULL, 306, "Looks like there is something on it.",FALSE, NULL);
-INSERT INTO Item VALUES (66+1, "Robotics book", TRUE, NULL, 306, "Robotic Surgery Guide 1st Edition",FALSE, NULL);
-INSERT INTO Item VALUES (66+2, "An old scientific journal", TRUE, NULL, 306, "'Sugar: The white devil' reads on the cover",FALSE, NULL);
+INSERT INTO Item VALUES (66, "Shelf", FALSE, FALSE, 306, "Looks like there is something on it.",FALSE, FALSE);
+INSERT INTO Item VALUES (66+1, "Robotics book", TRUE, FALSE, 306, "Robotic Surgery Guide 1st Edition",FALSE, FALSE);
+INSERT INTO Item VALUES (66+2, "An old scientific journal", TRUE, FALSE, 306, "'Sugar: The white devil' reads on the cover",FALSE, FALSE);
 
 
 #KEYS#
-INSERT INTO Item VALUES (70,"A simple key",TRUE,NULL,305,"The doctor told me opens one of the top floor doors.",TRUE,NULL);
-INSERT INTO Item VALUES (75,"A lion-crested key",TRUE,NULL,401,"Opens the lobby door on the first floor.",TRUE,NULL);
+INSERT INTO Item VALUES (70,"A simple key",TRUE,FALSE,305,"The doctor told me opens one of the top floor doors.",TRUE,FALSE);
+INSERT INTO Item VALUES (75,"A lion-crested key",TRUE,FALSE,401,"Opens the lobby door on the first floor.",TRUE,FALSE);
 	
 # [Room_List] # Each room has a list of room it is connected to
 INSERT INTO Room_List VALUES (100,101);

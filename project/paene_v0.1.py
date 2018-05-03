@@ -44,8 +44,9 @@ if __name__ == '__main__':
             our_print(look(current_room))
             
         elif players_input[0] in ["up","u"]:
-            up(current_room)
-            
+            if up(current_room) != None:
+                current_room = up(current_room)
+
         elif players_input[0] in ["down","d"]:
             down(current_room)  
             
