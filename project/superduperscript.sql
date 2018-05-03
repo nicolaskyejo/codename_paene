@@ -120,7 +120,7 @@ INSERT INTO Npc VALUES(13,"Jonathan Gebhard",200,"A confused looking man is walk
 
 
 # [Texti] # Room inside text  #33 rooms therefore 33 texts
-#INSERT INTO Texti VALUES("There is man in black patrolling. OH SHIT! He saw me and IS coming after ME! Gotta defend myself!", 100); #INSERT INTO Texti VALUES("Looks like some kind of corridor with rooms side by side.", 100);
+
 INSERT INTO Texti VALUES("A normal corridor with five rooms and stairs leading up.", 100);
 INSERT INTO Texti VALUES("Seems like a hospital lounge with two rooms. On the east side, the building is damaged and thus innaccesible. On the middle there is an exit door outside bolted with chains and a huge lock.", 110);
 INSERT INTO Texti VALUES("A basic operating room. It is miserable looking but the surgery instruments appear well maintained.",101); 
@@ -153,7 +153,8 @@ INSERT INTO Texti VALUES("This room is extremely small... I can barely move. The
 INSERT INTO Texti VALUES("The door is locked. It doesn't budge even after ramming it...",303); 
 INSERT INTO Texti VALUES("This room is huge! It has been cleared of furniture but there appears to be all sorts of junk on the floor.",304); 
 INSERT INTO Texti VALUES("An operating room with two men standing over what looks like a person on the surgery table. \
-								The other person is wearing different attire and appears to be some kind of doctor.",305);   #this text will be updated when the guard dies 
+						One is a guard and \
+						the other person is wearing different attire and appears to be some kind of doctor.",305);   #this text will be updated when the guard dies 
 INSERT INTO Texti VALUES("There are two men standing inside... I really don't think I should take this on.",306); # Funktio for leaving / fighting
 INSERT INTO Texti VALUES("A room with an old MRI machine. On the corner, there is a stack of old magazines. Near the window there is a dingy looking table.",307);
 
@@ -165,8 +166,7 @@ INSERT INTO Texti VALUES("There he is, the man himself is sitting behind his des
 INSERT INTO Texti VALUES("The door is firmly shut.",402); 
 INSERT INTO Texti VALUES("This room is really clean. There's someone sleeping in it.",403); 
 
-# ROOMS THAT CANNOT BE ENTERED: 105,106, 108, 203, 205, 207, 301, 303, 402
-#LETS MAKE A FUNCTION FOR THE PLAYER TO DECIDE IF HE ENTERS ROOM 306.
+
 
 
 
