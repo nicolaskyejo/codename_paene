@@ -171,12 +171,12 @@ INSERT INTO Texti VALUES("This room is really clean. There's someone sleeping in
 
 
 # [Item] # 23+ items   #(id,name,hidden,inventory,room_id,desc,pickable,used)
-INSERT INTO Item VALUES (1, "Medical", FALSE, NULL, 101, "A medical table with sharp instruments.", FALSE, NULL);
+INSERT INTO Item VALUES (1, "Medical table", FALSE, NULL, 101, "A medical table with sharp instruments.", FALSE, NULL);
 INSERT INTO Item VALUES (1+1, "Scalpel", TRUE, FALSE, 101, "Sharp, a tool used in surgery.",TRUE, FALSE);
-INSERT INTO Item VALUES (5, "Cigarette", TRUE, TRUE, 101, "Strange that they didn't take these cigarettes from me.",TRUE, NULL);
+INSERT INTO Item VALUES (5, "Cigarette", FALSE, TRUE, 101, "Strange that they didn't take these cigarettes from me.",TRUE, NULL);
 INSERT INTO Item VALUES (8, "Box", FALSE,  NULL, 101, "A cardboard box full of old medical books.",FALSE, FALSE);
 INSERT INTO Item VALUES (100, "Vent", FALSE, NULL, 101, "A big air vent. It has a metal cover, held in place by screws in its four corners.", FALSE, NULL);
-INSERT INTO Item VALUES (101, "Vent", TRUE, NULL, 101, "An opened air vent. It is big enough for a person to pass through.", FALSE, NULL);
+INSERT INTO Item VALUES (103, "Vent", TRUE, NULL, 101, "An opened air vent. It is big enough for a person to pass through.", FALSE, NULL);
 
 INSERT INTO Item VALUES (11, "Drawer", FALSE,  NULL, 102, "A dark lacquered wooden drawer.",FALSE, NULL);
 INSERT INTO Item VALUES (11+1, "Painkillers", TRUE,  NULL, 102, "I should probably take these...",TRUE, NULL);

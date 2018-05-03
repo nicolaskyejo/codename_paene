@@ -118,7 +118,7 @@ def cutscene_100win():      #After you win the first fight
     print('Guard: Quiet fool! You will regret leaving that room.\n')
     print("Verner: We will see about that! \n")
     print('(I end the fight with a couple swift strikes.)\n')
-    print('What a pushover..\n')
+    print('What a pushover...\n')
 
 def cutscene_100lose():      #After you lose the first fight
     print('Ughh.. Am I really this weak?')

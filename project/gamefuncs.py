@@ -256,35 +256,36 @@ def search(item, current_room, database=db):
         
 def up(current_room):
     stairs = room_list_returner(current_room)
-    if 200 in stairs:
-        go(current_room,200)
-    elif 300 in stairs:
-        go(current_room,300)    
-    elif 400 in stairs:
-        go(current_room,400)    
+    print(stairs)
+    if "200" in stairs and current_room == "100":
+        go(current_room,"200")
+    elif "300" in stairs and current_room == "200":
+        go(current_room,"300")   
+    elif "400" in stairs and current_room == "300":
+        go(current_room,"400")    
     else:
         print("I cannot go up from here...")
     
 def down(current_room):
     stairs = room_list_returner(current_room)
-    if 400 in stairs:
-        go(current_room,300)
-    elif 300 in stairs:
-        go(current_room,200)    
-    elif 200 in stairs:
-        go(current_room,100)    
+    if "400" in stairs and current_room == "400":
+        go(current_room,"300")
+    elif "300" in stairs and current_room == "300":
+        go(current_room,"200")    
+    elif "200" in stairs and current_room == "200":
+        go(current_room,"100")    
     else:
         print("I cannot go down from here...")          
     
 #def leave(current_room):  
-#    corridors = [100,110,200,210,300,310,400,410]
+#    corridors = ["100","110","200","210","300","310","400","410]
 #    rooms = room_list_returner(current_room)
 #    if current_room not in corridors:
 #            go(current_room,)
 
 def use(item_name, room_id, database=db):
     inventory = get_items_inventory()
-
+    print(item_name)
     if item_name == "painkillers":
         item_id = item_id_from_name(item_name)
 
