@@ -271,13 +271,17 @@ def up(current_room):
         return None
 
 def down(current_room):
+    current_room = str(current_room)
     stairs = room_list_returner(current_room)
-    if "400" in stairs and current_room == "400":
+    if "300" in stairs and current_room == "400":
         go(current_room,"300")
-    elif "300" in stairs and current_room == "300":
+        return 300
+    elif "200" in stairs and current_room == "300":
         go(current_room,"200")    
-    elif "200" in stairs and current_room == "200":
+        return 200
+    elif "100" in stairs and current_room == "200":
         go(current_room,"100")    
+        return 100
     else:
         print("I cannot go down from here...")          
     
@@ -351,7 +355,7 @@ def fight_checker(current_room, database=db):
                 query3 = "UPDATE Item SET Name = 'Broken Scalpel' where Name = 'Scalpel'"
                 print('The scalpel breaks\n') 
                 cursor.execute(query3)
-                query4 = "UPDATE Texti SET Actual_Text = 'A normal corridor with five rooms and stairs leading up. There is a dead body of the first guard I killed' WHERE Room_Id = 100"
+                query4 = "UPDATE Texti SET ActualText = 'A normal corridor with five rooms and stairs leading up. There is a dead body of the first guard I killed' WHERE Room_Id = 100"
                 cursor.execute(query4) 
             else:
                 cutscene_100lose()    
@@ -376,14 +380,14 @@ def fight_checker(current_room, database=db):
                 cutscene_win_generic()
                 query3 = "DELETE from NPC WHERE Npc_Id = 2"
                 cursor.execute(query3) 
-                query4 = "UPDATE Texti SET Actual_Text = 'Seems like an old patient room. On the floor the guard is dead' WHERE Room_Id = 202"
+                query4 = "UPDATE Texti SET ActualText = 'Seems like an old patient room. On the floor the guard is dead' WHERE Room_Id = 202"
                 cursor.execute(query4) 
             else:
                cursor.execute(query2) 
                if cursor.rowcount == 1:
                     cutscene_win_generic()
                     query3 = "DELETE from NPC WHERE Npc_Id = 2"
-                    query4 = "UPDATE Texti SET Actual_Text = 'Seems like an old patient room. On the floor the guard is dead' WHERE Room_Id = 202"
+                    query4 = "UPDATE Texti SET ActualText = 'Seems like an old patient room. On the floor the guard is dead' WHERE Room_Id = 202"
                     cursor.execute(query4) 
                     cursor.execute(query3) 
                else: 
@@ -410,7 +414,7 @@ def fight_checker(current_room, database=db):
             if cursor.rowcount == 1:
                 cutscene_win_generic()
                 query3 = "DELETE from NPC WHERE Npc_Id = 3"
-                query4 = "UPDATE Texti SET Actual_Text = 'A corridor with two rooms. On the east side, the building is damaged and broken. A dead body I left still lies on the floor.' WHERE Room_Id = 210"
+                query4 = "UPDATE Texti SET ActualText = 'A corridor with two rooms. On the east side, the building is damaged and broken. A dead body I left still lies on the floor.' WHERE Room_Id = 210"
                 cursor.execute(query4) 
                 cursor.execute(query3) 
 
@@ -419,7 +423,7 @@ def fight_checker(current_room, database=db):
                if cursor.rowcount == 1:
                     cutscene_win_generic()
                     query3 = "DELETE from NPC WHERE Npc_Id = 3"
-                    query4 = "UPDATE Texti SET Actual_Text = 'A corridor with two rooms. On the east side, the building is damaged and broken. A dead body I left still lies on the floor.' WHERE Room_Id = 210"
+                    query4 = "UPDATE Texti SET ActualText = 'A corridor with two rooms. On the east side, the building is damaged and broken. A dead body I left still lies on the floor.' WHERE Room_Id = 210"
                     cursor.execute(query4) 
                     cursor.execute(query3) 
                else: 
@@ -449,7 +453,7 @@ def fight_checker(current_room, database=db):
                 query4 = "DELETE from NPC WHERE Npc_Id = 5"
                 cursor.execute(query3) 
                 cursor.execute(query4) 
-                query6 = "UPDATE Texti SET Actual_Text = 'A room with old machines. Two dead guard bodies are on the floor.' WHERE Room_Id = 210"
+                query6 = "UPDATE Texti SET ActualText = 'A room with old machines. Two dead guard bodies are on the floor.' WHERE Room_Id = 210"
                 cursor.execute(query6) 
 
             else:
@@ -461,7 +465,7 @@ def fight_checker(current_room, database=db):
                     query6 = "DELETE from NPC WHERE Npc_Id = 5"
                     cursor.execute(query5) 
                     cursor.execute(query6) 
-                    query4 = "UPDATE Texti SET Actual_Text = 'A room with old machines. Two dead guard bodies are on the floor.' WHERE Room_Id = 210"
+                    query4 = "UPDATE Texti SET ActualText = 'A room with old machines. Two dead guard bodies are on the floor.' WHERE Room_Id = 210"
                     cursor.execute(query4) 
                else: 
                     cutscene_lose_generic()
@@ -488,7 +492,7 @@ def fight_checker(current_room, database=db):
             if cursor.rowcount == 1:
                 cutscene_win_generic()
                 query3 = "DELETE from NPC WHERE Npc_Id = 6"
-                query4 = "UPDATE Texti SET Actual_Text = '' WHERE Room_Id = 100"
+                query4 = "UPDATE Texti SET ActualText = '' WHERE Room_Id = 100"
                 cursor.execute(query4) 
                 cursor.execute(query3)
 
@@ -498,7 +502,7 @@ def fight_checker(current_room, database=db):
                     cutscene_win_generic()
                     query3 = "DELETE from NPC WHERE Npc_Id = 6"
                     cursor.execute(query3) 
-                    query4 = "UPDATE Texti SET Actual_Text = '' WHERE Room_Id = 100"
+                    query4 = "UPDATE Texti SET ActualText = '' WHERE Room_Id = 100"
                     cursor.execute(query4) 
                else: 
                     cutscene_lose_generic()
