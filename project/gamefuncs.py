@@ -1,3 +1,4 @@
+import random
 import sys
 from queryfuncs import *
 from cutscenes import *
@@ -341,11 +342,17 @@ def fight_checker(current_room, database=db):
             cutscene_100()
             cursor = database.cursor()
             query1 = "SELECT Name from Item where Name = 'Scalpel' AND Inventory = TRUE"
-            cursor.execute(query1) 
+            cursor.execute(query1)
+
             if cursor.rowcount == 1:
                 cutscene_100win()
                 query2 = "DELETE from NPC WHERE Npc_Id = 1"
                 cursor.execute(query2)
+                query3 = "UPDATE Item SET Name = 'Broken Scalpel' where Name = 'Scalpel'"
+                print('The scalpel breaks\n') 
+                cursor.execute(query3)
+                query4 = "UPDATE Texti SET Actual_Text = 'A normal corridor with five rooms and stairs leading up. There is a dead body of the first guard I killed' WHERE Room_Id = 100"
+                cursor.execute(query4) 
             else:
                 cutscene_100lose()    
                 sys.exit()
@@ -354,11 +361,155 @@ def fight_checker(current_room, database=db):
         else:
             pass    
             
-    #elif current_room == 202:
-    #elif current_room == 210:
-    #elif current_room == 306:
-    #elif current_room == 305:
-    elif current_room == 401:
+    elif current_room == "202":
+        value = npc_alive_or_not(current_room)
+        
+        if value == True:
+            print('Another guard in black is standing in the room, he looks surprised to see me.\n') 
+            cursor = database.cursor()
+            query1 = "SELECT Name from Item where Name = 'Metal pipe' AND Inventory = 'TRUE'"
+            query2 = "SELECT Name from Item where Name = 'Knife' AND Inventory = 'TRUE'"
+
+            cursor.execute(query1) 
+
+            if cursor.rowcount == 1:
+                cutscene_win_generic()
+                query3 = "DELETE from NPC WHERE Npc_Id = 2"
+                cursor.execute(query3) 
+                query4 = "UPDATE Texti SET Actual_Text = 'Seems like an old patient room. On the floor the guard is dead' WHERE Room_Id = 202"
+                cursor.execute(query4) 
+            else:
+               cursor.execute(query2) 
+               if cursor.rowcount == 1:
+                    cutscene_win_generic()
+                    query3 = "DELETE from NPC WHERE Npc_Id = 2"
+                    query4 = "UPDATE Texti SET Actual_Text = 'Seems like an old patient room. On the floor the guard is dead' WHERE Room_Id = 202"
+                    cursor.execute(query4) 
+                    cursor.execute(query3) 
+               else: 
+                    cutscene_lose_generic()
+                    sys.exit()
+
+            cursor.close()
+            
+        else:
+            pass    
+
+    elif current_room == "210":
+        value = npc_alive_or_not(current_room)
+        
+        if value == True:
+            print('I notice a guard in the corridor, I sneak quietly behind him. Just when I\'m about to reach him')
+            print('He turns his head around!\n') 
+            cursor = database.cursor()
+            query1 = "SELECT Name from Item where Name = 'Metal pipe' AND Inventory = 'TRUE'"
+            query2 = "SELECT Name from Item where Name = 'Knife' AND Inventory = 'TRUE'"
+
+            cursor.execute(query1) 
+
+            if cursor.rowcount == 1:
+                cutscene_win_generic()
+                query3 = "DELETE from NPC WHERE Npc_Id = 3"
+                query4 = "UPDATE Texti SET Actual_Text = 'A corridor with two rooms. On the east side, the building is damaged and broken. A dead body I left still lies on the floor.' WHERE Room_Id = 210"
+                cursor.execute(query4) 
+                cursor.execute(query3) 
+
+            else:
+               cursor.execute(query2) 
+               if cursor.rowcount == 1:
+                    cutscene_win_generic()
+                    query3 = "DELETE from NPC WHERE Npc_Id = 3"
+                    query4 = "UPDATE Texti SET Actual_Text = 'A corridor with two rooms. On the east side, the building is damaged and broken. A dead body I left still lies on the floor.' WHERE Room_Id = 210"
+                    cursor.execute(query4) 
+                    cursor.execute(query3) 
+               else: 
+                    cutscene_lose_generic()
+                    sys.exit()
+
+            cursor.close()
+            
+        else:
+            pass   
+
+    elif current_room == "306":
+        value = npc_alive_or_not(current_room)
+        
+        if value == True:
+            print('Two guards are talking when I enter, the further one notices me.')
+            print('Before he can react, I move quickly behind the other one.\n') #spelling
+            cursor = database.cursor()
+            query1 = "SELECT Name from Item where Name = 'Metal pipe' AND Inventory = 'TRUE'"
+            query2 = "SELECT Name from Item where Name = 'Knife' AND Inventory = 'TRUE'"
+
+            cursor.execute(query1) 
+
+            if cursor.rowcount == 1:
+                cutscene_win_generic()
+                query3 = "DELETE from NPC WHERE Npc_Id = 4"
+                query4 = "DELETE from NPC WHERE Npc_Id = 5"
+                cursor.execute(query3) 
+                cursor.execute(query4) 
+                query6 = "UPDATE Texti SET Actual_Text = 'A room with old machines. Two dead guard bodies are on the floor.' WHERE Room_Id = 210"
+                cursor.execute(query6) 
+
+            else:
+               cursor.execute(query2) 
+
+               if cursor.rowcount == 1:
+                    cutscene_win_generic()
+                    query5 = "DELETE from NPC WHERE Npc_Id = 4"
+                    query6 = "DELETE from NPC WHERE Npc_Id = 5"
+                    cursor.execute(query5) 
+                    cursor.execute(query6) 
+                    query4 = "UPDATE Texti SET Actual_Text = 'A room with old machines. Two dead guard bodies are on the floor.' WHERE Room_Id = 210"
+                    cursor.execute(query4) 
+               else: 
+                    cutscene_lose_generic()
+                    sys.exit()
+
+            cursor.close()
+            
+        else:
+            pass   
+
+    elif current_room == "305":
+        value = npc_alive_or_not(current_room)
+        
+        if value == True:
+            print('When I enter the room, the most strange scene is met. What looks like a doctor is')
+            print('standing over a naked man lying on a hospital bed. Beside him is another guard')
+            print(', both of them have their backs to me... I sneak closely and then go for the kill') 
+            cursor = database.cursor()
+            query1 = "SELECT Name from Item where Name = 'Metal pipe' AND Inventory = 'TRUE'"
+            query2 = "SELECT Name from Item where Name = 'Knife' AND Inventory = 'TRUE'"
+
+            cursor.execute(query1) 
+
+            if cursor.rowcount == 1:
+                cutscene_win_generic()
+                query3 = "DELETE from NPC WHERE Npc_Id = 6"
+                query4 = "UPDATE Texti SET Actual_Text = '' WHERE Room_Id = 100"
+                cursor.execute(query4) 
+                cursor.execute(query3)
+
+            else:
+               cursor.execute(query2) 
+               if cursor.rowcount == 1:
+                    cutscene_win_generic()
+                    query3 = "DELETE from NPC WHERE Npc_Id = 6"
+                    cursor.execute(query3) 
+                    query4 = "UPDATE Texti SET Actual_Text = '' WHERE Room_Id = 100"
+                    cursor.execute(query4) 
+               else: 
+                    cutscene_lose_generic()
+                    sys.exit()
+
+            cursor.close()
+            
+        else:
+            pass   
+
+    elif current_room == "401":
         value = npc_alive_or_not(current_room)
         if value == True:
             cursor = database.cursor()
@@ -369,7 +520,7 @@ def fight_checker(current_room, database=db):
                 if ending_choice == 'Forgive' or 'forgive' or 'f':
                     print('I see... Thank you.')
                     print('Here is the key to lobby door.\n')
-                    query1= "UPDATE Item SET Inventory = TRUE, Hidden= False WHERE Name = A lion-crested key"
+                    query1= "UPDATE Item SET Inventory = TRUE, Hidden= False WHERE Name = 'A lion-crested key'"
                     query2= "DELETE from NPC WHERE Name = Doctor Ingolf Buchwald"
                     cursor.execute(query1)
                     cursor.execute(query2)
@@ -403,17 +554,138 @@ def fight_checker(current_room, database=db):
  
 # check to see if friendly npc exists and talks to them        
 def npc_converser(current_room):
-    if current_room == 100:
+    if current_room == "100":
         value = npc_alive_or_not(current_room)
         
         if value == True:
+            npc_Jake()
             pass
             
         else:
             pass   
             
-    else:
-        pass         
+
+    elif current_room == "201":  
+        value = npc_alive_or_not(current_room)
+        
+        if value == True:
+            #npc_Lawrence()
+            pass
+            
+        else:
+            pass 
+            
+    elif current_room == "403":  
+        value = npc_alive_or_not(current_room)
+        
+        if value == True:
+            #npc_Oliver()
+            pass
+            
+        else:
+            pass                            
+      
+    # Thinking of solution to this since there is Paul who is dead and there was another scene before this.    
+    #elif current_room == "305":  
+    #    value = npc_alive_or_not(current_room)
+        
+    #    if value == True:
+    #        
+    #        pass
+    #        
+    #    else:
+    #        pass    
+        
+    elif current_room == "200":  
+        value = npc_alive_or_not(current_room)
+        
+        if value == True:
+            npc_Jonathan()
+            pass
+            
+        else:
+            pass    
+       
+
+#HANGMAN
+def hangman():
+    def guess_letter(word, letter, guessed_list):
+
+        if letter not in guessed_list:
+            guessed_list.append(letter)
+            for c in word:
+                if letter == c:
+                    return True
+        return False
+
+    def check_if_solved(guessed_list: list, correct_list: list) -> bool:
+        if guessed_list == correct_list:
+            return True
+        else:
+            return False
+
+    def show_puzzle(word, correct_list):
+        hidden_word = ""
+        for c in word:
+            if c in correct_list:
+               hidden_word += c
+               hidden_word += ' '
+            else:
+                hidden_word += '_ '
+        return hidden_word
+
+    def ask_letter():
+        letter = str(input("Guess a letter: "))
+        return letter
+
+    words = open('words.txt')
+    ff = words.read()
+    d = ff.splitlines()
+    lista = []
+
+    for word in d:
+        if len(word) > 5:
+            lista.append(word)
+
+    guess_word = lista[random.randint(0, len(lista)-1)]
+    letters = []
+
+    for c in guess_word:
+       if c not in letters:
+           letters.append(c)
+    letters.sort()
+
+    guess_count = 0
+    guessed_list = []
+    correct_list = []
+
+    while guess_count < 6 and correct_list != letters:
+        print("The word is: \n", show_puzzle(guess_word, correct_list))
+        let = ask_letter()
+
+        if let.isalpha() and len(let) == 1:
+
+            if guess_letter(guess_word, let, guessed_list):
+                correct_list.append(let)
+                correct_list.sort()
+
+                if check_if_solved(correct_list, letters):
+                    print("you guessed right, YOU WIN!")
+                    return True
+            else:
+                guess_count += 1
+                ss = "You guessed wrong... STRIKE"
+                print(ss, guess_count)
+        else:
+            print("Not a letter.")
+            
+        return False
+
+
+    
+
+
+
 
 
 

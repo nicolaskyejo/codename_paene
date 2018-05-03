@@ -1,4 +1,8 @@
 #npc conversation#
+from gamefuncs import *
+from queryfuncs import *
+
+
 def npc_Jake():
     our_print("(A hunch-backed man with bloodshot eyes is incessantly staring at the wall. He doesn't look very well..)\n")
     our_print("Unknown Man: Th-the w-w-walls are spying on me... T-THOSE BASTARDS ARE UP TO SOMETHING BAD I KNOW IT! I-i-i got to keep on eye on them...\n")
@@ -10,14 +14,57 @@ def npc_Jake():
     
     
 def npc_Lawrence():    
-    print('')
+    our_print("(There's a wretched looking man is sitting in a rusted wheelchair)\n")
+    our_print("Unknown Man: Hello young man.\n")
+    our_print("Hello..?\n")
+    our_print("I'm bored! Do you want to play a game of hangman? If you win I'll give you a reward.\n")
+    while True:
+        answer = str(input("Do you want to play his game? (Y/N)  "))
+        answer = answer.lower()
+        if answer == 'y' or answer == 'yes':
+            print("Haha, this will be fun!")
+            value = hangman()
+            if value == True:
+                print('Congratulations boy.')
+                print('Here is your reward\n')
+                print("(You recieve a lighter)")
+                query1= "UPDATE Item SET Inventory = TRUE, Hidden= TRUE WHERE Name = 'Lighter'"
+                cursor.execute(query1)
+            else:
+                pass
+        cursor.close()    
+        if answer == 'n' or answer == 'no':
+            print("Shame...") 
+            break    
+        else:
+            print("Please Enter Y or N")
+    
 
 def npc_Oliver():    
-    print('')
+    our_print("There's a ghostly-looking pale man lying on a hospital bed. His face is filled with sweat")
+    our_print("Unknown Man: Hey, are you the doctor? You don't look like one.\n")
+    our_print("Verner: Sorry but I'm not.\n")
+    our_print("Unknown Man: Can you find the doctor for me? I feel sick after taking the pills he gave me.\n")
+    our_print("Verner: Uh... sure, leave it for me.\n")
+    our_print("Unknown Man: Just tell him it's Oliver Cromwell asking, s-s-surely he'll remember me.")
 
 def npc_Jonathan():    
-    print('')
-
+    our_print("I can see a confused looking man is walking in circles muttering to himself")
+    our_print("Unknown Man: Hey! Heheh... I know you.\n")
+    our_print("Verner: Uh, I don't think we have met, you must have mistaken me for someone else.\n")
+    our_print("Unknown Man: Hehhehe...\n")
+    our_print("(I don't think I will get much out of this conversation.)")
+    answer = str(input("Maybe I should ask him something? (Y/N) "))
+    answer = answer.lower()
+    if answer == 'y' or answer == 'yes':
+            our_print("Verner: Hey do you think you could tell me something about this place?")
+            our_print("Unknown Man: uh ah... I know oh yes I know... It is the Aliens!")
+            our_print("(Yeah, I think I'm done here.)")   
+    elif answer == 'n' or answer == 'no':
+            print("(I should probably go, this man seems dangerously unstable.)") 
+    else :
+        print("(I should probably go, this man seems dangerously unstable.)")
+    
 
     
 
