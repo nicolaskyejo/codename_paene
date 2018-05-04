@@ -4,62 +4,78 @@ from queryfuncs import *
 
 
 def npc_Jake():
-    our_print("(A hunch-backed man with bloodshot eyes is incessantly staring at the wall. He doesn't look very well..)\n")
-    our_print("Unknown Man: Th-the w-w-walls are spying on me... T-THOSE BASTARDS ARE UP TO SOMETHING BAD I KNOW IT! I-i-i got to keep on eye on them...\n")
-    our_print("Verner: Hey, are you okay..?\n")
-    our_print("Unknown Man: Leav-v-v me alone! I don't need anything from you!\n")
-    our_print("(Maybe it's best for me to leave before something bad happens.)\n")
+    print("(A hunch-backed man with bloodshot eyes is incessantly staring at the wall. He doesn't look very well...)\n")
+    print("Unknown Man: Th-the w-w-walls are spying on me... T-THOSE BASTARDS ARE UP TO SOMETHING BAD I KNOW IT! I-i-i got to keep on eye on them...\n")
+    print("Verner: Hey, are you okay...?\n")
+    print("Unknown Man: Leav-v-v me alone! I don't need anything from you!\n")
+    print("(Maybe it's best for me to leave before something bad happens.)\n")
 
     
     
     
-def npc_Lawrence():    
-    our_print("(There's a wretched looking man is sitting in a rusted wheelchair)\n")
-    our_print("Unknown Man: Hello young man.\n")
-    our_print("Hello..?\n")
-    our_print("I'm bored! Do you want to play a game of hangman? If you win I'll give you a reward.\n")
-    while True:
+def npc_Lawrence():    #RIKKI 
+    print("(There's a wretched looking man is sitting in a rusted wheelchair)\n")
+    print("Unknown Man: Hello young man.\n")
+    print("Hello..?\n")
+    print("I'm bored! Do you want to play a game of hangman? If you win I'll give you a reward.\n")
+    
+    win = False
+    while win == False:
         answer = str(input("Do you want to play his game? (Y/N)  "))
         answer = answer.lower()
+        cursor = database.cursor()
         if answer == 'y' or answer == 'yes':
-            print("Haha, this will be fun!")
-            value = hangman()
-            if value == True:
-                print('Congratulations boy.')
-                print('Here is your reward\n')
-                print("(You recieve a lighter)")
-                query1= "UPDATE Item SET Inventory = TRUE, Hidden= TRUE WHERE Name = 'Lighter'"
-                cursor.execute(query1)
-            else:
-                pass
-        cursor.close()    
-        if answer == 'n' or answer == 'no':
+                print("Haha, this will be fun!")
+                while True:
+                    value = hangman()
+                    if value == True:
+                        print('Congratulations boy.')
+                        print('Here is your reward\n')
+                        print("(You recieve a lighter)")
+                        query1= "UPDATE Item SET Inventory = TRUE, Hidden= TRUE WHERE Name = 'Lighter'"
+                        cursor.execute(query1)
+                        win = True
+                        break
+                    else:
+                        print("Not so lucky huh?")
+                        answer = str(input("Would you like to try again? (Y/N)  "))
+                        answer = answer.lower()
+                        if answer == 'y' or answer == 'yes':
+                            continue
+                                
+                        else:
+                            Win = True
+                            break
+                    
+                    #       
+        elif answer == 'n' or answer == 'no':
             print("Shame...") 
             break    
         else:
             print("Please Enter Y or N")
-    
+            
+        cursor.close() 
 
 def npc_Oliver():    
-    our_print("There's a ghostly-looking pale man lying on a hospital bed. His face is filled with sweat")
-    our_print("Unknown Man: Hey, are you the doctor? You don't look like one.\n")
-    our_print("Verner: Sorry but I'm not.\n")
-    our_print("Unknown Man: Can you find the doctor for me? I feel sick after taking the pills he gave me.\n")
-    our_print("Verner: Uh... sure, leave it for me.\n")
-    our_print("Unknown Man: Just tell him it's Oliver Cromwell asking, s-s-surely he'll remember me.")
+    print("There's a ghostly-looking pale man lying on a hospital bed. His face is filled with sweat")
+    print("Unknown Man: Hey, are you the doctor? You don't look like one.\n")
+    print("Verner: Sorry but I'm not.\n")
+    print("Unknown Man: Can you find the doctor for me? I feel sick after taking the pills he gave me.\n")
+    print("Verner: Uh... sure, leave it for me.\n")
+    print("Unknown Man: Just tell him it's Oliver Cromwell asking, s-s-surely he'll remember me.")
 
 def npc_Jonathan():    
-    our_print("I can see a confused looking man is walking in circles muttering to himself")
-    our_print("Unknown Man: Hey! Heheh... I know you.\n")
-    our_print("Verner: Uh, I don't think we have met, you must have mistaken me for someone else.\n")
-    our_print("Unknown Man: Hehhehe...\n")
-    our_print("(I don't think I will get much out of this conversation.)")
+    print("I can see a confused looking man is walking in circles muttering to himself")
+    print("Unknown Man: Hey! Heheh... I know you.\n")
+    print("Verner: Uh, I don't think we have met, you must have mistaken me for someone else.\n")
+    print("Unknown Man: Hehhehe...\n")
+    print("(I don't think I will get much out of this conversation.)")
     answer = str(input("Maybe I should ask him something? (Y/N) "))
     answer = answer.lower()
     if answer == 'y' or answer == 'yes':
-            our_print("Verner: Hey do you think you could tell me something about this place?")
-            our_print("Unknown Man: uh ah... I know oh yes I know... It is the Aliens!")
-            our_print("(Yeah, I think I'm done here.)")   
+            print("Verner: Hey do you think you could tell me something about this place?")
+            print("Unknown Man: uh ah... I know oh yes I know... It is the Aliens!")
+            print("(Yeah, I think I'm done here.)")   
     elif answer == 'n' or answer == 'no':
             print("(I should probably go, this man seems dangerously unstable.)") 
     else :
@@ -108,6 +124,11 @@ def cutscene_2():
     
     print('(He hands me a simple key)\n')
     
+    cursor = database.cursor()
+    query = "UPDATE Item SET Inventory = TRUE WHERE Name = 'simple key'"
+    cursor.execute(query)
+    cursor.close()
+    
     print('Eisenberg: Well uuh... I can\'t offer anymore help. I must continue my work. \n')
 
 def cutscene_100():
@@ -126,11 +147,11 @@ def cutscene_100lose():      #After you lose the first fight
     print('I cannot move my legs. Maybe this is the end... \n')
 
     
-    print("\t\tRest in peace...\n")
+    print("\t\tYOU DIED...\n")
     print("\t\tGAME OVER\n")
 
 def cutscene_win_generic():
-    print("That guard was no match for me...\n")
+    print("That wasn't easy...\n")
     print("I recompose myself and continue forward.\n")
     
 def cutscene_lose_generic():
@@ -153,24 +174,32 @@ def ending_1():         #kill B
     print("Verner: I know we all do questionable things to survive in this god forsaken wasteland.. But even then, a filth like you doesn't deserve to live.\n")
     print("Dr. Buchwald: NOOoo don't do it!\n")
     print("Verner: This is the end of the line for you Doctor.\n")
-    
-    
+        
 def ending_2():         #forgive B
-    print("I wish to get out of this depressive land. Perhaps I'll go to the east and have a fresh start there.") 
-    print("Perhaps live an honest life for once. Won't that be great?\n")
+    print("I wish to get out of this depressive land. Maybe I'll head east and have a fresh start there.") 
+    print("Perhaps I'll live an honest life for once. Wouldn't that be great?\n")
     
 def ending_3():         #light building on F
-    print("They paid for their crimes in full. The fire will wash their souls clean")  
-    print("The innocent are guilty too, guilty of accepting what is not theirs.\n")   
+    print("They paid for their crimes in full. The fire will wash their souls clean")
+    print("The innocent are guilty too, guilty of accepting what is not theirs.\n") 
     
 def ending_4():         #Escape before X
-    print("Necessity is the mother of ingeniousness. You solve your problems with a touch of craftiness. \n") 
-        
+    print("(I probably shouldn't smash the lock open to not make too much noise.)")
+    print("(I place the pipe between the lock and bend it with everything I got)\n")
+    print("The lock pops off after a couple of seconds.\n")
+    print("Necessity is the mother of ingeniousness. You solve your problems with a touch of craftiness.\n")
+   
 def ending_5():         #harakiri
-    print("Sometimes the most interesting thing you can do with your life is end it. It is your own choice. May death bring you peace you never had.\n")         
-
+    print("I'm going to end my own life, rather than giving them the enjoyment of killing me.\n")
+    print("I take the blade and place it on my neck.")
+    print("My hands are shaking even though I was sure of my decision just a second ago")
+    print("I'm going to do it in 3, 2, 1... \n")
+    print("Sometimes the most interesting thing you can do with your life is to end it. It is your own choice. May death bring you peace you never had.\n\n")         
+    print("\t\YOU DIED...\n")
+    print("\t\tGAME OVER\n")
+    
 def death_msg():
-    print("\t\tRest in peace...\n")
+    print("\t\tYOU DIED...\n")
     print("\t\tGAME OVER\n")
     
 def the_end():

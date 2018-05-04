@@ -16,3 +16,6 @@ cutscenes.py*
 .queryfuncs.py*
 .cutscenes.py*
 .priority*
+.gitignore*
+priority.txt*
+priority.tex*

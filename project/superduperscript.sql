@@ -17,6 +17,7 @@ CREATE TABLE Npc
   Room_id INT NOT NULL,
   Description VARCHAR(200),  #added manually  #Npcs outward appearance
   Conversation VARCHAR(200),   #added manually  #Text that comes when you interact with a NPC
+  Talked BOOLEAN,
   PRIMARY KEY (Npc_id),
   FOREIGN KEY (Room_id) REFERENCES Room(Room_id)
 );
@@ -103,20 +104,20 @@ INSERT INTO Room VALUES(403,"Trauma room",FALSE);
 
 
 # [Npc] # 13 npcs
-INSERT INTO Npc VALUES(1,"Crackmaster",100,NULL,NULL);
-INSERT INTO Npc VALUES(2,"drugsarebad",202,NULL,NULL);
-INSERT INTO Npc VALUES(3,"Coffeisadrug",210,NULL,NULL);
-INSERT INTO Npc VALUES(4,"Sleepislikedeath",306,NULL,NULL);
-INSERT INTO Npc VALUES(5,"im12whatisthis",306,NULL,NULL);
-INSERT INTO Npc VALUES(6,"follower",305,NULL,NULL);
-INSERT INTO Npc VALUES(7,"Doctor Ingolf Buchwald",401,"A balding man with big spectactles","Thank you for sparing me");
+INSERT INTO Npc VALUES(1,"Crackmaster",100,NULL,NULL,FALSE);
+INSERT INTO Npc VALUES(2,"drugsarebad",202,NULL,NULL,FALSE);
+INSERT INTO Npc VALUES(3,"Coffeisadrug",210,NULL,NULL,FALSE);
+INSERT INTO Npc VALUES(4,"Sleepislikedeath",306,NULL,NULL,FALSE);
+INSERT INTO Npc VALUES(5,"im12whatisthis",306,NULL,NULL,FALSE);
+INSERT INTO Npc VALUES(6,"follower",305,NULL,NULL,FALSE);
+INSERT INTO Npc VALUES(7,"Doctor Ingolf Buchwald",401,"A balding man with big spectactles","Thank you for sparing me.",FALSE);
 
-INSERT INTO Npc VALUES(8,"Jake",107,"A hunch-backed man with bloodshot eyes is incessantly staring at the wall. He doesn't look very well..","Th-the w-w-walls are spying on me.. T-THOSE BASTARDS ARE UP TO SOMETHING BAD I KNOW IT! I-i-i got to keep on eye on them..");   
-INSERT INTO Npc VALUES(9,"Lawrence",201,"A wretched looking man is sitting in a rusted wheelchair","I'm bored! Do you want to play a game of hangman? If you win I'll give you a reward"); #hangman game and lighter from him
-INSERT INTO Npc VALUES(10,"Oliver Cromwell",403,"A ghostly-looking pale man is lying on a hospital bed. His face is filled with sweat","Oliver Cromwell: Can you go get the doctor? please...");
-INSERT INTO Npc VALUES(11,"Doctor Reinhold Eisenberg",305,"An old man in his twilight years, gaunt and serious looking","Leave me alone for now");       #in room with npc(Paul & follower)
-INSERT INTO Npc VALUES(12,"Paul",305,"A lean naked man is spread on the operating table","");
-INSERT INTO Npc VALUES(13,"Jonathan Gebhard",200,"A confused looking man is walking in circles muttering to himself","uh ah... I know oh yes I know... It is the Aliens!");
+INSERT INTO Npc VALUES(8,"Jake",107,"He looks crazy","Get away from me!",FALSE);   
+INSERT INTO Npc VALUES(9,"Lawrence",201,"He looks happy","He he he!",FALSE); #hangman game and lighter from him
+INSERT INTO Npc VALUES(10,"Oliver Cromwell",403,"He looks sick","You...",FALSE);
+INSERT INTO Npc VALUES(11,"Doctor Reinhold Eisenberg",305,"He seems busy","Leave me alone for now",FALSE);       #in room with npc(Paul & follower)
+INSERT INTO Npc VALUES(12,"Paul",305,"He looks dead","",FALSE);
+INSERT INTO Npc VALUES(13,"Jonathan Gebhard",200,"He looks confused","Aliens I tell you!",FALSE);
 
 
 # [Texti] # Room inside text  #33 rooms therefore 33 texts
@@ -155,14 +156,14 @@ INSERT INTO Texti VALUES("This room is huge! It has been cleared of furniture bu
 INSERT INTO Texti VALUES("An operating room with two men standing over what looks like a person on the surgery table. \
 						One is a guard and \
 						the other person is wearing different attire and appears to be some kind of doctor.",305);   #this text will be updated when the guard dies 
-INSERT INTO Texti VALUES("There are two men standing inside... I really don't think I should take this on.",306); # Funktio for leaving / fighting
+INSERT INTO Texti VALUES("There are two men standing inside talking loudly. They appear to be guards.",306); # Funktio for leaving / fighting
 INSERT INTO Texti VALUES("A room with an old MRI machine. On the corner, there is a stack of old magazines. Near the window there is a dingy looking table.",307);
 
 
 
 INSERT INTO Texti VALUES("The top floor corridor, with one distinguished looking room and another corridor on the other side. Stairs from are leading down only.", 400);
 INSERT INTO Texti VALUES("A corridor with two rooms. The far side is damaged and innaccesible.", 410);
-INSERT INTO Texti VALUES("There he is, the man himself is sitting behind his desk. Time to end this! ",401); #Cutscenes?
+INSERT INTO Texti VALUES("There he is, the man himself sitting behind a desk. Time to end this! ",401); #Cutscenes?
 INSERT INTO Texti VALUES("The door is firmly shut.",402); 
 INSERT INTO Texti VALUES("This room is really clean. There's someone sleeping in it.",403); 
 
@@ -187,7 +188,7 @@ INSERT INTO Item VALUES (19, "Noticeboard", FALSE, FALSE, 104, "A noticeboard. I
 INSERT INTO Item VALUES (19+1, "Paper", TRUE,  FALSE, 104, "A piece of worn out, crumbled paper.. there's something written on it. whe",FALSE, FALSE);
 
 INSERT INTO Item VALUES (23, "Drawer", FALSE,  FALSE, 105, "A dark lacquered wooden drawer.",FALSE, FALSE);
-INSERT INTO Item VALUES (23+1, "Torn out magazine title", TRUE, FALSE, 105, "Internet Memes evolving as a form of metalanguage.",FALSE, FALSE);
+INSERT INTO Item VALUES (23+1, "Torn magazine", TRUE, FALSE, 105, "Internet Memes evolving as a form of metalanguage.",FALSE, FALSE);
 
 INSERT INTO Item VALUES (27, "Stretcher", FALSE,  FALSE, 107, "An apparatus for moving patients.. or bodies.",FALSE, FALSE);
 
@@ -203,7 +204,8 @@ INSERT INTO Item VALUES (39, "Office chair", FALSE,FALSE, 201, "A dirty navy blu
 
 INSERT INTO Item VALUES (42, "Briefcase", FALSE, FALSE, 202, "A dirty pre-war briefcase.",FALSE, FALSE);
 INSERT INTO Item VALUES (42+1, "Radiophone", TRUE, FALSE, 202, "I wonder if this thing still works.",TRUE, FALSE);
-INSERT INTO Item VALUES (42+2, "A dusty diary with a bookmarked page", TRUE,FALSE, 202, "THIS is thy hour O Soul, thy free flight into the wordless,
+INSERT INTO Item VALUES (42+2, "Dusty diary", TRUE,FALSE, 202, "The dusty diary has a bookmarked page which contains what seems like a poem;
+    THIS is thy hour O Soul, thy free flight into the wordless,
 	Away from books, away from art, the day erased, the lesson done,
 	Thee fully forth emerging, silent, gazing, pondering the themes thou,
 	lovest best.
@@ -213,8 +215,8 @@ INSERT INTO Item VALUES (42+2, "A dusty diary with a bookmarked page", TRUE,FALS
 INSERT INTO Item VALUES (47, "Water dispenser",FALSE, FALSE, 210, "An empty water dispenser sits next to the stairway.",FALSE, FALSE);
 
 INSERT INTO Item VALUES (50, "Trunk", TRUE,  FALSE, 304, "An open foot locker trunk.",TRUE, FALSE);
-INSERT INTO Item VALUES (50+1, "Ethanol", TRUE,  FALSE, 304, "I’d love to drink this... But I probably shouldn’t.",TRUE, FALSE);
-INSERT INTO Item VALUES (50+2, "A torn piece from a journal", TRUE, FALSE, 304, "An excerpt from the magazine 'Voner' volume 36 issue 5 article 'What we take for granted' 
+INSERT INTO Item VALUES (50+1, "Alcohol", TRUE,  FALSE, 304, "Reads 'ISOPROPYL ALCOHOL 95%', they probably use this to clean wounds.",TRUE, FALSE);
+INSERT INTO Item VALUES (50+2, "Torn journal", TRUE, FALSE, 304, "An excerpt from the magazine 'Voner' volume 36 issue 5 article 'What we take for granted' 
 Euthanasia is the act of ending a life with the intention of relieving pain. In the 21st century it was a heatedly 
 debated subject. Should people suffering in extreme pain be granted a request to end their life?
 
@@ -232,7 +234,7 @@ Nowadays ofcourse the right to assisted-suicide is a universal right that we tak
 21st century it was an issue of contention.",FALSE, FALSE);
 
 INSERT INTO Item VALUES (55, "Table", FALSE, FALSE, 307, "A dingy table that looks like it was damaged by fire.", FALSE, FALSE);
-INSERT INTO Item VALUES (55+1, "An old looking magazine cutout", TRUE, FALSE, 307, "River water turning frogs gay?
+INSERT INTO Item VALUES (55+1, "Magazine cutout", TRUE, FALSE, 307, "River water turning frogs gay?
 		How governments are a haven for satanic cults. Read feature on page ! 
 		Bilderberg group wants to turn you into a slave. Resist now!", FALSE, FALSE);
 INSERT INTO Item VALUES (55+2, "Knife", TRUE,  FALSE, 307, "It’s a bit dull, but it should still get the job done.",TRUE, FALSE);
@@ -244,12 +246,12 @@ INSERT INTO Item VALUES (61+2, "Medical book", TRUE, FALSE, 401, "Grays Anatomy 
 
 INSERT INTO Item VALUES (66, "Shelf", FALSE, FALSE, 306, "Looks like there is something on it.",FALSE, FALSE);
 INSERT INTO Item VALUES (66+1, "Robotics book", TRUE, FALSE, 306, "Robotic Surgery Guide 1st Edition",FALSE, FALSE);
-INSERT INTO Item VALUES (66+2, "An old scientific journal", TRUE, FALSE, 306, "'Sugar: The white devil' reads on the cover",FALSE, FALSE);
+INSERT INTO Item VALUES (66+2, "Old journal", TRUE, FALSE, 306, "'Sugar: The white devil' reads on the cover",FALSE, FALSE);
 
 
 #KEYS#
-INSERT INTO Item VALUES (70,"A simple key",TRUE,FALSE,305,"The doctor told me opens one of the top floor doors.",TRUE,FALSE);
-INSERT INTO Item VALUES (75,"A lion-crested key",TRUE,FALSE,401,"Opens the lobby door on the first floor.",TRUE,FALSE);
+INSERT INTO Item VALUES (70,"simple key",TRUE,FALSE,305,"The doctor told me this opens one of the top floor doors.",TRUE,FALSE);
+INSERT INTO Item VALUES (75,"lion-crested key",TRUE,FALSE,401,"Opens the lobby door on the first floor.",TRUE,FALSE);
 	
 # [Room_List] # Each room has a list of room it is connected to
 INSERT INTO Room_List VALUES (100,101);
