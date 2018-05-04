@@ -13,7 +13,7 @@ from cutscenes import *
 
 # # # [MAIN PROGRAM] # # #
 if __name__ == '__main__':
-    npc_Lawrence()
+    #npc_Lawrence()
     #os.system('Blindspot.mp3')
     cutscene_1()
     current_room = 101    #Position in game, indicated by current_room
@@ -55,8 +55,9 @@ if __name__ == '__main__':
         elif players_input[0] in ["clear","c"]:
             clear()   
             
-        elif players_input[0] in ["leave","exit"]:  #doesn't work 
-            leave()      
+        elif players_input[0] in ["leave","exit"]:  #doesn't work properly
+            if leave(current_room) != None:
+                current_room = leave(current_room)      
               
 
         #elif len(players_input) != 2:

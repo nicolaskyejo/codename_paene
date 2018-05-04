@@ -7,7 +7,7 @@ def npc_Jake():
     print("(A hunch-backed man with bloodshot eyes is incessantly staring at the wall. He doesn't look very well...)\n")
     print("Unknown Man: Th-the w-w-walls are spying on me... T-THOSE BASTARDS ARE UP TO SOMETHING BAD I KNOW IT! I-i-i got to keep on eye on them...\n")
     print("Verner: Hey, are you okay...?\n")
-    print("Unknown Man: Leav-v-v me alone! I don't need anything from you!\n")
+    print("Unknown Man: Leav-v-ve me alone! I don't need anything from you!\n")
     print("(Maybe it's best for me to leave before something bad happens.)\n")
 
     
