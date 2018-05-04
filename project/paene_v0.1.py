@@ -10,9 +10,10 @@ import os
 from gamefuncs import *
 from queryfuncs import *
 from cutscenes import *
+
 # # # [MAIN PROGRAM] # # #
 if __name__ == '__main__':
-    #npc_Lawrence()
+    npc_Lawrence()
     #os.system('Blindspot.mp3')
     cutscene_1()
     current_room = 101    #Position in game, indicated by current_room

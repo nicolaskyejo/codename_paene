@@ -6,7 +6,7 @@ from queryfuncs import *
 def npc_Jake():
     print("(A hunch-backed man with bloodshot eyes is incessantly staring at the wall. He doesn't look very well...)\n")
     print("Unknown Man: Th-the w-w-walls are spying on me... T-THOSE BASTARDS ARE UP TO SOMETHING BAD I KNOW IT! I-i-i got to keep on eye on them...\n")
-    print("Verner: Hey, are you okay..?\n")
+    print("Verner: Hey, are you okay...?\n")
     print("Unknown Man: Leav-v-v me alone! I don't need anything from you!\n")
     print("(Maybe it's best for me to leave before something bad happens.)\n")
 
@@ -18,7 +18,9 @@ def npc_Lawrence():    #RIKKI
     print("Unknown Man: Hello young man.\n")
     print("Hello..?\n")
     print("I'm bored! Do you want to play a game of hangman? If you win I'll give you a reward.\n")
-    while True:
+    
+    win = False
+    while win == False:
         answer = str(input("Do you want to play his game? (Y/N)  "))
         answer = answer.lower()
         cursor = database.cursor()
@@ -32,31 +34,27 @@ def npc_Lawrence():    #RIKKI
                         print("(You recieve a lighter)")
                         query1= "UPDATE Item SET Inventory = TRUE, Hidden= TRUE WHERE Name = 'Lighter'"
                         cursor.execute(query1)
+                        win = True
                         break
                     else:
                         print("Not so lucky huh?")
                         answer = str(input("Would you like to try again? (Y/N)  "))
                         answer = answer.lower()
                         if answer == 'y' or answer == 'yes':
-                            print("Haha, this will be fun!")
-                            value=hangman()
-                            if value == True:
-                                print('Congratulations boy.')
-                                print('Here is your reward\n')
-                                print("(You recieve a lighter)")
-                                query1= "UPDATE Item SET Inventory = TRUE, Hidden= TRUE WHERE Name = 'Lighter'"
-                                cursor.execute(query1)
-                                break
-                            else:
-                                Continue
+                            continue
+                                
+                        else:
+                            Win = True
+                            break
                     
-                        cursor.close()    
+                    #       
         elif answer == 'n' or answer == 'no':
             print("Shame...") 
             break    
         else:
             print("Please Enter Y or N")
-    
+            
+        cursor.close() 
 
 def npc_Oliver():    
     print("There's a ghostly-looking pale man lying on a hospital bed. His face is filled with sweat")

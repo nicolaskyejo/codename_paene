@@ -699,29 +699,28 @@ def hangman():
             
         return False
 
-def kill(name):
-if name = 'Myself' or 'myself'
-  #check if player has weapon
-  #yes kill
-  #no don't
- cursor = database.cursor()
- query1 = "SELECT Name from Item where Name = 'Scalpel' AND Inventory = 'TRUE'"
- query2 = "SELECT Name from Item where Name = 'Knife' AND Inventory = 'TRUE'"
- cursor.execute(query1)
- if cursor.rowcount == 1:
-	ending_5()
-	sys.exit() 
- else: 
-  cursor.execute(query2)
-  if cursor.rowcount == 1:
-	ending_5
-	sys.exit()
-  else:
-	  print('I can\'t do that...\n')	
- cursor.close()
+def kill(name):         ## kill function. Only works for self not npcs.
+    if name == 'Myself' or 'myself':
+      
+     cursor = database.cursor()
+     ## check if user has Scalpel or Knife ##
+     query1 = "SELECT Name from Item where Name = 'Scalpel' AND Inventory = 'TRUE'"
+     query2 = "SELECT Name from Item where Name = 'Knife' AND Inventory = 'TRUE'"
+     cursor.execute(query1)
+     if cursor.rowcount == 1:
+        ending_5()      ## call one of the endings
+        sys.exit() 
+     else: 
+      cursor.execute(query2)
+      if cursor.rowcount == 1:
+        ending_5
+        sys.exit()
+      else:
+          print('I can\'t do that...\n')    
+     cursor.close()
  
-else: 
-    print('I do not want to do that...\n') 
+    else: 
+     print('I do not want to do that...\n') 
 
 def talk(name):
     #call npc_converser function
