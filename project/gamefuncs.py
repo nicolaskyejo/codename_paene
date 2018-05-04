@@ -330,8 +330,8 @@ def use(item_name, room_id, database=db):
             box_id = item_id_from_name("box")
 
             if if_item_used(box_id) == True:
-                query1="DELETE FROM Item WHERE Item_id=100"
-                query2="UPDATE Item SET Hidden=FALSE WHERE Item_id=101"
+                query1="UPDATE ITEM SET Hidden=TRUE WHERE Item_id=100"
+                query2="UPDATE Item SET Hidden=FALSE WHERE Item_id=103"
                 query3="UPDATE Room SET Locked=FALSE WHERE Room_id=102"
                 query4="UPDATE Room SET Locked=FALSE WHERE Room_id=100"
 

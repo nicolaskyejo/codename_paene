@@ -42,8 +42,9 @@ if __name__ == '__main__':
             our_print(inventory())
 
         elif players_input[0] in ["look"]:
+            our_print(show_room(current_room))
             our_print(look(current_room))
-            
+
         elif players_input[0] in ["up","u"]:
             if up(current_room) != None:
                 current_room = up(current_room)
@@ -66,14 +67,13 @@ if __name__ == '__main__':
         elif players_input[0] in ["go", "enter", "e"]:
             print(players_input[-1])
             print(room_list_returner(current_room))
-            print(door_open(players_input[-1]))
             if players_input[-1] in ["vent", "duct"] and current_room == 101 and door_open(102) == True: #Vent problem, can pass if these things are correct
                 our_print("I climb to the air duct and begin crawling. After a while I end up in a new room.\n")
                 current_room = 102
                 our_print(show_room(current_room))
                          
 
-            elif players_input[-1] in room_list_returner(current_room): # and door_open(players_input[-1]) == True:
+            elif players_input[-1] in room_list_returner(current_room) and door_open(players_input[-1]) == True:
                 current_room = go(current_room, players_input[-1])
                 fight_checker(current_room)
             else:
