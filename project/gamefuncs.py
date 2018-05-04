@@ -251,7 +251,9 @@ def search(item, current_room, database=db):
         query = "UPDATE Item SET Hidden = FALSE AND Pickable = TRUE WHERE Item_id = " + str(item_to_find)
         cursor = database.cursor()
         cursor.execute(query)
-        our_print("I found something...")
+
+        item_name = item_name_from_id(item_to_find)
+        our_print("I found this: \n" + item_name)
         cursor.close()
 
     else:
@@ -342,6 +344,21 @@ def use(item_name, room_id, database=db):
                 our_print("I have nothing to use it on...")
         else:
             our_print("I do not have that item.")
+    elif item_name == "simple key" and room_id == 400:
+         item_id = item_id_from_name(item_name)
+
+         if item_id in inventory and if_item_used(item_id):
+             query1 = "UPDATE Item SET Used=TRUE WHERE Item_id =" + str(item_id)
+             query2 = "UPDATE Room SET Locked=FALSE WHERE Room_id = 401"
+
+             cursor = database.cursor()
+             cursor.execute(query1)
+             cursor.execute(query2)
+             our_print("A door opens...")
+         else:
+             our_print("I can't do that.")
+
+
     else:
         our_print("I can't do that.")
  
@@ -450,8 +467,8 @@ def fight_checker(current_room, database=db):
             print('Two guards are talking when I enter, the further one notices me.')
             print('Before he can react, I move quickly behind the other one.\n') #spelling
             cursor = database.cursor()
-            query1 = "SELECT Name from Item where Name = 'Metal pipe' AND Inventory = 'TRUE'"
-            query2 = "SELECT Name from Item where Name = 'Knife' AND Inventory = 'TRUE'"
+            query1 = "SELECT Name from Item where Name = 'Metal pipe' AND Inventory = TRUE"
+            query2 = "SELECT Name from Item where Name = 'Knife' AND Inventory = TRUE"
 
             cursor.execute(query1) 
 

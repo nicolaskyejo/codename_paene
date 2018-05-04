@@ -105,7 +105,7 @@ def item_pick(id, database=db):
  
 def get_items_of_room(room_id, database=db):
     try:
-        query = "SELECT Name FROM Item WHERE Room_id = " + str(room_id) + " AND Hidden = FALSE AND Inventory = FALSE"
+        query = "SELECT Name FROM Item WHERE Room_id = " + str(room_id) + " AND Hidden = FALSE"
         cursor = database.cursor()
         cursor.execute(query)
 

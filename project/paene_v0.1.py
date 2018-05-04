@@ -13,13 +13,13 @@ from cutscenes import *
 
 # # # [MAIN PROGRAM] # # #
 if __name__ == '__main__':
-    npc_Lawrence()
+    #npc_Lawrence()
     #os.system('Blindspot.mp3')
     cutscene_1()
     current_room = 101    #Position in game, indicated by current_room
     our_print(show_room(current_room))
-
     while True: #Actual process of the game, loops until quit
+        print("TYPE OF CURRENT ROOM", type(current_room))
         two_words_input=""
         players_input = get_user_input(str(input(":>")))   #list of inputs. [0] is the command, [-1] is the object.
 
@@ -141,5 +141,5 @@ if __name__ == '__main__':
        
         else:
             our_print("Not a valid command. Type HELP for help.\n")
-            
+        print("TYPE OF CURRENT ROOM", type(current_room))
 db.rollback()
