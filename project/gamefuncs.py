@@ -312,8 +312,8 @@ def use(item_name, room_id, database=db):
             box_id = item_id_from_name("box")
 
             if if_item_used(box_id) == True:
-                query1="DELETE FROM Item WHERE Item_id=100"
-                query2="UPDATE Item SET Hidden=FALSE WHERE Item_id=101"
+                query1="UPDATE ITEM SET Hidden=TRUE WHERE Item_id=100"
+                query2="UPDATE Item SET Hidden=FALSE WHERE Item_id=103"
                 query3="UPDATE Room SET Locked=FALSE WHERE Room_id=102"
                 query4="UPDATE Room SET Locked=FALSE WHERE Room_id=100"
 
@@ -351,7 +351,7 @@ def fight_checker(current_room, database=db):
                 query3 = "UPDATE Item SET Name = 'Broken Scalpel' where Name = 'Scalpel'"
                 print('The scalpel breaks\n') 
                 cursor.execute(query3)
-                query4 = "UPDATE Texti SET Actual_Text = 'A normal corridor with five rooms and stairs leading up. There is a dead body of the first guard I killed' WHERE Room_Id = 100"
+                query4 = "UPDATE Texti SET ActualText = 'A normal corridor with five rooms and stairs leading up. There is a dead body of the first guard I killed' WHERE Room_Id = 100"
                 cursor.execute(query4) 
             else:
                 cutscene_100lose()    
