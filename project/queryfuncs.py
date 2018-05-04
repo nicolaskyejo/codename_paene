@@ -298,7 +298,7 @@ def npc_alive_or_not(room_id, database=db):
         cursor = database.cursor()
         cursor.execute(query)
 
-        if cursor.rowcount == 1:
+        if cursor.rowcount >= 1:
             result = True
         else:
             result = False

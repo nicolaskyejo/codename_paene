@@ -56,8 +56,9 @@ if __name__ == '__main__':
         elif players_input[0] in ["clear","c"]:
             clear()   
             
-        elif players_input[0] in ["leave","exit"]:  #doesn't work 
-            leave()      
+        elif players_input[0] in ["leave","exit"]:  #doesn't work properly
+            if leave(current_room) != None:
+                current_room = leave(current_room)      
               
 
         #elif len(players_input) != 2:
