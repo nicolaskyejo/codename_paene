@@ -17,6 +17,7 @@ CREATE TABLE Npc
   Room_id INT NOT NULL,
   Description VARCHAR(200),  #added manually  #Npcs outward appearance
   Conversation VARCHAR(200),   #added manually  #Text that comes when you interact with a NPC
+  Talked BOOLEAN,
   PRIMARY KEY (Npc_id),
   FOREIGN KEY (Room_id) REFERENCES Room(Room_id)
 );
@@ -103,20 +104,20 @@ INSERT INTO Room VALUES(403,"Trauma room",FALSE);
 
 
 # [Npc] # 13 npcs
-INSERT INTO Npc VALUES(1,"Crackmaster",100,NULL,NULL);
-INSERT INTO Npc VALUES(2,"drugsarebad",202,NULL,NULL);
-INSERT INTO Npc VALUES(3,"Coffeisadrug",210,NULL,NULL);
-INSERT INTO Npc VALUES(4,"Sleepislikedeath",306,NULL,NULL);
-INSERT INTO Npc VALUES(5,"im12whatisthis",306,NULL,NULL);
-INSERT INTO Npc VALUES(6,"follower",305,NULL,NULL);
-INSERT INTO Npc VALUES(7,"Doctor Ingolf Buchwald",401,"A balding man with big spectactles","Thank you for sparing me.");
+INSERT INTO Npc VALUES(1,"Crackmaster",100,NULL,NULL,FALSE);
+INSERT INTO Npc VALUES(2,"drugsarebad",202,NULL,NULL,FALSE);
+INSERT INTO Npc VALUES(3,"Coffeisadrug",210,NULL,NULL,FALSE);
+INSERT INTO Npc VALUES(4,"Sleepislikedeath",306,NULL,NULL,FALSE);
+INSERT INTO Npc VALUES(5,"im12whatisthis",306,NULL,NULL,FALSE);
+INSERT INTO Npc VALUES(6,"follower",305,NULL,NULL,FALSE);
+INSERT INTO Npc VALUES(7,"Doctor Ingolf Buchwald",401,"A balding man with big spectactles","Thank you for sparing me.",FALSE);
 
-INSERT INTO Npc VALUES(8,"Jake",107,"He looks crazy","Get away from me!");   
-INSERT INTO Npc VALUES(9,"Lawrence",201,"He looks happy","He he he!"); #hangman game and lighter from him
-INSERT INTO Npc VALUES(10,"Oliver Cromwell",403,"He looks sick","You...");
-INSERT INTO Npc VALUES(11,"Doctor Reinhold Eisenberg",305,"He seems busy","Leave me alone for now");       #in room with npc(Paul & follower)
-INSERT INTO Npc VALUES(12,"Paul",305,"He looks dead","");
-INSERT INTO Npc VALUES(13,"Jonathan Gebhard",200,"He looks confused","Aliens I tell you!");
+INSERT INTO Npc VALUES(8,"Jake",107,"He looks crazy","Get away from me!",FALSE);   
+INSERT INTO Npc VALUES(9,"Lawrence",201,"He looks happy","He he he!",FALSE); #hangman game and lighter from him
+INSERT INTO Npc VALUES(10,"Oliver Cromwell",403,"He looks sick","You...",FALSE);
+INSERT INTO Npc VALUES(11,"Doctor Reinhold Eisenberg",305,"He seems busy","Leave me alone for now",FALSE);       #in room with npc(Paul & follower)
+INSERT INTO Npc VALUES(12,"Paul",305,"He looks dead","",FALSE);
+INSERT INTO Npc VALUES(13,"Jonathan Gebhard",200,"He looks confused","Aliens I tell you!",FALSE);
 
 
 # [Texti] # Room inside text  #33 rooms therefore 33 texts

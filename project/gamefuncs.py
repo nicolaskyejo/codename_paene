@@ -58,7 +58,8 @@ def help():
                         "Push {object}. Pushes object, useful for a short puzzle.",
                         "Look. Looks around your environment and reports what you see.",
                         "Search {object}. Searches object to find if there is something.",
-                        "Drop {object}. Leaves object on the ground.\n"]
+                        "Drop {object}. Leaves object on the ground.",
+                        "Talk {person}. Initiate conversation with person. \n"]
     print("The game commands are listed in the form Command (shortform) {options}\n")
 
     for commands in list_of_commands:
@@ -125,13 +126,15 @@ def commands():
                    ["search"], #done
                    ["look"],    #done
                    ["use"], #requires to implement on all objects that can be used
-                   ["up", "u"],
-                   ["down", "d"],
+                   ["up", "u"], #done
+                   ["down", "d"],#done
                    ["credits"], #done
                    ["license"], #done
                    ["help"],    #done
                    ["clear", "c"],#done
-                   ["drop"] #done
+                   ["drop"], #done
+                   ["talk"],
+                   ["kill"] 
                   ]  
 
     return allcommands
@@ -696,17 +699,30 @@ def hangman():
             
         return False
 
+def kill(name):
+if name = 'Myself' or 'myself'
+  #check if player has weapon
+  #yes kill
+  #no don't
+ cursor = database.cursor()
+ query1 = "SELECT Name from Item where Name = 'Scalpel' AND Inventory = 'TRUE'"
+ query2 = "SELECT Name from Item where Name = 'Knife' AND Inventory = 'TRUE'"
+ cursor.execute(query1)
+ if cursor.rowcount == 1:
+	ending_5()
+	sys.exit() 
+ else: 
+  cursor.execute(query2)
+  if cursor.rowcount == 1:
+	ending_5
+	sys.exit()
+  else:
+	  print('I can\'t do that...\n')	
+ cursor.close()
+ 
+else: 
+    print('I do not want to do that...\n') 
 
-    
-
-
-
-
-
-
-
-
-
-    
-    
-
+def talk(name):
+    #call npc_converser function
+    pass
