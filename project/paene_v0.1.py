@@ -10,6 +10,7 @@ import os
 from gamefuncs import *
 from queryfuncs import *
 from cutscenes import *
+from config import db
 
 # # # [MAIN PROGRAM] # # #
 if __name__ == '__main__':

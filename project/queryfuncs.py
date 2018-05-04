@@ -1,12 +1,7 @@
 import mysql.connector
 from gamefuncs import *
 from cutscenes import *
-db = mysql.connector.connect(
-    host="localhost",
-    user="dbuser",
-    passwd="dbpass",
-    db="theverge",
-    buffered=True)
+from config import db
 
 #QUERY FUNCTIONS
 def room_list_returner(room_number, database=db):

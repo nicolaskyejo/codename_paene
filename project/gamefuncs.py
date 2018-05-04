@@ -2,7 +2,7 @@ import random
 import sys
 from queryfuncs import *
 from cutscenes import *
-
+from config import db
 #GAME FUNCTIONS
 
 """Vesa's print function for formating printed text"""
@@ -450,7 +450,8 @@ def fight_checker(current_room, database=db):
                 query3 = "DELETE from NPC WHERE Npc_Id = 3"
                 query4 = "UPDATE Texti SET ActualText = 'A corridor with two rooms. On the east side, the building is damaged and broken. A dead body I left still lies on the floor.' WHERE Room_Id = 210"
                 cursor.execute(query4) 
-                cursor.execute(query3) 
+                cursor.execute(query3)
+                cursor.close()
 
             else:
                cursor.execute(query2) 
@@ -459,7 +460,8 @@ def fight_checker(current_room, database=db):
                     query3 = "DELETE from NPC WHERE Npc_Id = 3"
                     query4 = "UPDATE Texti SET ActualText = 'A corridor with two rooms. On the east side, the building is damaged and broken. A dead body I left still lies on the floor.' WHERE Room_Id = 210"
                     cursor.execute(query4) 
-                    cursor.execute(query3) 
+                    cursor.execute(query3)
+                    cursor.close()
                else: 
                     cutscene_lose_generic()
                     sys.exit()

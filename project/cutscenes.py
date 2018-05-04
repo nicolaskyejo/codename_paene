@@ -1,7 +1,7 @@
 #npc conversation#
 from gamefuncs import *
 from queryfuncs import *
-
+from config import db
 
 def npc_Jake():
     print("(A hunch-backed man with bloodshot eyes is incessantly staring at the wall. He doesn't look very well...)\n")
@@ -102,7 +102,7 @@ def cutscene_1():
           "First time players should type HELP. Credits are available via CREDITS and license via LICENSE.\nType QUIT to quit the game.\n\n\n\n")
 
 
-def cutscene_2():
+def cutscene_2(database=db):
     print("Guard: Uuuuuurgghhhhh!")
 
     print("Guard falls down dead\n")
