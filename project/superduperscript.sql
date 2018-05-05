@@ -110,14 +110,14 @@ INSERT INTO Npc VALUES(3,"Coffeisadrug",210,NULL,NULL,FALSE);
 INSERT INTO Npc VALUES(4,"Sleepislikedeath",306,NULL,NULL,FALSE);
 INSERT INTO Npc VALUES(5,"im12whatisthis",306,NULL,NULL,FALSE);
 INSERT INTO Npc VALUES(6,"follower",305,NULL,NULL,FALSE);
-INSERT INTO Npc VALUES(7,"Doctor Ingolf Buchwald",401,"A balding man with big spectactles","Thank you for sparing me.",FALSE);
 
+INSERT INTO Npc VALUES(7,"Buchwald",401,"A balding man with big spectactles and a face full of wrinkles","Thank you for sparing me.",FALSE);
 INSERT INTO Npc VALUES(8,"Jake",107,"He looks crazy","Get away from me!",FALSE);   
 INSERT INTO Npc VALUES(9,"Lawrence",201,"He looks happy","He he he!",FALSE); #hangman game and lighter from him
-INSERT INTO Npc VALUES(10,"Oliver Cromwell",403,"He looks sick","You...",FALSE);
-INSERT INTO Npc VALUES(11,"Doctor Reinhold Eisenberg",305,"He seems busy","Leave me alone for now",FALSE);       #in room with npc(Paul & follower)
+INSERT INTO Npc VALUES(10,"Cromwell",403,"He looks sick","You...",FALSE);
+INSERT INTO Npc VALUES(11,"Eisenberg",305,"He seems busy","Leave me alone for now.",FALSE);       #in room with npc(Paul & follower)
 INSERT INTO Npc VALUES(12,"Paul",305,"He looks dead","",FALSE);
-INSERT INTO Npc VALUES(13,"Jonathan Gebhard",200,"He looks confused","Aliens I tell you!",FALSE);
+INSERT INTO Npc VALUES(13,"Gebhard",200,"He looks confused","Aliens I tell you!",FALSE);
 
 
 # [Texti] # Room inside text  #33 rooms therefore 33 texts
@@ -183,14 +183,15 @@ INSERT INTO Item VALUES (11, "Drawer", FALSE,  FALSE, 102, "A dark lacquered woo
 INSERT INTO Item VALUES (11+1, "Painkillers", TRUE,  FALSE, 102, "I should probably take these...",TRUE, FALSE);
 
 INSERT INTO Item VALUES (15, "Sink", FALSE,  FALSE, 104, "A small stained sink with rusted pipes under it.",FALSE, FALSE);
-INSERT INTO Item VALUES (15+1, "Metal Pipe", TRUE, FALSE, 104, "Maybe I could crack something with this.",TRUE, FALSE);
+INSERT INTO Item VALUES (15+1, "Metal pipe", TRUE, FALSE, 104, "Maybe I could crack something with this.",TRUE, FALSE);
 INSERT INTO Item VALUES (19, "Noticeboard", FALSE, FALSE, 104, "A noticeboard. It is filled with post-it notes and pinned papers.",FALSE, FALSE);
-INSERT INTO Item VALUES (19+1, "Paper", TRUE,  FALSE, 104, "A piece of worn out, crumbled paper.. there's something written on it. whe",FALSE, FALSE);
+INSERT INTO Item VALUES (19+1, "Paper", TRUE,  FALSE, 104, "A piece of worn out, crumbled paper... there's something written on it.
+This place is for transfering something owned by one person to another by force.",FALSE, FALSE);
 
 INSERT INTO Item VALUES (23, "Drawer", FALSE,  FALSE, 105, "A dark lacquered wooden drawer.",FALSE, FALSE);
 INSERT INTO Item VALUES (23+1, "Torn magazine", TRUE, FALSE, 105, "Internet Memes evolving as a form of metalanguage.",FALSE, FALSE);
 
-INSERT INTO Item VALUES (27, "Stretcher", FALSE,  FALSE, 107, "An apparatus for moving patients.. or bodies.",FALSE, FALSE);
+INSERT INTO Item VALUES (27, "Stretcher", FALSE,  FALSE, 107, "An apparatus for moving patients... or bodies.",FALSE, FALSE);
 
 INSERT INTO Item VALUES (30, "Bookshelf", FALSE,  FALSE, 108, "A large bookshelf filled with different books and documents.",FALSE, FALSE);
 INSERT INTO Item VALUES (30+1, "A book", TRUE,  FALSE, 108, "On the cover there's a picture of something that faintly resembles a snake.\
@@ -235,18 +236,18 @@ Nowadays ofcourse the right to assisted-suicide is a universal right that we tak
 
 INSERT INTO Item VALUES (55, "Table", FALSE, FALSE, 307, "A dingy table that looks like it was damaged by fire.", FALSE, FALSE);
 INSERT INTO Item VALUES (55+1, "Magazine cutout", TRUE, FALSE, 307, "River water turning frogs gay?
-		How governments are a haven for satanic cults. Read feature on page ! 
+		How governments are a haven for satanic cults. Read feature on page 4 
 		Bilderberg group wants to turn you into a slave. Resist now!", FALSE, FALSE);
 INSERT INTO Item VALUES (55+2, "Knife", TRUE,  FALSE, 307, "It’s a bit dull, but it should still get the job done.",TRUE, FALSE);
-INSERT INTO Item VALUES (60, "MRI", FALSE, FALSE, 307, "This look like an old Magnetic Resonance machine", FALSE, FALSE);
+INSERT INTO Item VALUES (60, "MRI", FALSE, FALSE, 307, "This look like an old Magnetic Resonance machine.", FALSE, FALSE);
 
 INSERT INTO Item VALUES (61, "Storage box", TRUE, FALSE, 401, "An old storage box from before the war. It is slightly open.",TRUE, FALSE);
-INSERT INTO Item VALUES (61+1, "Gasoline Tank", TRUE, FALSE, 401, "It seems to have at least half a gallon left.",TRUE, FALSE);
-INSERT INTO Item VALUES (61+2, "Medical book", TRUE, FALSE, 401, "Grays Anatomy the Anatomical Basis of Clinical Practice 41st Edition",FALSE, FALSE);
+INSERT INTO Item VALUES (61+1, "Gasoline tank", TRUE, FALSE, 401, "It seems to have at least half a gallon left.",TRUE, FALSE);
+INSERT INTO Item VALUES (61+2, "Medical book", TRUE, FALSE, 401, "Grays Anatomy the Anatomical Basis of Clinical Practice 41st Edition.",FALSE, FALSE);
 
 INSERT INTO Item VALUES (66, "Shelf", FALSE, FALSE, 306, "Looks like there is something on it.",FALSE, FALSE);
-INSERT INTO Item VALUES (66+1, "Robotics book", TRUE, FALSE, 306, "Robotic Surgery Guide 1st Edition",FALSE, FALSE);
-INSERT INTO Item VALUES (66+2, "Old journal", TRUE, FALSE, 306, "'Sugar: The white devil' reads on the cover",FALSE, FALSE);
+INSERT INTO Item VALUES (66+1, "Robotics book", TRUE, FALSE, 306, "Robotic Surgery Guide 1st Edition.",FALSE, FALSE);
+INSERT INTO Item VALUES (66+2, "Old journal", TRUE, FALSE, 306, "'Sugar: The white devil' reads on the cover.",FALSE, FALSE);
 
 
 #KEYS#

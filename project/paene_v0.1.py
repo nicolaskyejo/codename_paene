@@ -57,11 +57,12 @@ if __name__ == '__main__':
         elif players_input[0] in ["clear","c"]:
             clear()   
             
-        elif players_input[0] in ["leave","exit"]:  #doesn't work properly
+        elif players_input[0] in ["leave","exit"]:  
             if leave(current_room) != None:
-                current_room = leave(current_room)      
-              
-
+                current_room = leave(current_room)
+                      
+        elif players_input[0] in ["kill"]:     
+            kill(players_input[-1])
         #elif len(players_input) != 2:
             #our_print("Not a valid input. Commands work like this: \n [command] [object]. Type HELP for help.")
 
@@ -97,7 +98,8 @@ if __name__ == '__main__':
             elif item_id_from_name(two_words_input) in get_id_items_of_room(current_room):
                 search(two_words_input, current_room)
             else:
-                our_print("There is nothing to ")
+                our_print("There is nothing to search from...")
+                
         elif players_input[0] in ["examine", "x"]:
             if item_id_from_name(players_input[-1]) in get_id_items_of_room(current_room):
                 item_id = item_id_from_name(players_input[-1])

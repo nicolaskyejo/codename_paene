@@ -303,4 +303,46 @@ def npc_alive_or_not(room_id, database=db):
 
     finally:
         cursor.close()
-        return result        
+        return result      
+        
+#checks the various ending parameters and calls an ending        
+def ending_checker(ending_choice, database=db):           
+    query1 = "SELECT Inventory FROM ITEM WHERE Name = 'Lighter'"
+    query2 = "SELECT Inventory FROM ITEM WHERE Name = 'Gasoline tank'"
+    cursor = database.cursor()
+    item1 = cursor.execute(query1)
+    item2 = cursor.execute(query2)
+    
+    if item1 == 1 and item2 == 1:
+        while True:
+            answer = input('Should I light this building on fire?')
+            if answer == 'Yes' or 'yes' or 'Y' or 'y' or 'YES':
+                ending_3()
+                the_end()
+                sys.exit()
+                
+            else:
+                break
+    else:             #True = forgive, False = Kill   
+        if ending_choice == True:   
+            ending_2()
+            the_end()
+            sys.exit()
+        
+        else:
+            ending_1() 
+            the_end()   
+            sys.exit()
+            
+#check secret ending if the player has pipe    
+def secretending_checker(): 
+    query = "SELECT Inventory FROM ITEM WHERE Name = 'Metal pipe'"  
+    cursor = database.cursor()
+    cursor.execute(query1) 
+    
+    if cursor.rowcount == 1:
+        ending_4()
+        the_end()
+        sys.exit()
+    else:
+        pass
