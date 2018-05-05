@@ -348,3 +348,18 @@ def secretending_checker():
         sys.exit()
     else:
         pass
+
+def npc_name_from_room(current_room, database=db):
+    fetch=[""]
+    try:
+        query = "SELECT Name FROM Npc WHERE Room_id = " + str(current_room)
+
+        cursor = database.cursor()
+        cursor.execute(query)
+        fetch = cursor.fetchone()
+
+    except mysql.connector.Error as e:
+        print(e)
+
+    finally:
+        return fetch[0]

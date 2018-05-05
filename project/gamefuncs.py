@@ -44,6 +44,8 @@ def get_user_input(input: str):
                 string += c
         list_of_commands.append(string)
 
+    if not list_of_commands:
+        list_of_commands.append("")
     return list_of_commands
 
 
@@ -119,7 +121,7 @@ def commands():
                    ["examine", "x"],    #done
                    ["leave", "exit"], #done
                    ["quit", "q"],   #done
-                   ["push"],    #done 
+                   ["push"],    #done
                    ["take","pick"], #done
                    ["inventory", "i"],  #done
                    #["kick"],
@@ -135,7 +137,7 @@ def commands():
                    ["drop"], #done
                    ["talk"], #done
                    ["kill"] #supersecret
-                  ]  
+                  ]
 
     return allcommands
 
@@ -312,6 +314,7 @@ def leave(current_room):
 def use(item_name, room_id, database=db):
     inventory = get_items_inventory()
     print(item_name)
+    print(item_id_from_name(item_name))
     if item_name == "painkillers":
         item_id = item_id_from_name(item_name)
 
@@ -371,9 +374,11 @@ def use(item_name, room_id, database=db):
 
         if item_id in inventory and room_id == "110":
             query1 = "UPDATE Item SET Used=TRUE WHERE Item_id" + str(item_id)
+            query2 = "UPDATE Room SET Locked=FALSE WHERE Room_id = 110"
 
             cursor = database.cursor()
             cursor.execute(query1)
+            cursor.execute(query2)
             cursor.close()
             our_print("I twist the key in it's hole and a hollow crackle echoes throughout the hallways." +
                       "The heavy, rusted doors slowly begin to give in to my pushes, and a way to the outside world opens." +
@@ -624,13 +629,20 @@ def fight_checker(current_room, database=db):
 # check to see if friendly npc exists and talks to them        
 def npc_converser(name,database=db):
     cursor = database.cursor()
-    query = "SELECT Talked FROM Npc WHERE Name = " 
-    
+    query = "SELECT Talked FROM Npc WHERE Name = "
+    print(name)
+    print("'" + name + "'")
+    print(name == 'lawrence')
     if name == "Jake":
-        query1 = query + str(name) 
-        value = cursor.execute(query1)
-        
-        if value == True:
+        name = "'" + name + "'"
+        query1 = query + str(name)
+
+        cursor.execute(query1)
+        value = cursor.fetchone()
+
+        true_or_false = value[0]
+
+        if true_or_false == 0:
             npc_Jake()
             query2 = "UPDATE Npc SET Talked = TRUE WHERE Name = " + str(name)
             cursor.execute(query2)  
@@ -641,11 +653,16 @@ def npc_converser(name,database=db):
             print(repeating_converse)   
             
 
-    elif name == "Lawrence":  
-        query1 = query + str(name) 
-        value = cursor.execute(query1)
-        
-        if value == True:
+    elif name == "Lawrence":
+        name = "'" + name + "'"
+        query1 = query + str(name)
+
+        cursor.execute(query1)
+        value = cursor.fetchone()
+
+        true_or_false = value[0]
+
+        if true_or_false == 0:
             npc_Lawrence()
             query2 = "UPDATE Npc SET Talked = TRUE WHERE Name = " + str(name)
             cursor.execute(query2)  
@@ -656,11 +673,17 @@ def npc_converser(name,database=db):
             print(repeating_converse)   
             
       
-    elif name == "Cromwell":  
-        query1 = query + str(name) 
-        value = cursor.execute(query1)
-        
-        if value == True:
+    elif name == "Cromwell":
+
+        name = "'" + name + "'"
+        query1 = query + str(name)
+
+        cursor.execute(query1)
+        value = cursor.fetchone()
+
+        true_or_false = value[0]
+
+        if true_or_false == 0:
             npc_Oliver()
             query2 = "UPDATE Npc SET Talked = TRUE WHERE Name = " + str(name)  
             
@@ -669,11 +692,17 @@ def npc_converser(name,database=db):
             repeating_converse =  cursor.execute(query3)
             print(repeating_converse)   
        
-    elif name == "Gebhard":  
-        query1 = query + str(name) 
-        value = cursor.execute(query1)
-        
-        if value == True:
+    elif name == "Gebhard":
+
+        name = "'" + name + "'"
+        query1 = query + str(name)
+
+        cursor.execute(query1)
+        value = cursor.fetchone()
+
+        true_or_false = value[0]
+
+        if true_or_false == 0:
             npc_Jonathan()
             query2 = "UPDATE Npc SET Talked = TRUE WHERE Name = " + str(name)
             cursor.execute(query2)  

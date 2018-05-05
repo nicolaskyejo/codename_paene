@@ -19,10 +19,9 @@ if __name__ == '__main__':
     current_room = 101    #Position in game, indicated by current_room
     our_print(show_room(current_room))
     while True: #Actual process of the game, loops until quit
-        print("TYPE OF CURRENT ROOM", type(current_room))
         two_words_input=""
         players_input = get_user_input(str(input(":>")))   #list of inputs. [0] is the command, [-1] is the object.
-
+        print(players_input)
         if len(players_input) > 2:
             two_words_input = players_input[-2] + " " + players_input[-1]
 
@@ -141,8 +140,13 @@ if __name__ == '__main__':
 
             else:
                 our_print("I don't have that.")
+        elif players_input[0] in ["talk"]:
+            if npc_alive_or_not(current_room):
+                name_of_npc = npc_name_from_room(current_room)
+                talk(name_of_npc)
+            else:
+                our_print("There is no one to talk to.")
        
         else:
             our_print("Not a valid command. Type HELP for help.\n")
-        print("TYPE OF CURRENT ROOM", type(current_room))
 db.rollback()
