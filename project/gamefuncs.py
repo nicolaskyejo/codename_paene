@@ -117,7 +117,7 @@ def go(current_room, room_to_move):
 def commands():
     allcommands = [["enter", "e", "go"],    #done
                    ["examine", "x"],    #done
-                   ["leave", "exit"], 
+                   ["leave", "exit"], #done
                    ["quit", "q"],   #done
                    ["push"],    #done 
                    ["take","pick"], #done
@@ -133,7 +133,7 @@ def commands():
                    ["help"],    #done
                    ["clear", "c"],#done
                    ["drop"], #done
-                   ["talk"],
+                   ["talk"], #done
                    ["kill"] #supersecret
                   ]  
 
@@ -572,6 +572,7 @@ def fight_checker(current_room, database=db):
                     cursor.execute(query1)
                     cursor.execute(query2)
                     cursor.execute(query3)
+                    return True
                     break
                     
                 elif ending_choice == 'Kill' or 'kill' or 'k':
@@ -585,6 +586,7 @@ def fight_checker(current_room, database=db):
                     cursor.execute(query1)
                     cursor.execute(query2)
                     cursor.execute(query3)
+                    return False
                     break
                 
                 else: 
@@ -603,50 +605,63 @@ def fight_checker(current_room, database=db):
         
  
 # check to see if friendly npc exists and talks to them        
-def npc_converser(current_room):
-    if current_room == "100":
-        value = npc_alive_or_not(current_room)
+def npc_converser(name,database=db):
+    cursor = database.cursor()
+    query = "SELECT Talked FROM Npc WHERE Name = " 
+    
+    if name == "Jake":
+        query1 = query + str(name) 
+        value = cursor.execute(query1)
         
         if value == True:
             npc_Jake()
-            pass
+            query2 = "UPDATE Npc SET Talked = TRUE WHERE Name = " + str(name)  
             
         else:
-            pass   
+            query3 = "SELECT Conversation FROM NPC WHERE Name = " + str(name)
+            repeating_converse =  cursor.execute(query3)
+            print(repeating_converse)   
             
 
-    elif current_room == "201":  
-        value = npc_alive_or_not(current_room)
+    elif name == "Lawrence":  
+        query1 = query + str(name) 
+        value = cursor.execute(query1)
         
         if value == True:
-            #npc_Lawrence()
-            pass
+            npc_Lawrence()
+            query2 = "UPDATE Npc SET Talked = TRUE WHERE Name = " + str(name)  
             
         else:
-            pass 
+            query3 = "SELECT Conversation FROM NPC WHERE Name = " + str(name)
+            repeating_converse =  cursor.execute(query3)
+            print(repeating_converse)   
             
-    elif current_room == "403":  
-        value = npc_alive_or_not(current_room)
-        
-        if value == True:
-            #npc_Oliver()
-            pass
-            
-        else:
-            pass                            
       
+    elif name == "Cromwell":  
+        query1 = query + str(name) 
+        value = cursor.execute(query1)
+        
+        if value == True:
+            npc_Oliver()
+            query2 = "UPDATE Npc SET Talked = TRUE WHERE Name = " + str(name)  
             
-    elif current_room == "200":  
-        value = npc_alive_or_not(current_room)
+        else:
+            query3 = "SELECT Conversation FROM NPC WHERE Name = " + str(name)
+            repeating_converse =  cursor.execute(query3)
+            print(repeating_converse)   
+       
+    elif name == "Gebhard":  
+        query1 = query + str(name) 
+        value = cursor.execute(query1)
         
         if value == True:
             npc_Jonathan()
-            pass
+            query2 = "UPDATE Npc SET Talked = TRUE WHERE Name = " + str(name)  
             
         else:
-            pass    
-       
-
+            query3 = "SELECT Conversation FROM NPC WHERE Name = " + str(name)
+            repeating_converse =  cursor.execute(query3)
+            print(repeating_converse)   
 #HANGMAN
 def hangman():
     def guess_letter(word, letter, guessed_list):
@@ -721,13 +736,13 @@ def hangman():
             
         return False
 
-def kill(name):         ## kill function. Only works for self not npcs.
-    if name == 'Myself' or 'myself':
+def kill(name, database=db):         ## kill function. Only works for self not npcs.
+    if name == 'Myself' or 'myself' or 'Verner' or 'verner':
       
      cursor = database.cursor()
      ## check if user has Scalpel or Knife ##
-     query1 = "SELECT Name from Item where Name = 'Scalpel' AND Inventory = 'TRUE'"
-     query2 = "SELECT Name from Item where Name = 'Knife' AND Inventory = 'TRUE'"
+     query1 = "SELECT Name from Item where Name = 'Scalpel' AND Inventory = TRUE"
+     query2 = "SELECT Name from Item where Name = 'Knife' AND Inventory = TRUE"
      cursor.execute(query1)
      if cursor.rowcount == 1:
         ending_5()      ## call one of the endings
@@ -735,7 +750,7 @@ def kill(name):         ## kill function. Only works for self not npcs.
      else: 
       cursor.execute(query2)
       if cursor.rowcount == 1:
-        ending_5
+        ending_5()
         sys.exit()
       else:
           print('I can\'t do that...\n')    
@@ -744,6 +759,5 @@ def kill(name):         ## kill function. Only works for self not npcs.
     else: 
      print('I do not want to do that...\n') 
 
-def talk(name):
-    #call npc_converser function
-    pass
+def talk(name): #talks to npc
+    npc_converser(name)

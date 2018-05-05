@@ -3,6 +3,7 @@ from gamefuncs import *
 from queryfuncs import *
 from config import db
 
+
 def npc_Jake():
     print("(A hunch-backed man with bloodshot eyes is incessantly staring at the wall. He doesn't look very well...)\n")
     print("Unknown Man: Th-the w-w-walls are spying on me... T-THOSE BASTARDS ARE UP TO SOMETHING BAD I KNOW IT! I-i-i got to keep on eye on them...\n")
@@ -13,7 +14,7 @@ def npc_Jake():
     
     
     
-def npc_Lawrence():    #RIKKI 
+def npc_Lawrence(database=db):    #RIKKI 
     print("(There's a wretched looking man is sitting in a rusted wheelchair)\n")
     print("Unknown Man: Hello young man.\n")
     print("Hello..?\n")
@@ -85,8 +86,9 @@ def npc_Jonathan():
     
 
 def cutscene_1():
+
     print("Aaah...")
-    print("(Have to find something to numb the pain...)\n\n" 
+    print ("(Have to find something to numb the pain...)\n\n" 
  
           "Unknown man: (inaudible) There is no way out of (inaudible)\n" 
  
@@ -112,13 +114,15 @@ def cutscene_2(database=db):
     
     print('(He spoke with a hint of german accent)\n')
     
+    empty_input = input()
+    
     print("Verner: Buchwald?\n")
     
     print("Doctor: Doctor Buchwald is our leader here, he is the one who gave the order to bring you for ah... I mean you know ah... " \
     "First let me introduce myself, my name is Doctor Eisenberg, Reinhold Eisenberg. \n")
 
     print('(He looks nervous)\n')
-    
+        
     print("Eisenberg: I think it is better if you speak with him rather than me. He is at the top floor of this building, but you can't enter without a key."\
     "Luckily I have one of the keys too. Here take it! No need to thank me!\n")
     
@@ -129,7 +133,7 @@ def cutscene_2(database=db):
     cursor.execute(query)
     cursor.close()
     
-    print('Eisenberg: Well uuh... I can\'t offer anymore help. I must continue my work. \n')
+    print('Eisenberg: Well uuh... I can\'t offer anymore help. I must continue my work. I\'ll leave immediately... \n')
 
 def cutscene_100():
     print("There is man in black patrolling. OH SHIT! He saw me and IS coming after ME! Gotta defend myself!\n")
@@ -142,12 +146,12 @@ def cutscene_100win():      #After you win the first fight
     print('What a pushover...\n')
 
 def cutscene_100lose():      #After you lose the first fight
-    print('Ughh.. Am I really this weak?')
+    print('Ughh... Am I really this weak?')
     print('I find myself laying on the ground.')
     print('I cannot move my legs. Maybe this is the end... \n')
 
     
-    print("\t\tYOU DIED...\n")
+    print("\t\tYOU DIED\n")
     print("\t\tGAME OVER\n")
 
 def cutscene_win_generic():
@@ -160,7 +164,7 @@ def cutscene_lose_generic():
     print("This is surely the end of me.\n")
 
     
-    print("\t\tRest in peace...\n")
+    print("\t\tYOU DIED\n")
     print("\t\tGAME OVER\n")      
     
 def cutscene_3():
@@ -195,14 +199,11 @@ def ending_5():         #harakiri
     print("My hands are shaking even though I was sure of my decision just a second ago")
     print("I'm going to do it in 3, 2, 1... \n")
     print("Sometimes the most interesting thing you can do with your life is to end it. It is your own choice. May death bring you peace you never had.\n\n")         
-    print("\t\YOU DIED...\n")
+    print("\t\tDEAD\n")
     print("\t\tGAME OVER\n")
     
-def death_msg():
-    print("\t\tYOU DIED...\n")
-    print("\t\tGAME OVER\n")
     
 def the_end():
     print('\t\tCongratulations!\n')
-    print('\t\tYou finished the game. Explore additional endings by trying alternative paths\n')
+    print('\t\tYou finished the game. Explore additional endings by trying alternative paths.\n')
 

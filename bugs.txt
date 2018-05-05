@@ -1,10 +1,7 @@
 bugs:
 
-quit() doesn't work if a user enters a capital letter
 
-Go() vent doesn't work the 2nd time
 
-Hangman crashes in the loop
 
 
 Typos:
