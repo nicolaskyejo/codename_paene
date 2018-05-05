@@ -103,10 +103,15 @@ def clear():  # Clear console
     print("\n" * 100)
 
 
-def go(current_room, room_to_move):
+#def go(current_room, room_to_move, ending_choice=ending_choice):
+def go(current_room, room_to_move):    
     current_room = str(current_room)
     room_to_move = str(room_to_move)
-
+    
+    result = door_open(666)
+    if room_to_move == "666" and result == True:
+        ending_checker(ending_choice)
+        
     if room_to_move in room_list_returner(current_room):
         our_print(show_room(room_to_move))
 
@@ -408,7 +413,8 @@ def fight_checker(current_room, database=db):
                 cursor.execute(query2)
                 cursor.execute(query3)
                 cursor.execute(query4) 
-                cursor.execute(query5) 
+                cursor.execute(query5)
+                return None 
 
             else:
                 cutscene_100lose()    
@@ -434,7 +440,9 @@ def fight_checker(current_room, database=db):
                 query3 = "DELETE from NPC WHERE Npc_Id = 2"
                 cursor.execute(query3) 
                 query4 = "UPDATE Texti SET ActualText = 'Seems like an old patient room. On the floor the guard is dead' WHERE Room_Id = 202"
-                cursor.execute(query4) 
+                cursor.execute(query4)
+                return None 
+                 
             else:
                cursor.execute(query2) 
                if cursor.rowcount == 1:
@@ -442,7 +450,9 @@ def fight_checker(current_room, database=db):
                     query3 = "DELETE from NPC WHERE Npc_Id = 2"
                     query4 = "UPDATE Texti SET ActualText = 'Seems like an old patient room. On the floor the guard is dead' WHERE Room_Id = 202"
                     cursor.execute(query4) 
-                    cursor.execute(query3) 
+                    cursor.execute(query3)
+                    return None 
+                     
                else: 
                     cutscene_lose_generic()
                     sys.exit()
@@ -471,7 +481,8 @@ def fight_checker(current_room, database=db):
                 cursor.execute(query4) 
                 cursor.execute(query3)
                 cursor.close()
-
+                return None 
+                
             else:
                cursor.execute(query2) 
                if cursor.rowcount == 1:
@@ -481,6 +492,8 @@ def fight_checker(current_room, database=db):
                     cursor.execute(query4) 
                     cursor.execute(query3)
                     cursor.close()
+                    return None 
+                    
                else: 
                     cutscene_lose_generic()
                     sys.exit()
@@ -510,6 +523,7 @@ def fight_checker(current_room, database=db):
                 cursor.execute(query4) 
                 query6 = "UPDATE Texti SET ActualText = 'A room with old machines. Two dead guard bodies are on the floor.' WHERE Room_Id = 210"
                 cursor.execute(query6) 
+                
 
             else:
                cursor.execute(query2) 
@@ -545,7 +559,8 @@ def fight_checker(current_room, database=db):
             query4 = "DELETE from NPC WHERE Npc_Id = 11"
             query5 = "DELETE from NPC WHERE Npc_Id = 12"
             query6 = "UPDATE Texti SET ActualText = 'An operating room with surgery instruments lying scattered around. The doctor and patient on the table are gone, I wonder where they went...' WHERE Room_Id = 305"
-
+            
+            
             cursor.execute(query1) 
 
             if cursor.rowcount == 1:
@@ -555,6 +570,7 @@ def fight_checker(current_room, database=db):
                 cursor.execute(query5)
                 cursor.execute(query6)
                 cutscene_2()
+                return None                 
 
             else:
                cursor.execute(query2) 
@@ -565,6 +581,7 @@ def fight_checker(current_room, database=db):
                     cursor.execute(query5)
                     cursor.execute(query6)
                     cutscene_2() 
+                    return None 
                else: 
                     cutscene_lose_generic()
                     sys.exit()
@@ -623,7 +640,7 @@ def fight_checker(current_room, database=db):
         
     
     else:
-        pass
+        return None
         
  
 # check to see if friendly npc exists and talks to them        

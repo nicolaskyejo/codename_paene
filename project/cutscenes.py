@@ -174,7 +174,7 @@ def cutscene_3():
 
     print("Buchwald: Before you make any rash decision, hear me out first.\n")
     
-    print("Buchwald: Where do I even start... Have you figured out what we do here?")
+    print("Buchwald: Where do I even start... Have you figured out what we do here?\n")
     
     answer = input('(Yes / No)')
     answer = answer.lower()
@@ -183,7 +183,12 @@ def cutscene_3():
         print("Deliver your judgement.")
         
     else:    
-        print('')
+        our_print("Well we run an organ transplant operation where we help people who need organ transplants to survive."
+        "The people who donate the organs are people like you who have wasted their life not helping mankind in any way."
+        "I know it seems harsh but it is the truth. Have you helped anybody in your life but yourself? Haven't you cause enough pain to the people around you? Wouldn't mankind be"
+        "better off if you never existed? Isn't it better if your organ served someone else? If you agree with me then you know what to"
+        "do. Just go to a medical room to have your privacy and destroy yourself, I'll handle the rest.")
+        
         
 def ending_1():         #kill B
     pass
@@ -197,10 +202,8 @@ def ending_3():         #light building on F
     print("The innocent are guilty too, guilty of accepting what is not theirs.\n") 
     
 def ending_4():         #Escape before X
-    print("(I probably shouldn't smash the lock open to not make too much noise.)")
-    print("(I place the pipe between the lock and bend it with everything I got)\n")
-    print("The lock pops off after a couple of seconds.\n")
     print("Necessity is the mother of ingeniousness. You solve your problems with a touch of craftiness.\n")
+    print("Why bother facing problems when you can just run away from them?")
    
 def ending_5():         #harakiri
     print("I'm going to end my own life, rather than giving them the enjoyment of killing me.\n")

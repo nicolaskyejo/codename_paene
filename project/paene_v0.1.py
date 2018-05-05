@@ -75,7 +75,9 @@ if __name__ == '__main__':
 
             elif players_input[-1] in room_list_returner(current_room) and door_open(players_input[-1]) == True:
                 current_room = go(current_room, players_input[-1])
+                #ending_choice = fight_checker(current_room)
                 fight_checker(current_room)
+                
             else:
                 our_print("I can't go there...")
 

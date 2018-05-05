@@ -7,10 +7,12 @@ Before Monday:
 lioncrest key
 leave(), can go through locked doors
 description should show people
+Use metal pipe on door 666
 
 Ideas:
 In the starting room, the P. could be tied. 
 Any input from the user once unties him.
+
 
 QOL:
 - Text doesn't come to screen at once

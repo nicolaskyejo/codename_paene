@@ -79,9 +79,9 @@ def item_pick(id, database=db):
         cursor = database.cursor()
         # Picks only items that are not hidden and are pickable #
         query1 = "UPDATE Item SET Inventory = TRUE, HIDDEN = TRUE WHERE Item_id = " + str(id) + " AND Pickable = TRUE AND Hidden = FALSE"
-        #query2 = "SELECT Inventory FROM Item WHERE Item_id = " + str(id)
+        query2 = "SELECT Inventory FROM Item WHERE Item_id = " + str(id)
         cursor.execute(query1)
-        #cursor.execute(query2)
+        cursor.execute(query2)
 
         fetch = cursor.fetchone()
         print(fetch)
@@ -343,6 +343,9 @@ def secretending_checker():
     cursor.execute(query1) 
     
     if cursor.rowcount == 1:
+        print("(I probably shouldn't smash the lock open to not make too much noise.)")
+        print("(I place the pipe between the lock and bend it with everything I got)\n")
+        print("The lock pops off after a couple of seconds.\n")
         ending_4()
         the_end()
         sys.exit()
