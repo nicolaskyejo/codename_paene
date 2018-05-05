@@ -17,7 +17,7 @@ def npc_Jake():
 def npc_Lawrence(database=db):    #RIKKI 
     print("(There's a wretched looking man is sitting in a rusted wheelchair)\n")
     print("Unknown Man: Hello young man.\n")
-    print("Hello..?\n")
+    print("Hello...?\n")
     print("I'm bored! Do you want to play a game of hangman? If you win I'll give you a reward.\n")
     
     win = False
@@ -48,7 +48,7 @@ def npc_Lawrence(database=db):    #RIKKI
                             Win = True
                             break
                     
-                    #       
+                           
         elif answer == 'n' or answer == 'no':
             print("Shame...") 
             break    
@@ -114,7 +114,7 @@ def cutscene_2(database=db):
     
     print('(He spoke with a hint of german accent)\n')
     
-    empty_input = input()
+    #empty_input = input()
     
     print("Verner: Buchwald?\n")
     
@@ -174,17 +174,26 @@ def cutscene_3():
 
     print("Buchwald: Before you make any rash decision, hear me out first.\n")
     
+    print("Buchwald: Where do I even start... Have you figured out what we do here?")
+    
+    answer = input('(Yes / No)')
+    answer = answer.lower()
+    if answer == 'yes' or 'y':
+        print("It seems you are also clever as well as resourceful. I'm not remorseful for what I have done here, I only regret I chose you.")
+        print("Deliver your judgement.")
+        
+    else:    
+        print('')
+        
 def ending_1():         #kill B
-    print("Verner: I know we all do questionable things to survive in this god forsaken wasteland.. But even then, a filth like you doesn't deserve to live.\n")
-    print("Dr. Buchwald: NOOoo don't do it!\n")
-    print("Verner: This is the end of the line for you Doctor.\n")
+    pass
         
 def ending_2():         #forgive B
     print("I wish to get out of this depressive land. Maybe I'll head east and have a fresh start there.") 
     print("Perhaps I'll live an honest life for once. Wouldn't that be great?\n")
     
 def ending_3():         #light building on F
-    print("They paid for their crimes in full. The fire will wash their souls clean")
+    print("They paid for their crimes in full. The fire will wash their souls clean.")
     print("The innocent are guilty too, guilty of accepting what is not theirs.\n") 
     
 def ending_4():         #Escape before X
