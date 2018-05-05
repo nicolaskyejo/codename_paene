@@ -350,20 +350,32 @@ def use(item_name, room_id, database=db):
                 our_print("I have nothing to use it on...")
         else:
             our_print("I do not have that item.")
-    elif item_name == "simple key" and room_id == 400:
+    elif item_name == "simple key" and room_id == "400":
          item_id = item_id_from_name(item_name)
 
-         if item_id in inventory and if_item_used(item_id):
+         if item_id in inventory and if_item_used(item_id) == False:
              query1 = "UPDATE Item SET Used=TRUE WHERE Item_id =" + str(item_id)
              query2 = "UPDATE Room SET Locked=FALSE WHERE Room_id = 401"
 
              cursor = database.cursor()
              cursor.execute(query1)
              cursor.execute(query2)
+             cursor.close()
              our_print("A door opens...")
          else:
              our_print("I can't do that.")
+    elif item_name == "lion-crested key":
+        item_id = item_id_from_name(item_name)
 
+        if item_id in inventory and room_id == "110":
+            query1 = "UPDATE Item SET Used=TRUE WHERE Item_id" + str(item_id)
+
+            cursor = database.cursor()
+            cursor.execute(query1)
+            cursor.close()
+            our_print("I twist the key in it's hole and a hollow crackle echoes throughout the hallways." +
+                      "The heavy, rusted doors slowly begin to give in to my pushes, and a way to the outside world opens." +
+                      "A cool, refreshing wind blows inside, clearing the stuffy air of this damned building.")
 
     else:
         our_print("I can't do that.")

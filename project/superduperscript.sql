@@ -98,7 +98,7 @@ INSERT INTO Room VALUES(307,"Medical Imaging",FALSE);
 
 INSERT INTO Room VALUES(400,"4F Corridor/Neurology",FALSE);
 INSERT INTO Room VALUES(410,"4F Corridor/Orthopaedics",FALSE);
-INSERT INTO Room VALUES(401,"Brain Scans",FALSE);			
+INSERT INTO Room VALUES(401,"Brain Scans",TRUE);			
 INSERT INTO Room VALUES(402,"Operating room",TRUE);
 INSERT INTO Room VALUES(403,"Trauma room",FALSE);
 
