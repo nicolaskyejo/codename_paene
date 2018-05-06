@@ -103,10 +103,15 @@ def clear():  # Clear console
     print("\n" * 100)
 
 
-def go(current_room, room_to_move):
+#def go(current_room, room_to_move, ending_choice=ending_choice):
+def go(current_room, room_to_move):    
     current_room = str(current_room)
     room_to_move = str(room_to_move)
-
+    
+    result = door_open(666)
+    if room_to_move == "666" and result == True:
+        ending_checker(ending_choice)
+        
     if room_to_move in room_list_returner(current_room):
         our_print(show_room(room_to_move))
 
@@ -147,6 +152,7 @@ def examine(item_id):
 
     return txt
 
+# checks if item is in current room and then calls take_item #
 def take(item_id, item_name, room_id):
     list_of_items_in_current_room = get_items_of_room(room_id) 
 
@@ -155,10 +161,11 @@ def take(item_id, item_name, room_id):
         if value == True:
             print("Picked it up.")    
         else:
-         print("I cannot take that...\n")
+            print("I cannot take that...\n")
     else:
         print("I cannot take that...\n") 
 
+#This is used in main program to quit the loop#
 def quit():
     while True:
         answer = str(input("Do you really want to quit the game? (Y/N)  "))
@@ -353,7 +360,7 @@ def use(item_name, room_id, database=db):
                 our_print("I have nothing to use it on...")
         else:
             our_print("I do not have that item.")
-    elif item_name == "simple key" and room_id == "400":
+    elif item_name == "Simple key" and room_id == "400":
          item_id = item_id_from_name(item_name)
 
          if item_id in inventory and if_item_used(item_id) == False:
@@ -368,6 +375,7 @@ def use(item_name, room_id, database=db):
          else:
              our_print("I can't do that.")
     elif item_name == "rusty key":
+
         item_id = item_id_from_name(item_name)
 
         if item_id in inventory and room_id == "110":
@@ -418,7 +426,8 @@ def fight_checker(current_room, database=db):
                 cursor.execute(query2)
                 cursor.execute(query3)
                 cursor.execute(query4) 
-                cursor.execute(query5) 
+                cursor.execute(query5)
+                return None 
 
             else:
                 cutscene_100lose()    
@@ -444,7 +453,9 @@ def fight_checker(current_room, database=db):
                 query3 = "DELETE from NPC WHERE Npc_Id = 2"
                 cursor.execute(query3) 
                 query4 = "UPDATE Texti SET ActualText = 'Seems like an old patient room. On the floor the guard is dead' WHERE Room_Id = 202"
-                cursor.execute(query4) 
+                cursor.execute(query4)
+                return None 
+                 
             else:
                cursor.execute(query2) 
                if cursor.rowcount == 1:
@@ -452,7 +463,9 @@ def fight_checker(current_room, database=db):
                     query3 = "DELETE from NPC WHERE Npc_Id = 2"
                     query4 = "UPDATE Texti SET ActualText = 'Seems like an old patient room. On the floor the guard is dead' WHERE Room_Id = 202"
                     cursor.execute(query4) 
-                    cursor.execute(query3) 
+                    cursor.execute(query3)
+                    return None 
+                     
                else: 
                     cutscene_lose_generic()
                     sys.exit()
@@ -481,7 +494,8 @@ def fight_checker(current_room, database=db):
                 cursor.execute(query4) 
                 cursor.execute(query3)
                 cursor.close()
-
+                return None 
+                
             else:
                cursor.execute(query2) 
                if cursor.rowcount == 1:
@@ -491,6 +505,8 @@ def fight_checker(current_room, database=db):
                     cursor.execute(query4) 
                     cursor.execute(query3)
                     cursor.close()
+                    return None 
+                    
                else: 
                     cutscene_lose_generic()
                     sys.exit()
@@ -520,6 +536,7 @@ def fight_checker(current_room, database=db):
                 cursor.execute(query4) 
                 query6 = "UPDATE Texti SET ActualText = 'A room with old machines. Two dead guard bodies are on the floor.' WHERE Room_Id = 210"
                 cursor.execute(query6) 
+                
 
             else:
                cursor.execute(query2) 
@@ -555,7 +572,8 @@ def fight_checker(current_room, database=db):
             query4 = "DELETE from NPC WHERE Npc_Id = 11"
             query5 = "DELETE from NPC WHERE Npc_Id = 12"
             query6 = "UPDATE Texti SET ActualText = 'An operating room with surgery instruments lying scattered around. The doctor and patient on the table are gone, I wonder where they went...' WHERE Room_Id = 305"
-
+            
+            
             cursor.execute(query1) 
 
             if cursor.rowcount == 1:
@@ -565,6 +583,7 @@ def fight_checker(current_room, database=db):
                 cursor.execute(query5)
                 cursor.execute(query6)
                 cutscene_2()
+                return None                 
 
             else:
                cursor.execute(query2) 
@@ -575,6 +594,7 @@ def fight_checker(current_room, database=db):
                     cursor.execute(query5)
                     cursor.execute(query6)
                     cutscene_2() 
+                    return None 
                else: 
                     cutscene_lose_generic()
                     sys.exit()
@@ -595,8 +615,9 @@ def fight_checker(current_room, database=db):
                 if ending_choice == 'Forgive' or 'forgive' or 'f':
                     print('I see... Thank you.')
                     print('Here is the key to lobby door.\n')
+
                     query1= "UPDATE Item SET Inventory = TRUE, Hidden= False WHERE Name = 'rusty key'"
-                    query2= "DELETE from NPC WHERE Name = 'Doctor Ingolf Buchwald'"
+                    query2= "DELETE from NPC WHERE Name = 'Buchwald'"
                     query3 = "UPDATE Texti SET ActualText = 'A room full of pictures of the brain. Dr. Buchwald is busy continuing his work.' WHERE Room_Id = 401"
                     cursor.execute(query1)
                     cursor.execute(query2)
@@ -607,10 +628,15 @@ def fight_checker(current_room, database=db):
                 elif ending_choice == 'Kill' or 'kill' or 'k':
                     print('I see... I don\'t regret the things I\'ve done.')  
                     print('...\n\n')
+                    print("Verner: I know we all do questionable things to survive in this god forsaken wasteland.. But even then, a filth like you doesn't deserve to live.\n")
+                    print("Dr. Buchwald: NOOoo don't do it!\n")
+                    print("Verner: This is the end of the line for you Doctor.\n")
                     print('(He drops down with a final thud on the ground. What looks like')
                     print('a key drops appears near his dead body\n')
                     query1 = "UPDATE Item SET Hidden= False WHERE Name = 'rusty key'"
-                    query2 = "DELETE from NPC WHERE Name = 'Doctor Ingolf Buchwald'"
+
+                    print('a key drops appears near his dead body.\n')
+                    query2 = "DELETE from NPC WHERE Name = 'Buchwald'"
                     query3 = "UPDATE Texti SET ActualText = 'A room full of pictures and diagrams of the brain. Dr. Buchwald is on the floor dead.' WHERE Room_Id = 401"
                     cursor.execute(query1)
                     cursor.execute(query2)
@@ -630,7 +656,7 @@ def fight_checker(current_room, database=db):
         
     
     else:
-        pass
+        return None
         
  
 # check to see if friendly npc exists and talks to them        
@@ -651,7 +677,8 @@ def npc_converser(name,database=db):
 
         if true_or_false == 0:
             npc_Jake()
-            query2 = "UPDATE Npc SET Talked = TRUE WHERE Name = " + str(name)  
+            query2 = "UPDATE Npc SET Talked = TRUE WHERE Name = " + str(name)
+            cursor.execute(query2)  
             
         else:
             query3 = "SELECT Conversation FROM NPC WHERE Name = " + str(name)
@@ -670,7 +697,8 @@ def npc_converser(name,database=db):
 
         if true_or_false == 0:
             npc_Lawrence()
-            query2 = "UPDATE Npc SET Talked = TRUE WHERE Name = " + str(name)  
+            query2 = "UPDATE Npc SET Talked = TRUE WHERE Name = " + str(name)
+            cursor.execute(query2)  
             
         else:
             query3 = "SELECT Conversation FROM NPC WHERE Name = " + str(name)
@@ -709,7 +737,8 @@ def npc_converser(name,database=db):
 
         if true_or_false == 0:
             npc_Jonathan()
-            query2 = "UPDATE Npc SET Talked = TRUE WHERE Name = " + str(name)  
+            query2 = "UPDATE Npc SET Talked = TRUE WHERE Name = " + str(name)
+            cursor.execute(query2)  
             
         else:
             query3 = "SELECT Conversation FROM NPC WHERE Name = " + str(name)

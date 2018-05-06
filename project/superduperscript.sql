@@ -174,7 +174,7 @@ INSERT INTO Texti VALUES("This room is really clean. There's someone sleeping in
 # [Item] # 23+ items   #(id,name,hidden,inventory,room_id,desc,pickable,used)
 INSERT INTO Item VALUES (1, "Medical table", FALSE, FALSE, 101, "A medical table with sharp instruments.", FALSE, FALSE);
 INSERT INTO Item VALUES (1+1, "Scalpel", TRUE, FALSE, 101, "Sharp, a tool used in surgery.",TRUE, FALSE);
-INSERT INTO Item VALUES (5, "Cigarette", FALSE, TRUE, 101, "Strange that they didn't take these cigarettes from me.",TRUE, FALSE);
+INSERT INTO Item VALUES (5, "Cigarette", TRUE, TRUE, 101, "Strange that they didn't take these cigarettes from me.",TRUE, FALSE);
 INSERT INTO Item VALUES (8, "Box", FALSE,  FALSE, 101, "A cardboard box full of old medical books.",FALSE, FALSE);
 INSERT INTO Item VALUES (100, "Vent", FALSE, FALSE, 101, "A big air vent. It has a metal cover, held in place by screws in its four corners.", FALSE, FALSE);
 INSERT INTO Item VALUES (103, "Vent", TRUE, FALSE, 101, "An opened air vent. It is big enough for a person to pass through.", FALSE, FALSE);
@@ -251,9 +251,10 @@ INSERT INTO Item VALUES (66+2, "Old journal", TRUE, FALSE, 306, "'Sugar: The whi
 
 
 #KEYS#
+
 INSERT INTO Item VALUES (70,"simple key",TRUE,FALSE,305,"The doctor told me this opens one of the top floor doors.",TRUE,FALSE);
 INSERT INTO Item VALUES (75,"rusty key",TRUE,TRUE,401,"Opens the lobby door on the first floor.",TRUE,FALSE);
-	
+
 # [Room_List] # Each room has a list of room it is connected to
 INSERT INTO Room_List VALUES (100,101);
 INSERT INTO Room_List VALUES (100,102);

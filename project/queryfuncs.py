@@ -77,7 +77,8 @@ def item_pick(id, database=db):
     result = False
     try:
         cursor = database.cursor()
-        query1 = "UPDATE Item SET Inventory = TRUE WHERE Item_id = " + str(id) + " AND Pickable = TRUE AND Hidden = FALSE"
+        # Picks only items that are not hidden and are pickable #
+        query1 = "UPDATE Item SET Inventory = TRUE, HIDDEN = TRUE WHERE Item_id = " + str(id) + " AND Pickable = TRUE AND Hidden = FALSE"
         query2 = "SELECT Inventory FROM Item WHERE Item_id = " + str(id)
         cursor.execute(query1)
         cursor.execute(query2)
@@ -252,7 +253,7 @@ def use_item(item_id, current_room,database=db): #Changes Used to True if item n
 
 def drop_item(item_id, room_id, database=db):
     try:
-        query1 = "UPDATE Item SET Inventory = FALSE WHERE Item_id = " + str(item_id) 
+        query1 = "UPDATE Item SET Inventory = FALSE, Hidden = FALSE  WHERE Item_id = " + str(item_id) 
         query2 = "UPDATE Item SET room_id = " + str(room_id) + " WHERE Item_Id = " + str(item_id)
         cursor = database.cursor()
         cursor.execute(query1)
@@ -264,6 +265,7 @@ def drop_item(item_id, room_id, database=db):
     finally:    
         cursor.close() 
 
+# checks if door is locked from dbase #
 def door_open(room_id, database=db):
     result = True
     try:
@@ -341,6 +343,9 @@ def secretending_checker():
     cursor.execute(query1) 
     
     if cursor.rowcount == 1:
+        print("(I probably shouldn't smash the lock open to not make too much noise.)")
+        print("(I place the pipe between the lock and bend it with everything I got)\n")
+        print("The lock pops off after a couple of seconds.\n")
         ending_4()
         the_end()
         sys.exit()

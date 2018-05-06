@@ -2,33 +2,29 @@
 Game working without crashes
 Testing different inputs to see if game crashes
 Check all commands to see if they work properly 
-#2
-Use_simple key
-Use lion-crested key
 
-#3
-
-
-#5
-Ending_checker
+Before Monday:
+lioncrest key
+leave(), can go through locked doors
+description should show people
+Use metal pipe on door 666
 
 Ideas:
 In the starting room, the P. could be tied. 
 Any input from the user once unties him.
 
+
 QOL:
 - Text doesn't come to screen at once
 
 
-Nicolas:
-npc_converser
 
-Lauri:
+bugs:
 
 
-Oliver:
-npc conversations
 
+Typos:
+.. should be ...
 
 
 

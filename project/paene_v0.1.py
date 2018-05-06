@@ -14,7 +14,6 @@ from config import db
 
 # # # [MAIN PROGRAM] # # #
 if __name__ == '__main__':
-    #npc_Lawrence()
     #os.system('Blindspot.mp3')
     cutscene_1()
     current_room = 101    #Position in game, indicated by current_room
@@ -76,7 +75,9 @@ if __name__ == '__main__':
 
             elif players_input[-1] in room_list_returner(current_room) and door_open(players_input[-1]) == True:
                 current_room = go(current_room, players_input[-1])
+                #ending_choice = fight_checker(current_room)
                 fight_checker(current_room)
+                
             else:
                 our_print("I can't go there...")
 
