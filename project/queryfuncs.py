@@ -84,7 +84,6 @@ def item_pick(id, database=db):
         cursor.execute(query2)
 
         fetch = cursor.fetchone()
-        print(fetch)
         if fetch[0] == 1:
             result = True
         else:
@@ -274,7 +273,6 @@ def door_open(room_id, database=db):
         cursor.execute(query)
 
         open_or_not = cursor.fetchone()
-        print(open_or_not)
         if open_or_not[0] == 1:
             result = False
         else:

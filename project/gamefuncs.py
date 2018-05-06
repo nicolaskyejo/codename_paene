@@ -278,8 +278,6 @@ def leave(current_room):    #Leaves a room that isnt a corridor, goes to the nea
 # Main function for all items that can be used #
 def use(item_name, room_id, database=db):
     inventory = get_items_inventory()
-    print(item_name)
-    print(item_id_from_name(item_name))
     if item_name == "painkillers":
         item_id = item_id_from_name(item_name)
 
