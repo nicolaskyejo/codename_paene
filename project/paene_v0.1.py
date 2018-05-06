@@ -21,7 +21,6 @@ if __name__ == '__main__':
     while True: #Actual process of the game, loops until quit
         two_words_input=""
         players_input = get_user_input(str(input(":> ")))   #list of inputs. [0] is the command, [-1] is the object.
-        print(players_input)
         if len(players_input) > 2:
             two_words_input = players_input[-2] + " " + players_input[-1]
             
@@ -64,8 +63,6 @@ if __name__ == '__main__':
         
 
         elif players_input[0] in ["go", "enter", "e"]:
-            print(players_input[-1])
-            print(room_list_returner(current_room))
             result = door_open(666)
             
             if door_open(666) == True:

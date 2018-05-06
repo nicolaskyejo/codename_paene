@@ -254,8 +254,8 @@ INSERT INTO Item VALUES (66+2, "Old journal", TRUE, FALSE, 306, "'Sugar: The whi
 
 #KEYS#
 
-INSERT INTO Item VALUES (70,"Simple key",TRUE,FALSE,305,"The doctor told me this opens one of the top floor doors.",TRUE,FALSE);
-INSERT INTO Item VALUES (75,"Rusty key",TRUE,FALSE,401,"Opens the lobby door on the first floor.",TRUE,FALSE);
+INSERT INTO Item VALUES (70,"simple key",TRUE,FALSE,305,"The doctor told me this opens one of the top floor doors.",TRUE,FALSE);
+INSERT INTO Item VALUES (75,"rusty key",TRUE,FALSE,401,"Opens the lobby door on the first floor.",TRUE,FALSE);
 
 #TERMINAL#
 #INSERT INTO Item VALUES (80, "Terminal", FALSE, FALSE, 110, "An old terminal, the power seems to be on.",FALSE, FALSE);

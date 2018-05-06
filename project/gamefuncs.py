@@ -154,6 +154,10 @@ def look(room_id):
     items = get_items_of_room(room_id)
     if items:
         for name in items:
+            if name[0].isalpha():
+                first = name[0].upper()
+                name = first + name[1:]
+
             txt = txt + name + "\n"
 
     return txt
@@ -484,7 +488,8 @@ def fight_checker(current_room, database=db):
         
         if value == True:
             print('Two guards are talking when I enter, the further one notices me.')
-            print('Before he can react, I move quickly behind the other one.\n') 
+            print('Before he can react, I move quickly behind the other one.\n')
+			print('Nothing personnel kid...')
             cursor = database.cursor()
             query1 = "SELECT Name from Item where Name = 'Metal pipe' AND Inventory = TRUE"
             query2 = "SELECT Name from Item where Name = 'Knife' AND Inventory = TRUE"
