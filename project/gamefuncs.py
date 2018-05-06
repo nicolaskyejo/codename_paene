@@ -489,7 +489,7 @@ def fight_checker(current_room, database=db):
         if value == True:
             print('Two guards are talking when I enter, the further one notices me.')
             print('Before he can react, I move quickly behind the other one.\n')
-			print('Nothing personnel kid...')
+            print('Nothing personnel kid...')
             cursor = database.cursor()
             query1 = "SELECT Name from Item where Name = 'Metal pipe' AND Inventory = TRUE"
             query2 = "SELECT Name from Item where Name = 'Knife' AND Inventory = TRUE"
