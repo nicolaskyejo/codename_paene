@@ -372,22 +372,39 @@ def use(item_name, room_id, database=db):
              our_print("A door opens...")
          else:
              our_print("I can't do that.")
-             
+
     elif item_name == "rusty key":
+
         item_id = item_id_from_name(item_name)
 
         if item_id in inventory and room_id == "110":
-            query1 = "UPDATE Item SET Used= TRUE WHERE Item_id = " + str(item_id)
-            query2 = "UPDATE Room SET Locked = FALSE WHERE Room_id = 666"
+            query1 = "UPDATE Item SET Used=TRUE WHERE Item_id =" + str(item_id)
+            query2 = "UPDATE Room SET Locked=FALSE WHERE Room_id = 666"
+
 
             cursor = database.cursor()
             cursor.execute(query1)
             cursor.execute(query2)
             cursor.close()
+
             our_print("I twist the key in its hole and a hollow crackle echoes throughout the hallways." +
                       " The heavy rusted doors slowly begin to give in to my pushes, and a way to the outside world opens." +
                       " A cool refreshing wind blows inside, clearing the stuffy air of this damned building.")
 
+    elif item_name == "metal pipe" and room_id == "110":
+        item_id = item_id_from_name(item_name)
+
+        if item_id in inventory and door_open("666") == False:
+            query1 = "UPDATE Item SET Used= TRUE WHERE Item_id =" + str(item_id)
+            query2 = "UPDATE Room SET Locked= FALSE WHERE Room_id = 666"
+
+
+            cursor = database.cursor()
+            cursor.execute(query1)
+            cursor.execute(query2)
+            cursor.close()
+            our_print("I jam the metal pipe between the two closed metal doors, and use it as a lever. " +
+                      "Pulling with all the strength I have left, the right most door slams open.")
     else:
         our_print("I can't do that.")
  
@@ -602,7 +619,9 @@ def fight_checker(current_room, database=db):
                 if ending_choice == 'Forgive' or 'forgive' or 'f':
                     print('I see... Thank you.')
                     print('Here is the key to lobby door.\n')
-                    query1= "UPDATE Item SET Inventory = TRUE, Hidden= False WHERE Name = 'Rusty key'"
+
+
+                    query1= "UPDATE Item SET Inventory = TRUE, Hidden= False WHERE Name = 'rusty key'"
                     query2= "DELETE from NPC WHERE Name = 'Buchwald'"
                     query3 = "UPDATE Texti SET ActualText = 'A room full of pictures of the brain. Dr. Buchwald is busy continuing his work.' WHERE Room_Id = 401"
                     cursor.execute(query1)
@@ -618,8 +637,11 @@ def fight_checker(current_room, database=db):
                     print("Dr. Buchwald: NOOoo don't do it!\n")
                     print("Verner: This is the end of the line for you Doctor.\n")
                     print('(He drops down with a final thud on the ground. What looks like')
+                    print('a key drops appears near his dead body\n')
+                    query1 = "UPDATE Item SET Hidden= False WHERE Name = 'rusty key'"
+
                     print('a key drops appears near his dead body.\n')
-                    query1 = "UPDATE Item SET Hidden = False WHERE Name = 'Rusty key'"
+
                     query2 = "DELETE from NPC WHERE Name = 'Buchwald'"
                     query3 = "UPDATE Texti SET ActualText = 'A room full of pictures and diagrams of the brain. Dr. Buchwald is on the floor dead.' WHERE Room_Id = 401"
                     cursor.execute(query1)
