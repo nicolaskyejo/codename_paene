@@ -137,7 +137,7 @@ INSERT INTO Texti VALUES("This must be an office of some sort. The floor is clut
 
 INSERT INTO Texti VALUES("A normal corridor with five rooms and stairs leading up and down. There's someone in the distance.", 200);
 INSERT INTO Texti VALUES("A corridor with two rooms. On the east side, the building is damaged and broken.", 210);
-INSERT INTO Texti VALUES("Goosebumps go through my spine, this room looks exactly the same as the one I woke up in. There's a faint eerie creaking noise.",201); 
+INSERT INTO Texti VALUES("A large well room kept in great condition. I can hear a faint creaking noise. There's someone in the corner!",201); 
 INSERT INTO Texti VALUES("Oh shit! There's someone inside and he doesn't look happy at all.",202); 
 INSERT INTO Texti VALUES("Ough... The door handle won't budge.",203); 
 INSERT INTO Texti VALUES("This room is completely empty and fairly bright, the window is sealed with barb wire. Maybe I could get through this with something.",204); 
@@ -166,7 +166,7 @@ INSERT INTO Texti VALUES("The top floor corridor, with one distinguished looking
 INSERT INTO Texti VALUES("A corridor with two rooms. The far side is damaged and innaccesible.", 410);
 INSERT INTO Texti VALUES("There he is, the man himself sitting behind a desk. Time to end this! ",401); #Cutscenes?
 INSERT INTO Texti VALUES("The door is firmly shut.",402); 
-INSERT INTO Texti VALUES("This room is really clean. There's someone sleeping in it.",403); 
+INSERT INTO Texti VALUES("This room is really clean. There's someone sleeping on a hospital bed.",403); 
 
 
 
