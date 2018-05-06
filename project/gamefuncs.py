@@ -180,7 +180,7 @@ def push_box(item, current_room):
         box_id = item_id_from_name("box")
         if current_room == 101 and if_item_used(box_id) == False:
             use_item(box_id, 101)
-            our_print("I push the box under the air vent.")
+            our_print("I push the box under the air vent. I could use a sharp instrument to unlock the vent from its place.\n")
 
     else:
         our_print("Nothing happens...")
@@ -200,19 +200,33 @@ def search(item, current_room, database=db): #Searches for an item from another 
     item_id = item_id_from_name(item)
     items = get_id_items_of_room(current_room)
     item_to_find = item_id+1
-
-    if item_to_find in items:
-        query = "UPDATE Item SET Hidden = FALSE AND Pickable = TRUE WHERE Item_id = " + str(item_to_find)
-        cursor = database.cursor()
-        cursor.execute(query)
-
+    another_item_to_find = item_id+2
+    cursor = database.cursor()
+    
+    if item_to_find in items and another_item_to_find in items:    
+        query1 = "UPDATE Item SET Hidden = FALSE AND Pickable = TRUE WHERE Item_id = " + str(item_to_find)
+        query2 = "UPDATE Item SET Hidden = FALSE AND Pickable = TRUE WHERE Item_id = " + str(another_item_to_find)
+        cursor.execute(query1)
+        cursor.execute(query2)
+        
         item_name = item_name_from_id(item_to_find)
-        our_print("I found this: \n" + item_name)
-        cursor.close()
+        second_item_name = item_name_from_id(another_item_to_find)
+        print("I found this: \n" + str(item_name) + "\n" + str(second_item_name) +"\n")
+        
+        
+    elif item_to_find in items:
+        query = "UPDATE Item SET Hidden = FALSE AND Pickable = TRUE WHERE Item_id = " + str(item_to_find)
+        cursor.execute(query)
+        
+        item_name = item_name_from_id(item_to_find)
+        print("I found this: \n" + str(item_name))
+        
+    
 
     else:
         our_print("I didn't find anything.")
         
+    cursor.close()    
 def up(current_room):
     current_room = str(current_room)
     stairs = room_list_returner(current_room)
@@ -394,7 +408,7 @@ def fight_checker(current_room, database=db):
         value = npc_alive_or_not(current_room)
         
         if value == True:
-            print('Another guard in black is standing in the room, he looks surprised to see me.\n') 
+            print('Another guard in black is standing in the room, he looks surprised to see me. I surprise him even more with a deep lunge of my weapon.\n') 
             cursor = database.cursor()
             query1 = "SELECT Name from Item where Name = 'Metal pipe' AND Inventory = TRUE"
             query2 = "SELECT Name from Item where Name = 'Knife' AND Inventory = TRUE"
@@ -474,7 +488,8 @@ def fight_checker(current_room, database=db):
         
         if value == True:
             print('Two guards are talking when I enter, the further one notices me.')
-            print('Before he can react, I move quickly behind the other one.\n') 
+            print('Before he can react, I move quickly behind the other one.\n')
+			print('Nothing personnel kid...')
             cursor = database.cursor()
             query1 = "SELECT Name from Item where Name = 'Metal pipe' AND Inventory = TRUE"
             query2 = "SELECT Name from Item where Name = 'Knife' AND Inventory = TRUE"
@@ -515,7 +530,7 @@ def fight_checker(current_room, database=db):
         value = npc_alive_or_not(current_room)
         
         if value == True:
-            print('When I enter the room, the most strange scene is met. What looks like a doctor is')
+            print('When I enter the room, the most strange scene is revealed to me. What looks like a doctor is')
             print('standing over a naked man lying on a hospital bed. Beside him is a guard')
             print(', both of them have their backs to me... I sneak closely and then go for the kill.\n') 
             cursor = database.cursor()

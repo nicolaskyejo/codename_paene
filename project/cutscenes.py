@@ -3,7 +3,7 @@ from gamefuncs import *
 from queryfuncs import *
 from config import db
 
-#HANGMAN
+#Hangman minigame
 def hangman():
     def guess_letter(word, letter, guessed_list):
 
@@ -77,7 +77,7 @@ def hangman():
     print("The correct word was: " + guess_word)
     return False
 
-def npc_Jake():
+def npc_Jake(): #Used when talking to certain npc
     print("(A hunch-backed man with bloodshot eyes is incessantly staring at the wall. He doesn't look very well...)\n")
     print("Jake: Th-the w-w-walls are spying on me... T-THOSE BASTARDS ARE UP TO SOMETHING BAD I KNOW IT! I-i-i got to keep on eye on them...\n")
     print("Verner: Hey, are you okay...?\n")
@@ -87,7 +87,7 @@ def npc_Jake():
     
     
     
-def npc_Lawrence(database=db):    #RIKKI 
+def npc_Lawrence(database=db):    #Used when talking to certain npc, Uses the hangman.
     print("(There's a wretched looking man is sitting in a rusted wheelchair)\n")
     print("Lawrence: Hello young man.\n")
     print("Verner: Hello..?\n")
@@ -118,7 +118,7 @@ def npc_Lawrence(database=db):    #RIKKI
         print("Lawrence: Shame...")
         cursor.close()
 
-def npc_Oliver():    
+def npc_Oliver():   #Used when talking to certain npc
     print("(There's a ghostly-looking pale man lying on a hospital bed. His face is filled with sweat)")
     print("(There's a nametag on the front of the bed... O. Cromwell)\n")
     print("Cromwell: Hey, are you the doctor? You don't look like one.\n")
@@ -128,8 +128,8 @@ def npc_Oliver():
     print("Cromwell: Just tell him it's Oliver Cromwell asking, s-s-surely he'll remember me.")
 
 
-def npc_Jonathan():    
-    print("I can see a confused looking man is walking in circles muttering to himself")
+def npc_Jonathan(): #Used when talking to certain npc 
+    print("(I can see a confused looking man is walking in circles muttering to himself)")
     print("Jonathan: Hey! Heheh... I know you.\n")
     print("Verner: Uh, I don't think we have met, you must have mistaken me for someone else.\n")
     print("Jonathan: Hehhehe...\n")
@@ -148,7 +148,7 @@ def npc_Jonathan():
 
     
 
-def cutscene_1():
+def cutscene_1(): # Just some text for the game
 
     print("Aaah...")
     print ("(Have to find something to numb the pain...)\n\n" 
@@ -167,7 +167,7 @@ def cutscene_1():
           "First time players should type HELP. Credits are available via CREDITS and license via LICENSE.\nType QUIT to quit the game.\n\n\n\n")
 
 
-def cutscene_2(database=db):
+def cutscene_2(database=db): # "Curscene" for room 305
     print("Guard: Uuuuuurgghhhhh!")
 
     print("Guard falls down dead\n")
@@ -187,7 +187,7 @@ def cutscene_2(database=db):
     print('(He looks nervous)\n')
         
     print("Eisenberg: I think it is better if you speak with him rather than me. He is at the top floor of this building, but you can't enter without a key."\
-    "Luckily I have one of the keys too. Here take it! No need to thank me!\n")
+    " Luckily I have one of the keys too. Here take it! No need to thank me!\n")
     
     print('(He hands me a simple key)\n')
     
@@ -198,14 +198,14 @@ def cutscene_2(database=db):
     
     print('Eisenberg: Well uuh... I can\'t offer anymore help. I must continue my work. I\'ll leave immediately... \n')
 
-def cutscene_100():
+def cutscene_100(): # Cutscene for room 100 ( corridor )
     print("There is man in black patrolling. OH SHIT! He saw me and IS coming after ME! Gotta defend myself!\n")
     
 def cutscene_100win():      #After you win the first fight
     print('Verner: Do you have any last words before I end your miserable life?\n')
-    print('Guard: Quiet fool! You will regret leaving that room.\n')
+    print('Guard: Quiet fool! You will regret leaving that room!\n')
     print("Verner: We will see about that! \n")
-    print('(I end the fight with a couple swift strikes.)\n')
+    print('(I end the fight with a couple swift strikes)\n')
     print('What a pushover...\n')
 
 def cutscene_100lose():      #After you lose the first fight
@@ -217,11 +217,11 @@ def cutscene_100lose():      #After you lose the first fight
     print("\t\tYOU DIED\n")
     print("\t\tGAME OVER\n")
 
-def cutscene_win_generic():
+def cutscene_win_generic(): # Text that is printed after defeating an enemy
     print("That wasn't easy...\n")
     print("I recompose myself and continue forward.\n")
     
-def cutscene_lose_generic():
+def cutscene_lose_generic(): #Text that is printed after defeating an enemy
     print("Arghh! I'm too weak...")
     print("This is too much for me without a weapon.\n")
     print("This is surely the end of me.\n")
@@ -230,7 +230,7 @@ def cutscene_lose_generic():
     print("\t\tYOU DIED\n")
     print("\t\tGAME OVER\n")      
     
-def cutscene_3():
+def cutscene_3(): # Cutscene for bossroom
     print("Dr. Buchwald: mmh it seems I underestimated you… I should have put more guards in place but oh well… You are here for revenge aren’t you?\n")
 
     print("Verner: …\n")
@@ -239,7 +239,7 @@ def cutscene_3():
     
 def ending_1():         #kill B
     print("I'm finally out of this hell hole.")
-    print("I don't reger a single decision, those bastards had that coming for them.")
+    print("I don't regret a single decision, those bastards had that coming for them.")
         
 def ending_2():         #forgive B
     print("I wish to get out of this depressive land. Maybe I'll head east and have a fresh start there.") 
@@ -257,7 +257,7 @@ def ending_4():         #Escape before X
     print("Why bother facing problems when you can just run away from them?\n")
 
    
-def ending_5():         #harakiri
+def ending_5():         #If you commit suicide
     print("I'm going to end my own life, rather than giving them the enjoyment of killing me.\n")
     print("I take the blade and place it on my neck.")
     print("My hands are shaking even though I was sure of my decision just a second ago")

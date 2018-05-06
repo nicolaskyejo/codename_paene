@@ -70,18 +70,18 @@ INSERT INTO Room VALUES(666,"Hospital Yard",TRUE);  # Locked , can be opened by 
 INSERT INTO Room VALUES(101,"Operating room",TRUE);	
 INSERT INTO Room VALUES(102,"Dispensary",TRUE); 
 INSERT INTO Room VALUES(103,"...eria, the starting letters are missing",FALSE);
-INSERT INTO Room VALUES(104,"Storage",FALSE);
+INSERT INTO Room VALUES(104,"Toilet",FALSE);
 INSERT INTO Room VALUES(105,"Private room",TRUE);	#LOCK
 INSERT INTO Room VALUES(106,"Private room",TRUE);	#LOCK
 INSERT INTO Room VALUES(107,"Operating room",FALSE);
-INSERT INTO Room VALUES(108,"Administration Services",TRUE); #LOCK
+INSERT INTO Room VALUES(108,"Administration Services",FALSe); 
 
 INSERT INTO Room VALUES(200,"2F Corridor/Physiotherapy",FALSE);
 INSERT INTO Room VALUES(210,"2F Corridor/Cardiology",FALSE);
 INSERT INTO Room VALUES(201,"Operating room",FALSE);
 INSERT INTO Room VALUES(202,"Patient room",FALSE);
 INSERT INTO Room VALUES(203,"Patient room",TRUE);
-INSERT INTO Room VALUES(204,"Can't make out the letters",FALSE);
+INSERT INTO Room VALUES(204,"(Can't make out the letters)",FALSE);
 INSERT INTO Room VALUES(205,"Laboratory",TRUE);
 INSERT INTO Room VALUES(206,"Cardiac care unit",FALSE);
 INSERT INTO Room VALUES(207,"Cardiac care unit",TRUE);
@@ -176,7 +176,7 @@ INSERT INTO Texti VALUES("This room is really clean. There's someone sleeping on
 INSERT INTO Item VALUES (1, "Medical table", FALSE, FALSE, 101, "A medical table with sharp instruments.", FALSE, FALSE);
 INSERT INTO Item VALUES (1+1, "Scalpel", TRUE, FALSE, 101, "Sharp, a tool used in surgery.",TRUE, FALSE);
 INSERT INTO Item VALUES (5, "Cigarette", TRUE, TRUE, 101, "Strange that they didn't take these cigarettes from me.",TRUE, FALSE);
-INSERT INTO Item VALUES (8, "Box", FALSE,  FALSE, 101, "A cardboard box full of old medical books.",FALSE, FALSE);
+INSERT INTO Item VALUES (8, "Box", FALSE,  FALSE, 101, "A cardboard box full of old medical books. Perhaps I could push this to the vent.",FALSE, FALSE);
 INSERT INTO Item VALUES (100, "Vent", FALSE, FALSE, 101, "A big air vent. It has a metal cover, held in place by screws in its four corners.", FALSE, FALSE);
 INSERT INTO Item VALUES (103, "Vent", TRUE, FALSE, 101, "An opened air vent. It is big enough for a person to pass through.", FALSE, FALSE);
 
@@ -187,7 +187,7 @@ INSERT INTO Item VALUES (15, "Sink", FALSE,  FALSE, 104, "A small stained sink w
 INSERT INTO Item VALUES (15+1, "Metal pipe", TRUE, FALSE, 104, "Maybe I could crack something with this.",TRUE, FALSE);
 INSERT INTO Item VALUES (19, "Noticeboard", FALSE, FALSE, 104, "A noticeboard. It is filled with post-it notes and pinned papers.",FALSE, FALSE);
 INSERT INTO Item VALUES (19+1, "Paper", TRUE,  FALSE, 104, "A piece of worn out, crumbled paper... there's something written on it.
-This place is for transferring something owned by one person to another by force.",FALSE, FALSE);
+This place is not what it seems.",FALSE, FALSE);
 
 INSERT INTO Item VALUES (23, "Drawer", FALSE,  FALSE, 105, "A dark lacquered wooden drawer.",FALSE, FALSE);
 INSERT INTO Item VALUES (23+1, "Torn magazine", TRUE, FALSE, 105, "Internet Memes evolving as a form of metalanguage.",FALSE, FALSE);
@@ -207,11 +207,11 @@ INSERT INTO Item VALUES (39, "Office chair", FALSE,FALSE, 201, "A dirty navy blu
 INSERT INTO Item VALUES (42, "Briefcase", FALSE, FALSE, 202, "A dirty pre-war briefcase.",FALSE, FALSE);
 INSERT INTO Item VALUES (42+1, "Radiophone", TRUE, FALSE, 202, "I wonder if this thing still works.",TRUE, FALSE);
 INSERT INTO Item VALUES (42+2, "Dusty diary", TRUE,FALSE, 202, "The dusty diary has a bookmarked page which contains what seems like a poem;
-    THIS is thy hour O Soul, thy free flight into the wordless,
-	Away from books, away from art, the day erased, the lesson done,
-	Thee fully forth emerging, silent, gazing, pondering the themes thou,
-	lovest best.
-	Night, sleep, death and the stars.
+THIS is thy hour O Soul, thy free flight into the wordless,
+Away from books, away from art, the day erased, the lesson done,
+Thee fully forth emerging, silent, gazing, pondering the themes thou,
+lovest best.
+Night, sleep, death and the stars.
 	-Walt Whitman", FALSE, FALSE);
 	
 INSERT INTO Item VALUES (47, "Water dispenser",FALSE, FALSE, 210, "An empty water dispenser sits next to the stairway.",FALSE, FALSE);
@@ -253,8 +253,8 @@ INSERT INTO Item VALUES (66+2, "Old journal", TRUE, FALSE, 306, "'Sugar: The whi
 
 #KEYS#
 
-INSERT INTO Item VALUES (70,"Simple key",TRUE,FALSE,305,"The doctor told me this opens one of the top floor doors.",TRUE,FALSE);
-INSERT INTO Item VALUES (75,"Rusty key",TRUE,FALSE,401,"Opens the lobby door on the first floor.",TRUE,FALSE);
+INSERT INTO Item VALUES (70,"simple key",TRUE,FALSE,305,"The doctor told me this opens one of the top floor doors.",TRUE,FALSE);
+INSERT INTO Item VALUES (75,"rusty key",TRUE,FALSE,401,"Opens the lobby door on the first floor.",TRUE,FALSE);
 
 #TERMINAL#
 #INSERT INTO Item VALUES (80, "Terminal", FALSE, FALSE, 110, "An old terminal, the power seems to be on.",FALSE, FALSE);
