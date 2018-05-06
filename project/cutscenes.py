@@ -66,16 +66,16 @@ def hangman():
                 correct_list.sort()
 
                 if check_if_solved(correct_list, letters):
-                    print("you guessed right, YOU WIN!")
+                    print("Lawrence: you guessed right, YOU WIN!\n")
                     return True
             else:
                 guess_count += 1
-                ss = "You guessed wrong... STRIKE"
+                ss = "Lawrence: WRONG! HA HA HA! STRIKE!\n"
                 print(ss, guess_count)
         else:
             print("Not a letter.")
-            
-        return False
+    print("The correct word was: " + guess_word)
+    return False
 
 def npc_Jake():
     print("(A hunch-backed man with bloodshot eyes is incessantly staring at the wall. He doesn't look very well...)\n")
@@ -93,41 +93,30 @@ def npc_Lawrence(database=db):    #RIKKI
     print("Verner: Hello..?\n")
     print("Lawrence: I'm bored! Do you want to play a game? If you win I'll give you a reward.\n")
     
-    win = False
-    while win == False:
-        answer = str(input("Do you want to play his game? (Y/N)  "))
-        answer = answer.lower()
-        cursor = database.cursor()
-        if answer == 'y' or answer == 'yes':
-                print("Lawrence: Haha, this will be fun!")
-                
-                           
-                value = hangman()
-                if value == True:
-                    print('Lawrence: Congratulations boy.')
-                    print('Lawrence: Here is your reward\n')
-                    print("(You recieve a lighter)")
-                    query1= "UPDATE Item SET Inventory = TRUE, Hidden= TRUE WHERE Name = 'Lighter'"
-                    cursor.execute(query1)
-                    win = True
-                    break
-                    if win == False:
-                        print("Not so lucky huh?")
-                        answer = str(input("Lawrence: Would you like to try again? (Y/N)  "))
-                        answer = answer.lower()
-                        if answer == 'y' or answer == 'yes':
-                            continue
-                                    
-                        else:
-                            Win = True
-                            break
-        elif answer == 'n' or answer == 'no':
-            print("Lawrence: Shame...") 
-            break    
-        else:
-            print("Please Enter Y or N")
-            
-        cursor.close() 
+    answer = str(input("Do you want to play his game? (Y/N)  "))
+    answer = answer.lower()
+    cursor = database.cursor()
+    if answer == 'y' or answer == 'yes':
+        print("Lawrence: Haha, this will be fun!")
+        flag = True
+        while flag == True:
+            value = hangman()
+            if value == True:
+                print('Lawrence: Congratulations boy.')
+                print('Lawrence: Here is your reward\n')
+                print("(You recieve a lighter)")
+                query1= "UPDATE Item SET Inventory = TRUE, Hidden= TRUE WHERE Name = 'Lighter'"
+                cursor.execute(query1)
+                break
+            else:
+                print("Not so lucky huh?")
+                answer = str(input("Lawrence: Would you like to try again? (Y/N)  "))
+                answer = answer.lower()
+                if answer == 'n' or answer == 'no':
+                    flag = False
+    else:
+        print("Lawrence: Shame...")
+        cursor.close()
 
 def npc_Oliver():    
     print("(There's a ghostly-looking pale man lying on a hospital bed. His face is filled with sweat)")

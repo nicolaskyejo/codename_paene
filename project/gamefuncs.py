@@ -71,8 +71,7 @@ def help():
 
 
 def credits():
-    print(
-        "This game was a project in our gaming course. It is released under MIT license\n. Copyright 2018 Oliver Andersson, Nicolas Kyejo and Lauri Outila.")
+    print("This game was a project in our gaming course. It is released under MIT license\n. Copyright 2018 Oliver Andersson, Nicolas Kyejo and Lauri Outila.")
 
 
 def license():
@@ -116,33 +115,6 @@ def go(current_room, room_to_move):
     else:
         print("You can't go there.")
         return current_room
-
-
-def commands():
-    allcommands = [["enter", "e", "go"],    #done
-                   ["examine", "x"],    #done
-                   ["leave", "exit"], #done
-                   ["quit", "q"],   #done
-                   ["push"],    #done
-                   ["take","pick"], #done
-                   ["inventory", "i"],  #done
-                   #["kick"],
-                   ["search"], #done
-                   ["look"],    #done
-                   ["use"], #requires to implement on all objects that can be used
-                   ["up", "u"], #done
-                   ["down", "d"],#done
-                   ["credits"], #done
-                   ["license"], #done
-                   ["help"],    #done
-                   ["clear", "c"],#done
-                   ["drop"], #done
-                   ["talk"], #done
-                   ["kill"] #supersecret
-                  ]
-
-    return allcommands
-
 
 def examine(item_id):
     txt = item_description(item_id)
@@ -198,34 +170,6 @@ def inventory():
 
     return txt
 
-def use_item_scalpel(database=db):
-
-    items = get_items_inventory()
-    scalpel_id = item_id_from_name("scalpel")
-
-    if scalpel_id in items:
-        box_id = item_id_from_name("box")
-        print(if_item_used(box_id))
-
-        if if_item_used(box_id) == True:
-            query1="DELETE FROM Item WHERE Item_id=100"
-            query2="UPDATE Item SET Hidden=FALSE WHERE Item_id=101"
-            query3="UPDATE Room SET Locked=FALSE WHERE Room_id=102"
-            query4="UPDATE Room SET Locked=FALSE WHERE Room_id=100"
-
-            cursor = database.cursor()
-
-            cursor.execute(query1)
-            cursor.execute(query2)
-            cursor.execute(query3)
-            cursor.execute(query4)
-            our_print("I get on top of the box, and use the scalpel as a screw driver to open the air vent. "\
-                      "I could enter here...")
-            cursor.close()
-        else:
-            our_print("I have nothing to use it on...")
-    else:
-        our_print("I do not have that item.")
 
 def push_box(item, current_room):
     if item == "box":
@@ -248,7 +192,7 @@ def drop(item, current_room):
 
 
 
-def search(item, current_room, database=db):
+def search(item, current_room, database=db): #Searches for an item from another item
     item_id = item_id_from_name(item)
     items = get_id_items_of_room(current_room)
     item_to_find = item_id+1
@@ -297,7 +241,7 @@ def down(current_room):
         print("I cannot go down from here...")   
         return None       
     
-def leave(current_room):
+def leave(current_room):    #Leaves a room that isnt a corridor, goes to the nearest corridor
     current_room = str(current_room)
     corridors = ["100","110","200","210","300","310","400","410"]
     rooms = room_list_returner(current_room)
@@ -358,7 +302,7 @@ def use(item_name, room_id, database=db):
         else:
             our_print("I do not have that item.")
             
-    elif item_name == "Simple key" and room_id == "400":
+    elif item_name == "simple key" and room_id == "400":
          item_id = item_id_from_name(item_name)
 
          if item_id in inventory and if_item_used(item_id) == False:
@@ -759,7 +703,7 @@ def npc_converser(name, database=db):
 
 
 def kill(name, database=db):         ## kill function. Only works for self not npcs.
-    if name == 'Myself' or 'myself' or 'Verner' or 'verner':
+    if name == 'myself' or name == 'me':
       
      cursor = database.cursor()
      ## check if user has Scalpel or Knife ##
