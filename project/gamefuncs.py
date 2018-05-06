@@ -154,6 +154,10 @@ def look(room_id):
     items = get_items_of_room(room_id)
     if items:
         for name in items:
+            if name[0].isalpha():
+                first = name[0].upper()
+                name = first + name[1:]
+
             txt = txt + name + "\n"
 
     return txt
