@@ -61,7 +61,7 @@ def help():
                         "Look. Looks around your environment and reports what you see.",
                         "Search {object}. Searches object to find if there is something.",
                         "Drop {object}. Leaves object on the ground.",
-                        "Talk {person}. Initiate conversation with person. \n"]
+                        "Talk . Initiate conversation with a person in the current room. \n"]
     print("The game commands are listed in the form Command (shortform) {options}\n")
 
     for commands in list_of_commands:
@@ -71,8 +71,7 @@ def help():
 
 
 def credits():
-    print(
-        "This game was a project in our gaming course. It is released under MIT license\n. Copyright 2018 Oliver Andersson, Nicolas Kyejo and Lauri Outila.")
+    print("This game was a project in our gaming course. It is released under MIT license\n. Copyright 2018 Oliver Andersson, Nicolas Kyejo and Lauri Outila.")
 
 
 def license():
@@ -116,33 +115,6 @@ def go(current_room, room_to_move):
     else:
         print("You can't go there.")
         return current_room
-
-
-def commands():
-    allcommands = [["enter", "e", "go"],    #done
-                   ["examine", "x"],    #done
-                   ["leave", "exit"], #done
-                   ["quit", "q"],   #done
-                   ["push"],    #done
-                   ["take","pick"], #done
-                   ["inventory", "i"],  #done
-                   #["kick"],
-                   ["search"], #done
-                   ["look"],    #done
-                   ["use"], #requires to implement on all objects that can be used
-                   ["up", "u"], #done
-                   ["down", "d"],#done
-                   ["credits"], #done
-                   ["license"], #done
-                   ["help"],    #done
-                   ["clear", "c"],#done
-                   ["drop"], #done
-                   ["talk"], #done
-                   ["kill"] #supersecret
-                  ]
-
-    return allcommands
-
 
 def examine(item_id):
     txt = item_description(item_id)
@@ -198,41 +170,13 @@ def inventory():
 
     return txt
 
-def use_item_scalpel(database=db):
-
-    items = get_items_inventory()
-    scalpel_id = item_id_from_name("scalpel")
-
-    if scalpel_id in items:
-        box_id = item_id_from_name("box")
-        print(if_item_used(box_id))
-
-        if if_item_used(box_id) == True:
-            query1="DELETE FROM Item WHERE Item_id=100"
-            query2="UPDATE Item SET Hidden=FALSE WHERE Item_id=101"
-            query3="UPDATE Room SET Locked=FALSE WHERE Room_id=102"
-            query4="UPDATE Room SET Locked=FALSE WHERE Room_id=100"
-
-            cursor = database.cursor()
-
-            cursor.execute(query1)
-            cursor.execute(query2)
-            cursor.execute(query3)
-            cursor.execute(query4)
-            our_print("I get on top of the box, and use the scalpel as a screw driver to open the air vent. "\
-                      "I could enter here...")
-            cursor.close()
-        else:
-            our_print("I have nothing to use it on...")
-    else:
-        our_print("I do not have that item.")
 
 def push_box(item, current_room):
     if item == "box":
         box_id = item_id_from_name("box")
         if current_room == 101 and if_item_used(box_id) == False:
             use_item(box_id, 101)
-            our_print("I push the box under the air vent.")
+            our_print("I push the box under the air vent. I could use a sharp instrument to unlock the vent from its place.\n")
 
     else:
         our_print("Nothing happens...")
@@ -248,23 +192,37 @@ def drop(item, current_room):
 
 
 
-def search(item, current_room, database=db):
+def search(item, current_room, database=db): #Searches for an item from another item
     item_id = item_id_from_name(item)
     items = get_id_items_of_room(current_room)
     item_to_find = item_id+1
-
-    if item_to_find in items:
-        query = "UPDATE Item SET Hidden = FALSE AND Pickable = TRUE WHERE Item_id = " + str(item_to_find)
-        cursor = database.cursor()
-        cursor.execute(query)
-
+    another_item_to_find = item_id+2
+    cursor = database.cursor()
+    
+    if item_to_find in items and another_item_to_find in items:    
+        query1 = "UPDATE Item SET Hidden = FALSE AND Pickable = TRUE WHERE Item_id = " + str(item_to_find)
+        query2 = "UPDATE Item SET Hidden = FALSE AND Pickable = TRUE WHERE Item_id = " + str(another_item_to_find)
+        cursor.execute(query1)
+        cursor.execute(query2)
+        
         item_name = item_name_from_id(item_to_find)
-        our_print("I found this: \n" + item_name)
-        cursor.close()
+        second_item_name = item_name_from_id(another_item_to_find)
+        print("I found this: \n" + str(item_name) + "\n" + str(second_item_name) +"\n")
+        
+        
+    elif item_to_find in items:
+        query = "UPDATE Item SET Hidden = FALSE AND Pickable = TRUE WHERE Item_id = " + str(item_to_find)
+        cursor.execute(query)
+        
+        item_name = item_name_from_id(item_to_find)
+        print("I found this: \n" + str(item_name))
+        
+    
 
     else:
         our_print("I didn't find anything.")
         
+    cursor.close()    
 def up(current_room):
     current_room = str(current_room)
     stairs = room_list_returner(current_room)
@@ -297,17 +255,17 @@ def down(current_room):
         print("I cannot go down from here...")   
         return None       
     
-def leave(current_room):
+def leave(current_room):    #Leaves a room that isnt a corridor, goes to the nearest corridor
     current_room = str(current_room)
     corridors = ["100","110","200","210","300","310","400","410"]
     rooms = room_list_returner(current_room)
     if current_room not in corridors:
         for room in rooms:
-            if room in rooms:
+            if room in rooms and door_open(room) == True:
                 go(current_room,room)
                 return room
             else:
-                pass
+                print('I cannot leave from here...\n')
      
     else:
      print('I cannot leave from here...\n') 
@@ -358,7 +316,7 @@ def use(item_name, room_id, database=db):
         else:
             our_print("I do not have that item.")
             
-    elif item_name == "Simple key" and room_id == "400":
+    elif item_name == "simple key" and room_id == "400":
          item_id = item_id_from_name(item_name)
 
          if item_id in inventory and if_item_used(item_id) == False:
@@ -404,7 +362,8 @@ def use(item_name, room_id, database=db):
             cursor.execute(query2)
             cursor.close()
             our_print("I jam the metal pipe between the two closed metal doors, and use it as a lever. " +
-                      "Pulling with all the strength I have left, the right most door slams open.")
+                      "Pulling with all the strength I have left, the right most door slams open.\n")
+            secretending_checker()            
     else:
         our_print("I can't do that.")
  
@@ -445,7 +404,7 @@ def fight_checker(current_room, database=db):
         value = npc_alive_or_not(current_room)
         
         if value == True:
-            print('Another guard in black is standing in the room, he looks surprised to see me.\n') 
+            print('Another guard in black is standing in the room, he looks surprised to see me. I surprise him even more with a deep lunge of my weapon.\n') 
             cursor = database.cursor()
             query1 = "SELECT Name from Item where Name = 'Metal pipe' AND Inventory = TRUE"
             query2 = "SELECT Name from Item where Name = 'Knife' AND Inventory = TRUE"
@@ -567,7 +526,7 @@ def fight_checker(current_room, database=db):
         value = npc_alive_or_not(current_room)
         
         if value == True:
-            print('When I enter the room, the most strange scene is met. What looks like a doctor is')
+            print('When I enter the room, the most strange scene is revealed to me. What looks like a doctor is')
             print('standing over a naked man lying on a hospital bed. Beside him is a guard')
             print(', both of them have their backs to me... I sneak closely and then go for the kill.\n') 
             cursor = database.cursor()
@@ -756,82 +715,10 @@ def npc_converser(name, database=db):
             cursor.execute(query3)
             repeating_converse = cursor.fetchone()
             print(repeating_converse[0])   
-#HANGMAN
-def hangman():
-    def guess_letter(word, letter, guessed_list):
 
-        if letter not in guessed_list:
-            guessed_list.append(letter)
-            for c in word:
-                if letter == c:
-                    return True
-        return False
-
-    def check_if_solved(guessed_list: list, correct_list: list) -> bool:
-        if guessed_list == correct_list:
-            return True
-        else:
-            return False
-
-    def show_puzzle(word, correct_list):
-        hidden_word = ""
-        for c in word:
-            if c in correct_list:
-               hidden_word += c
-               hidden_word += ' '
-            else:
-                hidden_word += '_ '
-        return hidden_word
-
-    def ask_letter():
-        letter = str(input("Guess a letter: "))
-        return letter
-
-    words = open('words.txt')
-    ff = words.read()
-    d = ff.splitlines()
-    lista = []
-
-    for word in d:
-        if len(word) > 5:
-            lista.append(word)
-
-    guess_word = lista[random.randint(0, len(lista)-1)]
-    letters = []
-
-    for c in guess_word:
-       if c not in letters:
-           letters.append(c)
-    letters.sort()
-
-    guess_count = 0
-    guessed_list = []
-    correct_list = []
-
-    while guess_count < 6 and correct_list != letters:
-        print("The word is: \n", show_puzzle(guess_word, correct_list))
-        let = ask_letter()
-
-        if let.isalpha() and len(let) == 1:
-
-            if guess_letter(guess_word, let, guessed_list):
-                correct_list.append(let)
-                correct_list.sort()
-
-                if check_if_solved(correct_list, letters):
-                    print("you guessed right, YOU WIN!")
-                    return True
-            else:
-                guess_count += 1
-                ss = "You guessed wrong... STRIKE"
-                print(ss, guess_count)
-        else:
-            print("Not a letter.")
-            
-        return False
 
 def kill(name, database=db):         ## kill function. Only works for self not npcs.
-    if name == 'Myself' or 'myself' or 'Verner' or 'verner':
+    if name == 'myself' or name == 'me':
       
      cursor = database.cursor()
      ## check if user has Scalpel or Knife ##

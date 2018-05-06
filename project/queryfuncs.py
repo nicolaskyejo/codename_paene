@@ -337,15 +337,12 @@ def ending_checker(ending_choice, database=db):
             sys.exit()
             
 #check secret ending if the player has pipe    
-def secretending_checker(): 
+def secretending_checker(database=db): 
     query = "SELECT Inventory FROM ITEM WHERE Name = 'Metal pipe'"  
     cursor = database.cursor()
-    cursor.execute(query1) 
+    cursor.execute(query) 
     
     if cursor.rowcount == 1:
-        print("(I probably shouldn't smash the lock open. It will make too much noise)")
-        print("(I place the pipe between the lock and bend it with everything I got)\n")
-        print("The lock pops off after a couple of seconds.\n")
         ending_4()
         the_end()
         sys.exit()

@@ -66,16 +66,16 @@ def hangman():
                 correct_list.sort()
 
                 if check_if_solved(correct_list, letters):
-                    print("you guessed right, YOU WIN!")
+                    print("Lawrence: you guessed right, YOU WIN!\n")
                     return True
             else:
                 guess_count += 1
-                ss = "You guessed wrong... STRIKE"
+                ss = "Lawrence: WRONG! HA HA HA! STRIKE!\n"
                 print(ss, guess_count)
         else:
             print("Not a letter.")
-            
-        return False
+    print("The correct word was: " + guess_word)
+    return False
 
 def npc_Jake(): #Used when talking to certain npc
     print("(A hunch-backed man with bloodshot eyes is incessantly staring at the wall. He doesn't look very well...)\n")
@@ -93,41 +93,30 @@ def npc_Lawrence(database=db):    #Used when talking to certain npc, Uses the ha
     print("Verner: Hello..?\n")
     print("Lawrence: I'm bored! Do you want to play a game? If you win I'll give you a reward.\n")
     
-    win = False
-    while win == False:
-        answer = str(input("Do you want to play his game? (Y/N)  "))
-        answer = answer.lower()
-        cursor = database.cursor()
-        if answer == 'y' or answer == 'yes':
-                print("Lawrence: Haha, this will be fun!")
-                
-                           
-                value = hangman()
-                if value == True:
-                    print('Lawrence: Congratulations boy.')
-                    print('Lawrence: Here is your reward\n')
-                    print("(You recieve a lighter)")
-                    query1= "UPDATE Item SET Inventory = TRUE, Hidden= TRUE WHERE Name = 'Lighter'"
-                    cursor.execute(query1)
-                    win = True
-                    break
-                    if win == False:
-                        print("Not so lucky huh?")
-                        answer = str(input("Lawrence: Would you like to try again? (Y/N)  "))
-                        answer = answer.lower()
-                        if answer == 'y' or answer == 'yes':
-                            continue
-                                    
-                        else:
-                            Win = True
-                            break
-        elif answer == 'n' or answer == 'no':
-            print("Lawrence: Shame...") 
-            break    
-        else:
-            print("Please Enter Y or N")
-            
-        cursor.close() 
+    answer = str(input("Do you want to play his game? (Y/N)  "))
+    answer = answer.lower()
+    cursor = database.cursor()
+    if answer == 'y' or answer == 'yes':
+        print("Lawrence: Haha, this will be fun!")
+        flag = True
+        while flag == True:
+            value = hangman()
+            if value == True:
+                print('Lawrence: Congratulations boy.')
+                print('Lawrence: Here is your reward\n')
+                print("(You recieve a lighter)")
+                query1= "UPDATE Item SET Inventory = TRUE, Hidden= TRUE WHERE Name = 'Lighter'"
+                cursor.execute(query1)
+                break
+            else:
+                print("Not so lucky huh?")
+                answer = str(input("Lawrence: Would you like to try again? (Y/N)  "))
+                answer = answer.lower()
+                if answer == 'n' or answer == 'no':
+                    flag = False
+    else:
+        print("Lawrence: Shame...")
+        cursor.close()
 
 def npc_Oliver():   #Used when talking to certain npc
     print("(There's a ghostly-looking pale man lying on a hospital bed. His face is filled with sweat)")
@@ -198,7 +187,7 @@ def cutscene_2(database=db): # "Curscene" for room 305
     print('(He looks nervous)\n')
         
     print("Eisenberg: I think it is better if you speak with him rather than me. He is at the top floor of this building, but you can't enter without a key."\
-    "Luckily I have one of the keys too. Here take it! No need to thank me!\n")
+    " Luckily I have one of the keys too. Here take it! No need to thank me!\n")
     
     print('(He hands me a simple key)\n')
     
@@ -214,9 +203,9 @@ def cutscene_100(): # Cutscene for room 100 ( corridor )
     
 def cutscene_100win():      #After you win the first fight
     print('Verner: Do you have any last words before I end your miserable life?\n')
-    print('Guard: Quiet fool! You will regret leaving that room.\n')
+    print('Guard: Quiet fool! You will regret leaving that room!\n')
     print("Verner: We will see about that! \n")
-    print('(I end the fight with a couple swift strikes.)\n')
+    print('(I end the fight with a couple swift strikes)\n')
     print('What a pushover...\n')
 
 def cutscene_100lose():      #After you lose the first fight
@@ -265,12 +254,14 @@ def ending_4():         #Escape before X
     print("(I place the pipe between the lock and bend it with everything I got)\n")
     print("The lock pops off after a couple of seconds.\n")
     print("Necessity is the mother of ingeniousness. You solve your problems with a touch of craftiness.\n")
+    print("Why bother facing problems when you can just run away from them?\n")
+
    
 def ending_5():         #If you commit suicide
     print("I'm going to end my own life, rather than giving them the enjoyment of killing me.\n")
     print("I take the blade and place it on my neck.")
     print("My hands are shaking even though I was sure of my decision just a second ago")
-    print("I'm going to do it in 3, 2, 1... \n")
+    print("I'm going to do it in 3, 2, 1 ... \n")
     print("Sometimes the most interesting thing you can do with your life is to end it. It is your own choice. May death bring you peace you never had.\n\n")         
     print("\t\tDEAD\n")
     print("\t\tGAME OVER\n")

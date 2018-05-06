@@ -14,7 +14,7 @@ from config import db
 
 # # # [MAIN PROGRAM] # # #
 if __name__ == '__main__':
-    os.system('Blindspot.mp3')
+    
     cutscene_1()
     current_room = 101    #Position in game, indicated by current_room
     our_print(show_room(current_room))
@@ -74,13 +74,13 @@ if __name__ == '__main__':
             elif players_input[-1] in ["vent", "duct"] and current_room == 101 and door_open(102) == True: #Vent problem, can pass if these things are correct
                 our_print("I climb to the air duct and begin crawling. After a while I end up in a new room.\n")
                 current_room = 102
+                #os.system('Blindspot.mp3')
                 our_print(show_room(current_room))
                          
      
             elif players_input[-1] in room_list_returner(current_room) and door_open(players_input[-1]) == True:
                 current_room = go(current_room, players_input[-1])
                 ending_choice = fight_checker(current_room)
-                #fight_checker(current_room)
             
             
             
