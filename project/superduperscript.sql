@@ -187,7 +187,7 @@ INSERT INTO Item VALUES (15, "Sink", FALSE,  FALSE, 104, "A small stained sink w
 INSERT INTO Item VALUES (15+1, "Metal pipe", TRUE, FALSE, 104, "Maybe I could crack something with this.",TRUE, FALSE);
 INSERT INTO Item VALUES (19, "Noticeboard", FALSE, FALSE, 104, "A noticeboard. It is filled with post-it notes and pinned papers.",FALSE, FALSE);
 INSERT INTO Item VALUES (19+1, "Paper", TRUE,  FALSE, 104, "A piece of worn out, crumbled paper... there's something written on it.
-This place is for transfering something owned by one person to another by force.",FALSE, FALSE);
+This place is for transferring something owned by one person to another by force.",FALSE, FALSE);
 
 INSERT INTO Item VALUES (23, "Drawer", FALSE,  FALSE, 105, "A dark lacquered wooden drawer.",FALSE, FALSE);
 INSERT INTO Item VALUES (23+1, "Torn magazine", TRUE, FALSE, 105, "Internet Memes evolving as a form of metalanguage.",FALSE, FALSE);
