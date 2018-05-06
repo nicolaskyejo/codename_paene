@@ -198,7 +198,7 @@ def cutscene_2(database=db):
     print('(He looks nervous)\n')
         
     print("Eisenberg: I think it is better if you speak with him rather than me. He is at the top floor of this building, but you can't enter without a key."\
-    "Luckily I have one of the keys too. Here take it! No need to thank me!\n")
+    " Luckily I have one of the keys too. Here take it! No need to thank me!\n")
     
     print('(He hands me a simple key)\n')
     
@@ -214,9 +214,9 @@ def cutscene_100():
     
 def cutscene_100win():      #After you win the first fight
     print('Verner: Do you have any last words before I end your miserable life?\n')
-    print('Guard: Quiet fool! You will regret leaving that room.\n')
+    print('Guard: Quiet fool! You will regret leaving that room!\n')
     print("Verner: We will see about that! \n")
-    print('(I end the fight with a couple swift strikes.)\n')
+    print('(I end the fight with a couple swift strikes)\n')
     print('What a pushover...\n')
 
 def cutscene_100lose():      #After you lose the first fight
