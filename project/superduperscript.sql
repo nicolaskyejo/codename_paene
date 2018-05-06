@@ -74,7 +74,7 @@ INSERT INTO Room VALUES(104,"Toilet",FALSE);
 INSERT INTO Room VALUES(105,"Private room",TRUE);	#LOCK
 INSERT INTO Room VALUES(106,"Private room",TRUE);	#LOCK
 INSERT INTO Room VALUES(107,"Operating room",FALSE);
-INSERT INTO Room VALUES(108,"Administration Services",FALSe); 
+INSERT INTO Room VALUES(108,"Administration Services",FALSE); 
 
 INSERT INTO Room VALUES(200,"2F Corridor/Physiotherapy",FALSE);
 INSERT INTO Room VALUES(210,"2F Corridor/Cardiology",FALSE);
@@ -217,7 +217,7 @@ Night, sleep, death and the stars.
 	
 INSERT INTO Item VALUES (47, "Water dispenser",FALSE, FALSE, 210, "An empty water dispenser sits next to the stairway.",FALSE, FALSE);
 
-INSERT INTO Item VALUES (50, "Trunk", TRUE,  FALSE, 304, "An open foot locker trunk.",TRUE, FALSE);
+INSERT INTO Item VALUES (50, "Trunk", FALSE,  FALSE, 304, "An open foot locker trunk.",TRUE, FALSE);
 INSERT INTO Item VALUES (50+1, "Alcohol", TRUE,  FALSE, 304, "Reads 'ISOPROPYL ALCOHOL 95%', they probably use this to clean wounds.",TRUE, FALSE);
 INSERT INTO Item VALUES (50+2, "Torn journal", TRUE, FALSE, 304, "An excerpt from the magazine 'Voner' volume 36 issue 5 article 'What we take for granted' 
 Euthanasia is the act of ending a life with the intention of relieving pain. In the 21st century it was a heatedly 
@@ -230,7 +230,7 @@ that they were complicit in your death.
 Doctor Keller who is an Anthropologist at the University of Maine explained that what prevented 
 them in their time to grant people this right were the following values:
 Life is precious
-It is a sin to end one's life(and therefore a sin to help someone else do it)
+It is a sin to end one's life (and therefore a sin to help someone else do it)
 Giving up is a sign of weakness
 
 Nowadays ofcourse the right to assisted-suicide is a universal right that we take for granted but in the 
@@ -241,9 +241,9 @@ INSERT INTO Item VALUES (55+1, "Magazine cutout", TRUE, FALSE, 307, "River water
 How governments are a haven for satanic cults. Read feature on page 4 
 Bilderberg group wants to turn you into a slave. Resist now!", FALSE, FALSE);
 INSERT INTO Item VALUES (55+2, "Knife", TRUE,  FALSE, 307, "It’s a bit dull, but it should still get the job done.",TRUE, FALSE);
-INSERT INTO Item VALUES (60, "MRI", FALSE, FALSE, 307, "This look like an old Magnetic Resonance machine.", FALSE, FALSE);
+INSERT INTO Item VALUES (60, "MRI", FALSE, FALSE, 307, "This look like an old Magnetic Resonance Machine.", FALSE, FALSE);
 
-INSERT INTO Item VALUES (61, "Storage box", TRUE, FALSE, 401, "An old storage box from before the war. It is slightly open.",TRUE, FALSE);
+INSERT INTO Item VALUES (61, "Storage box", FALSE, FALSE, 401, "An old storage box from before the war. It is slightly open.",TRUE, FALSE);
 INSERT INTO Item VALUES (61+1, "Gasoline tank", TRUE, FALSE, 401, "It seems to have at least half a gallon left.",TRUE, FALSE);
 INSERT INTO Item VALUES (61+2, "Medical book", TRUE, FALSE, 401, "Grays Anatomy the Anatomical Basis of Clinical Practice 41st Edition.",FALSE, FALSE);
 
@@ -254,8 +254,8 @@ INSERT INTO Item VALUES (66+2, "Old journal", TRUE, FALSE, 306, "'Sugar: The whi
 
 #KEYS#
 
-INSERT INTO Item VALUES (70,"simple key",TRUE,FALSE,305,"The doctor told me this opens one of the top floor doors.",TRUE,FALSE);
-INSERT INTO Item VALUES (75,"rusty key",TRUE,FALSE,401,"Opens the lobby door on the first floor.",TRUE,FALSE);
+INSERT INTO Item VALUES (70,"Simple key",TRUE,FALSE,305,"The doctor told me this opens one of the top floor doors.",TRUE,FALSE);
+INSERT INTO Item VALUES (75,"Rusty key",TRUE,FALSE,401,"Opens the lobby door on the first floor.",TRUE,FALSE);
 
 #TERMINAL#
 #INSERT INTO Item VALUES (80, "Terminal", FALSE, FALSE, 110, "An old terminal, the power seems to be on.",FALSE, FALSE);

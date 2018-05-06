@@ -275,6 +275,7 @@ def leave(current_room):    #Leaves a room that isnt a corridor, goes to the nea
      print('I cannot leave from here...\n') 
      return None  
 
+# Main function for all items that can be used #
 def use(item_name, room_id, database=db):
     inventory = get_items_inventory()
     print(item_name)
@@ -489,7 +490,7 @@ def fight_checker(current_room, database=db):
         if value == True:
             print('Two guards are talking when I enter, the further one notices me.')
             print('Before he can react, I move quickly behind the other one.\n')
-			print('Nothing personnel kid...')
+            print('Nothing personnel kid...')
             cursor = database.cursor()
             query1 = "SELECT Name from Item where Name = 'Metal pipe' AND Inventory = TRUE"
             query2 = "SELECT Name from Item where Name = 'Knife' AND Inventory = TRUE"

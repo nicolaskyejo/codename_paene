@@ -72,7 +72,7 @@ def show_room(current_room: int, database=db):
 
     return showable_text
 
-    
+#picks item using item_id#    
 def item_pick(id, database=db):
     result = False
     try:
@@ -98,7 +98,7 @@ def item_pick(id, database=db):
         cursor.close()
         return result
             
- 
+#returns items of room # 
 def get_items_of_room(room_id, database=db):
     try:
         query = "SELECT Name FROM Item WHERE Room_id = " + str(room_id) + " AND Hidden = FALSE"
@@ -115,7 +115,7 @@ def get_items_of_room(room_id, database=db):
     finally:
         cursor.close()
         return item_names
-
+#returns items of room including hidden ones#
 def get_all_items_of_room(room_id, database=db):
     try:
         query = "SELECT Name FROM Item WHERE Room_id = " + str(room_id)
@@ -132,7 +132,7 @@ def get_all_items_of_room(room_id, database=db):
     finally:
         cursor.close()
         return item_names
-
+#returns items of room in id form#
 def get_id_items_of_room(room_id, database=db):
     try:
         query = "SELECT item_id FROM Item WHERE Room_id = " + str(room_id)
@@ -149,7 +149,7 @@ def get_id_items_of_room(room_id, database=db):
     finally:
         cursor.close()
         return item_names
-     
+#fetches item description from database#     
 def item_description(id: int, database=db):
     try:
         cursor = database.cursor()
@@ -164,7 +164,7 @@ def item_description(id: int, database=db):
     finally:
         cursor.close()
         return description[0]
-
+# returns item in inventory #
 def get_items_inventory(database=db):
     try:
         query = "SELECT Item_id FROM Item WHERE Inventory = TRUE"
@@ -201,7 +201,7 @@ def if_item_used(id, database=db):
     finally:
         cursor.close()
         return result
-
+# gets id from item name #
 def item_id_from_name(name, database=db):
     try:
         query='SELECT item_id FROM Item WHERE name = "'+ str(name) + '"'
@@ -218,7 +218,7 @@ def item_id_from_name(name, database=db):
             return id[0]
         else:
             return None
-
+# gets name from item id #
 def item_name_from_id(item_id, database=db):
     try:
         query='SELECT name FROM Item WHERE item_id =' + str(item_id)
@@ -250,7 +250,7 @@ def use_item(item_id, current_room,database=db): #Changes Used to True if item n
     finally:
         cursor.close()
 
-
+# drop item in current room #
 def drop_item(item_id, room_id, database=db):
     try:
         query1 = "UPDATE Item SET Inventory = FALSE, Hidden = FALSE  WHERE Item_id = " + str(item_id) 
