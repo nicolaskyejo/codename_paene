@@ -207,6 +207,7 @@ INSERT INTO Item VALUES (39, "Office chair", FALSE,FALSE, 201, "A dirty navy blu
 INSERT INTO Item VALUES (42, "Briefcase", FALSE, FALSE, 202, "A dirty pre-war briefcase.",FALSE, FALSE);
 INSERT INTO Item VALUES (42+1, "Radiophone", TRUE, FALSE, 202, "I wonder if this thing still works.",TRUE, FALSE);
 INSERT INTO Item VALUES (42+2, "Dusty diary", TRUE,FALSE, 202, "The dusty diary has a bookmarked page which contains what seems like a poem;
+
 THIS is thy hour O Soul, thy free flight into the wordless,
 Away from books, away from art, the day erased, the lesson done,
 Thee fully forth emerging, silent, gazing, pondering the themes thou,
@@ -237,8 +238,8 @@ Nowadays ofcourse the right to assisted-suicide is a universal right that we tak
 
 INSERT INTO Item VALUES (55, "Table", FALSE, FALSE, 307, "A dingy table that looks like it was damaged by fire.", FALSE, FALSE);
 INSERT INTO Item VALUES (55+1, "Magazine cutout", TRUE, FALSE, 307, "River water turning frogs gay?
-		How governments are a haven for satanic cults. Read feature on page 4 
-		Bilderberg group wants to turn you into a slave. Resist now!", FALSE, FALSE);
+How governments are a haven for satanic cults. Read feature on page 4 
+Bilderberg group wants to turn you into a slave. Resist now!", FALSE, FALSE);
 INSERT INTO Item VALUES (55+2, "Knife", TRUE,  FALSE, 307, "It’s a bit dull, but it should still get the job done.",TRUE, FALSE);
 INSERT INTO Item VALUES (60, "MRI", FALSE, FALSE, 307, "This look like an old Magnetic Resonance machine.", FALSE, FALSE);
 

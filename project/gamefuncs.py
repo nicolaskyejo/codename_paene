@@ -324,8 +324,8 @@ def use(item_name, room_id, database=db):
          item_id = item_id_from_name(item_name)
 
          if item_id in inventory and if_item_used(item_id) == False:
-             query1 = "UPDATE Item SET Used=TRUE WHERE Item_id = " + str(item_id)
-             query2 = "UPDATE Room SET Locked=FALSE WHERE Room_id = 401"
+             query1 = "UPDATE Item SET Used = TRUE WHERE Item_id = " + str(item_id)
+             query2 = "UPDATE Room SET Locked = FALSE WHERE Room_id = 401"
 
              cursor = database.cursor()
              cursor.execute(query1)
