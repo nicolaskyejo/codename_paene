@@ -103,15 +103,12 @@ def clear():  # Clear console
     print("\n" * 100)
 
 
-#def go(current_room, room_to_move, ending_choice=ending_choice):
+
 def go(current_room, room_to_move):    
     current_room = str(current_room)
     room_to_move = str(room_to_move)
     
-    result = door_open(666)
-    if room_to_move == "666" and result == True:
-        ending_checker(ending_choice)
-        
+            
     if room_to_move in room_list_returner(current_room):
         our_print(show_room(room_to_move))
 
@@ -360,11 +357,12 @@ def use(item_name, room_id, database=db):
                 our_print("I have nothing to use it on...")
         else:
             our_print("I do not have that item.")
+            
     elif item_name == "Simple key" and room_id == "400":
          item_id = item_id_from_name(item_name)
 
          if item_id in inventory and if_item_used(item_id) == False:
-             query1 = "UPDATE Item SET Used=TRUE WHERE Item_id =" + str(item_id)
+             query1 = "UPDATE Item SET Used=TRUE WHERE Item_id = " + str(item_id)
              query2 = "UPDATE Room SET Locked=FALSE WHERE Room_id = 401"
 
              cursor = database.cursor()
@@ -374,20 +372,21 @@ def use(item_name, room_id, database=db):
              our_print("A door opens...")
          else:
              our_print("I can't do that.")
-    elif item_name == "Rusty key":
+             
+    elif item_name == "rusty key":
         item_id = item_id_from_name(item_name)
 
         if item_id in inventory and room_id == "110":
-            query1 = "UPDATE Item SET Used=TRUE WHERE Item_id" + str(item_id)
-            query2 = "UPDATE Room SET Locked=FALSE WHERE Room_id = 110"
+            query1 = "UPDATE Item SET Used= TRUE WHERE Item_id = " + str(item_id)
+            query2 = "UPDATE Room SET Locked = FALSE WHERE Room_id = 666"
 
             cursor = database.cursor()
             cursor.execute(query1)
             cursor.execute(query2)
             cursor.close()
-            our_print("I twist the key in it's hole and a hollow crackle echoes throughout the hallways." +
-                      "The heavy, rusted doors slowly begin to give in to my pushes, and a way to the outside world opens." +
-                      "A cool, refreshing wind blows inside, clearing the stuffy air of this damned building.")
+            our_print("I twist the key in its hole and a hollow crackle echoes throughout the hallways." +
+                      " The heavy rusted doors slowly begin to give in to my pushes, and a way to the outside world opens." +
+                      " A cool refreshing wind blows inside, clearing the stuffy air of this damned building.")
 
     else:
         our_print("I can't do that.")
@@ -419,6 +418,7 @@ def fight_checker(current_room, database=db):
             else:
                 cutscene_100lose()    
                 sys.exit()
+                
             cursor.close()
             
         else:
@@ -602,7 +602,7 @@ def fight_checker(current_room, database=db):
                 if ending_choice == 'Forgive' or 'forgive' or 'f':
                     print('I see... Thank you.')
                     print('Here is the key to lobby door.\n')
-                    query1= "UPDATE Item SET Inventory = TRUE, Hidden= False WHERE Name = 'lion-crested key'"
+                    query1= "UPDATE Item SET Inventory = TRUE, Hidden= False WHERE Name = 'Rusty key'"
                     query2= "DELETE from NPC WHERE Name = 'Buchwald'"
                     query3 = "UPDATE Texti SET ActualText = 'A room full of pictures of the brain. Dr. Buchwald is busy continuing his work.' WHERE Room_Id = 401"
                     cursor.execute(query1)
@@ -619,7 +619,7 @@ def fight_checker(current_room, database=db):
                     print("Verner: This is the end of the line for you Doctor.\n")
                     print('(He drops down with a final thud on the ground. What looks like')
                     print('a key drops appears near his dead body.\n')
-                    query1 = "UPDATE Item SET Hidden= False WHERE Name = 'Rusty key'"
+                    query1 = "UPDATE Item SET Hidden = False WHERE Name = 'Rusty key'"
                     query2 = "DELETE from NPC WHERE Name = 'Buchwald'"
                     query3 = "UPDATE Texti SET ActualText = 'A room full of pictures and diagrams of the brain. Dr. Buchwald is on the floor dead.' WHERE Room_Id = 401"
                     cursor.execute(query1)
@@ -644,12 +644,13 @@ def fight_checker(current_room, database=db):
         
  
 # check to see if friendly npc exists and talks to them        
-def npc_converser(name,database=db):
+def npc_converser(name, database=db):
     cursor = database.cursor()
     query = "SELECT Talked FROM Npc WHERE Name = "
     print(name)
     print("'" + name + "'")
     print(name == 'lawrence')
+    
     if name == "Jake":
         name = "'" + name + "'"
         query1 = query + str(name)
@@ -666,8 +667,9 @@ def npc_converser(name,database=db):
             
         else:
             query3 = "SELECT Conversation FROM NPC WHERE Name = " + str(name)
-            repeating_converse =  cursor.execute(query3)
-            print(repeating_converse)   
+            cursor.execute(query3)
+            repeating_converse = cursor.fetchone()
+            print(repeating_converse[0])   
             
 
     elif name == "Lawrence":
@@ -686,8 +688,9 @@ def npc_converser(name,database=db):
             
         else:
             query3 = "SELECT Conversation FROM NPC WHERE Name = " + str(name)
-            repeating_converse =  cursor.execute(query3)
-            print(repeating_converse)   
+            cursor.execute(query3)
+            repeating_converse = cursor.fetchone()
+            print(repeating_converse[0])   
             
       
     elif name == "Cromwell":
@@ -706,8 +709,9 @@ def npc_converser(name,database=db):
             
         else:
             query3 = "SELECT Conversation FROM NPC WHERE Name = " + str(name)
-            repeating_converse =  cursor.execute(query3)
-            print(repeating_converse)   
+            cursor.execute(query3)
+            repeating_converse = cursor.fetchone()
+            print(repeating_converse[0])   
        
     elif name == "Gebhard":
 
@@ -726,8 +730,9 @@ def npc_converser(name,database=db):
             
         else:
             query3 = "SELECT Conversation FROM NPC WHERE Name = " + str(name)
-            repeating_converse =  cursor.execute(query3)
-            print(repeating_converse)   
+            cursor.execute(query3)
+            repeating_converse = cursor.fetchone()
+            print(repeating_converse[0])   
 #HANGMAN
 def hangman():
     def guess_letter(word, letter, guessed_list):
@@ -813,13 +818,15 @@ def kill(name, database=db):         ## kill function. Only works for self not n
      if cursor.rowcount == 1:
         ending_5()      ## call one of the endings
         sys.exit() 
+        
      else: 
-      cursor.execute(query2)
-      if cursor.rowcount == 1:
-        ending_5()
-        sys.exit()
-      else:
-          print('I can\'t do that...\n')    
+        cursor.execute(query2)
+        if cursor.rowcount == 1:
+            ending_5()
+            sys.exit()
+        
+        else:
+            print('I can\'t do that...\n')    
      cursor.close()
  
     else: 

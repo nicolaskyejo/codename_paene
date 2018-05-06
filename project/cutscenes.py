@@ -118,7 +118,7 @@ def cutscene_2(database=db):
     
     print("Verner: Buchwald?\n")
     
-    print("Doctor: Doctor Buchwald is our leader here, he is the one who gave the order to bring you for ah... I mean you know ah... " \
+    print("Doctor: Doctor Buchwald is our leader here, he is the one who gave the order to bring you for ah... I mean you know uh... " \
     "First let me introduce myself, my name is Doctor Eisenberg, Reinhold Eisenberg. \n")
 
     print('(He looks nervous)\n')
@@ -207,7 +207,7 @@ def ending_4():         #Escape before X
    
 def ending_5():         #harakiri
     print("I'm going to end my own life, rather than giving them the enjoyment of killing me.\n")
-    print("I take the blade and place it on my neck.")
+    print("I take the blade and place it on my neck, near the jugular vein.")
     print("My hands are shaking even though I was sure of my decision just a second ago")
     print("I'm going to do it in 3, 2, 1... \n")
     print("Sometimes the most interesting thing you can do with your life is to end it. It is your own choice. May death bring you peace you never had.\n\n")         

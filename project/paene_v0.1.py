@@ -14,17 +14,17 @@ from config import db
 
 # # # [MAIN PROGRAM] # # #
 if __name__ == '__main__':
-    #os.system('Blindspot.mp3')
+    os.system('Blindspot.mp3')
     cutscene_1()
     current_room = 101    #Position in game, indicated by current_room
     our_print(show_room(current_room))
     while True: #Actual process of the game, loops until quit
         two_words_input=""
-        players_input = get_user_input(str(input(":>")))   #list of inputs. [0] is the command, [-1] is the object.
+        players_input = get_user_input(str(input(":> ")))   #list of inputs. [0] is the command, [-1] is the object.
         print(players_input)
         if len(players_input) > 2:
             two_words_input = players_input[-2] + " " + players_input[-1]
-
+            
         if players_input[0] in ["quit", "q"]:
             quit()
         
@@ -61,22 +61,29 @@ if __name__ == '__main__':
                       
         elif players_input[0] in ["kill"]:     
             kill(players_input[-1])
-        #elif len(players_input) != 2:
-            #our_print("Not a valid input. Commands work like this: \n [command] [object]. Type HELP for help.")
+        
 
         elif players_input[0] in ["go", "enter", "e"]:
             print(players_input[-1])
             print(room_list_returner(current_room))
-            if players_input[-1] in ["vent", "duct"] and current_room == 101 and door_open(102) == True: #Vent problem, can pass if these things are correct
+            result = door_open(666)
+            
+            if door_open(666) == True:
+                ending_checker(ending_choice)    
+            
+            elif players_input[-1] in ["vent", "duct"] and current_room == 101 and door_open(102) == True: #Vent problem, can pass if these things are correct
                 our_print("I climb to the air duct and begin crawling. After a while I end up in a new room.\n")
                 current_room = 102
                 our_print(show_room(current_room))
                          
-
+     
             elif players_input[-1] in room_list_returner(current_room) and door_open(players_input[-1]) == True:
                 current_room = go(current_room, players_input[-1])
-                #ending_choice = fight_checker(current_room)
-                fight_checker(current_room)
+                ending_choice = fight_checker(current_room)
+                #fight_checker(current_room)
+            
+            
+            
                 
             else:
                 our_print("I can't go there...")
@@ -115,15 +122,7 @@ if __name__ == '__main__':
         elif players_input[0] in ["push"]:
             push_box(players_input[-1], current_room)
 
-        #elif players_input[0] in ["take", "pick"]:
-        #    if players_input[-1] in get_items_of_room(current_room):
-        #        take(item_id_from_name(players_input[-1]), current_room)
-        #    else:
-        #        our_print("I can't do that.")
-
-        #elif players_input[0] in ["drop"]:
-        #    drop(players_input[-1])
-
+        
         elif players_input[0] in ["take", "pick"]:
             if item_id_from_name(players_input[-1]) in get_id_items_of_room(current_room):
                 take_item_id = item_id_from_name(players_input[-1])
@@ -147,8 +146,9 @@ if __name__ == '__main__':
                 name_of_npc = npc_name_from_room(current_room)
                 talk(name_of_npc)
             else:
-                our_print("There is no one to talk to.")
+                our_print("There is no one to talk to...")
        
         else:
             our_print("Not a valid command. Type HELP for help.\n")
+            
 db.rollback()

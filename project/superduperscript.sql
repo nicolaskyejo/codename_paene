@@ -123,14 +123,15 @@ INSERT INTO Npc VALUES(13,"Gebhard",200,"He looks confused","Aliens I tell you!"
 # [Texti] # Room inside text  #33 rooms therefore 33 texts
 
 INSERT INTO Texti VALUES("A normal corridor with five rooms and stairs leading up.", 100);
-INSERT INTO Texti VALUES("Seems like a hospital lounge with two rooms. On the east side, the building is damaged and thus innaccesible. On the middle there is an exit door outside bolted with chains and a huge lock.", 110);
+INSERT INTO Texti VALUES("Seems like a hospital lounge with two rooms. On the east side, the building is damaged and thus innaccesible. On the middle there is an exit door to outside bolted with chains and a huge lock.", 110);
 INSERT INTO Texti VALUES("A basic operating room. It is miserable looking but the surgery instruments appear well maintained.",101); 
 INSERT INTO Texti VALUES("A messy storage room with tables and chairs lazily stacked on top of each other. Whoever maintains this place is not very orderly...",102); 
 INSERT INTO Texti VALUES("Oh what's that smell! The whole room is covered in mold. Doesn't seem like there's really anything useful in this room.",103); 
-INSERT INTO Texti VALUES("This looks like something that used to be an office's break room. Some floor tiles are missing and parts of the interior decorations have been ripped off the walls...",104); 
+INSERT INTO Texti VALUES("A toilet room. Everything seems broken down including the sink and the wall tiles.",104); 
+#INSERT INTO Texti VALUES("This looks like something that used to be an office's break room. Some floor tiles are missing and parts of the interior decorations have been ripped off the walls...",104); 
 INSERT INTO Texti VALUES("A small storage room. There's a big drawer near the back of the room.",105); 
-INSERT INTO Texti VALUES("There's a window on the wall but it appears to be completely sealed with several metal bars. At least the little bit of natural light and fresh air makes me feel better.",106); 
-INSERT INTO Texti VALUES("This room looks familier to the one I woke up in. Oh what's that! I hear something from the corner.",107);
+INSERT INTO Texti VALUES("There's a window on the wall but it appears to be completely sealed with several metal bars. The little bit of natural light and fresh air coming inside makes me feel better.",106); 
+INSERT INTO Texti VALUES("This room looks familiar to the one I woke up in. Oh what's that! I hear something from the corner. A man in a hospital gown is staring at the wall.",107);
 INSERT INTO Texti VALUES("This must be an office of some sort. The floor is cluttered with old paperwork.",108);
 
 
@@ -253,6 +254,10 @@ INSERT INTO Item VALUES (66+2, "Old journal", TRUE, FALSE, 306, "'Sugar: The whi
 #KEYS#
 INSERT INTO Item VALUES (70,"Simple key",TRUE,FALSE,305,"The doctor told me this opens one of the top floor doors.",TRUE,FALSE);
 INSERT INTO Item VALUES (75,"Rusty key",TRUE,FALSE,401,"Opens the lobby door on the first floor.",TRUE,FALSE);
+
+#TERMINAL#
+#INSERT INTO Item VALUES (80, "Terminal", FALSE, FALSE, 110, "An old terminal, the power seems to be on.",FALSE, FALSE);
+
 	
 # [Room_List] # Each room has a list of room it is connected to
 INSERT INTO Room_List VALUES (100,101);
