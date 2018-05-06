@@ -252,7 +252,7 @@ INSERT INTO Item VALUES (66+2, "Old journal", TRUE, FALSE, 306, "'Sugar: The whi
 
 #KEYS#
 INSERT INTO Item VALUES (70,"simple key",TRUE,FALSE,305,"The doctor told me this opens one of the top floor doors.",TRUE,FALSE);
-INSERT INTO Item VALUES (75,"lion-crested key",TRUE,FALSE,401,"Opens the lobby door on the first floor.",TRUE,FALSE);
+INSERT INTO Item VALUES (75,"rusty key",TRUE,TRUE,401,"Opens the lobby door on the first floor.",TRUE,FALSE);
 	
 # [Room_List] # Each room has a list of room it is connected to
 INSERT INTO Room_List VALUES (100,101);
