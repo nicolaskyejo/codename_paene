@@ -61,7 +61,8 @@ def help():
                         "Look. Looks around your environment and reports what you see.",
                         "Search {object}. Searches object to find if there is something.",
                         "Drop {object}. Leaves object on the ground.",
-                        "Talk . Initiate conversation with a person in the current room. \n"]
+                        "Talk . Initiate conversation with a person in the current room. \n"
+                        "Use {object}. Uses object if it can be used"]
     print("The game commands are listed in the form Command (shortform) {options}\n")
 
     for commands in list_of_commands:
@@ -221,7 +222,7 @@ def search(item, current_room, database=db): #Searches for an item from another 
         item_name = item_name_from_id(item_to_find)
         print("I found this: \n" + str(item_name))
         
-    
+
 
     else:
         our_print("I didn't find anything.")
@@ -232,13 +233,13 @@ def up(current_room):
     stairs = room_list_returner(current_room)
     if "200" in stairs and current_room == "100":
         go(current_room,"200")
-        return 200
+        return "200"
     elif "300" in stairs and current_room == "200":
         go(current_room,"300")
-        return 300
+        return "300"
     elif "400" in stairs and current_room == "300":
         go(current_room,"400")
-        return 400
+        return "400"
     else:
         print("I cannot go up from here...")
         return None
@@ -248,13 +249,13 @@ def down(current_room):
     stairs = room_list_returner(current_room)
     if "300" in stairs and current_room == "400":
         go(current_room,"300")
-        return 300
+        return "300"
     elif "200" in stairs and current_room == "300":
         go(current_room,"200")    
-        return 200
+        return "200"
     elif "100" in stairs and current_room == "200":
         go(current_room,"100")    
-        return 100
+        return "100"
     else:
         print("I cannot go down from here...")   
         return None       
@@ -321,8 +322,7 @@ def use(item_name, room_id, database=db):
             
     elif item_name == "simple key" and room_id == "400":
          item_id = item_id_from_name(item_name)
-
-         if item_id in inventory and if_item_used(item_id) == False:
+         if item_id in inventory:
              query1 = "UPDATE Item SET Used = TRUE WHERE Item_id = " + str(item_id)
              query2 = "UPDATE Room SET Locked = FALSE WHERE Room_id = 401"
 
@@ -576,9 +576,9 @@ def fight_checker(current_room, database=db):
         if value == True:
             cursor = database.cursor()
             cutscene_3()
-            ending_choice = input("(Should I Forgive / Kill him?)\n")
-            ending_choice = ending_choice.lower()
             while True:
+                ending_choice = input("(Should I (Forgive / Kill) him?)\n")
+                ending_choice = ending_choice.lower()
                 if ending_choice == 'forgive':
                     print('I see... Thank you.')
                     print('Here is the key to lobby door.\n')
