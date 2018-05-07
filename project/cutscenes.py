@@ -1,4 +1,5 @@
 #npc conversation#
+import os
 from gamefuncs import *
 from queryfuncs import *
 from config import db
@@ -233,7 +234,7 @@ def cutscene_lose_generic(): #Text that is printed after defeating an enemy
 def cutscene_3(): # Cutscene for bossroom
    print("Dr. Buchwald: mmh it seems I underestimated you… I should have put more guards in place but oh well… You are here for revenge aren’t you?\n")
 
-   print("Verner: …\n")
+   print("Verner: ...\n")
 
    print("Buchwald: Before you make any rash decision, hear me out first.\n")
    print("Buchwald: Where do I even start... Have you figured out what we do here?\n") 
@@ -254,22 +255,22 @@ def cutscene_3(): # Cutscene for bossroom
 def ending_1():         #kill B
     print("I'm finally out of this hell hole.")
     print("I don't regret a single decision, those bastards had that coming for them.\n")
-        
+    os.system('SomedayAgain.mp3')    
 def ending_2():         #forgive B
     print("I wish to get out of this depressive land. Maybe I'll head east and have a fresh start there.") 
     print("Perhaps I'll live an honest life for once. Wouldn't that be great?\n")
-    
+    os.system('SomedayAgain.mp3')
 def ending_3():         #light building on F
     print("They paid for their crimes in full. The fire will wash their souls clean")
     print("The innocent are guilty too, guilty of accepting what is not theirs.\n") 
-    
+    os.system('SomedayAgain.mp3')
 def ending_4():         #Escape before X
     print("(I probably shouldn't smash the lock open to not make too much noise.)")
     print("(I place the pipe between the lock and bend it with everything I got)\n")
     print("The lock pops off after a couple of seconds.\n")
     print("Necessity is the mother of ingeniousness. You solve your problems with a touch of craftiness.\n")
     print("Why bother facing problems when you can just run away from them?\n")
-
+    os.system('SomedayAgain.mp3')
    
 def ending_5():         #If you commit suicide
     print("I'm going to end my own life, rather than giving them the enjoyment of killing me.\n")
@@ -279,7 +280,7 @@ def ending_5():         #If you commit suicide
     print("Sometimes the most interesting thing you can do with your life is to end it. It is your own choice. May death bring you peace you never had.\n\n")         
     print("\t\tDEAD\n")
     print("\t\tGAME OVER\n")
-    
+    os.system('SomedayAgain.mp3')
     
 def the_end():
     print('\t\tCongratulations!\n')

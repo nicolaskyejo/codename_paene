@@ -615,7 +615,7 @@ def fight_checker(current_room, database=db):
                     print('(Should he pay for what he has done? (Forgive/Kill)')   
                     continue
                        
-            os.system('SomedayAgain.mp3')
+           
             cursor.close()
             
         else:
