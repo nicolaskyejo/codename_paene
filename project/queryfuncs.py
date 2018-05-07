@@ -310,10 +310,16 @@ def ending_checker(ending_choice, database=db):
     query1 = "SELECT Inventory FROM ITEM WHERE Name = 'Lighter'"
     query2 = "SELECT Inventory FROM ITEM WHERE Name = 'Gasoline tank'"
     cursor = database.cursor()
-    item1 = cursor.execute(query1)
-    item2 = cursor.execute(query2)
     
-    if item1 == 1 and item2 == 1:
+            fetch = cursor.fetchone()
+
+    cursor.execute(query1)
+    item1 = cursor.fetchone()
+    cursor.execute(query2)
+    item2 = cursor.fetchone()
+
+   
+    if item1[0] == 1 and item2[0] == 1:
         while True:
             answer = input('Should I light this building on fire?')
             if answer == 'Yes' or 'yes' or 'Y' or 'y' or 'YES':

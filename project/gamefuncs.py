@@ -577,9 +577,9 @@ def fight_checker(current_room, database=db):
             cursor = database.cursor()
             cutscene_3()
             ending_choice = input("(Should I Forgive / Kill him?)\n")
-            
+            ending_choice = ending_choice.lower()
             while True:
-                if ending_choice == 'Forgive' or 'forgive' or 'f':
+                if ending_choice == 'forgive':
                     print('I see... Thank you.')
                     print('Here is the key to lobby door.\n')
 
@@ -593,7 +593,7 @@ def fight_checker(current_room, database=db):
                     return True
                     break
                     
-                elif ending_choice == 'Kill' or 'kill' or 'k':
+                elif ending_choice == 'kill':
                     print('I see... I don\'t regret the things I\'ve done.')  
                     print('...\n\n')
                     print("Verner: I know we all do questionable things to survive in this god forsaken wasteland.. But even then, a filth like you doesn't deserve to live.\n")
