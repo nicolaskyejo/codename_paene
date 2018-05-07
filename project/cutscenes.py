@@ -167,7 +167,7 @@ def cutscene_1(): # Just some text for the game
           "First time players should type HELP. Credits are available via CREDITS and license via LICENSE.\nType QUIT to quit the game.\n\n\n\n")
 
 
-def cutscene_2(database=db): # "Curscene" for room 305
+def cutscene_2(database=db): # "Cutscene" for room 305
     print("Guard: Uuuuuurgghhhhh!")
 
     print("Guard falls down dead\n")
@@ -242,14 +242,14 @@ def cutscene_3(): # Cutscene for bossroom
    answer = answer.lower() 
    if answer == 'yes' or 'y': 
         print("It seems you are also clever as well as resourceful. I'm not remorseful for what I have done here, I only regret I chose you.") 
-        print("Deliver your judgement.")   
+        print("Deliver your judgement.\n")   
            
    else:      
         our_print("Well we run an organ transplant operation where we help people who need organ transplants to survive."  
         "The people who donate the organs are people like you who have wasted their life not helping mankind in any way."  
         "I know it seems harsh but it is the truth. Have you helped anybody in your life but yourself? Haven't you cause enough pain to the people around you? Wouldn't mankind be"    
         "better off if you never existed? Isn't it better if your organ served someone else? If you agree with me then you know what to"   
-        "do. Just go to a medical room to have your privacy and destroy yourself, I'll handle the rest.")
+        "do. Just go to a medical room to have your privacy and destroy yourself, I'll handle the rest.\n")
     
 def ending_1():         #kill B
     print("I'm finally out of this hell hole.")
