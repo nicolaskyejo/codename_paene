@@ -44,19 +44,22 @@ if __name__ == '__main__':
             our_print(look(current_room))
 
         elif players_input[0] in ["up","u"]:
-            if up(current_room) != None:
-                current_room = up(current_room)
+            ret = up(current_room)
+            if ret != None:
+                current_room = ret
 
         elif players_input[0] in ["down","d"]:
-            if down(current_room) != None:
-                current_room = down(current_room) 
-            
+            ret = down(current_room)
+            if ret != None:
+                current_room = ret
+
         elif players_input[0] in ["clear","c"]:
             clear()   
             
-        elif players_input[0] in ["leave","exit"]:  
-            if leave(current_room) != None:
-                current_room = leave(current_room)
+        elif players_input[0] in ["leave","exit"]:
+            ret = leave(current_room)
+            if ret != None:
+                current_room = ret
                       
         elif players_input[0] in ["kill"]:     
             kill(players_input[-1])
