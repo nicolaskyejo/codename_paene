@@ -632,9 +632,7 @@ def fight_checker(current_room, database=db):
 def npc_converser(name, database=db):
     cursor = database.cursor()
     query = "SELECT Talked FROM Npc WHERE Name = "
-    print(name)
-    print("'" + name + "'")
-    print(name == 'lawrence')
+    
     
     if name == "Jake":
         name = "'" + name + "'"

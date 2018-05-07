@@ -253,7 +253,7 @@ def cutscene_3(): # Cutscene for bossroom
     
 def ending_1():         #kill B
     print("I'm finally out of this hell hole.")
-    print("I don't regret a single decision, those bastards had that coming for them.")
+    print("I don't regret a single decision, those bastards had that coming for them.\n")
         
 def ending_2():         #forgive B
     print("I wish to get out of this depressive land. Maybe I'll head east and have a fresh start there.") 
