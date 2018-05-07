@@ -104,7 +104,7 @@ def npc_Lawrence(database=db):    #Used when talking to certain npc, Uses the ha
             if value == True:
                 print('Lawrence: Congratulations boy.')
                 print('Lawrence: Here is your reward\n')
-                print("(You recieve a lighter)")
+                print("(You receive a lighter)")
                 query1= "UPDATE Item SET Inventory = TRUE, Hidden= TRUE WHERE Name = 'Lighter'"
                 cursor.execute(query1)
                 break
@@ -240,15 +240,15 @@ def cutscene_3(): # Cutscene for bossroom
    
    answer = input('(Yes / No)')    
    answer = answer.lower() 
-   if answer == 'yes' or 'y': 
+   if answer == 'yes':
         print("It seems you are also clever as well as resourceful. I'm not remorseful for what I have done here, I only regret I chose you.") 
         print("Deliver your judgement.\n")   
            
    else:      
-        our_print("Well we run an organ transplant operation where we help people who need organ transplants to survive."  
-        "The people who donate the organs are people like you who have wasted their life not helping mankind in any way."  
-        "I know it seems harsh but it is the truth. Have you helped anybody in your life but yourself? Haven't you cause enough pain to the people around you? Wouldn't mankind be"    
-        "better off if you never existed? Isn't it better if your organ served someone else? If you agree with me then you know what to"   
+        print("Well we run an organ transplant operation where we help people who need organ transplants to survive.\n"  
+        "The people who donate the organs are people like you who have wasted their life not helping mankind in any way.\n"  
+        "I know it seems harsh but it is the truth. Have you helped anybody in your life but yourself?\n Haven't you cause enough pain to the people around you? Wouldn't mankind be\n"    
+        "better off if you never existed? Isn't it better if your organ served someone else? \nIf you agree with me then you know what to"   
         "do. Just go to a medical room to have your privacy and destroy yourself, I'll handle the rest.\n")
     
 def ending_1():         #kill B

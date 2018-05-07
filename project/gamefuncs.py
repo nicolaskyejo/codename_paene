@@ -603,8 +603,6 @@ def fight_checker(current_room, database=db):
                     print('a key drops appears near his dead body\n')
                     query1 = "UPDATE Item SET Hidden= False WHERE Name = 'rusty key'"
 
-                    print('a key drops appears near his dead body.\n')
-
                     query2 = "DELETE from NPC WHERE Name = 'Buchwald'"
                     query3 = "UPDATE Texti SET ActualText = 'A room full of pictures and diagrams of the brain. Dr. Buchwald is on the floor dead.' WHERE Room_Id = 401"
                     cursor.execute(query1)
