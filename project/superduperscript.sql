@@ -158,8 +158,7 @@ INSERT INTO Texti VALUES("This room is extremely small... I can barely move. The
 INSERT INTO Texti VALUES("The door is locked. It doesn't budge even after ramming it...",303); 
 INSERT INTO Texti VALUES("This room is huge! It has been cleared of furniture but there appears to be all sorts of junk on the floor.",304); 
 INSERT INTO Texti VALUES("An operating room with two men standing over what looks like a person on the surgery table. \
-						One is a guard and \
-						the other person is wearing different attire and appears to be some kind of doctor.",305);   #this text will be updated when the guard dies 
+One is a guard and the other person is wearing different attire and appears to be some kind of doctor.",305);   #this text will be updated when the guard dies 
 INSERT INTO Texti VALUES("There are two men standing inside talking loudly. They appear to be guards.",306); # Funktio for leaving / fighting
 INSERT INTO Texti VALUES("A room with an old MRI machine. On the corner, there is a stack of old magazines. Near the window there is a dingy looking table.",307);
 
