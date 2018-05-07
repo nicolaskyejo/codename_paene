@@ -53,8 +53,8 @@ CREATE TABLE Item
   Room_id INT,
   Description VARCHAR(1000), #added manually
   # We perhaps might add a new text field which contains the text which we update to after a room state has changed
-  Pickable BOOLEAN,		#added manually
-  Used BOOLEAN, 	#added manually
+  Pickable BOOLEAN,     #added manually
+  Used BOOLEAN,     #added manually
   PRIMARY KEY (Item_id),
   FOREIGN KEY (Room_id) REFERENCES Room(Room_id)
 );
@@ -66,16 +66,16 @@ CREATE TABLE Item
 
 
 # [Room] # 33 rooms     #rooms are numbered clockwise starting from bottom
-INSERT INTO Room VALUES(100,"1F Corridor/Clinic",TRUE);	#_00 and _10 are reserved for corridors
+INSERT INTO Room VALUES(100,"1F Corridor/Clinic",TRUE); #_00 and _10 are reserved for corridors
 INSERT INTO Room VALUES(110,"1F Corridor/Lobby",FALSE);
 INSERT INTO Room VALUES(666,"Hospital Yard",TRUE);  # Locked , can be opened by key or you know what.
 
-INSERT INTO Room VALUES(101,"Operating room",TRUE);	
+INSERT INTO Room VALUES(101,"Operating room",TRUE); 
 INSERT INTO Room VALUES(102,"Dispensary",TRUE); 
 INSERT INTO Room VALUES(103,"...eria, the starting letters are missing",FALSE);
 INSERT INTO Room VALUES(104,"Toilet",FALSE);
-INSERT INTO Room VALUES(105,"Private room",TRUE);	#LOCK
-INSERT INTO Room VALUES(106,"Private room",TRUE);	#LOCK
+INSERT INTO Room VALUES(105,"Private room",TRUE);   #LOCK
+INSERT INTO Room VALUES(106,"Private room",TRUE);   #LOCK
 INSERT INTO Room VALUES(107,"Operating room",FALSE);
 INSERT INTO Room VALUES(108,"Administration Services",FALSE); 
 
@@ -96,12 +96,12 @@ INSERT INTO Room VALUES(302,"Storage room",FALSE);
 INSERT INTO Room VALUES(303,"Bone Marrow Transplant",TRUE);
 INSERT INTO Room VALUES(304,"Radiotherapy",FALSE);
 INSERT INTO Room VALUES(305,"Operating room",FALSE);   # has 1 npc and 1 enemy
-INSERT INTO Room VALUES(306,"Medical Imaging",FALSE);	 # has two enemies
+INSERT INTO Room VALUES(306,"Medical Imaging",FALSE);    # has two enemies
 INSERT INTO Room VALUES(307,"Medical Imaging",FALSE);
 
 INSERT INTO Room VALUES(400,"4F Corridor/Neurology",FALSE);
 INSERT INTO Room VALUES(410,"4F Corridor/Orthopaedics",FALSE);
-INSERT INTO Room VALUES(401,"Brain Scans",TRUE);			
+INSERT INTO Room VALUES(401,"Brain Scans",TRUE);            
 INSERT INTO Room VALUES(402,"Operating room",TRUE);
 INSERT INTO Room VALUES(403,"Trauma room",FALSE);
 
@@ -215,8 +215,8 @@ Away from books, away from art, the day erased, the lesson done,
 Thee fully forth emerging, silent, gazing, pondering the themes thou,
 lovest best.
 Night, sleep, death and the stars.
-	-Walt Whitman", FALSE, FALSE);
-	
+    -Walt Whitman", FALSE, FALSE);
+    
 INSERT INTO Item VALUES (47, "Water dispenser",FALSE, FALSE, 210, "An empty water dispenser sits next to the stairway.",FALSE, FALSE);
 
 INSERT INTO Item VALUES (50, "Trunk", FALSE,  FALSE, 304, "An open foot locker trunk.",TRUE, FALSE);
@@ -304,7 +304,7 @@ INSERT INTO Room_List VALUES (205,200);
 INSERT INTO Room_List VALUES (206,210);
 INSERT INTO Room_List VALUES (207,210);
 
-INSERT INTO Room_List VALUES (200,210);		#corridors
+INSERT INTO Room_List VALUES (200,210);     #corridors
 INSERT INTO Room_List VALUES (210,200);
 
 INSERT INTO Room_List VALUES (300,301);
@@ -325,7 +325,7 @@ INSERT INTO Room_List VALUES (305,300);
 INSERT INTO Room_List VALUES (306,310);
 INSERT INTO Room_List VALUES (307,310);
 
-INSERT INTO Room_List VALUES (300,310);		#corridors
+INSERT INTO Room_List VALUES (300,310);     #corridors
 INSERT INTO Room_List VALUES (310,300);
 
 INSERT INTO Room_List VALUES (400,401);
@@ -337,16 +337,16 @@ INSERT INTO Room_List VALUES (401,400);
 INSERT INTO Room_List VALUES (402,410);
 INSERT INTO Room_List VALUES (403,410);
 
-INSERT INTO Room_List VALUES (400,410);		#corridors
+INSERT INTO Room_List VALUES (400,410);     #corridors
 INSERT INTO Room_List VALUES (410,400);
 
-INSERT INTO Room_List VALUES (100,200);		#Lower corridor to upper corridor
+INSERT INTO Room_List VALUES (100,200);     #Lower corridor to upper corridor
 INSERT INTO Room_List VALUES (200,100);
 INSERT INTO Room_List VALUES (200,300);
 INSERT INTO Room_List VALUES (300,200);
 INSERT INTO Room_List VALUES (300,400);
 INSERT INTO Room_List VALUES (400,300);
 
-INSERT INTO Room_List VALUES (110,666);		#From lobby to outside # Game finishes when this is achieved
+INSERT INTO Room_List VALUES (110,666);     #From lobby to outside # Game finishes when this is achieved
 
-	
+    
