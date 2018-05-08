@@ -1,5 +1,5 @@
-CREATE USER IF NOT EXISTS 'dbuser'@'localhost' IDENTIFIED BY 'dbpass';
-GRANT SELECT, UPDATE, DELETE, INSERT ON theverge.* TO dbuser@localhost;
+CREATE USER IF NOT EXISTS 'dbuser03'@'localhost' IDENTIFIED BY 'dbpass';
+GRANT SELECT, UPDATE, DELETE, INSERT ON theverge.* TO 'dbuser03'@'localhost';
 
 DROP DATABASE IF EXISTS theverge;
 CREATE DATABASE theverge;
